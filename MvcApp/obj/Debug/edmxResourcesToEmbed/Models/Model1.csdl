@@ -1,0 +1,153 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ProModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityContainer Name="ProEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="BasicInfo" EntityType="ProModel.BasicInfo" />
+    <EntitySet Name="EmergencyInfo" EntityType="ProModel.EmergencyInfo" />
+    <EntitySet Name="HealthPlan" EntityType="ProModel.HealthPlan" />
+    <EntitySet Name="Location" EntityType="ProModel.Location" />
+    <EntitySet Name="Manager" EntityType="ProModel.Manager" />
+    <AssociationSet Name="FK_BasicInfo_Manager" Association="ProModel.FK_BasicInfo_Manager">
+      <End Role="Manager" EntitySet="Manager" />
+      <End Role="BasicInfo" EntitySet="BasicInfo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EmergencyInfo_BasicInfo" Association="ProModel.FK_EmergencyInfo_BasicInfo">
+      <End Role="BasicInfo" EntitySet="BasicInfo" />
+      <End Role="EmergencyInfo" EntitySet="EmergencyInfo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HealthPlan_BasicInfo" Association="ProModel.FK_HealthPlan_BasicInfo">
+      <End Role="BasicInfo" EntitySet="BasicInfo" />
+      <End Role="HealthPlan" EntitySet="HealthPlan" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Location_BasicInfo" Association="ProModel.FK_Location_BasicInfo">
+      <End Role="BasicInfo" EntitySet="BasicInfo" />
+      <End Role="Location" EntitySet="Location" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="BasicInfo">
+    <Key>
+      <PropertyRef Name="ID_User" />
+    </Key>
+    <Property Name="ID_User" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ID_Manager" Type="Int64" Nullable="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="Age" Type="Int16" Nullable="false" />
+    <Property Name="Sex" Type="Boolean" Nullable="false" />
+    <Property Name="Marrige" Type="Boolean" Nullable="false" />
+    <Property Name="TelNum" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+    <Property Name="Address" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="Children" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="Hobby" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="Image" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="UserName" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+    <Property Name="UserPassword" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+    <Property Name="BloodThreshold" Type="Int16" />
+    <Property Name="GlucoseThreshold" Type="Int16" />
+    <Property Name="TempThreshold" Type="Int16" />
+    <NavigationProperty Name="Manager" Relationship="ProModel.FK_BasicInfo_Manager" FromRole="BasicInfo" ToRole="Manager" />
+    <NavigationProperty Name="EmergencyInfo" Relationship="ProModel.FK_EmergencyInfo_BasicInfo" FromRole="BasicInfo" ToRole="EmergencyInfo" />
+    <NavigationProperty Name="HealthPlan" Relationship="ProModel.FK_HealthPlan_BasicInfo" FromRole="BasicInfo" ToRole="HealthPlan" />
+    <NavigationProperty Name="Location" Relationship="ProModel.FK_Location_BasicInfo" FromRole="BasicInfo" ToRole="Location" />
+  </EntityType>
+  <EntityType Name="EmergencyInfo">
+    <Key>
+      <PropertyRef Name="ID_Emergency" />
+    </Key>
+    <Property Name="ID_Emergency" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ID_User" Type="Int64" Nullable="false" />
+    <Property Name="Location" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+    <Property Name="EmergencyDate" Type="DateTime" Nullable="false" />
+    <Property Name="Staff" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+    <Property Name="IllnessAnalyses" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+    <Property Name="MedicalResult" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+    <Property Name="Advice" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="BasicInfo" Relationship="ProModel.FK_EmergencyInfo_BasicInfo" FromRole="EmergencyInfo" ToRole="BasicInfo" />
+  </EntityType>
+  <EntityType Name="HealthPlan">
+    <Key>
+      <PropertyRef Name="ID_Plan" />
+    </Key>
+    <Property Name="ID_Plan" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ID_User" Type="Int64" Nullable="false" />
+    <Property Name="Recipes" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+    <Property Name="Movement" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+    <Property Name="Schedule" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="BasicInfo" Relationship="ProModel.FK_HealthPlan_BasicInfo" FromRole="HealthPlan" ToRole="BasicInfo" />
+  </EntityType>
+  <EntityType Name="Location">
+    <Key>
+      <PropertyRef Name="ID_Location" />
+    </Key>
+    <Property Name="ID_Location" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ID_User" Type="Int64" Nullable="false" />
+    <Property Name="DataTime" Type="DateTime" Nullable="false" />
+    <Property Name="Longitude" Type="Double" Nullable="false" />
+    <Property Name="Latitude" Type="Double" Nullable="false" />
+    <NavigationProperty Name="BasicInfo" Relationship="ProModel.FK_Location_BasicInfo" FromRole="Location" ToRole="BasicInfo" />
+  </EntityType>
+  <EntityType Name="Manager">
+    <Key>
+      <PropertyRef Name="ID_Manager" />
+    </Key>
+    <Property Name="ID_Manager" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Man_Name" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+    <Property Name="Man_Sex" Type="Boolean" Nullable="false" />
+    <Property Name="Man_Age" Type="Int16" Nullable="false" />
+    <Property Name="Man_Tel" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+    <Property Name="Man_Add" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+    <Property Name="SysManIdentify" Type="Boolean" Nullable="false" />
+    <Property Name="ManName" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+    <Property Name="ManPassword" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+    <Property Name="GroupNum" Type="Int16" />
+    <Property Name="GroupPlan" Type="String" MaxLength="1" Unicode="false" FixedLength="false" />
+    <Property Name="GroupPhoto" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <NavigationProperty Name="BasicInfo" Relationship="ProModel.FK_BasicInfo_Manager" FromRole="Manager" ToRole="BasicInfo" />
+  </EntityType>
+  <Association Name="FK_BasicInfo_Manager">
+    <End Role="Manager" Type="ProModel.Manager" Multiplicity="1" />
+    <End Role="BasicInfo" Type="ProModel.BasicInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Manager">
+        <PropertyRef Name="ID_Manager" />
+      </Principal>
+      <Dependent Role="BasicInfo">
+        <PropertyRef Name="ID_Manager" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EmergencyInfo_BasicInfo">
+    <End Role="BasicInfo" Type="ProModel.BasicInfo" Multiplicity="1" />
+    <End Role="EmergencyInfo" Type="ProModel.EmergencyInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BasicInfo">
+        <PropertyRef Name="ID_User" />
+      </Principal>
+      <Dependent Role="EmergencyInfo">
+        <PropertyRef Name="ID_User" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HealthPlan_BasicInfo">
+    <End Role="BasicInfo" Type="ProModel.BasicInfo" Multiplicity="1" />
+    <End Role="HealthPlan" Type="ProModel.HealthPlan" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BasicInfo">
+        <PropertyRef Name="ID_User" />
+      </Principal>
+      <Dependent Role="HealthPlan">
+        <PropertyRef Name="ID_User" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Location_BasicInfo">
+    <End Role="BasicInfo" Type="ProModel.BasicInfo" Multiplicity="1" />
+    <End Role="Location" Type="ProModel.Location" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BasicInfo">
+        <PropertyRef Name="ID_User" />
+      </Principal>
+      <Dependent Role="Location">
+        <PropertyRef Name="ID_User" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>
