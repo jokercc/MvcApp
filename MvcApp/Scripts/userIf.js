@@ -165,4 +165,8 @@ $(function(){
 	               
 	    });
     });
+
+    $("#logout_botton").click(function(){
+        window.location = "/Home";
+    });
 });

@@ -101,10 +101,13 @@ namespace MvcApp.Controllers
             return Json(healthPlans, JsonRequestBehavior.AllowGet);
         }
 
-        public JsonResult searchForEmergencyInfo(int userId) //根据日期搜索来获取急救信息
+        public JsonResult searchForEmergencyInfo(int userId, string bTime, string eTime) //根据日期搜索来获取用户急救信息
         {
-            DateTime beginTime = new DateTime(2011, 11, 10);
-            DateTime endTime = new DateTime(2012, 12, 11);
+            //DateTime beginTime = new DateTime(2011, 11, 10);
+            //DateTime endTime = new DateTime(2012, 12, 11);
+
+            DateTime beginTime = DateTime.Parse(bTime);
+            DateTime endTime = DateTime.Parse(eTime);
             List<MyEmergencyInfo> emergencyInfoList = new List<MyEmergencyInfo>(); //所有数据存到list中
             emergencyInfoList = emergencyInfoService.searchForEmergencyInfo(userId, beginTime, endTime);
             return Json(emergencyInfoList, JsonRequestBehavior.AllowGet);

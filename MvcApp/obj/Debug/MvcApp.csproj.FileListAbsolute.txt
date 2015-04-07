@@ -3,3 +3,8 @@ c:\users\cc\documents\visual studio 2010\Projects\MvcApp\MvcApp\bin\MvcApp.pdb
 c:\users\cc\documents\visual studio 2010\Projects\MvcApp\MvcApp\obj\Debug\MvcApp.dll
 c:\users\cc\documents\visual studio 2010\Projects\MvcApp\MvcApp\obj\Debug\MvcApp.pdb
 C:\Users\cc\documents\visual studio 2010\Projects\MvcApp\MvcApp\obj\Debug\MvcApp.csprojResolveAssemblyReference.cache
+C:\Users\cc\Documents\GitHub\MvcApp\MvcApp\bin\MvcApp.dll
+C:\Users\cc\Documents\GitHub\MvcApp\MvcApp\bin\MvcApp.pdb
+C:\Users\cc\Documents\GitHub\MvcApp\MvcApp\obj\Debug\MvcApp.csprojResolveAssemblyReference.cache
+C:\Users\cc\Documents\GitHub\MvcApp\MvcApp\obj\Debug\MvcApp.dll
+C:\Users\cc\Documents\GitHub\MvcApp\MvcApp\obj\Debug\MvcApp.pdb

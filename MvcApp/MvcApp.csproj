@@ -77,6 +77,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helper\JsonHelper.cs" />
     <Compile Include="Models\Interfaces\IBasicInfoService.cs" />
     <Compile Include="Models\Interfaces\IEmergencyInfoService.cs" />
     <Compile Include="Models\Interfaces\IHealthPlanService.cs" />
