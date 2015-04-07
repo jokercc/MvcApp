@@ -1,8 +1,9 @@
 $(function(){
     // 运用ajax方法像服务器请求数据
     var user = $("#get_username").val();
+    var userId;
     $(document).ready(function () {
-    	$.ajax(
+        $.ajax(
 	    {
 	    	url: "/BasicInfo/getUserByUserName",
 	        data:{
@@ -13,6 +14,7 @@ $(function(){
 	        contentType: "application/json",
 	        success: function (data) 
 	        {
+                userId = data.ID_User;
 	        	var name = data.Name;
 	        	var age = data.Age;
 	        	var sex = data.Sex;
@@ -136,37 +138,126 @@ $(function(){
      	$("#user_basic_info").show("fast");
      	$("#user_heal_info").show("fast");
      	$("#user_aid_info").hide("fast");
+        $("#body_table_head").hide("fast");
+     	$("#body_table_bg").hide("fast");
+        $("#body_curve_head").hide("fast");
+     	$("#body_curve_bg").hide("fast");
+        $("#data_info_head").hide("fast");
+     	$("#data_info_bg").hide("fast");
+        $("#act_cueve_head").hide("fast");
+     	$("#act_cueve_bg").hide("fast");
+        $("#heal_plan").hide("fast");
+        });
+    $(".show_table").bind("click",function(){
+     	$("#body_table_head").show("fast");
+     	$("#body_table_bg").show("fast");
+     	$("#user_aid_info").hide("fast");
+        $("#user_basic_info").hide("fast");
+     	$("#user_heal_info").hide("fast");
+        $("#body_curve_head").hide("fast");
+     	$("#body_curve_bg").hide("fast");
+        $("#data_info_head").hide("fast");
+     	$("#data_info_bg").hide("fast");
+        $("#act_cueve_head").hide("fast");
+     	$("#act_cueve_bg").hide("fast");
+        $("#heal_plan").hide("fast");
+        });
+    $(".show_curve").bind("click",function(){
+     	$("#body_curve_head").show("fast");
+     	$("#body_curve_bg").show("fast");
+        $("#body_table_head").hide("fast");
+     	$("#body_table_bg").hide("fast");
+     	$("#user_aid_info").hide("fast");
+        $("#user_basic_info").hide("fast");
+     	$("#user_heal_info").hide("fast");
+        $("#data_info_head").hide("fast");
+     	$("#data_info_bg").hide("fast");
+        $("#act_cueve_head").hide("fast");
+     	$("#act_cueve_bg").hide("fast");
+        $("#heal_plan").hide("fast");
+        });
+    $(".deta_info").bind("click",function(){
+     	$("#data_info_head").show("fast");
+     	$("#data_info_bg").show("fast");
+        $("#body_curve_head").hide("fast");
+     	$("#body_curve_bg").hide("fast");
+        $("#body_table_head").hide("fast");
+     	$("#body_table_bg").hide("fast");
+     	$("#user_aid_info").hide("fast");
+        $("#user_basic_info").hide("fast");
+     	$("#user_heal_info").hide("fast");
+        $("#act_cueve_head").hide("fast");
+     	$("#act_cueve_bg").hide("fast");
+        $("#heal_plan").hide("fast");
+        });
+    $(".act_cueve").bind("click",function(){
+     	$("#act_cueve_head").show("fast");
+     	$("#act_cueve_bg").show("fast");
+        $("#body_curve_head").hide("fast");
+     	$("#body_curve_bg").hide("fast");
+        $("#body_table_head").hide("fast");
+     	$("#body_table_bg").hide("fast");
+     	$("#user_aid_info").hide("fast");
+        $("#user_basic_info").hide("fast");
+     	$("#user_heal_info").hide("fast");
+        $("#data_info_head").hide("fast");
+     	$("#data_info_bg").hide("fast");   
+        $("#heal_plan").hide("fast");
+        });
+    $(".navboxfour").bind("click",function(){
+     	$("#heal_plan").show("fast");
+        $("#user_aid_info").hide("fast");
+        $("#user_basic_info").hide("fast");
+     	$("#user_heal_info").hide("fast");
+     	$("#body_table_head").hide("fast");
+     	$("#body_table_bg").hide("fast");
+        $("#body_curve_head").hide("fast");
+     	$("#body_curve_bg").hide("fast");
+        $("#data_info_head").hide("fast");
+     	$("#data_info_bg").hide("fast");
+        $("#act_cueve_head").hide("fast");
+     	$("#act_cueve_bg").hide("fast");
         });
     $(".navboxfive").bind("click",function(){
-     	$(".navboxfive").hover(
-		function(){
-			$(this).removeClass().addClass("navboxfive_green");
-		},
-		function(){
-		$(this).addClass("navboxfive_green");});
-     	$("#user_basic_info").hide("fast");
-     	$("#user_heal_info").hide("fast");
      	$("#user_aid_info").show("fast");
+        $("#user_basic_info").hide("fast");
+     	$("#user_heal_info").hide("fast");
+     	$("#body_table_head").hide("fast");
+     	$("#body_table_bg").hide("fast");
+        $("#body_curve_head").hide("fast");
+     	$("#body_curve_bg").hide("fast");
+        $("#data_info_head").hide("fast");
+     	$("#data_info_bg").hide("fast");
+        $("#act_cueve_head").hide("fast");
+     	$("#act_cueve_bg").hide("fast");
+        $("#heal_plan").hide("fast");
         });
+   //点击日期开始变换输入框背景样式
+   $(".start_date").click(function(){
+		$(this).removeClass().addClass("date_bg1");
+        });
+   $(".finish_date").click(function(){
+		$(this).removeClass().addClass("date_bg2");
+        });
+    //点击搜索按钮向服务器请求符合日期内的急救事件
     $("#search").click(function(){
-    	$.ajax(
+        var begin_time = $("#datetimepicker1").val();
+        var end_time = $("#datetimepicker2").val();
+        $.ajax(
 	    {
-	    	url: "/EmergencyInfo/test",
+            url: "/BasicInfo/searchForEmergencyInfo",
 	        data:{
-				"userName": user
+				"userId": userId,
+                "bTime" : begin_time,
+                "eTime" : end_time    
 	            },
 	        type: "GET",
 	        dataType: "json",
 	        contentType: "application/json",
 	        success: function (data) 
 	        {
-	        	
-	        },
-	               
+	        	alert(data);
+	        }
 	    });
-    });
-
-    $("#logout_botton").click(function(){
-        window.location = "/Home";
     });
 });

@@ -7,6 +7,7 @@ namespace MvcApp.Models.MyModels
 {
     public class MyBasicInfo 
     {
+        public global::System.Int64 ID_User { get; set; }
         public global::System.Int64 ID_Manager { get; set; }
         public global::System.String Name { get; set; }
         public global::System.Int16 Age { get; set; }

@@ -99,6 +99,7 @@
     <Compile Include="Models\Service\LocationService.cs" />
     <Compile Include="Models\Service\ManagerService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Content Include="Scripts\BasicInfo.js" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="css\login.css" />

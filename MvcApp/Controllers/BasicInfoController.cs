@@ -103,12 +103,22 @@ namespace MvcApp.Controllers
 
         public JsonResult searchForEmergencyInfo(int userId, string bTime, string eTime) //根据日期搜索来获取用户急救信息
         {
-            //DateTime beginTime = new DateTime(2011, 11, 10);
-            //DateTime endTime = new DateTime(2012, 12, 11);
+            //将前台取来的日期数据解析为后台可以使用的日期类型
+            string bDay = bTime.Substring(0, 2);
+            string bMonth = bTime.Substring(3, 2);
+            string bYear = bTime.Substring(6);
+            bTime = bMonth + "/" + bDay + "/" + bYear;
+
+            string eDay = eTime.Substring(0, 2);
+            string eMonth = eTime.Substring(3, 2);
+            string eYear = eTime.Substring(6);
+            eTime = eMonth + "/" + eDay + "/" + eYear;
 
             DateTime beginTime = DateTime.Parse(bTime);
             DateTime endTime = DateTime.Parse(eTime);
-            List<MyEmergencyInfo> emergencyInfoList = new List<MyEmergencyInfo>(); //所有数据存到list中
+
+            //所有数据存到list中
+            List<MyEmergencyInfo> emergencyInfoList = new List<MyEmergencyInfo>(); 
             emergencyInfoList = emergencyInfoService.searchForEmergencyInfo(userId, beginTime, endTime);
             return Json(emergencyInfoList, JsonRequestBehavior.AllowGet);
         }

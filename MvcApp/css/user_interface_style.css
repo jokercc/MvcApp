@@ -353,7 +353,7 @@ em{
 	left: 30px;
 	width: 600px;
 	height:400px;
-	background: #6BD1CC;
+	background: #1CBDB3;
 	z-index:1;
 }
 /*用户照片开始*/
@@ -469,7 +469,7 @@ em{
 	left: 660px;
 	width: 600px;
 	height:400px;
-	background: #6BD1CC;
+	background: #1CBDB3;
 	z-index:1;
 }
 #heal_info{
@@ -533,7 +533,7 @@ em{
 	left: 150px;
 	width: 1000px;
 	height:450px;
-	background: #6BD1CC;
+	background: #1CBDB3;
 	z-index:1;
 }
 
@@ -556,7 +556,6 @@ em{
 	left: 0;
 	width: 150px;
 	height:33px;
-	background: #338593;
 	z-index:1;
 }
 .start_date input{
@@ -565,8 +564,41 @@ em{
 	background: url(../images/starttime-01.png);
 	cursor: pointer;
 	border: none;
+	color: black;
+	opacity: 0.7;
+	font-family: "STHEITI-LIGHT";
+	font-size: 20px;
 }
-
+.date_bg1{
+	position: absolute;
+	display:block;
+	top: 0;
+	left: 0;
+	width: 150px;
+	height:33px;
+	z-index:1;
+}
+.date_bg1 input{
+	background: #459EA6;
+	width: 150px;
+	height: 33px;
+	cursor: pointer;
+	border: none;
+	color: black;
+	opacity: 0.7;
+	font-family: "STHEITI-LIGHT";
+	font-size: 20px;
+}
+.white_line
+{
+    position: absolute;
+    background: #F6FAFA;
+    width: 2px;
+    height: 22px;
+    left: 75px;
+    top: 30px;
+    z-index:1;
+}
 .finish_date{
 	position: absolute;
 	display:block;
@@ -574,7 +606,6 @@ em{
 	left: 0;
 	width: 150px;
 	height:33px;
-	background: #338593;
 	z-index:1;
 }
 .finish_date input{
@@ -583,8 +614,31 @@ em{
 	background: url(../images/finishtime-01.png);
 	cursor: pointer;
 	border: none;
+	color: black;
+	opacity: 0.7;
+	font-family: "STHEITI-LIGHT";
+	font-size: 20px;
 }
-
+.date_bg2{
+	position: absolute;
+	display:block;
+	top: 50px;
+	left: 0;
+	width: 150px;
+	height:33px;
+	z-index:1;
+}
+.date_bg2 input{
+    background: #459EA6;
+    width: 150px;
+	height: 33px;
+	cursor: pointer;
+	border: none;
+	color: black;
+	opacity: 0.7;
+	font-family: "STHEITI-LIGHT";
+	font-size: 20px;
+}
 .search_box{
 	position: absolute;
 	display:block;
@@ -688,4 +742,182 @@ em{
 	color: #646364;
 	font-family: "STHEITI-LIGHT";
 	height: 30px;
+}
+
+#body_table_head
+{
+    position: absolute;
+	display: none;
+	top: 280px;
+	left: 150px;
+	width: 180px;
+	height:60px;
+	background: url(../images/body_head.png)  no-repeat;
+	z-index:1;
+}
+#body_table_bg{
+	position: absolute;
+	display: none;
+	top: 337px;
+	left: 150px;
+	width: 1000px;
+	height:390px;
+	background: #1CBDB3;
+	z-index:1;
+}
+.blood_pre_bg
+{
+    position: absolute;
+	display: block;
+	top: 10px;
+	left: 100px;
+	width: 220px;
+	height:360px;
+	background: #FFFFFF;
+	z-index:1;
+}
+.blood_pre_bg table
+{
+    margin: 5px;
+}
+.blood_pre 
+{
+    background: #FFFFFF;
+    font-family: "STHEITI-LIGHT";
+    font-size:20px;
+}
+.blood_date
+{
+    width: 33%;
+}
+.blood_up
+{
+    width: 33%;
+}
+.blood_down
+{
+    width: 33%;
+}
+
+.heart_break_bg
+{
+    position: absolute;
+	display: block;
+	top: 10px;
+	left: 330px;
+	width: 150px;
+	height:360px;
+	background: #FFFFFF;
+	z-index:1;
+}
+.heart_break
+{
+    
+}
+
+.blood_suger_bg
+{
+    position: absolute;
+	display: block;
+	top: 10px;
+	left: 490px;
+	width: 150px;
+	height:360px;
+	background: #FFFFFF;
+	z-index:1;
+}
+.blood_suger
+{
+    
+}
+.blood_tem_bg
+{
+    position : absolute;
+	display: block;
+	top: 10px;
+	left: 650px;
+	width: 150px;
+	height:360px;
+	background: #FFFFFF;
+	z-index:1;  
+}
+.blood_tem
+{
+    
+}
+
+#body_curve_head
+{
+    position: absolute;
+	display: none;
+	top: 280px;
+	left: 150px;
+	width: 180px;
+	height:60px;
+	background: url(../images/body_hend2.png)  no-repeat;
+	z-index:1;
+}
+#body_curve_bg{
+	position: absolute;
+	display: none;
+	top: 337px;
+	left: 150px;
+	width: 1000px;
+	height:390px;
+	background: #1CBDB3;
+	z-index:1;
+}
+
+#data_info_head
+{
+    position: absolute;
+	display: none;
+	top: 280px;
+	left: 150px;
+	width: 180px;
+	height:60px;
+	background: url(../images/info_head.png)  no-repeat;
+	z-index:1;
+}
+#data_info_bg{
+	position: absolute;
+	display: none;
+	top: 337px;
+	left: 150px;
+	width: 1000px;
+	height:390px;
+	background: #1CBDB3;
+	z-index:1;
+}
+#act_cueve_head
+{
+    position: absolute;
+	display: none;
+	top: 280px;
+	left: 150px;
+	width: 180px;
+	height:60px;
+	background: url(../images/act_head.png)  no-repeat;
+	z-index:1;
+}
+#act_cueve_bg{
+	position: absolute;
+	display: none;
+	top: 337px;
+	left: 150px;
+	width: 1000px;
+	height:390px;
+	background: #1CBDB3;
+	z-index:1;
+}
+#heal_plan
+{
+    position: absolute;
+	display: none;
+	top: 280px;
+	left: 150px;
+	width: 1000px;
+	height:450px;
+	background: #1CBDB3;
+	z-index:1;
 }
