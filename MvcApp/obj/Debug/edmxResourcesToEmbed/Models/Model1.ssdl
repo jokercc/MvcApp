@@ -3,6 +3,7 @@
   <EntityContainer Name="ProModelStoreContainer">
     <EntitySet Name="BasicInfo" EntityType="ProModel.Store.BasicInfo" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="EmergencyInfo" EntityType="ProModel.Store.EmergencyInfo" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="HealthIndicator" EntityType="ProModel.Store.HealthIndicator" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="HealthPlan" EntityType="ProModel.Store.HealthPlan" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Location" EntityType="ProModel.Store.Location" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Manager" EntityType="ProModel.Store.Manager" store:Type="Tables" Schema="dbo" />
@@ -13,6 +14,10 @@
     <AssociationSet Name="FK_EmergencyInfo_BasicInfo" Association="ProModel.Store.FK_EmergencyInfo_BasicInfo">
       <End Role="BasicInfo" EntitySet="BasicInfo" />
       <End Role="EmergencyInfo" EntitySet="EmergencyInfo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HealthIndicator_BasicInfo" Association="ProModel.Store.FK_HealthIndicator_BasicInfo">
+      <End Role="BasicInfo" EntitySet="BasicInfo" />
+      <End Role="HealthIndicator" EntitySet="HealthIndicator" />
     </AssociationSet>
     <AssociationSet Name="FK_HealthPlan_BasicInfo" Association="ProModel.Store.FK_HealthPlan_BasicInfo">
       <End Role="BasicInfo" EntitySet="BasicInfo" />
@@ -56,6 +61,20 @@
     <Property Name="IllnessAnalyses" Type="varchar" Nullable="false" MaxLength="100" />
     <Property Name="MedicalResult" Type="varchar" Nullable="false" MaxLength="100" />
     <Property Name="Advice" Type="varchar" Nullable="false" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="HealthIndicator">
+    <Key>
+      <PropertyRef Name="ID_HealthIndica" />
+    </Key>
+    <Property Name="ID_HealthIndica" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="ID_User" Type="bigint" Nullable="false" />
+    <Property Name="BloodPressure" Type="smallint" Nullable="false" />
+    <Property Name="BloodGlucose" Type="smallint" Nullable="false" />
+    <Property Name="Duration" Type="smallint" Nullable="false" />
+    <Property Name="Calorie" Type="smallint" Nullable="false" />
+    <Property Name="Distance" Type="smallint" Nullable="false" />
+    <Property Name="HeartBeat" Type="smallint" Nullable="false" />
+    <Property Name="Date" Type="date" Nullable="false" />
   </EntityType>
   <EntityType Name="HealthPlan">
     <Key>
@@ -114,6 +133,18 @@
         <PropertyRef Name="ID_User" />
       </Principal>
       <Dependent Role="EmergencyInfo">
+        <PropertyRef Name="ID_User" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HealthIndicator_BasicInfo">
+    <End Role="BasicInfo" Type="ProModel.Store.BasicInfo" Multiplicity="1" />
+    <End Role="HealthIndicator" Type="ProModel.Store.HealthIndicator" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BasicInfo">
+        <PropertyRef Name="ID_User" />
+      </Principal>
+      <Dependent Role="HealthIndicator">
         <PropertyRef Name="ID_User" />
       </Dependent>
     </ReferentialConstraint>

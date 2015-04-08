@@ -77,5 +77,20 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="HealthIndicator">
+      <EntityTypeMapping TypeName="ProModel.HealthIndicator">
+        <MappingFragment StoreEntitySet="HealthIndicator">
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="HeartBeat" ColumnName="HeartBeat" />
+          <ScalarProperty Name="Distance" ColumnName="Distance" />
+          <ScalarProperty Name="Calorie" ColumnName="Calorie" />
+          <ScalarProperty Name="Duration" ColumnName="Duration" />
+          <ScalarProperty Name="BloodGlucose" ColumnName="BloodGlucose" />
+          <ScalarProperty Name="BloodPressure" ColumnName="BloodPressure" />
+          <ScalarProperty Name="ID_User" ColumnName="ID_User" />
+          <ScalarProperty Name="ID_HealthIndica" ColumnName="ID_HealthIndica" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

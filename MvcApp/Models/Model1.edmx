@@ -4,10 +4,11 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="ProModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+    <Schema Namespace="ProModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
         <EntityContainer Name="ProModelStoreContainer">
           <EntitySet Name="BasicInfo" EntityType="ProModel.Store.BasicInfo" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="EmergencyInfo" EntityType="ProModel.Store.EmergencyInfo" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="HealthIndicator" EntityType="ProModel.Store.HealthIndicator" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="HealthPlan" EntityType="ProModel.Store.HealthPlan" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Location" EntityType="ProModel.Store.Location" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Manager" EntityType="ProModel.Store.Manager" store:Type="Tables" Schema="dbo" />
@@ -18,6 +19,10 @@
           <AssociationSet Name="FK_EmergencyInfo_BasicInfo" Association="ProModel.Store.FK_EmergencyInfo_BasicInfo">
             <End Role="BasicInfo" EntitySet="BasicInfo" />
             <End Role="EmergencyInfo" EntitySet="EmergencyInfo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HealthIndicator_BasicInfo" Association="ProModel.Store.FK_HealthIndicator_BasicInfo">
+            <End Role="BasicInfo" EntitySet="BasicInfo" />
+            <End Role="HealthIndicator" EntitySet="HealthIndicator" />
           </AssociationSet>
           <AssociationSet Name="FK_HealthPlan_BasicInfo" Association="ProModel.Store.FK_HealthPlan_BasicInfo">
             <End Role="BasicInfo" EntitySet="BasicInfo" />
@@ -61,6 +66,20 @@
           <Property Name="IllnessAnalyses" Type="varchar" Nullable="false" MaxLength="100" />
           <Property Name="MedicalResult" Type="varchar" Nullable="false" MaxLength="100" />
           <Property Name="Advice" Type="varchar" Nullable="false" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="HealthIndicator">
+          <Key>
+            <PropertyRef Name="ID_HealthIndica" />
+          </Key>
+          <Property Name="ID_HealthIndica" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ID_User" Type="bigint" Nullable="false" />
+          <Property Name="BloodPressure" Type="smallint" Nullable="false" />
+          <Property Name="BloodGlucose" Type="smallint" Nullable="false" />
+          <Property Name="Duration" Type="smallint" Nullable="false" />
+          <Property Name="Calorie" Type="smallint" Nullable="false" />
+          <Property Name="Distance" Type="smallint" Nullable="false" />
+          <Property Name="HeartBeat" Type="smallint" Nullable="false" />
+          <Property Name="Date" Type="date" Nullable="false" />
         </EntityType>
         <EntityType Name="HealthPlan">
           <Key>
@@ -123,6 +142,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_HealthIndicator_BasicInfo">
+          <End Role="BasicInfo" Type="ProModel.Store.BasicInfo" Multiplicity="1" />
+          <End Role="HealthIndicator" Type="ProModel.Store.HealthIndicator" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BasicInfo">
+              <PropertyRef Name="ID_User" />
+            </Principal>
+            <Dependent Role="HealthIndicator">
+              <PropertyRef Name="ID_User" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_HealthPlan_BasicInfo">
           <End Role="BasicInfo" Type="ProModel.Store.BasicInfo" Multiplicity="1" />
           <End Role="HealthPlan" Type="ProModel.Store.HealthPlan" Multiplicity="*" />
@@ -147,8 +178,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="ProModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
@@ -173,6 +203,11 @@
           <AssociationSet Name="FK_Location_BasicInfo" Association="ProModel.FK_Location_BasicInfo">
             <End Role="BasicInfo" EntitySet="BasicInfo" />
             <End Role="Location" EntitySet="Location" />
+          </AssociationSet>
+          <EntitySet Name="HealthIndicator" EntityType="ProModel.HealthIndicator" />
+          <AssociationSet Name="FK_HealthIndicator_BasicInfo" Association="ProModel.FK_HealthIndicator_BasicInfo">
+            <End Role="BasicInfo" EntitySet="BasicInfo" />
+            <End Role="HealthIndicator" EntitySet="HealthIndicator" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="BasicInfo">
@@ -199,6 +234,7 @@
           <NavigationProperty Name="EmergencyInfo" Relationship="ProModel.FK_EmergencyInfo_BasicInfo" FromRole="BasicInfo" ToRole="EmergencyInfo" />
           <NavigationProperty Name="HealthPlan" Relationship="ProModel.FK_HealthPlan_BasicInfo" FromRole="BasicInfo" ToRole="HealthPlan" />
           <NavigationProperty Name="Location" Relationship="ProModel.FK_Location_BasicInfo" FromRole="BasicInfo" ToRole="Location" />
+          <NavigationProperty Name="HealthIndicator" Relationship="ProModel.FK_HealthIndicator_BasicInfo" FromRole="BasicInfo" ToRole="HealthIndicator" />
         </EntityType>
         <EntityType Name="EmergencyInfo">
           <Key>
@@ -302,6 +338,33 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="HealthIndicator">
+          <Key>
+            <PropertyRef Name="ID_HealthIndica" />
+          </Key>
+          <Property Type="Int64" Name="ID_HealthIndica" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int64" Name="ID_User" Nullable="false" />
+          <Property Type="Int16" Name="BloodPressure" Nullable="false" />
+          <Property Type="Int16" Name="BloodGlucose" Nullable="false" />
+          <Property Type="Int16" Name="Duration" Nullable="false" />
+          <Property Type="Int16" Name="Calorie" Nullable="false" />
+          <Property Type="Int16" Name="Distance" Nullable="false" />
+          <Property Type="Int16" Name="HeartBeat" Nullable="false" />
+          <Property Type="DateTime" Name="Date" Nullable="false" />
+          <NavigationProperty Name="BasicInfo" Relationship="ProModel.FK_HealthIndicator_BasicInfo" FromRole="HealthIndicator" ToRole="BasicInfo" />
+        </EntityType>
+        <Association Name="FK_HealthIndicator_BasicInfo">
+          <End Type="ProModel.BasicInfo" Role="BasicInfo" Multiplicity="1" />
+          <End Type="ProModel.HealthIndicator" Role="HealthIndicator" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BasicInfo">
+              <PropertyRef Name="ID_User" />
+            </Principal>
+            <Dependent Role="HealthIndicator">
+              <PropertyRef Name="ID_User" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -384,6 +447,21 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="HealthIndicator">
+            <EntityTypeMapping TypeName="ProModel.HealthIndicator">
+              <MappingFragment StoreEntitySet="HealthIndicator">
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="HeartBeat" ColumnName="HeartBeat" />
+                <ScalarProperty Name="Distance" ColumnName="Distance" />
+                <ScalarProperty Name="Calorie" ColumnName="Calorie" />
+                <ScalarProperty Name="Duration" ColumnName="Duration" />
+                <ScalarProperty Name="BloodGlucose" ColumnName="BloodGlucose" />
+                <ScalarProperty Name="BloodPressure" ColumnName="BloodPressure" />
+                <ScalarProperty Name="ID_User" ColumnName="ID_User" />
+                <ScalarProperty Name="ID_HealthIndica" ColumnName="ID_HealthIndica" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -404,27 +482,32 @@
     </Options>
     <!-- Diagram content (shape and connector positions) -->
     <Diagrams>
-      <Diagram Name="Model1">
-        <EntityTypeShape EntityType="ProModel.BasicInfo" Width="1.5" PointX="3" PointY="3.125" Height="4.8353279622395817" IsExpanded="true" />
-        <EntityTypeShape EntityType="ProModel.EmergencyInfo" Width="1.5" PointX="5.25" PointY="1.25" Height="2.7341113281249996" IsExpanded="true" />
-        <EntityTypeShape EntityType="ProModel.HealthPlan" Width="1.5" PointX="5.25" PointY="4.75" Height="2.1610522460937496" IsExpanded="true" />
-        <EntityTypeShape EntityType="ProModel.Location" Width="1.5" PointX="5.25" PointY="7.625" Height="2.1610522460937496" IsExpanded="true" />
-        <EntityTypeShape EntityType="ProModel.Manager" Width="1.5" PointX="0.75" PointY="3.75" Height="3.4981901041666656" IsExpanded="true" />
+      <Diagram Name="Model1" ZoomLevel="95">
+        <EntityTypeShape EntityType="ProModel.BasicInfo" Width="1.5" PointX="3" PointY="1" Height="5.02634765625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProModel.EmergencyInfo" Width="1.5" PointX="5.375" PointY="0.5" Height="2.7341113281249996" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProModel.HealthPlan" Width="1.5" PointX="7.375" PointY="3.5" Height="2.1610522460937496" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProModel.Location" Width="1.5" PointX="5.375" PointY="5.25" Height="2.1610522460937496" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProModel.Manager" Width="1.5" PointX="0.75" PointY="1" Height="3.4981901041666656" IsExpanded="true" />
         <AssociationConnector Association="ProModel.FK_BasicInfo_Manager" ManuallyRouted="false">
-          <ConnectorPoint PointX="2.25" PointY="5.4990950520833328" />
-          <ConnectorPoint PointX="3" PointY="5.4990950520833328" />
+          <ConnectorPoint PointX="2.25" PointY="2.7490950520833328" />
+          <ConnectorPoint PointX="3" PointY="2.7490950520833328" />
         </AssociationConnector>
         <AssociationConnector Association="ProModel.FK_EmergencyInfo_BasicInfo" ManuallyRouted="false">
-          <ConnectorPoint PointX="4.5" PointY="3.5545556640625" />
-          <ConnectorPoint PointX="5.25" PointY="3.5545556640625" />
+          <ConnectorPoint PointX="4.5" PointY="2.1170556640625" />
+          <ConnectorPoint PointX="5.375" PointY="2.1170556640625" />
         </AssociationConnector>
         <AssociationConnector Association="ProModel.FK_HealthPlan_BasicInfo" ManuallyRouted="false">
-          <ConnectorPoint PointX="4.5" PointY="5.8305261230468748" />
-          <ConnectorPoint PointX="5.25" PointY="5.8305261230468748" />
+          <ConnectorPoint PointX="4.5" PointY="4.34375" />
+          <ConnectorPoint PointX="7.375" PointY="4.34375" />
         </AssociationConnector>
         <AssociationConnector Association="ProModel.FK_Location_BasicInfo" ManuallyRouted="false">
-          <ConnectorPoint PointX="4.5" PointY="7.7926639811197909" />
-          <ConnectorPoint PointX="5.25" PointY="7.7926639811197909" />
+          <ConnectorPoint PointX="4.5" PointY="5.638173828125" />
+          <ConnectorPoint PointX="5.375" PointY="5.638173828125" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="ProModel.HealthIndicator" Width="1.5" PointX="2.5" PointY="6.875" Height="2.9251310221354174" />
+        <AssociationConnector Association="ProModel.FK_HealthIndicator_BasicInfo" >
+          <ConnectorPoint PointX="3.5" PointY="6.02634765625" />
+          <ConnectorPoint PointX="3.5" PointY="6.875" />
         </AssociationConnector>
       </Diagram>
     </Diagrams>

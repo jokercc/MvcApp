@@ -19,6 +19,7 @@ namespace MvcApp.Controllers
         ILocationService locationService;
         IEmergencyInfoService emergencyInfoService;
         IHealthPlanService healthPlanService;
+        IHealthIndicatorService healthIndicatorService;
 
         public BasicInfoController()
         {
@@ -26,6 +27,7 @@ namespace MvcApp.Controllers
             locationService = new LocationService();
             emergencyInfoService = new EmergencyInfoService();
             healthPlanService = new HealthPlanService();
+            healthIndicatorService = new HealthIndicatorService();
         }
 
         public ActionResult Index()
@@ -121,6 +123,13 @@ namespace MvcApp.Controllers
             List<MyEmergencyInfo> emergencyInfoList = new List<MyEmergencyInfo>(); 
             emergencyInfoList = emergencyInfoService.searchForEmergencyInfo(userId, beginTime, endTime);
             return Json(emergencyInfoList, JsonRequestBehavior.AllowGet);
+        }
+
+        public JsonResult getHealthIndicatorByDate(string date)
+        {
+            DateTime d = new DateTime(2015, 4, 1);
+            List<MyHealthIndicator> healthIndicatorList = healthIndicatorService.getHealthIndicatorByDate(d);
+            return Json(healthIndicatorList, JsonRequestBehavior.AllowGet);
         }
     }
 }

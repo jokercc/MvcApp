@@ -256,7 +256,11 @@ $(function(){
 	        contentType: "application/json",
 	        success: function (data) 
 	        {
-	        	alert(data);
+                for(var i = 0; i < data.length; i++)
+                {
+                    var date = eval('new ' + eval(data[i].EmergencyDate).source); 
+                    alert(date);
+                }
 	        }
 	    });
     });

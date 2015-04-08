@@ -80,6 +80,7 @@
     <Compile Include="Helper\JsonHelper.cs" />
     <Compile Include="Models\Interfaces\IBasicInfoService.cs" />
     <Compile Include="Models\Interfaces\IEmergencyInfoService.cs" />
+    <Compile Include="Models\Interfaces\IHealthIndicatorService.cs" />
     <Compile Include="Models\Interfaces\IHealthPlanService.cs" />
     <Compile Include="Models\Interfaces\ILocationService.cs" />
     <Compile Include="Models\Interfaces\IManagerService.cs" />
@@ -90,11 +91,13 @@
     </Compile>
     <Compile Include="Models\MyModels\MyBasicInfo.cs" />
     <Compile Include="Models\MyModels\MyEmergencyInfo.cs" />
+    <Compile Include="Models\MyModels\MyHealthIndicator.cs" />
     <Compile Include="Models\MyModels\MyHealthPlan.cs" />
     <Compile Include="Models\MyModels\MyLocation.cs" />
     <Compile Include="Models\MyModels\MyManager.cs" />
     <Compile Include="Models\Service\BasicInfoService.cs" />
     <Compile Include="Models\Service\EmergencyInfoService.cs" />
+    <Compile Include="Models\Service\HealthIndicatorService.cs" />
     <Compile Include="Models\Service\HealthPlanService.cs" />
     <Compile Include="Models\Service\LocationService.cs" />
     <Compile Include="Models\Service\ManagerService.cs" />

@@ -23,6 +23,7 @@ using System.Xml.Serialization;
 [assembly: EdmRelationshipAttribute("ProModel", "FK_EmergencyInfo_BasicInfo", "BasicInfo", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(MvcApp.Models.BasicInfo), "EmergencyInfo", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(MvcApp.Models.EmergencyInfo), true)]
 [assembly: EdmRelationshipAttribute("ProModel", "FK_HealthPlan_BasicInfo", "BasicInfo", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(MvcApp.Models.BasicInfo), "HealthPlan", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(MvcApp.Models.HealthPlan), true)]
 [assembly: EdmRelationshipAttribute("ProModel", "FK_Location_BasicInfo", "BasicInfo", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(MvcApp.Models.BasicInfo), "Location", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(MvcApp.Models.Location), true)]
+[assembly: EdmRelationshipAttribute("ProModel", "FK_HealthIndicator_BasicInfo", "BasicInfo", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(MvcApp.Models.BasicInfo), "HealthIndicator", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(MvcApp.Models.HealthIndicator), true)]
 
 #endregion
 
@@ -51,7 +52,7 @@ namespace MvcApp.Models
         /// </summary>
         public ProEntities(string connectionString) : base(connectionString, "ProEntities")
         {
-            this.ContextOptions.LazyLoadingEnabled = false;
+            this.ContextOptions.LazyLoadingEnabled = true;
             OnContextCreated();
         }
     
@@ -153,6 +154,22 @@ namespace MvcApp.Models
             }
         }
         private ObjectSet<Manager> _Manager;
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        public ObjectSet<HealthIndicator> HealthIndicator
+        {
+            get
+            {
+                if ((_HealthIndicator == null))
+                {
+                    _HealthIndicator = base.CreateObjectSet<HealthIndicator>("HealthIndicator");
+                }
+                return _HealthIndicator;
+            }
+        }
+        private ObjectSet<HealthIndicator> _HealthIndicator;
 
         #endregion
 
@@ -196,6 +213,14 @@ namespace MvcApp.Models
         public void AddToManager(Manager manager)
         {
             base.AddObject("Manager", manager);
+        }
+    
+        /// <summary>
+        /// 用于向 HealthIndicator EntitySet 添加新对象的方法，已弃用。请考虑改用关联的 ObjectSet&lt;T&gt; 属性的 .Add 方法。
+        /// </summary>
+        public void AddToHealthIndicator(HealthIndicator healthIndicator)
+        {
+            base.AddObject("HealthIndicator", healthIndicator);
         }
 
         #endregion
@@ -748,6 +773,28 @@ namespace MvcApp.Models
                 }
             }
         }
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("ProModel", "FK_HealthIndicator_BasicInfo", "HealthIndicator")]
+        public EntityCollection<HealthIndicator> HealthIndicator
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<HealthIndicator>("ProModel.FK_HealthIndicator_BasicInfo", "HealthIndicator");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<HealthIndicator>("ProModel.FK_HealthIndicator_BasicInfo", "HealthIndicator", value);
+                }
+            }
+        }
 
         #endregion
 
@@ -1026,6 +1073,313 @@ namespace MvcApp.Models
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<BasicInfo>("ProModel.FK_EmergencyInfo_BasicInfo", "BasicInfo", value);
+                }
+            }
+        }
+
+        #endregion
+
+    }
+    
+    /// <summary>
+    /// 没有元数据文档可用。
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="ProModel", Name="HealthIndicator")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class HealthIndicator : EntityObject
+    {
+        #region 工厂方法
+    
+        /// <summary>
+        /// 创建新的 HealthIndicator 对象。
+        /// </summary>
+        /// <param name="iD_HealthIndica">ID_HealthIndica 属性的初始值。</param>
+        /// <param name="iD_User">ID_User 属性的初始值。</param>
+        /// <param name="bloodPressure">BloodPressure 属性的初始值。</param>
+        /// <param name="bloodGlucose">BloodGlucose 属性的初始值。</param>
+        /// <param name="duration">Duration 属性的初始值。</param>
+        /// <param name="calorie">Calorie 属性的初始值。</param>
+        /// <param name="distance">Distance 属性的初始值。</param>
+        /// <param name="heartBeat">HeartBeat 属性的初始值。</param>
+        /// <param name="date">Date 属性的初始值。</param>
+        public static HealthIndicator CreateHealthIndicator(global::System.Int64 iD_HealthIndica, global::System.Int64 iD_User, global::System.Int16 bloodPressure, global::System.Int16 bloodGlucose, global::System.Int16 duration, global::System.Int16 calorie, global::System.Int16 distance, global::System.Int16 heartBeat, global::System.DateTime date)
+        {
+            HealthIndicator healthIndicator = new HealthIndicator();
+            healthIndicator.ID_HealthIndica = iD_HealthIndica;
+            healthIndicator.ID_User = iD_User;
+            healthIndicator.BloodPressure = bloodPressure;
+            healthIndicator.BloodGlucose = bloodGlucose;
+            healthIndicator.Duration = duration;
+            healthIndicator.Calorie = calorie;
+            healthIndicator.Distance = distance;
+            healthIndicator.HeartBeat = heartBeat;
+            healthIndicator.Date = date;
+            return healthIndicator;
+        }
+
+        #endregion
+
+        #region 基元属性
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int64 ID_HealthIndica
+        {
+            get
+            {
+                return _ID_HealthIndica;
+            }
+            set
+            {
+                if (_ID_HealthIndica != value)
+                {
+                    OnID_HealthIndicaChanging(value);
+                    ReportPropertyChanging("ID_HealthIndica");
+                    _ID_HealthIndica = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("ID_HealthIndica");
+                    OnID_HealthIndicaChanged();
+                }
+            }
+        }
+        private global::System.Int64 _ID_HealthIndica;
+        partial void OnID_HealthIndicaChanging(global::System.Int64 value);
+        partial void OnID_HealthIndicaChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int64 ID_User
+        {
+            get
+            {
+                return _ID_User;
+            }
+            set
+            {
+                OnID_UserChanging(value);
+                ReportPropertyChanging("ID_User");
+                _ID_User = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("ID_User");
+                OnID_UserChanged();
+            }
+        }
+        private global::System.Int64 _ID_User;
+        partial void OnID_UserChanging(global::System.Int64 value);
+        partial void OnID_UserChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int16 BloodPressure
+        {
+            get
+            {
+                return _BloodPressure;
+            }
+            set
+            {
+                OnBloodPressureChanging(value);
+                ReportPropertyChanging("BloodPressure");
+                _BloodPressure = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("BloodPressure");
+                OnBloodPressureChanged();
+            }
+        }
+        private global::System.Int16 _BloodPressure;
+        partial void OnBloodPressureChanging(global::System.Int16 value);
+        partial void OnBloodPressureChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int16 BloodGlucose
+        {
+            get
+            {
+                return _BloodGlucose;
+            }
+            set
+            {
+                OnBloodGlucoseChanging(value);
+                ReportPropertyChanging("BloodGlucose");
+                _BloodGlucose = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("BloodGlucose");
+                OnBloodGlucoseChanged();
+            }
+        }
+        private global::System.Int16 _BloodGlucose;
+        partial void OnBloodGlucoseChanging(global::System.Int16 value);
+        partial void OnBloodGlucoseChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int16 Duration
+        {
+            get
+            {
+                return _Duration;
+            }
+            set
+            {
+                OnDurationChanging(value);
+                ReportPropertyChanging("Duration");
+                _Duration = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Duration");
+                OnDurationChanged();
+            }
+        }
+        private global::System.Int16 _Duration;
+        partial void OnDurationChanging(global::System.Int16 value);
+        partial void OnDurationChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int16 Calorie
+        {
+            get
+            {
+                return _Calorie;
+            }
+            set
+            {
+                OnCalorieChanging(value);
+                ReportPropertyChanging("Calorie");
+                _Calorie = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Calorie");
+                OnCalorieChanged();
+            }
+        }
+        private global::System.Int16 _Calorie;
+        partial void OnCalorieChanging(global::System.Int16 value);
+        partial void OnCalorieChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int16 Distance
+        {
+            get
+            {
+                return _Distance;
+            }
+            set
+            {
+                OnDistanceChanging(value);
+                ReportPropertyChanging("Distance");
+                _Distance = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Distance");
+                OnDistanceChanged();
+            }
+        }
+        private global::System.Int16 _Distance;
+        partial void OnDistanceChanging(global::System.Int16 value);
+        partial void OnDistanceChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int16 HeartBeat
+        {
+            get
+            {
+                return _HeartBeat;
+            }
+            set
+            {
+                OnHeartBeatChanging(value);
+                ReportPropertyChanging("HeartBeat");
+                _HeartBeat = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("HeartBeat");
+                OnHeartBeatChanged();
+            }
+        }
+        private global::System.Int16 _HeartBeat;
+        partial void OnHeartBeatChanging(global::System.Int16 value);
+        partial void OnHeartBeatChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.DateTime Date
+        {
+            get
+            {
+                return _Date;
+            }
+            set
+            {
+                OnDateChanging(value);
+                ReportPropertyChanging("Date");
+                _Date = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Date");
+                OnDateChanged();
+            }
+        }
+        private global::System.DateTime _Date;
+        partial void OnDateChanging(global::System.DateTime value);
+        partial void OnDateChanged();
+
+        #endregion
+
+    
+        #region 导航属性
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("ProModel", "FK_HealthIndicator_BasicInfo", "BasicInfo")]
+        public BasicInfo BasicInfo
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<BasicInfo>("ProModel.FK_HealthIndicator_BasicInfo", "BasicInfo").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<BasicInfo>("ProModel.FK_HealthIndicator_BasicInfo", "BasicInfo").Value = value;
+            }
+        }
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<BasicInfo> BasicInfoReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<BasicInfo>("ProModel.FK_HealthIndicator_BasicInfo", "BasicInfo");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<BasicInfo>("ProModel.FK_HealthIndicator_BasicInfo", "BasicInfo", value);
                 }
             }
         }

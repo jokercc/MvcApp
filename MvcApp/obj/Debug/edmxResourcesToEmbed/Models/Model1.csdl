@@ -22,6 +22,11 @@
       <End Role="BasicInfo" EntitySet="BasicInfo" />
       <End Role="Location" EntitySet="Location" />
     </AssociationSet>
+    <EntitySet Name="HealthIndicator" EntityType="ProModel.HealthIndicator" />
+    <AssociationSet Name="FK_HealthIndicator_BasicInfo" Association="ProModel.FK_HealthIndicator_BasicInfo">
+      <End Role="BasicInfo" EntitySet="BasicInfo" />
+      <End Role="HealthIndicator" EntitySet="HealthIndicator" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="BasicInfo">
     <Key>
@@ -47,6 +52,7 @@
     <NavigationProperty Name="EmergencyInfo" Relationship="ProModel.FK_EmergencyInfo_BasicInfo" FromRole="BasicInfo" ToRole="EmergencyInfo" />
     <NavigationProperty Name="HealthPlan" Relationship="ProModel.FK_HealthPlan_BasicInfo" FromRole="BasicInfo" ToRole="HealthPlan" />
     <NavigationProperty Name="Location" Relationship="ProModel.FK_Location_BasicInfo" FromRole="BasicInfo" ToRole="Location" />
+    <NavigationProperty Name="HealthIndicator" Relationship="ProModel.FK_HealthIndicator_BasicInfo" FromRole="BasicInfo" ToRole="HealthIndicator" />
   </EntityType>
   <EntityType Name="EmergencyInfo">
     <Key>
@@ -146,6 +152,33 @@
         <PropertyRef Name="ID_User" />
       </Principal>
       <Dependent Role="Location">
+        <PropertyRef Name="ID_User" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="HealthIndicator">
+    <Key>
+      <PropertyRef Name="ID_HealthIndica" />
+    </Key>
+    <Property Type="Int64" Name="ID_HealthIndica" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int64" Name="ID_User" Nullable="false" />
+    <Property Type="Int16" Name="BloodPressure" Nullable="false" />
+    <Property Type="Int16" Name="BloodGlucose" Nullable="false" />
+    <Property Type="Int16" Name="Duration" Nullable="false" />
+    <Property Type="Int16" Name="Calorie" Nullable="false" />
+    <Property Type="Int16" Name="Distance" Nullable="false" />
+    <Property Type="Int16" Name="HeartBeat" Nullable="false" />
+    <Property Type="DateTime" Name="Date" Nullable="false" />
+    <NavigationProperty Name="BasicInfo" Relationship="ProModel.FK_HealthIndicator_BasicInfo" FromRole="HealthIndicator" ToRole="BasicInfo" />
+  </EntityType>
+  <Association Name="FK_HealthIndicator_BasicInfo">
+    <End Type="ProModel.BasicInfo" Role="BasicInfo" Multiplicity="1" />
+    <End Type="ProModel.HealthIndicator" Role="HealthIndicator" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BasicInfo">
+        <PropertyRef Name="ID_User" />
+      </Principal>
+      <Dependent Role="HealthIndicator">
         <PropertyRef Name="ID_User" />
       </Dependent>
     </ReferentialConstraint>
