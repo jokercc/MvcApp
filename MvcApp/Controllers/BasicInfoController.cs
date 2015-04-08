@@ -125,11 +125,47 @@ namespace MvcApp.Controllers
             return Json(emergencyInfoList, JsonRequestBehavior.AllowGet);
         }
 
-        public JsonResult getHealthIndicatorByDate(string date)
+        public JsonResult getHealthIndicatorByDate(string myYear, string myMonth)
         {
-            DateTime d = new DateTime(2015, 4, 1);
+            int y = Int16.Parse(myYear);
+            int m = Int16.Parse(myMonth);
+            DateTime d = new DateTime(y, m, 1);
             List<MyHealthIndicator> healthIndicatorList = healthIndicatorService.getHealthIndicatorByDate(d);
             return Json(healthIndicatorList, JsonRequestBehavior.AllowGet);
+        }
+
+        public JsonResult testGetHealthIndicator()
+        {
+            List<MyHealthIndicator> list = new List<MyHealthIndicator>();
+
+            MyHealthIndicator t1 = new MyHealthIndicator
+            {
+                SystolicPressure = 1,
+                DiastolicPressure = 1,
+                BloodGlucose = 1,
+                Duration = 1,
+                Calorie = 1,
+                Distance = 1,
+                HeartBeat = 1,
+                Date = new DateTime(2015, 4, 1),
+            };
+
+            MyHealthIndicator t2 = new MyHealthIndicator
+            {
+                SystolicPressure = 2,
+                DiastolicPressure = 2,
+                BloodGlucose = 2,
+                Duration = 2,
+                Calorie = 2,
+                Distance = 2,
+                HeartBeat = 2,
+                Date = new DateTime(2015, 4, 2),
+            };
+
+            list.Add(t1);
+            list.Add(t2);
+
+            return Json(list, JsonRequestBehavior.AllowGet);
         }
     }
 }

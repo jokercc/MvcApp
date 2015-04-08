@@ -28,8 +28,6 @@
     	<!-- <img src="images/user_bg.png" /> -->
     </div>
     <!-- 主体部分结束 -->
-    <div class="navtop">
-    </div>
     <!-- 导航栏开始 -->
     <div id="nav">
     	<div class="navbox">
@@ -39,6 +37,42 @@
     			<li class="navboxthree">活动情况</li>
     			<li class="navboxfour">健康计划</li>
     			<li class="navboxfive">急救信息</li>
+    		</ul>
+    	</div>
+        <div class="navbox2">
+    		<ul>
+    			<li class="navboxone_grey">基本信息</li>
+    			<li class="navboxtwo_green">身体指标</li>
+    			<li class="navboxthree">活动情况</li>
+    			<li class="navboxfour">健康计划</li>
+    			<li class="navboxfive">急救信息</li>
+    		</ul>
+    	</div>
+        <div class="navbox3">
+    		<ul>
+    			<li class="navboxone_grey">基本信息</li>
+    			<li class="navboxtwo">身体指标</li>
+    			<li class="navboxthree_green">活动情况</li>
+    			<li class="navboxfour">健康计划</li>
+    			<li class="navboxfive">急救信息</li>
+    		</ul>
+    	</div>
+        <div class="navbox4">
+    		<ul>
+    			<li class="navboxone_grey">基本信息</li>
+    			<li class="navboxtwo">身体指标</li>
+    			<li class="navboxthree">活动情况</li>
+    			<li class="navboxfour_green">健康计划</li>
+    			<li class="navboxfive">急救信息</li>
+    		</ul>
+    	</div>
+        <div class="navbox5">
+    		<ul>
+    			<li class="navboxone_grey">基本信息</li>
+    			<li class="navboxtwo">身体指标</li>
+    			<li class="navboxthree">活动情况</li>
+    			<li class="navboxfour">健康计划</li>
+    			<li class="navboxfive_green">急救信息</li>
     		</ul>
     	</div>
     </div>
@@ -175,12 +209,12 @@
 	        		</td>
 	    		</tr>
 	    		<tr>
-	        		<td class="heal_bgwhite_left">&nbsp;&nbsp;</td>
+	        		<td class="heal_bgwhite_left"></td>
 			        <td class="heal_bgwhite_right"></td>
 	        		</td>
 	    		</tr>
 	    		<tr>
-	        		<td class="heal_bggrey_left">&nbsp;&nbsp;</td>
+	        		<td class="heal_bggrey_left"></td>
 			        <td class="heal_bggrey_right"></td>
 	        		</td>
 	    		</tr>
@@ -233,104 +267,697 @@
     </div>
     <div id="body_table_bg">
         <div class="blood_pre_bg">
-            <table>
-                <tr class="blood_pre">
-                    <td class="blood_date">日期</td>
-                    <td class="blood_up">缩压</td>
-                    <td class="blood_doen">舒张压</td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                        <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-             </table>
+            <div class="blood_pre_head">
+                <ul>
+				    <li id="pre_date"   >&nbsp;&nbsp;日期</li>
+				    <li id="down_pre" >&nbsp;收缩压</li>
+                    <li id="up_pre" >舒张压</li>
+			    </ul>
+             </div>
+             <div id="blood_pre_data">  
+                <table class="table_style3">
+                    <tr>
+                        <td class="blood_pre_title">
+                        </td>
+                    </tr>
+                    <tr>
+	        		    <td class="pre_bggrey_left"></td>
+			            <td class="pre_bggrey_mid"></td>
+                        <td class="pre_bggrey_right"></td>
+	    		    </tr>
+	    		    <tr>
+	        		    <td class="pre_bgwhite_left"></td>
+			            <td class="pre_bgwhite_mid"></td>
+                        <td class="pre_bgwhite_right"></td>
+	    		    </tr>
+	    		    <tr>
+	        		    <td class="pre_bggrey_left"></td>
+			            <td class="pre_bggrey_mid"></td>
+                        <td class="pre_bggrey_right"></td>
+	    		    </tr>
+	    		    <tr>
+	        		    <td class="pre_bgwhite_left"></td>
+			            <td class="pre_bgwhite_mid"></td>
+                        <td class="pre_bgwhite_right"></td>
+	    		    </tr>
+	    		    <tr>
+	        		    <td class="pre_bggrey_left"></td>
+			            <td class="pre_bggrey_mid"></td>
+                        <td class="pre_bggrey_right"></td>
+	    		    </tr>
+	    		    <tr>
+	        		    <td class="pre_bgwhite_left"></td>
+			            <td class="pre_bgwhite_mid"></td>
+                        <td class="pre_bgwhite_right"></td>
+	    		    </tr>
+                    <tr>
+	        		    <td class="pre_bggrey_left"></td>
+			            <td class="pre_bggrey_mid"></td>
+                        <td class="pre_bggrey_right"></td>
+	    		    </tr>
+	    		    <tr>
+	        		    <td class="pre_bgwhite_left"></td>
+			            <td class="pre_bgwhite_mid"></td>
+                        <td class="pre_bgwhite_right"></td>
+	    		    </tr>
+                    <tr>
+	        		    <td class="pre_bggrey_left"></td>
+			            <td class="pre_bggrey_mid"></td>
+                        <td class="pre_bggrey_right"></td>
+	    		    </tr>
+	    		    <tr>
+	        		    <td class="pre_bgwhite_left"></td>
+			            <td class="pre_bgwhite_mid"></td>
+                        <td class="pre_bgwhite_right"></td>
+	    		    </tr><tr>
+	        		    <td class="pre_bggrey_left"></td>
+			            <td class="pre_bggrey_mid"></td>
+                        <td class="pre_bggrey_right"></td>
+	    		    </tr>
+	    		    <tr>
+	        		    <td class="pre_bgwhite_left"></td>
+			            <td class="pre_bgwhite_mid"></td>
+                        <td class="pre_bgwhite_right"></td>
+	    		    </tr>
+                    <tr>
+	        		    <td class="pre_bggrey_left"></td>
+			            <td class="pre_bggrey_mid"></td>
+                        <td class="pre_bggrey_right"></td>
+	    		    </tr>
+	    		    <tr>
+	        		    <td class="pre_bgwhite_left"></td>
+			            <td class="pre_bgwhite_mid"></td>
+                        <td class="pre_bgwhite_right"></td>
+	    		    </tr>
+                     <tr>
+                        <td class="blood_pre_title">
+                        </td>
+                    </tr>
+                    <tr>
+	        		    <td class="pre_bggrey_left"></td>
+			            <td class="pre_bggrey_mid"></td>
+                        <td class="pre_bggrey_right"></td>
+	    		    </tr>
+	    		    <tr>
+	        		    <td class="pre_bgwhite_left"></td>
+			            <td class="pre_bgwhite_mid"></td>
+                        <td class="pre_bgwhite_right"></td>
+	    		    </tr>
+	    		    <tr>
+	        		    <td class="pre_bggrey_left"></td>
+			            <td class="pre_bggrey_mid"></td>
+                        <td class="pre_bggrey_right"></td>
+	    		    </tr>
+	    		    <tr>
+	        		    <td class="pre_bgwhite_left"></td>
+			            <td class="pre_bgwhite_mid"></td>
+                        <td class="pre_bgwhite_right"></td>
+	    		    </tr>
+	    		    <tr>
+	        		    <td class="pre_bggrey_left"></td>
+			            <td class="pre_bggrey_mid"></td>
+                        <td class="pre_bggrey_right"></td>
+	    		    </tr>
+	    		    <tr>
+	        		    <td class="pre_bgwhite_left"></td>
+			            <td class="pre_bgwhite_mid"></td>
+                        <td class="pre_bgwhite_right"></td>
+	    		    </tr>
+	    		    <tr>
+	        		    <td class="pre_bggrey_left"></td>
+			            <td class="pre_bggrey_mid"></td>
+                        <td class="pre_bggrey_right"></td>
+	    		    </tr>
+	    		    <tr>
+	        		    <td class="pre_bgwhite_left"></td>
+			            <td class="pre_bgwhite_mid"></td>
+                        <td class="pre_bgwhite_right"></td>
+	    		    </tr>
+                    <tr>
+	        		    <td class="pre_bggrey_left"></td>
+			            <td class="pre_bggrey_mid"></td>
+                        <td class="pre_bggrey_right"></td>
+	    		    </tr>
+	    		    <tr>
+	        		    <td class="pre_bgwhite_left"></td>
+			            <td class="pre_bgwhite_mid"></td>
+                        <td class="pre_bgwhite_right"></td>
+	    		    </tr><tr>
+	        		    <td class="pre_bggrey_left"></td>
+			            <td class="pre_bggrey_mid"></td>
+                        <td class="pre_bggrey_right"></td>
+	    		    </tr>
+	    		    <tr>
+	        		    <td class="pre_bgwhite_left"></td>
+			            <td class="pre_bgwhite_mid"></td>
+                        <td class="pre_bgwhite_right"></td>
+	    		    </tr>
+                    <tr>
+	        		    <td class="pre_bggrey_left"></td>
+			            <td class="pre_bggrey_mid"></td>
+                        <td class="pre_bggrey_right"></td>
+	    		    </tr>
+	    		    <tr>
+	        		    <td class="pre_bgwhite_left"></td>
+			            <td class="pre_bgwhite_mid"></td>
+                        <td class="pre_bgwhite_right"></td>
+	    		    </tr>
+                    <tr>
+	        		    <td class="pre_bggrey_left"></td>
+			            <td class="pre_bggrey_mid"></td>
+                        <td class="pre_bggrey_right"></td>
+	    		    </tr>
+    		    </table>
+            </div>
         </div>
-    <div class="heart_break_bg">
-    <table>
-         <tr>
-            <td>日期</td>
-            <td>心跳</td>
-        </tr>
-        <tr></tr>
-        <tr></tr>
-        <tr></tr>
-        <tr></tr>
-        <tr></tr>
-        <tr></tr>
-        <tr></tr>
-    </table>
-    </div>
-    <div class="blood_suger_bg">
-     <table>
-         <tr>
-            <td>日期</td>
-            <td>血糖</td>
-        </tr>
-        <tr></tr>
-        <tr></tr>
-        <tr></tr>
-        <tr></tr>
-        <tr></tr>
-        <tr></tr>
-        <tr></tr>
-    </table>
-    </div>
-    <div class="blood_tem_bg">
-     <table>
-         <tr>
-            <td>日期</td>
-            <td>体温</td>
-        </tr>
-        <tr></tr>
-        <tr></tr>
-        <tr></tr>
-        <tr></tr>
-        <tr></tr>
-        <tr></tr>
-        <tr></tr>
-    </table>
-    </div>
+        <div class="heart_boom_bg">
+            <div class="heart_boom_head">
+                <ul>
+				    <li id="heart_date"   >&nbsp;&nbsp;日期</li>
+				    <li id="boom_data" >&nbsp;&nbsp;心跳</li>
+			    </ul>
+            </div>
+            <div id="boom_data_bg">  
+                <table class="table_style4">
+                    <tr>
+                        <td class="boom_title">
+                        </td>
+                    </tr>
+                    <tr>
+	        		    <td class="boom_bggrey_left"></td>
+                        <td class="boom_bggrey_right"></td>
+	    		    </tr>
+	    		    <tr>
+	        		    <td class="boom_bgwhite_left"></td>
+                        <td class="boom_bgwhite_right"></td>
+	    		    </tr>
+	    		    <tr>
+	        		    <td class="boom_bggrey_left"></td>
+                        <td class="boom_bggrey_right"></td>
+	    		    </tr>
+	    		    <tr>
+	        		    <td class="boom_bgwhite_left"></td>
+                        <td class="boom_bgwhite_right"></td>
+	    		    </tr>
+	    		    <tr>
+	        		    <td class="boom_bggrey_left"></td>
+                        <td class="boom_bggrey_right"></td>
+	    		    </tr>
+	    		    <tr>
+	        		    <td class="boom_bgwhite_left"></td>
+                        <td class="boom_bgwhite_right"></td>
+	    		    </tr>
+	    		    <tr>
+	        		    <td class="boom_bggrey_left"></td>
+                        <td class="boom_bggrey_right"></td>
+	    		    </tr>
+	    		    <tr>
+	        		    <td class="boom_bgwhite_left"></td>
+                        <td class="boom_bgwhite_right"></td>
+	    		    </tr>
+	    		    <tr>
+	        		    <td class="boom_bggrey_left"></td>
+                        <td class="boom_bggrey_right"></td>
+	    		    </tr>
+	    		    <tr>
+	        		    <td class="boom_bgwhite_left"></td>
+                        <td class="boom_bgwhite_right"></td>
+	    		    </tr>
+	    		    <tr>
+	        		    <td class="boom_bggrey_left"></td>
+                        <td class="boom_bggrey_right"></td>
+	    		    </tr>
+	    		    <tr>
+	        		    <td class="boom_bgwhite_left"></td>
+                        <td class="boom_bgwhite_right"></td>
+	    		    </tr><tr>
+	        		    <td class="boom_bggrey_left"></td>
+                        <td class="boom_bggrey_right"></td>
+	    		    </tr>
+	    		    <tr>
+	        		    <td class="boom_bgwhite_left"></td>
+                        <td class="boom_bgwhite_right"></td>
+	    		    </tr>
+	    		    <tr>
+	        		    <td class="boom_bggrey_left"></td>
+                        <td class="boom_bggrey_right"></td>
+	    		    </tr>
+	    		    <tr>
+	        		    <td class="boom_bgwhite_left"></td>
+                        <td class="boom_bgwhite_right"></td>
+	    		    </tr>
+	    		    <tr>
+	        		    <td class="boom_bggrey_left"></td>
+                        <td class="boom_bggrey_right"></td>
+	    		    </tr>
+	    		    <tr>
+	        		    <td class="boom_bgwhite_left"></td>
+                        <td class="boom_bgwhite_right"></td>
+	    		    </tr><tr>
+	        		    <td class="boom_bggrey_left"></td>
+                        <td class="boom_bggrey_right"></td>
+	    		    </tr>
+	    		    <tr>
+	        		    <td class="boom_bgwhite_left"></td>
+                        <td class="boom_bgwhite_right"></td>
+	    		    </tr>
+	    		    <tr>
+	        		    <td class="boom_bggrey_left"></td>
+                        <td class="boom_bggrey_right"></td>
+	    		    </tr>
+	    		    <tr>
+	        		    <td class="boom_bgwhite_left"></td>
+                        <td class="boom_bgwhite_right"></td>
+	    		    </tr>
+	    		    <tr>
+	        		    <td class="boom_bggrey_left"></td>
+                        <td class="boom_bggrey_right"></td>
+	    		    </tr>
+	    		    <tr>
+	        		    <td class="boom_bgwhite_left"></td>
+                        <td class="boom_bgwhite_right"></td>
+	    		    </tr><tr>
+	        		    <td class="boom_bggrey_left"></td>
+                        <td class="boom_bggrey_right"></td>
+	    		    </tr>
+	    		    <tr>
+	        		    <td class="boom_bgwhite_left"></td>
+                        <td class="boom_bgwhite_right"></td>
+	    		    </tr>
+	    		    <tr>
+	        		    <td class="boom_bggrey_left"></td>
+                        <td class="boom_bggrey_right"></td>
+	    		    </tr>
+	    		    <tr>
+	        		    <td class="boom_bgwhite_left"></td>
+                        <td class="boom_bgwhite_right"></td>
+	    		    </tr>
+	    		    <tr>
+	        		    <td class="boom_bggrey_left"></td>
+                        <td class="boom_bggrey_right"></td>
+	    		    </tr>
+	    		    <tr>
+	        		    <td class="boom_bgwhite_left"></td>
+                        <td class="boom_bgwhite_right"></td>
+	    		    </tr>
+                    <tr>
+	        		    <td class="suger_bggrey_left"></td>
+                        <td class="suger_bggrey_right"></td>
+	    		    </tr>
+                    <tr>
+	        		    <td class="suger_bgwhite_left"></td>
+                        <td class="suger_bgwhite_right"></td>
+	    		    </tr>
+                    <tr>
+	        		    <td class="suger_bggrey_left"></td>
+                        <td class="suger_bggrey_right"></td>
+	    		    </tr>
+    		    </table>
+            </div>
+        </div>
+        <div class="blood_suger_bg">
+            <div class="blood_suger_head">
+                <ul>
+				    <li id="suger_date"   >&nbsp;&nbsp;日期</li>
+				    <li id="suger_data" >&nbsp;&nbsp;血糖</li>
+			    </ul>
+            </div>
+            <div id="suger_data_bg">  
+                <table class="table_style5">
+                    <tr>
+                        <td class="suger_title">
+                        </td>
+                    </tr>
+                    <tr>
+	        		    <td class="suger_bggrey_left"></td>
+                        <td class="suger_bggrey_right"></td>
+	    		    </tr>
+	    		    <tr>
+	        		    <td class="suger_bgwhite_left"></td>
+                        <td class="suger_bgwhite_right"></td>
+	    		    </tr>
+	    		    <tr>
+	        		    <td class="suger_bggrey_left"></td>
+                        <td class="suger_bggrey_right"></td>
+	    		    </tr>
+	    		    <tr>
+	        		    <td class="suger_bgwhite_left"></td>
+                        <td class="suger_bgwhite_right"></td>
+	    		    </tr>
+	    		    <tr>
+	        		    <td class="suger_bggrey_left"></td>
+                        <td class="suger_bggrey_right"></td>
+	    		    </tr>
+	    		    <tr>
+	        		    <td class="suger_bgwhite_left"></td>
+                        <td class="suger_bgwhite_right"></td>
+	    		    </tr>
+                    <tr>
+	        		    <td class="suger_bggrey_left"></td>
+                        <td class="suger_bggrey_right"></td>
+	    		    </tr>
+	    		    <tr>
+	        		    <td class="suger_bgwhite_left"></td>
+                        <td class="suger_bgwhite_right"></td>
+	    		    </tr>
+	    		    <tr>
+	        		    <td class="suger_bggrey_left"></td>
+                        <td class="suger_bggrey_right"></td>
+	    		    </tr>
+	    		    <tr>
+	        		    <td class="suger_bgwhite_left"></td>
+                        <td class="suger_bgwhite_right"></td>
+	    		    </tr>
+	    		    <tr>
+	        		    <td class="suger_bggrey_left"></td>
+                        <td class="suger_bggrey_right"></td>
+	    		    </tr>
+	    		    <tr>
+	        		    <td class="suger_bgwhite_left"></td>
+                        <td class="suger_bgwhite_right"></td>
+	    		    </tr><tr>
+	        		    <td class="suger_bggrey_left"></td>
+                        <td class="suger_bggrey_right"></td>
+	    		    </tr>
+	    		    <tr>
+	        		    <td class="suger_bgwhite_left"></td>
+                        <td class="suger_bgwhite_right"></td>
+	    		    </tr>
+	    		    <tr>
+	        		    <td class="suger_bggrey_left"></td>
+                        <td class="suger_bggrey_right"></td>
+	    		    </tr>
+	    		    <tr>
+	        		    <td class="suger_bgwhite_left"></td>
+                        <td class="suger_bgwhite_right"></td>
+	    		    </tr>
+	    		    <tr>
+	        		    <td class="suger_bggrey_left"></td>
+                        <td class="suger_bggrey_right"></td>
+	    		    </tr>
+	    		    <tr>
+	        		    <td class="suger_bgwhite_left"></td>
+                        <td class="suger_bgwhite_right"></td>
+	    		    </tr><tr>
+	        		    <td class="suger_bggrey_left"></td>
+                        <td class="suger_bggrey_right"></td>
+	    		    </tr>
+	    		    <tr>
+	        		    <td class="suger_bgwhite_left"></td>
+                        <td class="suger_bgwhite_right"></td>
+	    		    </tr>
+	    		    <tr>
+	        		    <td class="suger_bggrey_left"></td>
+                        <td class="suger_bggrey_right"></td>
+	    		    </tr>
+	    		    <tr>
+	        		    <td class="suger_bgwhite_left"></td>
+                        <td class="suger_bgwhite_right"></td>
+	    		    </tr>
+	    		    <tr>
+	        		    <td class="suger_bggrey_left"></td>
+                        <td class="suger_bggrey_right"></td>
+	    		    </tr>
+	    		    <tr>
+	        		    <td class="suger_bgwhite_left"></td>
+                        <td class="suger_bgwhite_right"></td>
+	    		    </tr><tr>
+	        		    <td class="suger_bggrey_left"></td>
+                        <td class="suger_bggrey_right"></td>
+	    		    </tr>
+	    		    <tr>
+	        		    <td class="suger_bgwhite_left"></td>
+                        <td class="suger_bgwhite_right"></td>
+	    		    </tr>
+	    		    <tr>
+	        		    <td class="suger_bggrey_left"></td>
+                        <td class="suger_bggrey_right"></td>
+	    		    </tr>
+	    		    <tr>
+	        		    <td class="suger_bgwhite_left"></td>
+                        <td class="suger_bgwhite_right"></td>
+	    		    </tr>
+	    		    <tr>
+	        		    <td class="suger_bggrey_left"></td>
+                        <td class="suger_bggrey_right"></td>
+	    		    </tr>
+	    		    <tr>
+	        		    <td class="suger_bgwhite_left"></td>
+                        <td class="suger_bgwhite_right"></td>
+	    		    </tr>
+                    <tr>
+	        		    <td class="suger_bggrey_left"></td>
+                        <td class="suger_bggrey_right"></td>
+	    		    </tr>
+                    <tr>
+	        		    <td class="suger_bgwhite_left"></td>
+                        <td class="suger_bgwhite_right"></td>
+	    		    </tr>
+                    <tr>
+	        		    <td class="suger_bggrey_left"></td>
+                        <td class="suger_bggrey_right"></td>
+	    		    </tr>
+    		    </table>
+            </div>
+        </div>
+        <div class="blood_tem_bg">
+            <div class="blood_tem_head">
+                <ul>
+				    <li id="tem_date"   >&nbsp;&nbsp;日期</li>
+				    <li id="tem_data" >&nbsp;&nbsp;体温</li>
+			    </ul>
+            </div>
+            <div id="tem_data_bg">  
+                <table class="table_style6">
+                    <tr>
+                        <td class="tem_title">
+                        </td>
+                    </tr>
+                    <tr>
+	        		    <td class="tem_bggrey_left"></td>
+                        <td class="tem_bggrey_right"></td>
+	    		    </tr>
+	    		    <tr>
+	        		    <td class="tem_bgwhite_left"></td>
+                        <td class="tem_bgwhite_right"></td>
+	    		    </tr>
+	    		    <tr>
+	        		    <td class="tem_bggrey_left"></td>
+                        <td class="tem_bggrey_right"></td>
+	    		    </tr>
+	    		    <tr>
+	        		    <td class="tem_bgwhite_left"></td>
+                        <td class="tem_bgwhite_right"></td>
+	    		    </tr>
+	    		    <tr>
+	        		    <td class="tem_bggrey_left"></td>
+                        <td class="tem_bggrey_right"></td>
+	    		    </tr>
+	    		    <tr>
+	        		    <td class="tem_bgwhite_left"></td>
+                        <td class="tem_bgwhite_right"></td>
+	    		    </tr>
+	    		    <tr>
+	        		    <td class="tem_bggrey_left"></td>
+                        <td class="tem_bggrey_right"></td>
+	    		    </tr>
+                    <tr>
+	        		    <td class="suger_bgwhite_left"></td>
+                        <td class="suger_bgwhite_right"></td>
+	    		    </tr>
+                    <tr>
+	        		    <td class="suger_bggrey_left"></td>
+                        <td class="suger_bggrey_right"></td>
+	    		    </tr>
+                    <tr>
+	        		    <td class="suger_bgwhite_left"></td>
+                        <td class="suger_bgwhite_right"></td>
+	    		    </tr>
+                    <tr>
+	        		    <td class="suger_bggrey_left"></td>
+                        <td class="suger_bggrey_right"></td>
+	    		    </tr>
+                    <tr>
+	        		    <td class="suger_bgwhite_left"></td>
+                        <td class="suger_bgwhite_right"></td>
+	    		    </tr>
+                    <tr>
+	        		    <td class="suger_bggrey_left"></td>
+                        <td class="suger_bggrey_right"></td>
+	    		    </tr>
+                    <tr>
+	        		    <td class="suger_bgwhite_left"></td>
+                        <td class="suger_bgwhite_right"></td>
+	    		    </tr>
+                    <tr>
+	        		    <td class="suger_bggrey_left"></td>
+                        <td class="suger_bggrey_right"></td>
+	    		    </tr>
+                    <tr>
+	        		    <td class="suger_bgwhite_left"></td>
+                        <td class="suger_bgwhite_right"></td>
+	    		    </tr>
+                    <tr>
+	        		    <td class="suger_bggrey_left"></td>
+                        <td class="suger_bggrey_right"></td>
+	    		    </tr>
+                    <tr>
+	        		    <td class="suger_bgwhite_left"></td>
+                        <td class="suger_bgwhite_right"></td>
+	    		    </tr>
+                    <tr>
+	        		    <td class="suger_bggrey_left"></td>
+                        <td class="suger_bggrey_right"></td>
+	    		    </tr>
+                    <tr>
+	        		    <td class="suger_bgwhite_left"></td>
+                        <td class="suger_bgwhite_right"></td>
+	    		    </tr>
+                    <tr>
+	        		    <td class="suger_bggrey_left"></td>
+                        <td class="suger_bggrey_right"></td>
+	    		    </tr>
+                    <tr>
+	        		    <td class="suger_bgwhite_left"></td>
+                        <td class="suger_bgwhite_right"></td>
+	    		    </tr>
+                    <tr>
+	        		    <td class="suger_bggrey_left"></td>
+                        <td class="suger_bggrey_right"></td>
+	    		    </tr>
+                    <tr>
+	        		    <td class="suger_bgwhite_left"></td>
+                        <td class="suger_bgwhite_right"></td>
+	    		    </tr>
+                    <tr>
+	        		    <td class="suger_bggrey_left"></td>
+                        <td class="suger_bggrey_right"></td>
+	    		    </tr>
+                    <tr>
+	        		    <td class="suger_bgwhite_left"></td>
+                        <td class="suger_bgwhite_right"></td>
+	    		    </tr>
+                    <tr>
+	        		    <td class="suger_bggrey_left"></td>
+                        <td class="suger_bggrey_right"></td>
+	    		    </tr>
+                    <tr>
+	        		    <td class="suger_bgwhite_left"></td>
+                        <td class="suger_bgwhite_right"></td>
+	    		    </tr>
+                    <tr>
+	        		    <td class="suger_bggrey_left"></td>
+                        <td class="suger_bggrey_right"></td>
+	    		    </tr>
+                    <tr>
+	        		    <td class="suger_bgwhite_left"></td>
+                        <td class="suger_bgwhite_right"></td>
+	    		    </tr>
+                    <tr>
+	        		    <td class="suger_bggrey_left"></td>
+                        <td class="suger_bggrey_right"></td>
+	    		    </tr>
+                    <tr>
+	        		    <td class="suger_bggrey_left"></td>
+                        <td class="suger_bggrey_right"></td>
+	    		    </tr>
+                    <tr>
+	        		    <td class="suger_bgwhite_left"></td>
+                        <td class="suger_bgwhite_right"></td>
+	    		    </tr>
+                    <tr>
+	        		    <td class="suger_bggrey_left"></td>
+                        <td class="suger_bggrey_right"></td>
+	    		    </tr>
+    		    </table>
+            </div>
+        </div>
+        <div id="blood_premon_btn"> 
+            <input type="button" value=""/>
+        </div>
+        <div id="blood_premon_btns"> 
+            <input type="button" value=""/>
+        </div>
+        <div id="blood_nextmon_btn">
+            <input type="button" value=""/>
+        </div>
+        <div id="blood_nextmon_btnb">
+            <input type="button" value=""/>
+        </div>
+        <div id="boom_premon_btn">
+            <input type="button" value=""/>
+        </div>
+        <div id="boom_premon_btns">
+            <input type="button" value=""/>
+        </div>
+        <div id="boom_nextmon_btn">
+            <input type="button" value=""/>
+        </div>
+        <div id="boom_nextmon_btnb">
+            <input type="button" value=""/>
+        </div>
+        <div id="suger_premonth_btn">
+            <input type="button" value=""/>
+        </div>
+        <div id="suger_premonth_btns">
+            <input type="button" value=""/>
+        </div>
+        <div id="suger_nextmon_btn">
+            <input type="button" value=""/>
+        </div>
+        <div id="suger_nextmon_btnb">
+            <input type="button" value=""/>
+        </div>
+        <div id="tem_premon_btn">
+            <input type="button" value=""/>
+        </div>
+        <div id="tem_premon_btns">
+            <input type="button" value=""/>
+        </div>
+        <div id="tem_nextmon_btn">
+            <input type="button" value=""/>
+        </div>
+        <div id="tem_nextmon_btnb">
+            <input type="button" value=""/>
+        </div>
     </div>
     <div id="body_curve_head">        
     </div>
     <div id="body_curve_bg">
+            <div class="choose_healpro">
+                <form>
+                    <select name="cars">
+                    <option value="volvo">血压</option>
+                    <option value="saab">心跳</option>
+                    <option value="fiat" selected="">血糖</option>
+                    <option value="audi">体温</option>
+                    </select>
+                 </form>
+            </div>
+            <div class="curve_area">
+                <h3></h3>
+            </div>
+            <div class="curve_pre_month">
+            </div>
+            <div class="curve_next_month">
+                <input type="button" value="" />
+            </div>
     </div>
     <div id="data_info_head"></div>
     <div id="data_info_bg"></div>
     <div id="act_cueve_head"></div>
     <div id="act_cueve_bg"></div>
-    <div id="heal_plan"></div>
+    <div id="heal_plan">
+        <div class="eat_palan">
+            <h3>&nbsp;&nbsp;营养食谱</h3>
+        </div>
+        <div class="pe_plan">
+            <h3>&nbsp;&nbsp;健康计划</h3>
+        </div>
+        <div class="sleep_plan">
+            <h3>&nbsp;&nbsp;作息计划</h3>
+        </div>
+    </div>
     <input  id="get_username"  value="<%: ViewData["userName"]%>" />
 </body>
 <script type = "text/javascript">

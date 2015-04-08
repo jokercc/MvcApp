@@ -74,15 +74,7 @@ em{
 	background: url(../images/user_bg_02.png)  no-repeat;
 	z-index:-2;
 }
-.navtop{
-	position: absolute;
-	top: 60px;
-	left: 650px;
-	width: 600px;
-	height: 100px;
-	background: none;
-	display: block;
-}
+
 /*导航栏开始*/
 #nav{
 	position: absolute;
@@ -94,17 +86,23 @@ em{
 	display: block;
 	opacity: 0.9;
 }
-.navbox{
+.navbox, .navbox2, .navbox3, .navbox4, .navbox5{
 	position: relative;
 	width: 600px;
 	height: 50px;
 	font-family: "STHEITI-LIGHT";
 	font-size: 20px;
 }
-
-.navbox li{
+.navbox
+{
+    display:block;
+}
+.navbox2, .navbox3, .navbox4, .navbox5
+{
+    display:none;
+}
+.navbox li, .navbox2 li, .navbox3 li, .navbox4 li, .navbox5 li{
 	position: absolute;
-	display: inline-block;
 	list-style-type: none;
 	bottom: 5px;
 
@@ -770,82 +768,605 @@ em{
     position: absolute;
 	display: block;
 	top: 10px;
-	left: 100px;
-	width: 220px;
+	left: 60px;
+	width: 240px;
 	height:360px;
-	background: #FFFFFF;
+	background: #CCD0D6;
 	z-index:1;
 }
-.blood_pre_bg table
+.blood_pre_head
 {
-    margin: 5px;
+    position: absolute;
+	display: block;
+	top: 12px;
+	left: 0;
+	width: 240px;
+	height:40px;
+	background: #CCD0D6;
+	z-index:1;
+	font-family: "STHEITI-LIGHT";
+	font-size: 20px;
 }
-.blood_pre 
+.blood_pre_head li
 {
-    background: #FFFFFF;
-    font-family: "STHEITI-LIGHT";
-    font-size:20px;
+    display: inline-block;
+	list-style-type: none;
+	position: absolute;
+	bottom: 10px;
 }
-.blood_date
-{
-    width: 33%;
+#pre_date {
+	left: 0%;
+	color: #686868;
+	text-decoration: none;
+ 	padding-bottom: 6px;
 }
-.blood_up
-{
-    width: 33%;
+#down_pre {
+	left: 30%;
+	color: #686868;
+	text-decoration: none;
+ 	padding-bottom: 6px;
 }
-.blood_down
+#up_pre {
+	left: 66%;
+	color: #686868;
+	text-decoration: none;
+ 	padding-bottom: 6px;
+}
+#blood_pre_data
 {
-    width: 33%;
+    position: absolute;
+	display: block;
+	top: 38px;
+	left: 0;
+	width: 240px;
+	height:323px;
+	z-index:3;
+	background: #CCD4E0;
+	border:none;
+	overflow-y: scroll;
+}
+#blood_pre_data .table_style3 table{
+	font-family: "STHEITI-LIGHT";
+	border:none;
+	/*background-color: #CCD4E0;*/
+}
+.blood_pre_title{
+	background: none;
+    border-bottom: none;
+    height: 0px;
+    width: 240px;
+}
+.pre_bgwhite_left
+{
+	background-color: #FFFFFF;
+	color:#9E9FA1;
+    border:none;
+    height: 44px;
+    width: 30%;
+}
+.pre_bggrey_left{
+	background-color: #EBEEF2;
+	color:#9E9FA1;
+    border:none;
+    height: 44px;
+    width: 30%;
 }
 
-.heart_break_bg
+.pre_bgwhite_mid{
+	background-color: #FFFFFF;
+	color:#9E9FA1;
+    border:none;
+    height: 44px;
+    width: 35%;
+}
+.pre_bggrey_mid{
+	background-color: #EBEEF2;
+	color:#9E9FA1;
+    border:none;
+    height: 44px;
+    width: 35%;
+}
+.pre_bgwhite_right{
+	background-color: #FFFFFF;
+	color:#9E9FA1;
+    border:none;
+    height: 44px;
+    width: 35%;
+}
+.pre_bggrey_right{
+	background-color: #EBEEF2;
+	color:#9E9FA1;
+    border:none;
+    height: 44px;
+    width: 35%;
+}
+.heart_boom_bg
 {
     position: absolute;
 	display: block;
 	top: 10px;
-	left: 330px;
-	width: 150px;
+	left: 360px;
+	width: 170px;
 	height:360px;
-	background: #FFFFFF;
+	background: #CCD0D6;
 	z-index:1;
 }
-.heart_break
+.heart_boom_head
 {
-    
+    position: absolute;
+	display: block;
+	top: 6px;
+	left: 0;
+	width: 170px;
+	height:40px;
+	background: #CCD0D6;
+	z-index:1;
+	font-family: "STHEITI-LIGHT";
+	font-size: 20px;
+}
+.heart_boom_head li
+{
+    display: inline-block;
+	list-style-type: none;
+	position: absolute;
+	bottom: 10px;
+}
+#heart_date {
+	left: 0%;
+	color: #686868;
+	text-decoration: none;
+ 	padding-bottom: -5px;
+}
+#boom_data {
+	left: 50%;
+	color: #686868;
+	text-decoration: none;
+ 	padding-bottom: 0px;
 }
 
+#boom_data_bg {
+    position: absolute;
+	display: block;
+	top: 38px;
+	left: 0;
+	width: 170px;
+	height:323px;
+	z-index:3;
+	background: #CCD4E0;
+	overflow-y: scroll;
+}
+#boom_data_bg .table_style4 table{
+	font-family: "STHEITI-LIGHT";
+	border-bottom: none;
+	/*background-color: #CCD4E0;*/
+}
+.boom_title{
+	background: none;
+    border-bottom: none;
+    height: 0px;
+    width: 170px;
+}
+.boom_bgwhite_left
+{
+	background-color: #FFFFFF;
+	color:#9E9FA1;
+    border-bottom: none;
+    height: 44px;
+    width: 50%;
+}
+.boom_bggrey_left{
+	background-color: #EBEEF2;
+	color:#9E9FA1;
+    border-bottom: none;
+    height: 44px;
+    width: 50%;
+}
+.boom_bgwhite_right{
+	background-color: #FFFFFF;
+	color:#9E9FA1;
+    border-bottom: none;
+    height: 44px;
+    width: 50%;
+}
+.boom_bggrey_right{
+	background-color: #EBEEF2;
+	color:#9E9FA1;
+    border-bottom: none;
+    height: 44px;
+    width: 50%;
+}
 .blood_suger_bg
 {
     position: absolute;
 	display: block;
 	top: 10px;
-	left: 490px;
-	width: 150px;
+	left: 590px;
+	width: 170px;
 	height:360px;
-	background: #FFFFFF;
+	background: #CCD0D6;
 	z-index:1;
 }
-.blood_suger
+.blood_suger_head
 {
-    
+    position: absolute;
+	display: block;
+	top: 6px;
+	left: 0;
+	width: 170px;
+	height:40px;
+	background: #CCD0D6;
+	z-index:1;
+	font-family: "STHEITI-LIGHT";
+	font-size: 20px;
+}
+.blood_suger_head li
+{
+    display: inline-block;
+	list-style-type: none;
+	position: absolute;
+	bottom: 10px;
+}
+#suger_date {
+	left: 0%;
+	color: #686868;
+	text-decoration: none;
+ 	padding-bottom: -5px;
+}
+#suger_data {
+	left: 50%;
+	color: #686868;
+	text-decoration: none;
+ 	padding-bottom: 0px;
+}
+
+#suger_data_bg {
+    position: absolute;
+	display: block;
+	top: 38px;
+	left: 0;
+	width: 170px;
+	height:323px;
+	z-index:3;
+	background: #CCD4E0;
+	overflow-y: scroll
+}
+#suger_data_bg .table_style5 table{
+	font-family: "STHEITI-LIGHT";
+	border-bottom: none;
+	/*background-color: #CCD4E0;*/
+}
+.suger_title{
+	background: none;
+    border-bottom: none;
+    height: 0px;
+    width: 170px;
+}
+.suger_bgwhite_left
+{
+	background-color: #FFFFFF;
+	color:#9E9FA1;
+    border-bottom: none;
+    height: 44px;
+    width: 50%;
+}
+.suger_bggrey_left{
+	background-color: #EBEEF2;
+	color:#9E9FA1;
+    border-bottom: none;
+    height: 44px;
+    width: 50%;
+}
+.suger_bgwhite_right{
+	background-color: #FFFFFF;
+	color:#9E9FA1;
+    border-bottom: none;
+    height: 44px;
+    width: 50%;
+}
+.suger_bggrey_right{
+	background-color: #EBEEF2;
+	color:#9E9FA1;
+    border-bottom: none;
+    height: 44px;
+    width: 50%;
 }
 .blood_tem_bg
 {
     position : absolute;
 	display: block;
 	top: 10px;
-	left: 650px;
-	width: 150px;
+	left: 820px;
+	width: 170px;
 	height:360px;
-	background: #FFFFFF;
+	background: #CCD0D6;
 	z-index:1;  
 }
-.blood_tem
+.blood_tem_head
 {
-    
+    position: absolute;
+	display: block;
+	top: 6px;
+	left: 0;
+	width: 170px;
+	height:40px;
+	background: #CCD0D6;
+	z-index:1;
+	font-family: "STHEITI-LIGHT";
+	font-size: 20px;
+}
+.blood_tem_head li
+{
+    display: inline-block;
+	list-style-type: none;
+	position: absolute;
+	bottom: 10px;
+}
+#tem_date {
+	left: 0%;
+	color: #686868;
+	text-decoration: none;
+ 	padding-bottom: -5px;
+}
+#tem_data {
+	left: 50%;
+	color: #686868;
+	text-decoration: none;
+ 	padding-bottom: 0px;
 }
 
+#tem_data_bg {
+    position: absolute;
+	display: block;
+	top: 38px;
+	left: 0;
+	width: 170px;
+	height:323px;
+	z-index:3;
+	background: #CCD4E0;
+	overflow-y: scroll
+}
+#tem_data_bg .table_style6 table{
+	font-family: "STHEITI-LIGHT";
+	border-bottom: none;
+	/*background-color: #CCD4E0;*/
+}
+.tem_title{
+	background: none;
+    border-bottom: none;
+    height: 0px;
+    width: 170px;
+}
+.tem_bgwhite_left
+{
+	background-color: #FFFFFF;
+	color:#9E9FA1;
+    border-bottom: none;
+    height: 44px;
+    width: 50%;
+}
+.tem_bggrey_left{
+	background-color: #EBEEF2;
+	color:#9E9FA1;
+    border-bottom: none;
+    height: 44px;
+    width: 50%;
+}
+.tem_bgwhite_right{
+	background-color: #FFFFFF;
+	color:#9E9FA1;
+    border-bottom: none;
+    height: 44px;
+    width: 50%;
+}
+.tem_bggrey_right{
+	background-color: #EBEEF2;
+	color:#9E9FA1;
+    border-bottom: none;
+    height: 44px;
+    width: 50%;
+}
+#blood_premon_btn input
+{
+    width:50px;
+    height:160px;
+    left:13px;
+    top:50px;
+    position: absolute;
+	display: block;
+	z-index:1;
+	background-color: #CCD0D6;
+	cursor:pointer;
+	background: url(../images/pre_big.png)  no-repeat;
+}
+#blood_premon_btns input
+{
+    width:35px;
+    height:160px;
+    left:30px;
+    top:50px;
+    position: absolute;
+	display: none;
+	z-index:1;
+	cursor:pointer;
+	background: url(../images/pre_small.png)  no-repeat;
+}
+#blood_nextmon_btn input
+{
+    width:35px;
+    height:160px;
+    left:30px;
+    top:210px;
+    position: absolute;
+	display: block;
+	z-index:1;
+	cursor:pointer;
+	background: url(../images/next_small.png)  no-repeat;
+}
+#blood_nextmon_btnb input
+{
+    width:50px;
+    height:160px;
+    left:13px;
+    top:210px;
+    position: absolute;
+	display: none;
+	z-index:1;
+	cursor:pointer;
+	background-color: #CCD0D6;
+	background: url(../images/next_big.png)  no-repeat;
+}
+#boom_premon_btn input
+{
+    width:50px;
+    height:160px;
+    left:313px;
+    top:50px;
+    position: absolute;
+	display: block;
+	z-index:1;
+	cursor:pointer;
+	background-color: #CCD0D6;
+	background: url(../images/pre_big.png)  no-repeat;
+}
+#boom_nextmon_btnb input
+{
+    width:50px;
+    height:160px;
+    left:313px;
+    top:210px;
+    position: absolute;
+	display: none;
+	z-index:1;
+	cursor:pointer;
+	background-color: #CCD0D6;
+	background: url(../images/next_big.png)  no-repeat;
+}
+#boom_premon_btns input
+{
+    width:35px;
+    height:160px;
+    left:330px;
+    top:50px;
+    position: absolute;
+	display: none;
+	z-index:1;
+	cursor:pointer;
+	background: url(../images/pre_small.png)  no-repeat;
+}
+#boom_nextmon_btn input
+{
+    width:35px;
+    height:160px;
+    left:330px;
+    top:210px;
+    position: absolute;
+	display: block;
+	z-index:1;
+	cursor:pointer;
+	background: url(../images/next_small.png)  no-repeat;
+}
+#suger_premonth_btn input
+{
+    width:50px;
+    height:160px;
+    left:543px;
+    top:50px;
+    position: absolute;
+	display: block;
+	z-index:1;
+	cursor:pointer;
+	background-color: #CCD0D6;
+	background: url(../images/pre_big.png)  no-repeat;
+}
+#suger_nextmon_btnb input
+{
+     width:50px;
+    height:160px;
+    left:543px;
+    top:210px;
+    position: absolute;
+	display: none;
+	z-index:1;
+	cursor:pointer;
+	background-color: #CCD0D6;
+	background: url(../images/next_big.png)  no-repeat;
+}
+#suger_premonth_btns input
+{
+    width:35px;
+    height:160px;
+    left:561px;
+    top:50px;
+    position: absolute;
+	display: none;
+	z-index:1;
+	cursor:pointer;
+	background: url(../images/pre_small.png)  no-repeat;
+}
+#suger_nextmon_btn input
+{
+     width:35px;
+    height:160px;
+    left:561px;
+    top:210px;
+    position: absolute;
+	display: block;
+	z-index:1;
+	cursor:pointer;
+	background: url(../images/next_small.png)  no-repeat;
+}
+#tem_premon_btn input
+{
+    width:50px;
+    height:160px;
+    left:773px;
+    top:50px;
+    position: absolute;
+	display: block;
+	z-index:1;
+	cursor:pointer;
+	background-color: #CCD0D6;
+	background: url(../images/pre_big.png)  no-repeat;
+}
+#tem_nextmon_btnb input
+{
+    width:50px;
+    height:160px;
+    left:773px;
+    top:210px;
+    position: absolute;
+	display: none;
+	z-index:1;
+	cursor:pointer;
+	background-color: #CCD0D6;
+	background: url(../images/next_big.png)  no-repeat;
+}
+#tem_premon_btns input
+{
+    width:35px;
+    height:160px;
+    left:790px;
+    top:50px;
+    position: absolute;
+	display: none;
+	z-index:1;
+	cursor:pointer;
+	background: white;
+	background: url(../images/pre_small.png)  no-repeat;
+}
+#tem_nextmon_btn input
+{
+    width:35px;
+    height:160px;
+    left:790px;
+    top:210px;
+    position: absolute;
+	display: block;
+	z-index:1;
+	cursor:pointer;
+	background-color: white;
+	background: url(../images/next_small.png)  no-repeat;
+}
 #body_curve_head
 {
     position: absolute;
@@ -867,7 +1388,66 @@ em{
 	background: #1CBDB3;
 	z-index:1;
 }
-
+.choose_healpro
+{
+    background:none;
+    position: absolute;
+	display: block;
+	top: 30px;
+	left: 40px;
+	width: 120px;
+	height:240px;
+	z-index:1;
+}
+.curve_area
+{
+    background:#FFF;
+    position: absolute;
+	display: block;
+	top: 30px;
+	left: 240px;
+	width: 620px;
+	height:340px;
+	z-index:1;
+}
+.curve_area h3{
+	background: #CCD0D6;
+	color: #646364;
+	font-family: "STHEITI-LIGHT";
+	height: 40px;
+}
+.curve_pre_month
+{
+    width:70px;
+    height:30px;
+    left:900px;
+    top:120px;
+    position: absolute;
+	display: block;
+	z-index:1;
+	cursor:pointer;
+	background: url(../images/pre_month.png)  no-repeat;
+}
+.curve_pre_month input
+{
+    background: url(../images/pre_month.png)  no-repeat;
+}
+.curve_next_month
+{
+    width:70px;
+    height:30px;
+    left:900px;
+    top:230px;
+    position: absolute;
+	display: block;
+	z-index:1;
+	cursor:pointer;
+	background:  url(../images/next_month.png)  no-repeat;
+}
+.curve_next_month input
+{
+    background:  url(../images/next_month.png)  no-repeat;
+}
 #data_info_head
 {
     position: absolute;
@@ -920,4 +1500,44 @@ em{
 	height:450px;
 	background: #1CBDB3;
 	z-index:1;
+}
+.eat_palan
+{
+    background:#FFF;
+    position: absolute;
+	display: block;
+	top: 10px;
+	left: 100px;
+	width: 800px;
+	height:130px;
+	z-index:1;
+}
+.pe_plan
+{
+    background:#FFF;
+    position: absolute;
+	display: block;
+	top: 150px;
+	left: 100px;
+	width: 800px;
+	height:140px;
+	z-index:1;
+}
+.sleep_plan
+{
+    background:#FFF;
+    position: absolute;
+	display: block;
+	top: 300px;
+	left: 100px;
+	width: 800px;
+	height:140px;
+	z-index:1;
+}
+.sleep_plan h3, .pe_plan h3, .eat_palan h3
+{
+    background: #CCD0D6;
+	color: #646364;
+	font-family: "STHEITI-LIGHT";
+	height: 30px;
 }

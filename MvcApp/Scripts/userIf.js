@@ -46,95 +46,9 @@ $(function(){
 	               
 	    });
     });
-	// 导航栏样式转换
-	$(".navtop").hover(
-		function(){
-			$(".body_box").hide("fast");
-			$(".act_box").hide("fast");
-		},
-		function(){
-			$(".body_box").hide("fast");
-			$(".act_box").hide("fast");
-		});
-	$(".navboxone").hover(
-		function(){
-			$(".body_box").hide("fast");
-		},
-		function(){
-			$(".body_box").hide("fast");
-		});
-	$(".navboxtwo").hover(
-		function(){
-			$(this).removeClass().addClass("navboxtwo_green");
-			$(".navboxone").removeClass().addClass("navboxone_grey");
-			$(".body_box").show("fast");
-			$(".act_box").hide("fast");
-			// $(".navboxone").removeClass().addClass("navboxone_grey");
-		},
-		function(){
-			$(this).removeClass("navboxtwo_green").addClass("navboxtwo");
-			$(".navboxone_grey").removeClass().addClass("navboxone");
-			// $(".navboxone").removeClass("navboxone_grey");
-		});
-	$(".body_box").hover(
-		function(){
-			$(".navboxtwo").removeClass().addClass("navboxtwo_green");
-			$(".navboxone").removeClass().addClass("navboxone_grey");
-			$(this).show("fast");
-			// $(".navboxone").removeClass().addClass("navboxone_grey");
-		},
-		function(){
-			$(".navboxtwo_green").removeClass().addClass("navboxtwo");
-			$(".navboxone_grey").removeClass().addClass("navboxone");
-			$(this).hide("fast");
-			// $(".navboxone").removeClass("navboxone_grey");
-		});
-	$(".navboxthree").hover(
-		function(){
-			$(this).removeClass().addClass("navboxthree_green");
-			$(".navboxone").removeClass().addClass("navboxone_grey");
-			$(".act_box").show("fast");
-			$(".body_box").hide("fast");
-		},
-		function(){
-			$(this).removeClass("navboxthree_green").addClass("navboxthree");
-			$(".navboxone_grey").removeClass().addClass("navboxone");
-		});
-	$(".act_box").hover(
-		function(){
-			$(".navboxthree").removeClass().addClass("navboxthree_green");
-			$(".navboxone").removeClass().addClass("navboxone_grey");
-			$(this).show("fast");
-			// $(".navboxone").removeClass().addClass("navboxone_grey");
-		},
-		function(){
-			$(".navboxthree_green").removeClass().addClass("navboxthree");
-			$(".navboxone_grey").removeClass().addClass("navboxone");
-			$(this).hide("fast");
-			// $(".navboxone").removeClass("navboxone_grey");
-		});
-	$(".navboxfour").hover(
-		function(){
-			$(this).removeClass().addClass("navboxfour_green");
-			$(".navboxone").removeClass().addClass("navboxone_grey");
-			$(".act_box").hide("fast");
-		},
-		function(){
-			$(this).removeClass("navboxfour_green").addClass("navboxfour");
-			$(".navboxone_grey").removeClass().addClass("navboxone");
-		});
-	$(".navboxfive").hover(
-		function(){
-			$(this).removeClass().addClass("navboxfive_green");
-			$(".navboxone").removeClass().addClass("navboxone_grey");
-		},
-		function(){
-			$(this).removeClass("navboxfive_green").addClass("navboxfive");
-			$(".navboxone_grey").removeClass().addClass("navboxone");
-		});
-    
+
     // 动态显示导航栏显示效果
-    $(".navboxone").bind("click",function(){
+    $(".navboxone_grey").bind("click",function(){
      	$("#user_basic_info").show("fast");
      	$("#user_heal_info").show("fast");
      	$("#user_aid_info").hide("fast");
@@ -147,6 +61,50 @@ $(function(){
         $("#act_cueve_head").hide("fast");
      	$("#act_cueve_bg").hide("fast");
         $("#heal_plan").hide("fast");
+        $("#heal_plan").hide("fast");
+        $(".navbox").show("fast");
+        $(".navbox2").hide("fast");
+        $(".navbox3").hide("fast");
+        $(".navbox4").hide("fast");
+        $(".navbox5").hide("fast");
+        $(".body_box").hide("fast");
+		$(".act_box").hide("fast");
+        });
+    $(".navboxtwo").bind("click",function(){
+        $(".navbox").hide("fast");
+        $(".navbox2").show("fast");
+        $(".navbox3").hide("fast");
+        $(".navbox4").hide("fast");
+        $(".navbox5").hide("fast");
+        $(".body_box").show("fast");
+        $(".act_box").hide("fast");
+        });
+    $(".navboxtwo_green").bind("click",function(){
+        $(".navbox").hide("fast");
+        $(".navbox2").show("fast");
+        $(".navbox3").hide("fast");
+        $(".navbox4").hide("fast");
+        $(".navbox5").hide("fast");
+        $(".body_box").show("fast");
+        $(".act_box").hide("fast");
+        });
+    $(".navboxthree").bind("click",function(){
+        $(".navbox").hide("fast");
+        $(".navbox2").hide("fast");
+        $(".navbox3").show("fast");
+        $(".navbox4").hide("fast");
+        $(".navbox5").hide("fast");
+        $(".body_box").hide("fast");
+        $(".act_box").show("fast");
+        });
+    $(".navboxthree_green").bind("click",function(){
+        $(".navbox").hide("fast");
+        $(".navbox2").hide("fast");
+        $(".navbox3").show("fast");
+        $(".navbox4").hide("fast");
+        $(".navbox5").hide("fast");
+        $(".body_box").hide("fast");
+        $(".act_box").show("fast");
         });
     $(".show_table").bind("click",function(){
      	$("#body_table_head").show("fast");
@@ -161,6 +119,32 @@ $(function(){
         $("#act_cueve_head").hide("fast");
      	$("#act_cueve_bg").hide("fast");
         $("#heal_plan").hide("fast");
+        $("#heal_plan").hide("fast");
+        $(".navbox").hide("fast");
+        $(".navbox2").show("fast");
+        $(".navbox3").hide("fast");
+        $(".navbox4").hide("fast");
+        $(".navbox5").hide("fast");
+        $(".body_box").hide("fast");
+        var myDate = new Date();
+        var myyear = myDate.getFullYear(); 
+        var mymonth = (myDate.getMonth()+1);
+        $.ajax(
+	    {
+            url: "/BasicInfo/getHealthIndicatorByDate",
+	        data:{
+				"myYear": myyear,
+                "myMonth" : mymonth
+	            },
+	        type: "GET",
+	        dataType: "json",
+	        contentType: "application/json",
+	        success: function (data) 
+	        {
+	        	alert(data);
+	        },
+	               
+	    });
         });
     $(".show_curve").bind("click",function(){
      	$("#body_curve_head").show("fast");
@@ -175,6 +159,12 @@ $(function(){
         $("#act_cueve_head").hide("fast");
      	$("#act_cueve_bg").hide("fast");
         $("#heal_plan").hide("fast");
+        $(".navbox").hide("fast");
+        $(".navbox2").show("fast");
+        $(".navbox3").hide("fast");
+        $(".navbox4").hide("fast");
+        $(".navbox5").hide("fast");
+        $(".body_box").hide("fast");
         });
     $(".deta_info").bind("click",function(){
      	$("#data_info_head").show("fast");
@@ -189,6 +179,12 @@ $(function(){
         $("#act_cueve_head").hide("fast");
      	$("#act_cueve_bg").hide("fast");
         $("#heal_plan").hide("fast");
+        $(".navbox").hide("fast");
+        $(".navbox2").hide("fast");
+        $(".navbox3").show("fast");
+        $(".navbox4").hide("fast");
+        $(".navbox5").hide("fast");
+        $(".act_box").hide("fast");
         });
     $(".act_cueve").bind("click",function(){
      	$("#act_cueve_head").show("fast");
@@ -203,6 +199,12 @@ $(function(){
         $("#data_info_head").hide("fast");
      	$("#data_info_bg").hide("fast");   
         $("#heal_plan").hide("fast");
+        $(".navbox").hide("fast");
+        $(".navbox2").hide("fast");
+        $(".navbox3").show("fast");
+        $(".navbox4").hide("fast");
+        $(".navbox5").hide("fast");
+        $(".act_box").hide("fast");
         });
     $(".navboxfour").bind("click",function(){
      	$("#heal_plan").show("fast");
@@ -217,6 +219,13 @@ $(function(){
      	$("#data_info_bg").hide("fast");
         $("#act_cueve_head").hide("fast");
      	$("#act_cueve_bg").hide("fast");
+        $(".navbox").hide("fast");
+        $(".navbox2").hide("fast");
+        $(".navbox3").hide("fast");
+        $(".navbox4").show("fast");
+        $(".navbox5").hide("fast");
+        $(".body_box").hide("fast");
+		$(".act_box").hide("fast");
         });
     $(".navboxfive").bind("click",function(){
      	$("#user_aid_info").show("fast");
@@ -231,6 +240,13 @@ $(function(){
         $("#act_cueve_head").hide("fast");
      	$("#act_cueve_bg").hide("fast");
         $("#heal_plan").hide("fast");
+        $(".navbox").hide("fast");
+        $(".navbox2").hide("fast");
+        $(".navbox3").hide("fast");
+        $(".navbox4").hide("fast");
+        $(".navbox5").show("fast");
+        $(".body_box").hide("fast");
+		$(".act_box").hide("fast");
         });
    //点击日期开始变换输入框背景样式
    $(".start_date").click(function(){
@@ -240,7 +256,7 @@ $(function(){
 		$(this).removeClass().addClass("date_bg2");
         });
     //点击搜索按钮向服务器请求符合日期内的急救事件
-    $("#search").click(function(){
+   $("#search").click(function(){
         var begin_time = $("#datetimepicker1").val();
         var end_time = $("#datetimepicker2").val();
         $.ajax(
@@ -256,12 +272,58 @@ $(function(){
 	        contentType: "application/json",
 	        success: function (data) 
 	        {
-                for(var i = 0; i < data.length; i++)
-                {
-                    var date = eval('new ' + eval(data[i].EmergencyDate).source); 
-                    alert(date);
-                }
-	        }
+	        	alert(data);
+	        },
+	               
 	    });
     });
+//    身体指标按钮样式转化
+   $("#blood_premon_btns input").bind("click",function(){
+        $("#blood_premon_btns input").hide("fast");
+        $("#blood_premon_btn input").show("fast");
+     	$("#blood_nextmon_btnb input").hide("fast");
+     	$("#blood_nextmon_btn input").show("fast");
+   });
+   $("#blood_nextmon_btn input").bind("click",function(){
+        $("#blood_premon_btns input").show("fast");
+        $("#blood_premon_btn input").hide("fast");
+     	$("#blood_nextmon_btnb input").show("fast");
+     	$("#blood_nextmon_btn input").hide("fast");
+   });
+   $("#boom_premon_btns input").bind("click",function(){
+        $("#boom_premon_btns input").hide("fast");
+        $("#boom_premon_btn input").show("fast");
+     	$("#boom_nextmon_btnb input").hide("fast");
+     	$("#boom_nextmon_btn input").show("fast");
+   });
+   $("#boom_nextmon_btn input").bind("click",function(){
+        $("#boom_premon_btns input").show("fast");
+        $("#boom_premon_btn input").hide("fast");
+     	$("#boom_nextmon_btnb input").show("fast");
+     	$("#boom_nextmon_btn input").hide("fast");
+   });
+   $("#suger_premonth_btns input").bind("click",function(){
+        $("#suger_premonth_btns input").hide("fast");
+        $("#suger_premonth_btn input").show("fast");
+     	$("#suger_nextmon_btn input").show("fast");
+     	$("#suger_nextmon_btnb input").hide("fast");
+   });
+   $("#suger_nextmon_btn input").bind("click",function(){
+        $("#suger_premonth_btns input").show("fast");
+        $("#suger_premonth_btn input").hide("fast");
+     	$("#suger_nextmon_btnb input").show("fast");
+     	$("#suger_nextmon_btn input").hide("fast");
+   });
+   $("#tem_premon_btns input").bind("click",function(){
+        $("#tem_premon_btns input").hide("fast");
+        $("#tem_premon_btn input").show("fast");
+     	$("#tem_nextmon_btn input").show("fast");
+     	$("#tem_nextmon_btnb input").hide("fast");
+   });
+   $("#tem_nextmon_btn input").bind("click",function(){
+        $("#tem_premon_btns input").show("fast");
+        $("#tem_premon_btn input").hide("fast");
+     	$("#tem_nextmon_btnb input").show("fast");
+     	$("#tem_nextmon_btn input").hide("fast");
+   });
 });

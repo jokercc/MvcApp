@@ -33,7 +33,8 @@ namespace MvcApp.Models.Service
                     {
                         ID_User = list[i].ID_User,
                         BloodGlucose = list[i].BloodGlucose,
-                        BloodPressure = list[i].BloodPressure,
+                        SystolicPressure = list[i].SystolicPressure,
+                        DiastolicPressure = list[i].DiastolicPressure,
                         Duration = list[i].Duration,
                         Calorie = list[i].Calorie,
                         Distance = list[i].Distance,

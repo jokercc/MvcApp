@@ -162,7 +162,6 @@
     </Key>
     <Property Type="Int64" Name="ID_HealthIndica" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Type="Int64" Name="ID_User" Nullable="false" />
-    <Property Type="Int16" Name="BloodPressure" Nullable="false" />
     <Property Type="Int16" Name="BloodGlucose" Nullable="false" />
     <Property Type="Int16" Name="Duration" Nullable="false" />
     <Property Type="Int16" Name="Calorie" Nullable="false" />
@@ -170,6 +169,8 @@
     <Property Type="Int16" Name="HeartBeat" Nullable="false" />
     <Property Type="DateTime" Name="Date" Nullable="false" />
     <NavigationProperty Name="BasicInfo" Relationship="ProModel.FK_HealthIndicator_BasicInfo" FromRole="HealthIndicator" ToRole="BasicInfo" />
+    <Property Type="Int16" Name="SystolicPressure" Nullable="false" />
+    <Property Type="Int16" Name="DiastolicPressure" Nullable="false" />
   </EntityType>
   <Association Name="FK_HealthIndicator_BasicInfo">
     <End Type="ProModel.BasicInfo" Role="BasicInfo" Multiplicity="1" />

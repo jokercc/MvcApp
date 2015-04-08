@@ -68,7 +68,8 @@
     </Key>
     <Property Name="ID_HealthIndica" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
     <Property Name="ID_User" Type="bigint" Nullable="false" />
-    <Property Name="BloodPressure" Type="smallint" Nullable="false" />
+    <Property Name="SystolicPressure" Type="smallint" Nullable="false" />
+    <Property Name="DiastolicPressure" Type="smallint" Nullable="false" />
     <Property Name="BloodGlucose" Type="smallint" Nullable="false" />
     <Property Name="Duration" Type="smallint" Nullable="false" />
     <Property Name="Calorie" Type="smallint" Nullable="false" />
