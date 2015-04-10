@@ -69,15 +69,16 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\AvatarController.cs" />
     <Compile Include="Controllers\BasicInfoController.cs" />
-    <Compile Include="Controllers\EmergencyInfoController.cs" />
-    <Compile Include="Controllers\HealthPlanController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManagerController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helper\ImgHandler.cs" />
     <Compile Include="Helper\JsonHelper.cs" />
+    <Compile Include="Helper\StreamHelper.cs" />
     <Compile Include="Models\Interfaces\IBasicInfoService.cs" />
     <Compile Include="Models\Interfaces\IEmergencyInfoService.cs" />
     <Compile Include="Models\Interfaces\IHealthIndicatorService.cs" />
@@ -102,6 +103,43 @@
     <Compile Include="Models\Service\LocationService.cs" />
     <Compile Include="Models\Service\ManagerService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Content Include="Content\bootstrap-responsive.min.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\crop.min.css" />
+    <Content Include="Content\fineuploader.css" />
+    <Content Include="Content\images\1014520776.jpg" />
+    <Content Include="Content\images\1014522530.jpg" />
+    <Content Include="Content\images\1014524940.jpg" />
+    <Content Include="Content\images\1014534955.jpg" />
+    <Content Include="Content\images\1014544669.jpg" />
+    <Content Include="Content\images\1014555680.jpg" />
+    <Content Include="Content\images\1015013864.jpg" />
+    <Content Include="Content\images\1015015290.jpg" />
+    <Content Include="Content\images\1015035022.jpg" />
+    <Content Include="Content\images\1015052022.jpg" />
+    <Content Include="Content\images\1015070547.jpg" />
+    <Content Include="Content\images\1015070547_new.jpg" />
+    <Content Include="Content\images\1015092101.jpg" />
+    <Content Include="Content\images\1015092101_new.jpg" />
+    <Content Include="Content\images\1015095795.jpg" />
+    <Content Include="Content\images\1015095795_new.jpg" />
+    <Content Include="Content\images\1015355745.jpg" />
+    <Content Include="Content\images\1015355745_new.jpg" />
+    <Content Include="Content\images\1015355746.jpg" />
+    <Content Include="Content\images\1015355746_new.jpg" />
+    <Content Include="Content\images\1016153984.png" />
+    <Content Include="Content\images\1016153984_new.png" />
+    <Content Include="Content\images\1016190374.jpg" />
+    <Content Include="Content\images\1016190374_new.jpg" />
+    <Content Include="Content\images\1016192683.jpg" />
+    <Content Include="Content\images\1016192683_new.jpg" />
+    <Content Include="Content\images\1016205494.jpg" />
+    <Content Include="Content\images\1016205494_new.jpg" />
+    <Content Include="Content\images\1016223683.jpg" />
+    <Content Include="Content\images\1016223683_new.jpg" />
+    <Content Include="Content\images\glyphicons-halflings-white.png" />
+    <Content Include="Content\Jcrop.gif" />
+    <Content Include="Content\jquery.Jcrop.min.css" />
     <Content Include="Scripts\BasicInfo.js" />
   </ItemGroup>
   <ItemGroup>
@@ -122,7 +160,13 @@
     <Content Include="images\养老手环-02.jpg" />
     <Content Include="images\养老手环-03.png" />
     <Content Include="images\养老手环-04.png" />
+    <Content Include="Scripts\crop.js" />
+    <Content Include="Scripts\jquery-1.7.1.min.js" />
+    <Content Include="Scripts\jquery.fineuploader-3.1.min.js" />
+    <Content Include="Scripts\jquery.form.min.js" />
+    <Content Include="Scripts\jquery.Jcrop.min.js" />
     <Content Include="Scripts\userIf.js" />
+    <Content Include="Views\Avatar\Index.aspx" />
     <Content Include="Views\Home\Index.aspx" />
     <Content Include="Views\Home\Manager.aspx" />
     <Content Include="Views\Home\BasicInfo.aspx" />

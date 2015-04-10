@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.IO;
 using MvcApp.Models;
 
 namespace MvcApp.Controllers
@@ -28,5 +29,13 @@ namespace MvcApp.Controllers
             ViewData["manName"] = manName;
             return View();
         }
+
+        public ActionResult Avatar()
+        {
+            return View();
+        }
+
+
+
     }
 }
