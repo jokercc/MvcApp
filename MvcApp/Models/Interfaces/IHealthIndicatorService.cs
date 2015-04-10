@@ -8,6 +8,6 @@ namespace MvcApp.Models.Interfaces
 {
     public interface IHealthIndicatorService
     {
-        List<MyHealthIndicator> getHealthIndicatorByDate(DateTime date);
+        List<MyHealthIndicator> getHealthIndicatorByDate(DateTime date, int id);
     }
 }

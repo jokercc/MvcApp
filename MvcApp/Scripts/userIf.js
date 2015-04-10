@@ -158,7 +158,8 @@ $(function(){
             
             data:{
 				"myYear": myyear,
-                "myMonth" : mymonth
+                "myMonth" : mymonth,
+                "id": userId
 	        },
 	        type: "GET",
 	        dataType: "json",
@@ -366,7 +367,7 @@ $(function(){
 	        	for (var i = 0; i < data.length; i++) {
                         var date =  utcToDate(eval('new ' + eval(data[i].EmergencyDate).source));
                         var tr1 = '<input type="button" class="aidvalue" name="'+i+'" value ="' + date + data[i].Location + '"  />';
-                        $(".aid_key").append(tr1);
+                        $(".aid_key").append(tr1 + "<br>");
                         }
                 $(".aidvalue").click(function(){
                    var index = $(this).attr('name');

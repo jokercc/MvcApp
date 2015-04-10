@@ -17,7 +17,7 @@ namespace MvcApp.Models.Service
             proEn = new ProEntities();
         }
 
-        public List<MyHealthIndicator> getHealthIndicatorByDate(DateTime date)
+        public List<MyHealthIndicator> getHealthIndicatorByDate(DateTime date, int id)
         {
             //使用实体关系model取出数据库中的数据
             List<HealthIndicator> list = new List<HealthIndicator>();
@@ -27,7 +27,7 @@ namespace MvcApp.Models.Service
             //遍历list获取符合要求的healthIndicator 添加到myList
             for (int i = 0; i < list.Count; i++)
             {
-                if (date.Month == list[i].Date.Month)
+                if (date.Month == list[i].Date.Month && id == list[i].ID_User)
                 {
                     MyHealthIndicator heal = new MyHealthIndicator
                     {
