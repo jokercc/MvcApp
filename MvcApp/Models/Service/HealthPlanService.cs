@@ -38,10 +38,23 @@ namespace MvcApp.Models.Service
             proEn.SaveChanges();
         }
 
-        public List<HealthPlan> getByUser(BasicInfo user)
+        public List<MyHealthPlan> getByUser(BasicInfo user)
         {
             List<HealthPlan> healthPlans = proEn.HealthPlan.ToList().FindAll(m=>m.ID_User == user.ID_User);
-            return healthPlans;
+            List<MyHealthPlan> myHealthPlans = new List<MyHealthPlan>();
+            for (int i = 0; i < healthPlans.Count; i++)
+            {
+                MyHealthPlan h = new MyHealthPlan
+                {
+                    ID_Plan = healthPlans[i].ID_Plan,
+                    ID_User = healthPlans[i].ID_User,
+                    Movement = healthPlans[i].Movement,
+                    Recipes = healthPlans[i].Recipes,
+                    Schedule = healthPlans[i].Schedule,
+                };
+                myHealthPlans.Add(h);
+            }
+            return myHealthPlans;
         }
 
         public void deleteByUserId(int id)

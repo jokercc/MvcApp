@@ -16,7 +16,7 @@ namespace MvcApp.Models.Interfaces
 
         MyHealthPlan getHealthPlanById(int id);
 
-        List<HealthPlan> getByUser(BasicInfo user);
+        List<MyHealthPlan> getByUser(BasicInfo user);
 
         void deleteByUserId(int id);
     }

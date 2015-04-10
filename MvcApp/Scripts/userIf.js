@@ -1,4 +1,24 @@
 $(function(){
+    function utcToDate(utcCurrTime) {
+            utcCurrTime = utcCurrTime + "";
+            var date = "";
+            var month = new Array();
+            month["Jan"] = 1;
+            month["Feb"] = 2;
+            month["Mar"] = 3;
+            month["Apr"] = 4;
+            month["May"] = 5;
+            month["Jun"] = 6;
+            month["Jul"] = 7;
+            month["Aug"] = 8;
+            month["Sep"] = 9;
+            month["Oct"] = 10;
+            month["Nov"] = 11;
+            month["Dec"] = 12;
+            str = utcCurrTime.split(" ");
+            date =  month[str[1]] + "-" + str[2] + "-" + str[3];
+            return date;
+                    }
     // 运用ajax方法像服务器请求数据
     var user = $("#get_username").val();
     var userId;
@@ -129,19 +149,66 @@ $(function(){
         var myDate = new Date();
         var myyear = myDate.getFullYear(); 
         var mymonth = (myDate.getMonth()+1);
+        var tbody = $("#body_table_bg").find("table");
+        tbody.empty();
         $.ajax(
 	    {
             url: "/BasicInfo/getHealthIndicatorByDate",
-	        data:{
+	        //url:"/BasicInfo/testGetHealthIndicator",
+            
+            data:{
 				"myYear": myyear,
                 "myMonth" : mymonth
-	            },
+	        },
 	        type: "GET",
 	        dataType: "json",
 	        contentType: "application/json",
 	        success: function (data) 
-	        {
-	        	alert(data);
+	        {   
+                for (var i = 0; i < data.length; i++) {
+                        var date =  utcToDate(eval('new ' + eval(data[i].Date).source));
+                        if(i%2==0){
+                            var tr1 = '<table class="table_style3"><tr><td class="pre_bggrey_left">' +date+ '</td><td class="pre_bggrey_mid">' + data[i].SystolicPressure + '</td><td class="pre_bggrey_right">' + data[i].DiastolicPressure + '</td></tr></table>';
+                            var tr2 = '<table class="table_style4"><tr><td class="boom_bggrey_left">' +date+  '</td><td class="boom_bggrey_right">' + data[i].HeartBeat + '</td></tr></table>';
+                            var tr3 = '<table class="table_style5"><tr><td class="suger_bggrey_left">' +date+  '</td><td class="suger_bggrey_right">' + data[i].BloodGlucose + '</td></tr></table>';
+                            var tr4 = '<table class="table_style6"><tr><td class="tem_bggrey_left">' +date+  '</td><td class="tem_bggrey_right">' + data[i].Calorie + '</td></tr></table>';
+                            $("#blood_pre_data").append(tr1);
+                            $("#boom_data_bg").append(tr2);
+                            $("#suger_data_bg").append(tr3);
+                            $("#tem_data_bg").append(tr4);
+                            }else{
+                                var tr1 = '<table class="table_style3"><tr><td class="pre_bgwhite_left">' +date+ '</td><td class="pre_bgwhite_mid">' + data[i].SystolicPressure + '</td><td class="pre_bgwhite_right">' + data[i].DiastolicPressure + '</td></tr></table>';
+                                var tr2 = '<table class="table_style4"><tr><td class="boom_bgwhite_left">' +date+  '</td><td class="boom_bgwhite_right">' + data[i].HeartBeat + '</td></tr></table>';
+                                var tr3 = '<table class="table_style5"><tr><td class="suger_bgwhite_left">' +date+  '</td><td class="suger_bgwhite_right">' + data[i].BloodGlucose + '</td></tr></table>';
+                                var tr4 = '<table class="table_style6"><tr><td class="tem_bgwhite_left">' +date+  '</td><td class="tem_bgwhite_right">' + data[i].Calorie + '</td></tr></table>';
+                                $("#blood_pre_data").append(tr1);
+                                $("#boom_data_bg").append(tr2);
+                                $("#suger_data_bg").append(tr3);
+                                $("#tem_data_bg").append(tr4);
+                            }
+                }
+                var forward = i;
+                for (forward; forward < 31; forward++) {
+                        if(forward%2==0){
+                            var tr1 = '<table class="table_style3"><tr><td class="pre_bggrey_left">' +"&nbsp;"+ '</td><td class="pre_bggrey_mid">' + "&nbsp;"+ '</td><td class="pre_bggrey_right">' + "&nbsp;" + '</td></tr></table>';
+                            var tr2 = '<table class="table_style4"><tr><td class="boom_bggrey_left">' +"&nbsp;"+  '</td><td class="boom_bggrey_right">' + "&nbsp;" + '</td></tr></table>';
+                            var tr3 = '<table class="table_style5"><tr><td class="suger_bggrey_left">' +"&nbsp;"+  '</td><td class="suger_bggrey_right">' + "&nbsp;" + '</td></tr></table>';
+                            var tr4 = '<table class="table_style6"><tr><td class="tem_bggrey_left">' +"&nbsp;"+  '</td><td class="tem_bggrey_right">' + "&nbsp;" + '</td></tr></table>';
+                            $("#blood_pre_data").append(tr1);
+                            $("#boom_data_bg").append(tr2);
+                            $("#suger_data_bg").append(tr3);
+                            $("#tem_data_bg").append(tr4);
+                            }else{
+                                var tr1 = '<table class="table_style3"><tr><td class="pre_bgwhite_left">' +"&nbsp;"+ '</td><td class="pre_bgwhite_mid">' + "&nbsp;" + '</td><td class="pre_bgwhite_right">' + "&nbsp;" + '</td></tr></table>';
+                                var tr2 = '<table class="table_style4"><tr><td class="boom_bgwhite_left">' +"&nbsp;"+  '</td><td class="boom_bgwhite_right">' + "&nbsp;" + '</td></tr></table>';
+                                var tr3 = '<table class="table_style5"><tr><td class="suger_bgwhite_left">' +"&nbsp;"+  '</td><td class="suger_bgwhite_right">' + "&nbsp;" + '</td></tr></table>';
+                                var tr4 = '<table class="table_style6"><tr><td class="tem_bgwhite_left">' +"&nbsp;"+  '</td><td class="tem_bgwhite_right">' + "&nbsp;" + '</td></tr></table>';
+                                $("#blood_pre_data").append(tr1);
+                                $("#boom_data_bg").append(tr2);
+                                $("#suger_data_bg").append(tr3);
+                                $("#tem_data_bg").append(tr4);
+                            }
+                }
 	        },
 	               
 	    });
@@ -226,6 +293,28 @@ $(function(){
         $(".navbox5").hide("fast");
         $(".body_box").hide("fast");
 		$(".act_box").hide("fast");
+        $.ajax(
+	    {
+	    	url: "/BasicInfo/getHealthPlanByUserId",
+	        data:{
+				"id": userId 
+	            },
+	        type: "GET",
+	        dataType: "json",
+	        contentType: "application/json",
+	        success: function (data) 
+	        {
+                
+	        	var eat = data[0].Recipes;
+	        	var pe = data[0].Movement;
+	        	var sleep = data[0].Schedule;
+
+	        	$(".eat_palan p").html(eat);
+	        	$(".pe_plan p").html(pe);
+	        	$(".sleep_plan p").html(sleep);
+	        },
+	               
+	    });
         });
     $(".navboxfive").bind("click",function(){
      	$("#user_aid_info").show("fast");
@@ -257,12 +346,14 @@ $(function(){
         });
     //点击搜索按钮向服务器请求符合日期内的急救事件
    $("#search").click(function(){
+        $(".aid_key").empty();
         var begin_time = $("#datetimepicker1").val();
         var end_time = $("#datetimepicker2").val();
         $.ajax(
 	    {
             url: "/BasicInfo/searchForEmergencyInfo",
-	        data:{
+	        //url: "/EmergencyInfo/test",
+            data:{
 				"userId": userId,
                 "bTime" : begin_time,
                 "eTime" : end_time    
@@ -272,9 +363,24 @@ $(function(){
 	        contentType: "application/json",
 	        success: function (data) 
 	        {
-	        	alert(data);
-	        },
-	               
+	        	for (var i = 0; i < data.length; i++) {
+                        var date =  utcToDate(eval('new ' + eval(data[i].EmergencyDate).source));
+                        var tr1 = '<input type="button" class="aidvalue" name="'+i+'" value ="' + date + data[i].Location + '"  />';
+                        $(".aid_key").append(tr1);
+                        }
+                $(".aidvalue").click(function(){
+                   var index = $(this).attr('name');
+                   var date =  utcToDate(eval('new ' + eval(data[index].EmergencyDate).source));
+                   $(".aid_ads p").html(data[index].Location);
+                   $(".aid_doc p").html(data[index].Advice);
+                   $(".aid_diag p").html(data[index].MedicalResult);
+                   $(".aid_time p").html(date);
+                   $(".aid_ast p").html(data[index].Staff);
+                   $(".aid_ana p").html(data[index].IllnessAnalyses);
+                   
+               });
+                    
+               },
 	    });
     });
 //    身体指标按钮样式转化

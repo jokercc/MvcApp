@@ -99,7 +99,7 @@ namespace MvcApp.Controllers
         public ActionResult getHealthPlanByUserId(int id) //获取用户健康计划
         {
             BasicInfo test = basicInfoService.getUserById(id);
-            List<HealthPlan> healthPlans = healthPlanService.getByUser(test);
+            List<MyHealthPlan> healthPlans = healthPlanService.getByUser(test);
             return Json(healthPlans, JsonRequestBehavior.AllowGet);
         }
 

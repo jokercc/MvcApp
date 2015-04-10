@@ -664,6 +664,12 @@ em{
 	z-index:1;
 	overflow: scroll
 }
+.aid_key input
+{
+    font-family: "STHEITI-LIGHT";
+    font-size: 20px;
+    background: white;
+    }
 #aid_result{
 	position: absolute;
 	display:block;
@@ -795,19 +801,19 @@ em{
 	bottom: 10px;
 }
 #pre_date {
-	left: 0%;
+	left: 8%;
 	color: #686868;
 	text-decoration: none;
  	padding-bottom: 6px;
 }
 #down_pre {
-	left: 30%;
+	left: 38%;
 	color: #686868;
 	text-decoration: none;
  	padding-bottom: 6px;
 }
 #up_pre {
-	left: 66%;
+	left: 69%;
 	color: #686868;
 	text-decoration: none;
  	padding-bottom: 6px;
@@ -821,64 +827,66 @@ em{
 	width: 240px;
 	height:323px;
 	z-index:3;
-	background: #CCD4E0;
+	background: white;
 	border:none;
 	overflow-y: scroll;
 }
 #blood_pre_data .table_style3 table{
 	font-family: "STHEITI-LIGHT";
+	border:1px solid red;
 	border:none;
+	padding-top: -1px;
+	margin-top: -1px;
 	/*background-color: #CCD4E0;*/
 }
-.blood_pre_title{
-	background: none;
-    border-bottom: none;
-    height: 0px;
-    width: 240px;
-}
+
 .pre_bgwhite_left
 {
 	background-color: #FFFFFF;
 	color:#9E9FA1;
     border:none;
+    padding:none;
+    margin-top: -1px;
     height: 44px;
-    width: 30%;
+    width: 100px;
+    text-align: center; 
 }
 .pre_bggrey_left{
 	background-color: #EBEEF2;
 	color:#9E9FA1;
-    border:none;
     height: 44px;
-    width: 30%;
+    width: 100px;
+    text-align: center;
+   /*font-size:10px;*/
 }
 
 .pre_bgwhite_mid{
 	background-color: #FFFFFF;
 	color:#9E9FA1;
-    border:none;
     height: 44px;
-    width: 35%;
+    width: 70px;
+    text-align: center;
 }
 .pre_bggrey_mid{
 	background-color: #EBEEF2;
 	color:#9E9FA1;
-    border:none;
     height: 44px;
-    width: 35%;
+    width: 70px;
+    text-align: center;
 }
 .pre_bgwhite_right{
 	background-color: #FFFFFF;
 	color:#9E9FA1;
-    border:none;
     height: 44px;
-    width: 35%;
+    width: 70px;
+    text-align: center;
 }
 .pre_bggrey_right{
 	background-color: #EBEEF2;
 	color:#9E9FA1;
-    border:none;
     height: 44px;
-    width: 35%;
+    width: 70px;
+    text-align: center;
 }
 .heart_boom_bg
 {
@@ -912,13 +920,13 @@ em{
 	bottom: 10px;
 }
 #heart_date {
-	left: 0%;
+	left: 10%;
 	color: #686868;
 	text-decoration: none;
  	padding-bottom: -5px;
 }
 #boom_data {
-	left: 50%;
+	left: 55%;
 	color: #686868;
 	text-decoration: none;
  	padding-bottom: 0px;
@@ -932,7 +940,7 @@ em{
 	width: 170px;
 	height:323px;
 	z-index:3;
-	background: #CCD4E0;
+	background: white;
 	overflow-y: scroll;
 }
 #boom_data_bg .table_style4 table{
@@ -940,40 +948,38 @@ em{
 	border-bottom: none;
 	/*background-color: #CCD4E0;*/
 }
-.boom_title{
-	background: none;
-    border-bottom: none;
-    height: 0px;
-    width: 170px;
-}
 .boom_bgwhite_left
 {
 	background-color: #FFFFFF;
 	color:#9E9FA1;
     border-bottom: none;
     height: 44px;
-    width: 50%;
+    width: 100px;
+    text-align: center;
 }
 .boom_bggrey_left{
 	background-color: #EBEEF2;
 	color:#9E9FA1;
     border-bottom: none;
     height: 44px;
-    width: 50%;
+    width: 100px;
+    text-align: center;
 }
 .boom_bgwhite_right{
 	background-color: #FFFFFF;
 	color:#9E9FA1;
     border-bottom: none;
     height: 44px;
-    width: 50%;
+    width: 70px;
+    text-align: center;
 }
 .boom_bggrey_right{
 	background-color: #EBEEF2;
 	color:#9E9FA1;
     border-bottom: none;
     height: 44px;
-    width: 50%;
+    width: 70px;
+    text-align: center;
 }
 .blood_suger_bg
 {
@@ -1007,13 +1013,13 @@ em{
 	bottom: 10px;
 }
 #suger_date {
-	left: 0%;
+	left: 10%;
 	color: #686868;
 	text-decoration: none;
  	padding-bottom: -5px;
 }
 #suger_data {
-	left: 50%;
+	left: 55%;
 	color: #686868;
 	text-decoration: none;
  	padding-bottom: 0px;
@@ -1027,7 +1033,7 @@ em{
 	width: 170px;
 	height:323px;
 	z-index:3;
-	background: #CCD4E0;
+	background: white;
 	overflow-y: scroll
 }
 #suger_data_bg .table_style5 table{
@@ -1035,40 +1041,39 @@ em{
 	border-bottom: none;
 	/*background-color: #CCD4E0;*/
 }
-.suger_title{
-	background: none;
-    border-bottom: none;
-    height: 0px;
-    width: 170px;
-}
+
 .suger_bgwhite_left
 {
 	background-color: #FFFFFF;
 	color:#9E9FA1;
     border-bottom: none;
     height: 44px;
-    width: 50%;
+    width: 100px;
+    text-align: center;
 }
 .suger_bggrey_left{
 	background-color: #EBEEF2;
 	color:#9E9FA1;
     border-bottom: none;
     height: 44px;
-    width: 50%;
+    width: 100px;
+    text-align: center;
 }
 .suger_bgwhite_right{
 	background-color: #FFFFFF;
 	color:#9E9FA1;
     border-bottom: none;
     height: 44px;
-    width: 50%;
+    width: 70px;
+    text-align: center;
 }
 .suger_bggrey_right{
 	background-color: #EBEEF2;
 	color:#9E9FA1;
     border-bottom: none;
     height: 44px;
-    width: 50%;
+    width: 70px;
+    text-align: center;
 }
 .blood_tem_bg
 {
@@ -1102,13 +1107,13 @@ em{
 	bottom: 10px;
 }
 #tem_date {
-	left: 0%;
+	left: 10%;
 	color: #686868;
 	text-decoration: none;
  	padding-bottom: -5px;
 }
 #tem_data {
-	left: 50%;
+	left: 55%;
 	color: #686868;
 	text-decoration: none;
  	padding-bottom: 0px;
@@ -1122,7 +1127,7 @@ em{
 	width: 170px;
 	height:323px;
 	z-index:3;
-	background: #CCD4E0;
+	background: white;
 	overflow-y: scroll
 }
 #tem_data_bg .table_style6 table{
@@ -1130,40 +1135,39 @@ em{
 	border-bottom: none;
 	/*background-color: #CCD4E0;*/
 }
-.tem_title{
-	background: none;
-    border-bottom: none;
-    height: 0px;
-    width: 170px;
-}
+
 .tem_bgwhite_left
 {
 	background-color: #FFFFFF;
 	color:#9E9FA1;
     border-bottom: none;
     height: 44px;
-    width: 50%;
+    width: 100px;
+    text-align: center;
 }
 .tem_bggrey_left{
 	background-color: #EBEEF2;
 	color:#9E9FA1;
     border-bottom: none;
     height: 44px;
-    width: 50%;
+    width: 100px;
+    text-align: center;
 }
 .tem_bgwhite_right{
 	background-color: #FFFFFF;
 	color:#9E9FA1;
     border-bottom: none;
     height: 44px;
-    width: 50%;
+    width: 70px;
+    text-align: center;
 }
 .tem_bggrey_right{
 	background-color: #EBEEF2;
 	color:#9E9FA1;
     border-bottom: none;
     height: 44px;
-    width: 50%;
+    width: 70px;
+    text-align: center;
 }
 #blood_premon_btn input
 {
