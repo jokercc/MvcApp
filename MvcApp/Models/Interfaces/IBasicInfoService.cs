@@ -21,6 +21,6 @@ namespace MvcApp.Models.Interfaces
 
         MyBasicInfo getUserByUserName(string userName);
 
-        List<BasicInfo> getAllUsers();
+        Boolean changeUserFacePath(string userName, string path);
     }
 }

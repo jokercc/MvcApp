@@ -41,8 +41,6 @@ namespace MvcApp.Controllers
 
         public string addManager()
         {
-            Manager manager = Manager.CreateManager("cc", true, 22, "12333333333", "chengdu", true, "cc", "admin");
-            managerService.addManager(manager);
             return "addManager";
         }
 
@@ -54,8 +52,6 @@ namespace MvcApp.Controllers
 
         public string changeManager(int id)
         {
-            Manager managerToChange = Manager.CreateManager("cc", true, 22, "12333333333", "chengdu", true, "admin", "admin");
-            managerService.changeManager(id, managerToChange);
             return "changeManager";
         }
 

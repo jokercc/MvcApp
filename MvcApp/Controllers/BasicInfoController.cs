@@ -51,8 +51,6 @@ namespace MvcApp.Controllers
 
         public string addUser() //添加用户  
         {
-            BasicInfo basicInfo = BasicInfo.CreateBasicInfo(3, "caocan", 22, true, false, "12333333333", "qy", "none", "play", "test", "test");
-            basicInfoService.addUser(basicInfo);
             return "addUser";
         }
 
@@ -64,8 +62,6 @@ namespace MvcApp.Controllers
 
         public string changeUser(int id) //更改用户信息
         {
-            BasicInfo userToChange = BasicInfo.CreateBasicInfo(3, "hehe", 22, true, true, "13666666666", "chengdu", "none", "play", "test", "123456");
-            basicInfoService.changeUser(id, userToChange);
             return "changeUser";
         }
 
@@ -78,7 +74,6 @@ namespace MvcApp.Controllers
 
         public string getAllUsers() //获取所有用户
         {
-            List<BasicInfo> allUser = basicInfoService.getAllUsers();
             return "getAllUsers";
         }
 

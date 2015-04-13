@@ -4,6 +4,8 @@
     <EntitySetMapping Name="BasicInfo">
       <EntityTypeMapping TypeName="ProModel.BasicInfo">
         <MappingFragment StoreEntitySet="BasicInfo">
+          <ScalarProperty Name="faceBig" ColumnName="faceBig" />
+          <ScalarProperty Name="face100" ColumnName="face100" />
           <ScalarProperty Name="ID_User" ColumnName="ID_User" />
           <ScalarProperty Name="ID_Manager" ColumnName="ID_Manager" />
           <ScalarProperty Name="Name" ColumnName="Name" />
@@ -14,7 +16,6 @@
           <ScalarProperty Name="Address" ColumnName="Address" />
           <ScalarProperty Name="Children" ColumnName="Children" />
           <ScalarProperty Name="Hobby" ColumnName="Hobby" />
-          <ScalarProperty Name="Image" ColumnName="Image" />
           <ScalarProperty Name="UserName" ColumnName="UserName" />
           <ScalarProperty Name="UserPassword" ColumnName="UserPassword" />
           <ScalarProperty Name="BloodThreshold" ColumnName="BloodThreshold" />
@@ -62,6 +63,8 @@
     <EntitySetMapping Name="Manager">
       <EntityTypeMapping TypeName="ProModel.Manager">
         <MappingFragment StoreEntitySet="Manager">
+          <ScalarProperty Name="faceBig" ColumnName="faceBig" />
+          <ScalarProperty Name="face100" ColumnName="face100" />
           <ScalarProperty Name="ID_Manager" ColumnName="ID_Manager" />
           <ScalarProperty Name="Man_Name" ColumnName="Man_Name" />
           <ScalarProperty Name="Man_Sex" ColumnName="Man_Sex" />

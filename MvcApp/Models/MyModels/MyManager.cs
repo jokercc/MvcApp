@@ -17,5 +17,7 @@ namespace MvcApp.Models.MyModels
         public global::System.String ManPassword { get; set; }
         public global::System.Int16 GroupNum { get; set; }
         public global::System.String GroupPlan { get; set; }
+        public global::System.String face100 { get; set; }
+        public global::System.String faceBig { get; set; }
     }
 }

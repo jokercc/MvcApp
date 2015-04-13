@@ -47,9 +47,10 @@
           <Property Name="Address" Type="varchar" Nullable="false" MaxLength="50" />
           <Property Name="Children" Type="varchar" Nullable="false" MaxLength="50" />
           <Property Name="Hobby" Type="varchar" Nullable="false" MaxLength="50" />
-          <Property Name="Image" Type="image" />
           <Property Name="UserName" Type="varchar" Nullable="false" MaxLength="20" />
           <Property Name="UserPassword" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="face100" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="faceBig" Type="varchar" MaxLength="50" />
           <Property Name="BloodThreshold" Type="smallint" />
           <Property Name="GlucoseThreshold" Type="smallint" />
           <Property Name="TempThreshold" Type="smallint" />
@@ -115,6 +116,8 @@
           <Property Name="SysManIdentify" Type="bit" Nullable="false" />
           <Property Name="ManName" Type="varchar" Nullable="false" MaxLength="20" />
           <Property Name="ManPassword" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="face100" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="faceBig" Type="varchar" MaxLength="50" />
           <Property Name="GroupNum" Type="smallint" />
           <Property Name="GroupPlan" Type="varchar" MaxLength="1" />
           <Property Name="GroupPhoto" Type="image" />
@@ -225,7 +228,6 @@
           <Property Name="Address" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
           <Property Name="Children" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
           <Property Name="Hobby" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
-          <Property Name="Image" Type="Binary" MaxLength="Max" FixedLength="false" />
           <Property Name="UserName" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
           <Property Name="UserPassword" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
           <Property Name="BloodThreshold" Type="Int16" />
@@ -236,6 +238,8 @@
           <NavigationProperty Name="HealthPlan" Relationship="ProModel.FK_HealthPlan_BasicInfo" FromRole="BasicInfo" ToRole="HealthPlan" />
           <NavigationProperty Name="Location" Relationship="ProModel.FK_Location_BasicInfo" FromRole="BasicInfo" ToRole="Location" />
           <NavigationProperty Name="HealthIndicator" Relationship="ProModel.FK_HealthIndicator_BasicInfo" FromRole="BasicInfo" ToRole="HealthIndicator" />
+          <Property Type="String" Name="face100" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="faceBig" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="EmergencyInfo">
           <Key>
@@ -290,6 +294,8 @@
           <Property Name="GroupPlan" Type="String" MaxLength="1" Unicode="false" FixedLength="false" />
           <Property Name="GroupPhoto" Type="Binary" MaxLength="Max" FixedLength="false" />
           <NavigationProperty Name="BasicInfo" Relationship="ProModel.FK_BasicInfo_Manager" FromRole="Manager" ToRole="BasicInfo" />
+          <Property Type="String" Name="face100" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="faceBig" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
         <Association Name="FK_BasicInfo_Manager">
           <End Role="Manager" Type="ProModel.Manager" Multiplicity="1" />
@@ -376,6 +382,8 @@
           <EntitySetMapping Name="BasicInfo">
             <EntityTypeMapping TypeName="ProModel.BasicInfo">
               <MappingFragment StoreEntitySet="BasicInfo">
+                <ScalarProperty Name="faceBig" ColumnName="faceBig" />
+                <ScalarProperty Name="face100" ColumnName="face100" />
                 <ScalarProperty Name="ID_User" ColumnName="ID_User" />
                 <ScalarProperty Name="ID_Manager" ColumnName="ID_Manager" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -386,7 +394,6 @@
                 <ScalarProperty Name="Address" ColumnName="Address" />
                 <ScalarProperty Name="Children" ColumnName="Children" />
                 <ScalarProperty Name="Hobby" ColumnName="Hobby" />
-                <ScalarProperty Name="Image" ColumnName="Image" />
                 <ScalarProperty Name="UserName" ColumnName="UserName" />
                 <ScalarProperty Name="UserPassword" ColumnName="UserPassword" />
                 <ScalarProperty Name="BloodThreshold" ColumnName="BloodThreshold" />
@@ -434,6 +441,8 @@
           <EntitySetMapping Name="Manager">
             <EntityTypeMapping TypeName="ProModel.Manager">
               <MappingFragment StoreEntitySet="Manager">
+                <ScalarProperty Name="faceBig" ColumnName="faceBig" />
+                <ScalarProperty Name="face100" ColumnName="face100" />
                 <ScalarProperty Name="ID_Manager" ColumnName="ID_Manager" />
                 <ScalarProperty Name="Man_Name" ColumnName="Man_Name" />
                 <ScalarProperty Name="Man_Sex" ColumnName="Man_Sex" />
@@ -485,15 +494,15 @@
     </Options>
     <!-- Diagram content (shape and connector positions) -->
     <Diagrams>
-      <Diagram Name="Model1" ZoomLevel="95">
-        <EntityTypeShape EntityType="ProModel.BasicInfo" Width="1.5" PointX="3" PointY="1" Height="5.02634765625" IsExpanded="true" />
+      <Diagram Name="Model1" ZoomLevel="76">
+        <EntityTypeShape EntityType="ProModel.BasicInfo" Width="1.5" PointX="3" PointY="1" Height="5.2173673502604165" IsExpanded="true" />
         <EntityTypeShape EntityType="ProModel.EmergencyInfo" Width="1.5" PointX="5.375" PointY="0.5" Height="2.7341113281249996" IsExpanded="true" />
         <EntityTypeShape EntityType="ProModel.HealthPlan" Width="1.5" PointX="7.375" PointY="3.5" Height="2.1610522460937496" IsExpanded="true" />
         <EntityTypeShape EntityType="ProModel.Location" Width="1.5" PointX="5.375" PointY="5.25" Height="2.1610522460937496" IsExpanded="true" />
         <EntityTypeShape EntityType="ProModel.Manager" Width="1.5" PointX="0.75" PointY="1" Height="3.4981901041666656" IsExpanded="true" />
         <AssociationConnector Association="ProModel.FK_BasicInfo_Manager" ManuallyRouted="false">
-          <ConnectorPoint PointX="2.25" PointY="2.7490950520833328" />
-          <ConnectorPoint PointX="3" PointY="2.7490950520833328" />
+          <ConnectorPoint PointX="2.25" PointY="2.94011474609375" />
+          <ConnectorPoint PointX="3" PointY="2.94011474609375" />
         </AssociationConnector>
         <AssociationConnector Association="ProModel.FK_EmergencyInfo_BasicInfo" ManuallyRouted="false">
           <ConnectorPoint PointX="4.5" PointY="2.1170556640625" />
@@ -504,12 +513,12 @@
           <ConnectorPoint PointX="7.375" PointY="4.34375" />
         </AssociationConnector>
         <AssociationConnector Association="ProModel.FK_Location_BasicInfo" ManuallyRouted="false">
-          <ConnectorPoint PointX="4.5" PointY="5.638173828125" />
-          <ConnectorPoint PointX="5.375" PointY="5.638173828125" />
+          <ConnectorPoint PointX="4.5" PointY="5.7336836751302078" />
+          <ConnectorPoint PointX="5.375" PointY="5.7336836751302078" />
         </AssociationConnector>
         <EntityTypeShape EntityType="ProModel.HealthIndicator" Width="1.5" PointX="2.5" PointY="6.875" Height="3.1161507161458317" />
         <AssociationConnector Association="ProModel.FK_HealthIndicator_BasicInfo" >
-          <ConnectorPoint PointX="3.5" PointY="6.02634765625" />
+          <ConnectorPoint PointX="3.5" PointY="6.2173673502604165" />
           <ConnectorPoint PointX="3.5" PointY="6.875" />
         </AssociationConnector>
       </Diagram>

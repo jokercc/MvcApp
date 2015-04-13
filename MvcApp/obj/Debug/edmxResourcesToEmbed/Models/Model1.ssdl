@@ -42,9 +42,10 @@
     <Property Name="Address" Type="varchar" Nullable="false" MaxLength="50" />
     <Property Name="Children" Type="varchar" Nullable="false" MaxLength="50" />
     <Property Name="Hobby" Type="varchar" Nullable="false" MaxLength="50" />
-    <Property Name="Image" Type="image" />
     <Property Name="UserName" Type="varchar" Nullable="false" MaxLength="20" />
     <Property Name="UserPassword" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="face100" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="faceBig" Type="varchar" MaxLength="50" />
     <Property Name="BloodThreshold" Type="smallint" />
     <Property Name="GlucoseThreshold" Type="smallint" />
     <Property Name="TempThreshold" Type="smallint" />
@@ -110,6 +111,8 @@
     <Property Name="SysManIdentify" Type="bit" Nullable="false" />
     <Property Name="ManName" Type="varchar" Nullable="false" MaxLength="20" />
     <Property Name="ManPassword" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="face100" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="faceBig" Type="varchar" MaxLength="50" />
     <Property Name="GroupNum" Type="smallint" />
     <Property Name="GroupPlan" Type="varchar" MaxLength="1" />
     <Property Name="GroupPhoto" Type="image" />

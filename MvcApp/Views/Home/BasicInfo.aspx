@@ -407,6 +407,9 @@
         </div>
     </div>
     <input  id="get_username"  value="<%: ViewData["userName"]%>" />
+
+    <img src="/Content/BasicInfo/face100/<%: ViewData["userName"]%>" />
+
 </body>
 <script type = "text/javascript">
     $('#datetimepicker1').datetimepicker({

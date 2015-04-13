@@ -84,6 +84,7 @@ namespace MvcApp.Models.Service
                 Hobby = userSel.Hobby,
                 UserName = userSel.UserName,
                 UserPassword = "",
+                face100 = userSel.face100,
             };
             if (userSel.BloodThreshold == null)
             {
@@ -114,16 +115,17 @@ namespace MvcApp.Models.Service
             return user;
         }
 
-        public BasicInfo getUserById(int id)
+        public Boolean changeUserFacePath(string userName, string path)
+        {
+            var userSel = proEn.BasicInfo.First(m => m.UserName == userName);
+            userSel.face100 = path;
+            return true;
+        }
+
+        public BasicInfo getUserById(int id) //根据ID获取用户信息
         {
             var userSel = proEn.BasicInfo.First(m => m.ID_User == id);
             return userSel;
-        }
-
-        public List<BasicInfo> getAllUsers()
-        {
-            List<BasicInfo> userList = proEn.BasicInfo.ToList();
-            return userList;
         }
 
     }

@@ -30,54 +30,51 @@ using System.Xml.Serialization;
 namespace MvcApp.Models
 {
     #region 上下文
-
+    
     /// <summary>
     /// 没有元数据文档可用。
     /// </summary>
     public partial class ProEntities : ObjectContext
     {
         #region 构造函数
-
+    
         /// <summary>
         /// 请使用应用程序配置文件的“ProEntities”部分中的连接字符串初始化新 ProEntities 对象。
         /// </summary>
-        public ProEntities()
-            : base("name=ProEntities", "ProEntities")
+        public ProEntities() : base("name=ProEntities", "ProEntities")
         {
             this.ContextOptions.LazyLoadingEnabled = true;
             OnContextCreated();
         }
-
+    
         /// <summary>
         /// 初始化新的 ProEntities 对象。
         /// </summary>
-        public ProEntities(string connectionString)
-            : base(connectionString, "ProEntities")
+        public ProEntities(string connectionString) : base(connectionString, "ProEntities")
         {
             this.ContextOptions.LazyLoadingEnabled = true;
             OnContextCreated();
         }
-
+    
         /// <summary>
         /// 初始化新的 ProEntities 对象。
         /// </summary>
-        public ProEntities(EntityConnection connection)
-            : base(connection, "ProEntities")
+        public ProEntities(EntityConnection connection) : base(connection, "ProEntities")
         {
             this.ContextOptions.LazyLoadingEnabled = true;
             OnContextCreated();
         }
-
+    
         #endregion
-
+    
         #region 分部方法
-
+    
         partial void OnContextCreated();
-
+    
         #endregion
-
+    
         #region ObjectSet 属性
-
+    
         /// <summary>
         /// 没有元数据文档可用。
         /// </summary>
@@ -93,7 +90,7 @@ namespace MvcApp.Models
             }
         }
         private ObjectSet<BasicInfo> _BasicInfo;
-
+    
         /// <summary>
         /// 没有元数据文档可用。
         /// </summary>
@@ -109,7 +106,7 @@ namespace MvcApp.Models
             }
         }
         private ObjectSet<EmergencyInfo> _EmergencyInfo;
-
+    
         /// <summary>
         /// 没有元数据文档可用。
         /// </summary>
@@ -125,7 +122,7 @@ namespace MvcApp.Models
             }
         }
         private ObjectSet<HealthPlan> _HealthPlan;
-
+    
         /// <summary>
         /// 没有元数据文档可用。
         /// </summary>
@@ -141,7 +138,7 @@ namespace MvcApp.Models
             }
         }
         private ObjectSet<Location> _Location;
-
+    
         /// <summary>
         /// 没有元数据文档可用。
         /// </summary>
@@ -157,7 +154,7 @@ namespace MvcApp.Models
             }
         }
         private ObjectSet<Manager> _Manager;
-
+    
         /// <summary>
         /// 没有元数据文档可用。
         /// </summary>
@@ -177,7 +174,7 @@ namespace MvcApp.Models
         #endregion
 
         #region AddTo 方法
-
+    
         /// <summary>
         /// 用于向 BasicInfo EntitySet 添加新对象的方法，已弃用。请考虑改用关联的 ObjectSet&lt;T&gt; 属性的 .Add 方法。
         /// </summary>
@@ -185,7 +182,7 @@ namespace MvcApp.Models
         {
             base.AddObject("BasicInfo", basicInfo);
         }
-
+    
         /// <summary>
         /// 用于向 EmergencyInfo EntitySet 添加新对象的方法，已弃用。请考虑改用关联的 ObjectSet&lt;T&gt; 属性的 .Add 方法。
         /// </summary>
@@ -193,7 +190,7 @@ namespace MvcApp.Models
         {
             base.AddObject("EmergencyInfo", emergencyInfo);
         }
-
+    
         /// <summary>
         /// 用于向 HealthPlan EntitySet 添加新对象的方法，已弃用。请考虑改用关联的 ObjectSet&lt;T&gt; 属性的 .Add 方法。
         /// </summary>
@@ -201,7 +198,7 @@ namespace MvcApp.Models
         {
             base.AddObject("HealthPlan", healthPlan);
         }
-
+    
         /// <summary>
         /// 用于向 Location EntitySet 添加新对象的方法，已弃用。请考虑改用关联的 ObjectSet&lt;T&gt; 属性的 .Add 方法。
         /// </summary>
@@ -209,7 +206,7 @@ namespace MvcApp.Models
         {
             base.AddObject("Location", location);
         }
-
+    
         /// <summary>
         /// 用于向 Manager EntitySet 添加新对象的方法，已弃用。请考虑改用关联的 ObjectSet&lt;T&gt; 属性的 .Add 方法。
         /// </summary>
@@ -217,7 +214,7 @@ namespace MvcApp.Models
         {
             base.AddObject("Manager", manager);
         }
-
+    
         /// <summary>
         /// 用于向 HealthIndicator EntitySet 添加新对象的方法，已弃用。请考虑改用关联的 ObjectSet&lt;T&gt; 属性的 .Add 方法。
         /// </summary>
@@ -233,17 +230,17 @@ namespace MvcApp.Models
     #endregion
 
     #region 实体
-
+    
     /// <summary>
     /// 没有元数据文档可用。
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName = "ProModel", Name = "BasicInfo")]
+    [EdmEntityTypeAttribute(NamespaceName="ProModel", Name="BasicInfo")]
     [Serializable()]
-    [DataContractAttribute(IsReference = true)]
+    [DataContractAttribute(IsReference=true)]
     public partial class BasicInfo : EntityObject
     {
         #region 工厂方法
-
+    
         /// <summary>
         /// 创建新的 BasicInfo 对象。
         /// </summary>
@@ -259,7 +256,9 @@ namespace MvcApp.Models
         /// <param name="hobby">Hobby 属性的初始值。</param>
         /// <param name="userName">UserName 属性的初始值。</param>
         /// <param name="userPassword">UserPassword 属性的初始值。</param>
-        public static BasicInfo CreateBasicInfo(/*global::System.Int64 iD_User,*/ global::System.Int64 iD_Manager, global::System.String name, global::System.Int16 age, global::System.Boolean sex, global::System.Boolean marrige, global::System.String telNum, global::System.String address, global::System.String children, global::System.String hobby, global::System.String userName, global::System.String userPassword)
+        /// <param name="face100">face100 属性的初始值。</param>
+        /// <param name="faceBig">faceBig 属性的初始值。</param>
+        public static BasicInfo CreateBasicInfo(/*global::System.Int64 iD_User,*/ global::System.Int64 iD_Manager, global::System.String name, global::System.Int16 age, global::System.Boolean sex, global::System.Boolean marrige, global::System.String telNum, global::System.String address, global::System.String children, global::System.String hobby, global::System.String userName, global::System.String userPassword, global::System.String face100, global::System.String faceBig)
         {
             BasicInfo basicInfo = new BasicInfo();
             //basicInfo.ID_User = iD_User;
@@ -274,17 +273,19 @@ namespace MvcApp.Models
             basicInfo.Hobby = hobby;
             basicInfo.UserName = userName;
             basicInfo.UserPassword = userPassword;
+            basicInfo.face100 = face100;
+            basicInfo.faceBig = faceBig;
             return basicInfo;
         }
 
         #endregion
 
         #region 基元属性
-
+    
         /// <summary>
         /// 没有元数据文档可用。
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Int64 ID_User
         {
@@ -307,11 +308,11 @@ namespace MvcApp.Models
         private global::System.Int64 _ID_User;
         partial void OnID_UserChanging(global::System.Int64 value);
         partial void OnID_UserChanged();
-
+    
         /// <summary>
         /// 没有元数据文档可用。
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Int64 ID_Manager
         {
@@ -331,11 +332,11 @@ namespace MvcApp.Models
         private global::System.Int64 _ID_Manager;
         partial void OnID_ManagerChanging(global::System.Int64 value);
         partial void OnID_ManagerChanged();
-
+    
         /// <summary>
         /// 没有元数据文档可用。
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String Name
         {
@@ -355,11 +356,11 @@ namespace MvcApp.Models
         private global::System.String _Name;
         partial void OnNameChanging(global::System.String value);
         partial void OnNameChanged();
-
+    
         /// <summary>
         /// 没有元数据文档可用。
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Int16 Age
         {
@@ -379,11 +380,11 @@ namespace MvcApp.Models
         private global::System.Int16 _Age;
         partial void OnAgeChanging(global::System.Int16 value);
         partial void OnAgeChanged();
-
+    
         /// <summary>
         /// 没有元数据文档可用。
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Boolean Sex
         {
@@ -403,11 +404,11 @@ namespace MvcApp.Models
         private global::System.Boolean _Sex;
         partial void OnSexChanging(global::System.Boolean value);
         partial void OnSexChanged();
-
+    
         /// <summary>
         /// 没有元数据文档可用。
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Boolean Marrige
         {
@@ -427,11 +428,11 @@ namespace MvcApp.Models
         private global::System.Boolean _Marrige;
         partial void OnMarrigeChanging(global::System.Boolean value);
         partial void OnMarrigeChanged();
-
+    
         /// <summary>
         /// 没有元数据文档可用。
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String TelNum
         {
@@ -451,11 +452,11 @@ namespace MvcApp.Models
         private global::System.String _TelNum;
         partial void OnTelNumChanging(global::System.String value);
         partial void OnTelNumChanged();
-
+    
         /// <summary>
         /// 没有元数据文档可用。
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String Address
         {
@@ -475,11 +476,11 @@ namespace MvcApp.Models
         private global::System.String _Address;
         partial void OnAddressChanging(global::System.String value);
         partial void OnAddressChanged();
-
+    
         /// <summary>
         /// 没有元数据文档可用。
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String Children
         {
@@ -499,11 +500,11 @@ namespace MvcApp.Models
         private global::System.String _Children;
         partial void OnChildrenChanging(global::System.String value);
         partial void OnChildrenChanged();
-
+    
         /// <summary>
         /// 没有元数据文档可用。
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String Hobby
         {
@@ -523,35 +524,11 @@ namespace MvcApp.Models
         private global::System.String _Hobby;
         partial void OnHobbyChanging(global::System.String value);
         partial void OnHobbyChanged();
-
+    
         /// <summary>
         /// 没有元数据文档可用。
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
-        [DataMemberAttribute()]
-        public global::System.Byte[] Image
-        {
-            get
-            {
-                return StructuralObject.GetValidValue(_Image);
-            }
-            set
-            {
-                OnImageChanging(value);
-                ReportPropertyChanging("Image");
-                _Image = StructuralObject.SetValidValue(value, true);
-                ReportPropertyChanged("Image");
-                OnImageChanged();
-            }
-        }
-        private global::System.Byte[] _Image;
-        partial void OnImageChanging(global::System.Byte[] value);
-        partial void OnImageChanged();
-
-        /// <summary>
-        /// 没有元数据文档可用。
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String UserName
         {
@@ -571,11 +548,11 @@ namespace MvcApp.Models
         private global::System.String _UserName;
         partial void OnUserNameChanging(global::System.String value);
         partial void OnUserNameChanged();
-
+    
         /// <summary>
         /// 没有元数据文档可用。
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String UserPassword
         {
@@ -595,11 +572,11 @@ namespace MvcApp.Models
         private global::System.String _UserPassword;
         partial void OnUserPasswordChanging(global::System.String value);
         partial void OnUserPasswordChanged();
-
+    
         /// <summary>
         /// 没有元数据文档可用。
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Int16> BloodThreshold
         {
@@ -619,11 +596,11 @@ namespace MvcApp.Models
         private Nullable<global::System.Int16> _BloodThreshold;
         partial void OnBloodThresholdChanging(Nullable<global::System.Int16> value);
         partial void OnBloodThresholdChanged();
-
+    
         /// <summary>
         /// 没有元数据文档可用。
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Int16> GlucoseThreshold
         {
@@ -643,11 +620,11 @@ namespace MvcApp.Models
         private Nullable<global::System.Int16> _GlucoseThreshold;
         partial void OnGlucoseThresholdChanging(Nullable<global::System.Int16> value);
         partial void OnGlucoseThresholdChanged();
-
+    
         /// <summary>
         /// 没有元数据文档可用。
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Int16> TempThreshold
         {
@@ -667,12 +644,60 @@ namespace MvcApp.Models
         private Nullable<global::System.Int16> _TempThreshold;
         partial void OnTempThresholdChanging(Nullable<global::System.Int16> value);
         partial void OnTempThresholdChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String face100
+        {
+            get
+            {
+                return _face100;
+            }
+            set
+            {
+                Onface100Changing(value);
+                ReportPropertyChanging("face100");
+                _face100 = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("face100");
+                Onface100Changed();
+            }
+        }
+        private global::System.String _face100;
+        partial void Onface100Changing(global::System.String value);
+        partial void Onface100Changed();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String faceBig
+        {
+            get
+            {
+                return _faceBig;
+            }
+            set
+            {
+                OnfaceBigChanging(value);
+                ReportPropertyChanging("faceBig");
+                _faceBig = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("faceBig");
+                OnfaceBigChanged();
+            }
+        }
+        private global::System.String _faceBig;
+        partial void OnfaceBigChanging(global::System.String value);
+        partial void OnfaceBigChanged();
 
         #endregion
 
-
+    
         #region 导航属性
-
+    
         /// <summary>
         /// 没有元数据文档可用。
         /// </summary>
@@ -710,7 +735,7 @@ namespace MvcApp.Models
                 }
             }
         }
-
+    
         /// <summary>
         /// 没有元数据文档可用。
         /// </summary>
@@ -732,7 +757,7 @@ namespace MvcApp.Models
                 }
             }
         }
-
+    
         /// <summary>
         /// 没有元数据文档可用。
         /// </summary>
@@ -754,7 +779,7 @@ namespace MvcApp.Models
                 }
             }
         }
-
+    
         /// <summary>
         /// 没有元数据文档可用。
         /// </summary>
@@ -776,7 +801,7 @@ namespace MvcApp.Models
                 }
             }
         }
-
+    
         /// <summary>
         /// 没有元数据文档可用。
         /// </summary>
@@ -802,17 +827,17 @@ namespace MvcApp.Models
         #endregion
 
     }
-
+    
     /// <summary>
     /// 没有元数据文档可用。
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName = "ProModel", Name = "EmergencyInfo")]
+    [EdmEntityTypeAttribute(NamespaceName="ProModel", Name="EmergencyInfo")]
     [Serializable()]
-    [DataContractAttribute(IsReference = true)]
+    [DataContractAttribute(IsReference=true)]
     public partial class EmergencyInfo : EntityObject
     {
         #region 工厂方法
-
+    
         /// <summary>
         /// 创建新的 EmergencyInfo 对象。
         /// </summary>
@@ -824,10 +849,10 @@ namespace MvcApp.Models
         /// <param name="illnessAnalyses">IllnessAnalyses 属性的初始值。</param>
         /// <param name="medicalResult">MedicalResult 属性的初始值。</param>
         /// <param name="advice">Advice 属性的初始值。</param>
-        public static EmergencyInfo CreateEmergencyInfo(global::System.Int64 iD_Emergency, global::System.Int64 iD_User, global::System.String location, global::System.DateTime emergencyDate, global::System.String staff, global::System.String illnessAnalyses, global::System.String medicalResult, global::System.String advice)
+        public static EmergencyInfo CreateEmergencyInfo(/*global::System.Int64 iD_Emergency,*/ global::System.Int64 iD_User, global::System.String location, global::System.DateTime emergencyDate, global::System.String staff, global::System.String illnessAnalyses, global::System.String medicalResult, global::System.String advice)
         {
             EmergencyInfo emergencyInfo = new EmergencyInfo();
-            emergencyInfo.ID_Emergency = iD_Emergency;
+            //emergencyInfo.ID_Emergency = iD_Emergency;
             emergencyInfo.ID_User = iD_User;
             emergencyInfo.Location = location;
             emergencyInfo.EmergencyDate = emergencyDate;
@@ -841,11 +866,11 @@ namespace MvcApp.Models
         #endregion
 
         #region 基元属性
-
+    
         /// <summary>
         /// 没有元数据文档可用。
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Int64 ID_Emergency
         {
@@ -868,11 +893,11 @@ namespace MvcApp.Models
         private global::System.Int64 _ID_Emergency;
         partial void OnID_EmergencyChanging(global::System.Int64 value);
         partial void OnID_EmergencyChanged();
-
+    
         /// <summary>
         /// 没有元数据文档可用。
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Int64 ID_User
         {
@@ -892,11 +917,11 @@ namespace MvcApp.Models
         private global::System.Int64 _ID_User;
         partial void OnID_UserChanging(global::System.Int64 value);
         partial void OnID_UserChanged();
-
+    
         /// <summary>
         /// 没有元数据文档可用。
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String Location
         {
@@ -916,11 +941,11 @@ namespace MvcApp.Models
         private global::System.String _Location;
         partial void OnLocationChanging(global::System.String value);
         partial void OnLocationChanged();
-
+    
         /// <summary>
         /// 没有元数据文档可用。
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.DateTime EmergencyDate
         {
@@ -940,11 +965,11 @@ namespace MvcApp.Models
         private global::System.DateTime _EmergencyDate;
         partial void OnEmergencyDateChanging(global::System.DateTime value);
         partial void OnEmergencyDateChanged();
-
+    
         /// <summary>
         /// 没有元数据文档可用。
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String Staff
         {
@@ -964,11 +989,11 @@ namespace MvcApp.Models
         private global::System.String _Staff;
         partial void OnStaffChanging(global::System.String value);
         partial void OnStaffChanged();
-
+    
         /// <summary>
         /// 没有元数据文档可用。
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String IllnessAnalyses
         {
@@ -988,11 +1013,11 @@ namespace MvcApp.Models
         private global::System.String _IllnessAnalyses;
         partial void OnIllnessAnalysesChanging(global::System.String value);
         partial void OnIllnessAnalysesChanged();
-
+    
         /// <summary>
         /// 没有元数据文档可用。
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String MedicalResult
         {
@@ -1012,11 +1037,11 @@ namespace MvcApp.Models
         private global::System.String _MedicalResult;
         partial void OnMedicalResultChanging(global::System.String value);
         partial void OnMedicalResultChanged();
-
+    
         /// <summary>
         /// 没有元数据文档可用。
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String Advice
         {
@@ -1039,9 +1064,9 @@ namespace MvcApp.Models
 
         #endregion
 
-
+    
         #region 导航属性
-
+    
         /// <summary>
         /// 没有元数据文档可用。
         /// </summary>
@@ -1083,17 +1108,17 @@ namespace MvcApp.Models
         #endregion
 
     }
-
+    
     /// <summary>
     /// 没有元数据文档可用。
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName = "ProModel", Name = "HealthIndicator")]
+    [EdmEntityTypeAttribute(NamespaceName="ProModel", Name="HealthIndicator")]
     [Serializable()]
-    [DataContractAttribute(IsReference = true)]
+    [DataContractAttribute(IsReference=true)]
     public partial class HealthIndicator : EntityObject
     {
         #region 工厂方法
-
+    
         /// <summary>
         /// 创建新的 HealthIndicator 对象。
         /// </summary>
@@ -1107,10 +1132,10 @@ namespace MvcApp.Models
         /// <param name="date">Date 属性的初始值。</param>
         /// <param name="systolicPressure">SystolicPressure 属性的初始值。</param>
         /// <param name="diastolicPressure">DiastolicPressure 属性的初始值。</param>
-        public static HealthIndicator CreateHealthIndicator(global::System.Int64 iD_HealthIndica, global::System.Int64 iD_User, global::System.Int16 bloodGlucose, global::System.Int16 duration, global::System.Int16 calorie, global::System.Int16 distance, global::System.Int16 heartBeat, global::System.DateTime date, global::System.Int16 systolicPressure, global::System.Int16 diastolicPressure)
+        public static HealthIndicator CreateHealthIndicator(/*global::System.Int64 iD_HealthIndica,*/ global::System.Int64 iD_User, global::System.Int16 bloodGlucose, global::System.Int16 duration, global::System.Int16 calorie, global::System.Int16 distance, global::System.Int16 heartBeat, global::System.DateTime date, global::System.Int16 systolicPressure, global::System.Int16 diastolicPressure)
         {
             HealthIndicator healthIndicator = new HealthIndicator();
-            healthIndicator.ID_HealthIndica = iD_HealthIndica;
+            //healthIndicator.ID_HealthIndica = iD_HealthIndica;
             healthIndicator.ID_User = iD_User;
             healthIndicator.BloodGlucose = bloodGlucose;
             healthIndicator.Duration = duration;
@@ -1126,11 +1151,11 @@ namespace MvcApp.Models
         #endregion
 
         #region 基元属性
-
+    
         /// <summary>
         /// 没有元数据文档可用。
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Int64 ID_HealthIndica
         {
@@ -1153,11 +1178,11 @@ namespace MvcApp.Models
         private global::System.Int64 _ID_HealthIndica;
         partial void OnID_HealthIndicaChanging(global::System.Int64 value);
         partial void OnID_HealthIndicaChanged();
-
+    
         /// <summary>
         /// 没有元数据文档可用。
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Int64 ID_User
         {
@@ -1177,11 +1202,11 @@ namespace MvcApp.Models
         private global::System.Int64 _ID_User;
         partial void OnID_UserChanging(global::System.Int64 value);
         partial void OnID_UserChanged();
-
+    
         /// <summary>
         /// 没有元数据文档可用。
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Int16 BloodGlucose
         {
@@ -1201,11 +1226,11 @@ namespace MvcApp.Models
         private global::System.Int16 _BloodGlucose;
         partial void OnBloodGlucoseChanging(global::System.Int16 value);
         partial void OnBloodGlucoseChanged();
-
+    
         /// <summary>
         /// 没有元数据文档可用。
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Int16 Duration
         {
@@ -1225,11 +1250,11 @@ namespace MvcApp.Models
         private global::System.Int16 _Duration;
         partial void OnDurationChanging(global::System.Int16 value);
         partial void OnDurationChanged();
-
+    
         /// <summary>
         /// 没有元数据文档可用。
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Int16 Calorie
         {
@@ -1249,11 +1274,11 @@ namespace MvcApp.Models
         private global::System.Int16 _Calorie;
         partial void OnCalorieChanging(global::System.Int16 value);
         partial void OnCalorieChanged();
-
+    
         /// <summary>
         /// 没有元数据文档可用。
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Int16 Distance
         {
@@ -1273,11 +1298,11 @@ namespace MvcApp.Models
         private global::System.Int16 _Distance;
         partial void OnDistanceChanging(global::System.Int16 value);
         partial void OnDistanceChanged();
-
+    
         /// <summary>
         /// 没有元数据文档可用。
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Int16 HeartBeat
         {
@@ -1297,11 +1322,11 @@ namespace MvcApp.Models
         private global::System.Int16 _HeartBeat;
         partial void OnHeartBeatChanging(global::System.Int16 value);
         partial void OnHeartBeatChanged();
-
+    
         /// <summary>
         /// 没有元数据文档可用。
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.DateTime Date
         {
@@ -1321,11 +1346,11 @@ namespace MvcApp.Models
         private global::System.DateTime _Date;
         partial void OnDateChanging(global::System.DateTime value);
         partial void OnDateChanged();
-
+    
         /// <summary>
         /// 没有元数据文档可用。
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Int16 SystolicPressure
         {
@@ -1345,11 +1370,11 @@ namespace MvcApp.Models
         private global::System.Int16 _SystolicPressure;
         partial void OnSystolicPressureChanging(global::System.Int16 value);
         partial void OnSystolicPressureChanged();
-
+    
         /// <summary>
         /// 没有元数据文档可用。
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Int16 DiastolicPressure
         {
@@ -1372,9 +1397,9 @@ namespace MvcApp.Models
 
         #endregion
 
-
+    
         #region 导航属性
-
+    
         /// <summary>
         /// 没有元数据文档可用。
         /// </summary>
@@ -1416,17 +1441,17 @@ namespace MvcApp.Models
         #endregion
 
     }
-
+    
     /// <summary>
     /// 没有元数据文档可用。
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName = "ProModel", Name = "HealthPlan")]
+    [EdmEntityTypeAttribute(NamespaceName="ProModel", Name="HealthPlan")]
     [Serializable()]
-    [DataContractAttribute(IsReference = true)]
+    [DataContractAttribute(IsReference=true)]
     public partial class HealthPlan : EntityObject
     {
         #region 工厂方法
-
+    
         /// <summary>
         /// 创建新的 HealthPlan 对象。
         /// </summary>
@@ -1435,10 +1460,10 @@ namespace MvcApp.Models
         /// <param name="recipes">Recipes 属性的初始值。</param>
         /// <param name="movement">Movement 属性的初始值。</param>
         /// <param name="schedule">Schedule 属性的初始值。</param>
-        public static HealthPlan CreateHealthPlan(global::System.Int64 iD_Plan, global::System.Int64 iD_User, global::System.String recipes, global::System.String movement, global::System.String schedule)
+        public static HealthPlan CreateHealthPlan(/*global::System.Int64 iD_Plan,*/ global::System.Int64 iD_User, global::System.String recipes, global::System.String movement, global::System.String schedule)
         {
             HealthPlan healthPlan = new HealthPlan();
-            healthPlan.ID_Plan = iD_Plan;
+            //healthPlan.ID_Plan = iD_Plan;
             healthPlan.ID_User = iD_User;
             healthPlan.Recipes = recipes;
             healthPlan.Movement = movement;
@@ -1449,11 +1474,11 @@ namespace MvcApp.Models
         #endregion
 
         #region 基元属性
-
+    
         /// <summary>
         /// 没有元数据文档可用。
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Int64 ID_Plan
         {
@@ -1476,11 +1501,11 @@ namespace MvcApp.Models
         private global::System.Int64 _ID_Plan;
         partial void OnID_PlanChanging(global::System.Int64 value);
         partial void OnID_PlanChanged();
-
+    
         /// <summary>
         /// 没有元数据文档可用。
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Int64 ID_User
         {
@@ -1500,11 +1525,11 @@ namespace MvcApp.Models
         private global::System.Int64 _ID_User;
         partial void OnID_UserChanging(global::System.Int64 value);
         partial void OnID_UserChanged();
-
+    
         /// <summary>
         /// 没有元数据文档可用。
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String Recipes
         {
@@ -1524,11 +1549,11 @@ namespace MvcApp.Models
         private global::System.String _Recipes;
         partial void OnRecipesChanging(global::System.String value);
         partial void OnRecipesChanged();
-
+    
         /// <summary>
         /// 没有元数据文档可用。
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String Movement
         {
@@ -1548,11 +1573,11 @@ namespace MvcApp.Models
         private global::System.String _Movement;
         partial void OnMovementChanging(global::System.String value);
         partial void OnMovementChanged();
-
+    
         /// <summary>
         /// 没有元数据文档可用。
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String Schedule
         {
@@ -1575,9 +1600,9 @@ namespace MvcApp.Models
 
         #endregion
 
-
+    
         #region 导航属性
-
+    
         /// <summary>
         /// 没有元数据文档可用。
         /// </summary>
@@ -1619,17 +1644,17 @@ namespace MvcApp.Models
         #endregion
 
     }
-
+    
     /// <summary>
     /// 没有元数据文档可用。
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName = "ProModel", Name = "Location")]
+    [EdmEntityTypeAttribute(NamespaceName="ProModel", Name="Location")]
     [Serializable()]
-    [DataContractAttribute(IsReference = true)]
+    [DataContractAttribute(IsReference=true)]
     public partial class Location : EntityObject
     {
         #region 工厂方法
-
+    
         /// <summary>
         /// 创建新的 Location 对象。
         /// </summary>
@@ -1638,10 +1663,10 @@ namespace MvcApp.Models
         /// <param name="dataTime">DataTime 属性的初始值。</param>
         /// <param name="longitude">Longitude 属性的初始值。</param>
         /// <param name="latitude">Latitude 属性的初始值。</param>
-        public static Location CreateLocation(global::System.Int64 iD_Location, global::System.Int64 iD_User, global::System.DateTime dataTime, global::System.Double longitude, global::System.Double latitude)
+        public static Location CreateLocation(/*global::System.Int64 iD_Location,*/ global::System.Int64 iD_User, global::System.DateTime dataTime, global::System.Double longitude, global::System.Double latitude)
         {
             Location location = new Location();
-            location.ID_Location = iD_Location;
+            //location.ID_Location = iD_Location;
             location.ID_User = iD_User;
             location.DataTime = dataTime;
             location.Longitude = longitude;
@@ -1652,11 +1677,11 @@ namespace MvcApp.Models
         #endregion
 
         #region 基元属性
-
+    
         /// <summary>
         /// 没有元数据文档可用。
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Int64 ID_Location
         {
@@ -1679,11 +1704,11 @@ namespace MvcApp.Models
         private global::System.Int64 _ID_Location;
         partial void OnID_LocationChanging(global::System.Int64 value);
         partial void OnID_LocationChanged();
-
+    
         /// <summary>
         /// 没有元数据文档可用。
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Int64 ID_User
         {
@@ -1703,11 +1728,11 @@ namespace MvcApp.Models
         private global::System.Int64 _ID_User;
         partial void OnID_UserChanging(global::System.Int64 value);
         partial void OnID_UserChanged();
-
+    
         /// <summary>
         /// 没有元数据文档可用。
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.DateTime DataTime
         {
@@ -1727,11 +1752,11 @@ namespace MvcApp.Models
         private global::System.DateTime _DataTime;
         partial void OnDataTimeChanging(global::System.DateTime value);
         partial void OnDataTimeChanged();
-
+    
         /// <summary>
         /// 没有元数据文档可用。
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Double Longitude
         {
@@ -1751,11 +1776,11 @@ namespace MvcApp.Models
         private global::System.Double _Longitude;
         partial void OnLongitudeChanging(global::System.Double value);
         partial void OnLongitudeChanged();
-
+    
         /// <summary>
         /// 没有元数据文档可用。
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Double Latitude
         {
@@ -1778,9 +1803,9 @@ namespace MvcApp.Models
 
         #endregion
 
-
+    
         #region 导航属性
-
+    
         /// <summary>
         /// 没有元数据文档可用。
         /// </summary>
@@ -1822,17 +1847,17 @@ namespace MvcApp.Models
         #endregion
 
     }
-
+    
     /// <summary>
     /// 没有元数据文档可用。
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName = "ProModel", Name = "Manager")]
+    [EdmEntityTypeAttribute(NamespaceName="ProModel", Name="Manager")]
     [Serializable()]
-    [DataContractAttribute(IsReference = true)]
+    [DataContractAttribute(IsReference=true)]
     public partial class Manager : EntityObject
     {
         #region 工厂方法
-
+    
         /// <summary>
         /// 创建新的 Manager 对象。
         /// </summary>
@@ -1845,7 +1870,9 @@ namespace MvcApp.Models
         /// <param name="sysManIdentify">SysManIdentify 属性的初始值。</param>
         /// <param name="manName">ManName 属性的初始值。</param>
         /// <param name="manPassword">ManPassword 属性的初始值。</param>
-        public static Manager CreateManager(/*global::System.Int64 iD_Manager,*/ global::System.String man_Name, global::System.Boolean man_Sex, global::System.Int16 man_Age, global::System.String man_Tel, global::System.String man_Add, global::System.Boolean sysManIdentify, global::System.String manName, global::System.String manPassword)
+        /// <param name="face100">face100 属性的初始值。</param>
+        /// <param name="faceBig">faceBig 属性的初始值。</param>
+        public static Manager CreateManager(/*global::System.Int64 iD_Manager,*/ global::System.String man_Name, global::System.Boolean man_Sex, global::System.Int16 man_Age, global::System.String man_Tel, global::System.String man_Add, global::System.Boolean sysManIdentify, global::System.String manName, global::System.String manPassword, global::System.String face100, global::System.String faceBig)
         {
             Manager manager = new Manager();
             //manager.ID_Manager = iD_Manager;
@@ -1857,17 +1884,19 @@ namespace MvcApp.Models
             manager.SysManIdentify = sysManIdentify;
             manager.ManName = manName;
             manager.ManPassword = manPassword;
+            manager.face100 = face100;
+            manager.faceBig = faceBig;
             return manager;
         }
 
         #endregion
 
         #region 基元属性
-
+    
         /// <summary>
         /// 没有元数据文档可用。
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Int64 ID_Manager
         {
@@ -1890,11 +1919,11 @@ namespace MvcApp.Models
         private global::System.Int64 _ID_Manager;
         partial void OnID_ManagerChanging(global::System.Int64 value);
         partial void OnID_ManagerChanged();
-
+    
         /// <summary>
         /// 没有元数据文档可用。
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String Man_Name
         {
@@ -1914,11 +1943,11 @@ namespace MvcApp.Models
         private global::System.String _Man_Name;
         partial void OnMan_NameChanging(global::System.String value);
         partial void OnMan_NameChanged();
-
+    
         /// <summary>
         /// 没有元数据文档可用。
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Boolean Man_Sex
         {
@@ -1938,11 +1967,11 @@ namespace MvcApp.Models
         private global::System.Boolean _Man_Sex;
         partial void OnMan_SexChanging(global::System.Boolean value);
         partial void OnMan_SexChanged();
-
+    
         /// <summary>
         /// 没有元数据文档可用。
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Int16 Man_Age
         {
@@ -1962,11 +1991,11 @@ namespace MvcApp.Models
         private global::System.Int16 _Man_Age;
         partial void OnMan_AgeChanging(global::System.Int16 value);
         partial void OnMan_AgeChanged();
-
+    
         /// <summary>
         /// 没有元数据文档可用。
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String Man_Tel
         {
@@ -1986,11 +2015,11 @@ namespace MvcApp.Models
         private global::System.String _Man_Tel;
         partial void OnMan_TelChanging(global::System.String value);
         partial void OnMan_TelChanged();
-
+    
         /// <summary>
         /// 没有元数据文档可用。
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String Man_Add
         {
@@ -2010,11 +2039,11 @@ namespace MvcApp.Models
         private global::System.String _Man_Add;
         partial void OnMan_AddChanging(global::System.String value);
         partial void OnMan_AddChanged();
-
+    
         /// <summary>
         /// 没有元数据文档可用。
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Boolean SysManIdentify
         {
@@ -2034,11 +2063,11 @@ namespace MvcApp.Models
         private global::System.Boolean _SysManIdentify;
         partial void OnSysManIdentifyChanging(global::System.Boolean value);
         partial void OnSysManIdentifyChanged();
-
+    
         /// <summary>
         /// 没有元数据文档可用。
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String ManName
         {
@@ -2058,11 +2087,11 @@ namespace MvcApp.Models
         private global::System.String _ManName;
         partial void OnManNameChanging(global::System.String value);
         partial void OnManNameChanged();
-
+    
         /// <summary>
         /// 没有元数据文档可用。
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String ManPassword
         {
@@ -2082,11 +2111,11 @@ namespace MvcApp.Models
         private global::System.String _ManPassword;
         partial void OnManPasswordChanging(global::System.String value);
         partial void OnManPasswordChanged();
-
+    
         /// <summary>
         /// 没有元数据文档可用。
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Int16> GroupNum
         {
@@ -2106,11 +2135,11 @@ namespace MvcApp.Models
         private Nullable<global::System.Int16> _GroupNum;
         partial void OnGroupNumChanging(Nullable<global::System.Int16> value);
         partial void OnGroupNumChanged();
-
+    
         /// <summary>
         /// 没有元数据文档可用。
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String GroupPlan
         {
@@ -2130,11 +2159,11 @@ namespace MvcApp.Models
         private global::System.String _GroupPlan;
         partial void OnGroupPlanChanging(global::System.String value);
         partial void OnGroupPlanChanged();
-
+    
         /// <summary>
         /// 没有元数据文档可用。
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.Byte[] GroupPhoto
         {
@@ -2154,12 +2183,60 @@ namespace MvcApp.Models
         private global::System.Byte[] _GroupPhoto;
         partial void OnGroupPhotoChanging(global::System.Byte[] value);
         partial void OnGroupPhotoChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String face100
+        {
+            get
+            {
+                return _face100;
+            }
+            set
+            {
+                Onface100Changing(value);
+                ReportPropertyChanging("face100");
+                _face100 = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("face100");
+                Onface100Changed();
+            }
+        }
+        private global::System.String _face100;
+        partial void Onface100Changing(global::System.String value);
+        partial void Onface100Changed();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String faceBig
+        {
+            get
+            {
+                return _faceBig;
+            }
+            set
+            {
+                OnfaceBigChanging(value);
+                ReportPropertyChanging("faceBig");
+                _faceBig = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("faceBig");
+                OnfaceBigChanged();
+            }
+        }
+        private global::System.String _faceBig;
+        partial void OnfaceBigChanging(global::System.String value);
+        partial void OnfaceBigChanged();
 
         #endregion
 
-
+    
         #region 导航属性
-
+    
         /// <summary>
         /// 没有元数据文档可用。
         /// </summary>
@@ -2188,5 +2265,5 @@ namespace MvcApp.Models
 
     #endregion
 
-
+    
 }

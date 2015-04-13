@@ -67,6 +67,11 @@ $(function(){
 	    });
     });
 
+    //cctest
+    $("#file").click(function(){
+        alert("got it!");
+    });
+
     // 动态显示导航栏显示效果
     $(".navboxone_grey").bind("click",function(){
      	$("#user_basic_info").show("fast");

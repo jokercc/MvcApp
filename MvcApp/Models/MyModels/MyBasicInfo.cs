@@ -5,7 +5,7 @@ using System.Web;
 
 namespace MvcApp.Models.MyModels
 {
-    public class MyBasicInfo 
+    public class MyBasicInfo
     {
         public global::System.Int64 ID_User { get; set; }
         public global::System.Int64 ID_Manager { get; set; }
@@ -22,5 +22,7 @@ namespace MvcApp.Models.MyModels
         public global::System.Int16 BloodThreshold { get; set; }
         public global::System.Int16 GlucoseThreshold { get; set; }
         public global::System.Int16 TempThreshold { get; set; }
+        public global::System.String face100 { get; set; }
+        public global::System.String faceBig { get; set; }
     }
 }

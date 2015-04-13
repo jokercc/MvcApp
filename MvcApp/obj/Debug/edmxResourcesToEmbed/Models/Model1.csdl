@@ -42,7 +42,6 @@
     <Property Name="Address" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
     <Property Name="Children" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
     <Property Name="Hobby" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
-    <Property Name="Image" Type="Binary" MaxLength="Max" FixedLength="false" />
     <Property Name="UserName" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
     <Property Name="UserPassword" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
     <Property Name="BloodThreshold" Type="Int16" />
@@ -53,6 +52,8 @@
     <NavigationProperty Name="HealthPlan" Relationship="ProModel.FK_HealthPlan_BasicInfo" FromRole="BasicInfo" ToRole="HealthPlan" />
     <NavigationProperty Name="Location" Relationship="ProModel.FK_Location_BasicInfo" FromRole="BasicInfo" ToRole="Location" />
     <NavigationProperty Name="HealthIndicator" Relationship="ProModel.FK_HealthIndicator_BasicInfo" FromRole="BasicInfo" ToRole="HealthIndicator" />
+    <Property Type="String" Name="face100" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="faceBig" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="EmergencyInfo">
     <Key>
@@ -107,6 +108,8 @@
     <Property Name="GroupPlan" Type="String" MaxLength="1" Unicode="false" FixedLength="false" />
     <Property Name="GroupPhoto" Type="Binary" MaxLength="Max" FixedLength="false" />
     <NavigationProperty Name="BasicInfo" Relationship="ProModel.FK_BasicInfo_Manager" FromRole="Manager" ToRole="BasicInfo" />
+    <Property Type="String" Name="face100" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="faceBig" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
   </EntityType>
   <Association Name="FK_BasicInfo_Manager">
     <End Role="Manager" Type="ProModel.Manager" Multiplicity="1" />
