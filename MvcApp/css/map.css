@@ -1,0 +1,21 @@
+#act_cueve_bg{
+	position: absolute;
+	display: none;
+	top: 337px;
+	left: 150px;
+	width: 1000px;
+	height:390px;
+	background: #1CBDB3;
+	z-index:1;
+}
+#container
+{
+    position: absolute;
+	display: block;
+	top: 60px;
+	left:100px;
+	width: 800px;
+	height:300px;
+	z-index:1;
+	border:1px solid gray;
+}

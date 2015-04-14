@@ -275,14 +275,25 @@ em{
 }
 #user_portrait{
 	position: absolute;
-	top: 20px;
-	left: 5px;
-	height: 110px;
-	width: 110px;
-	z-index:1;
-	background: #BDCCD4;
-	display: block;
+	top: 15px;
+	left: -2px;
+	display:inline-block;
+    margin:5px auto;
+    width:110px;
+    height:110px;
+    border-radius:100px;
+    border:0px solid #fff;
+    overflow:hidden;
+    -webkit-box-shadow:0 0 3px #ccc;
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.5);
+    margin:10px 5px;
+    overflow:hidden;
 }
+#user_portrait img
+{
+    width:100%;
+    min-height:100%; text-align:center;
+    }
 #user_name{
 	position: absolute;
 	top: 20px;
@@ -348,18 +359,18 @@ em{
 	position: absolute;
 	display: block;
 	top: 280px;
-	left: 30px;
-	width: 600px;
+	left: 280px;
+	width: 800px;
 	height:400px;
 	background: #1CBDB3;
 	z-index:1;
 }
 /*用户照片开始*/
-#user_photo{
+#user_photo img{
 	position: absolute;
 	display:block;
 	top: 30px;
-	left: 50px;
+	left: 100px;
 	width: 180px;
 	height:250px;
 	background: #FFFFFF;
@@ -370,7 +381,7 @@ em{
 	position: absolute;
 	display:block;
 	top: 310px;
-	left: 115px;
+	left: 165px;
 	width: 60px;
 	height:30px;
 	z-index:1;
@@ -406,7 +417,7 @@ em{
 	position:absolute;
 	display:block;
 	top: 30px;
-	left: 260px;
+	left: 370px;
 	width: 320px;
 	height:325px;
 	background: #CCD4E0;
@@ -459,70 +470,7 @@ em{
     height: 34px;
     width: 70%;
 }
-/*用户初始健康信息框开始*/
-#user_heal_info{
-	position: absolute;
-	display: block;
-	top: 280px;
-	left: 660px;
-	width: 600px;
-	height:400px;
-	background: #1CBDB3;
-	z-index:1;
-}
-#heal_info{
-	position: absolute;
-	display:block;
-	top: 40px;
-	left: 50px;
-	width: 500px;
-	height:290px;
-	background: #CCD4E0;
-	z-index:1;
-}
-#heal_info .table_style2 table{
-	font-family: "STHEITI-LIGHT";
-	border-bottom: none;
-	/*background-color: #CCD4E0;*/
-}
-.heal_bgwhite_left{
-	background-color: #FFFFFF;
-	color:#9E9FA1;
-    border-bottom: none;
-    height: 34px;
-    width: 30%;
-}
-.heal_bggrey_left{
-	background-color: #EBEEF2;
-	color:#9E9FA1;
-    border-bottom: none;
-    height: 34px;
-    width: 30%;
-}
-.heal_title{
-	color: #6F7071;
-    border-bottom: none;
-    height: 34px;
-    width: 500px;
-}
-.heal_bgwhite_right{
-	background-color: #FFFFFF;
-	color:#9E9FA1;
-    border-bottom: none;
-    height: 34px;
-    width: 70%;
-}
-.heal_bggrey_right{
-	background-color: #EBEEF2;
-	color:#9E9FA1;
-    border-bottom: none;
-    height: 34px;
-    width: 70%;
-}
-#get_username{
-	display: none;
-}
-/*用户初始健康信息框结束*/
+
 /*急救信息框开始*/
 #user_aid_info{
 	position: absolute;
@@ -662,7 +610,7 @@ em{
 	height:250px;
 	background: #FFF;
 	z-index:1;
-	overflow: scroll
+	overflow-y: scroll
 }
 .aid_key input
 {
@@ -784,7 +732,7 @@ em{
 {
     position: absolute;
 	display: block;
-	top: 12px;
+	top: 0px;
 	left: 0;
 	width: 240px;
 	height:40px;
@@ -793,30 +741,22 @@ em{
 	font-family: "STHEITI-LIGHT";
 	font-size: 20px;
 }
-.blood_pre_head li
+.prehead_left_style, .prehead_mid_style, .prehead_right_style
 {
-    display: inline-block;
-	list-style-type: none;
-	position: absolute;
-	bottom: 10px;
-}
-#pre_date {
-	left: 8%;
+	height:37px;
+    border: 0;
+    font-family: "STHEITI-LIGHT";
+	font-size: 20px;
+	text-align:center;
 	color: #686868;
-	text-decoration: none;
- 	padding-bottom: 6px;
 }
-#down_pre {
-	left: 38%;
-	color: #686868;
-	text-decoration: none;
- 	padding-bottom: 6px;
+.prehead_left_style
+{
+    width: 85px;
 }
-#up_pre {
-	left: 69%;
-	color: #686868;
-	text-decoration: none;
- 	padding-bottom: 6px;
+.prehead_mid_style, .prehead_right_style
+{
+    width: 70px;
 }
 #blood_pre_data
 {
@@ -903,7 +843,7 @@ em{
 {
     position: absolute;
 	display: block;
-	top: 6px;
+	top: 0;
 	left: 0;
 	width: 170px;
 	height:40px;
@@ -912,24 +852,22 @@ em{
 	font-family: "STHEITI-LIGHT";
 	font-size: 20px;
 }
-.heart_boom_head li
+.boomhead_left_style, .boomhead_right_style, .sugerhead_left_style, .sugerhead_right_style, .temhead_left_style, .temhead_right_style
 {
-    display: inline-block;
-	list-style-type: none;
-	position: absolute;
-	bottom: 10px;
-}
-#heart_date {
-	left: 10%;
+	height:37px;
+    border: 0;
+    font-family: "STHEITI-LIGHT";
+	font-size: 20px;
+	text-align:center;
 	color: #686868;
-	text-decoration: none;
- 	padding-bottom: -5px;
 }
-#boom_data {
-	left: 55%;
-	color: #686868;
-	text-decoration: none;
- 	padding-bottom: 0px;
+.boomhead_left_style, .sugerhead_left_style, .temhead_left_style
+{
+    width: 85px;
+}
+.boomhead_right_style, .sugerhead_right_style, .temhead_right_style
+{
+    width: 70px;
 }
 
 #boom_data_bg {
@@ -996,7 +934,7 @@ em{
 {
     position: absolute;
 	display: block;
-	top: 6px;
+	top: 0;
 	left: 0;
 	width: 170px;
 	height:40px;
@@ -1004,25 +942,6 @@ em{
 	z-index:1;
 	font-family: "STHEITI-LIGHT";
 	font-size: 20px;
-}
-.blood_suger_head li
-{
-    display: inline-block;
-	list-style-type: none;
-	position: absolute;
-	bottom: 10px;
-}
-#suger_date {
-	left: 10%;
-	color: #686868;
-	text-decoration: none;
- 	padding-bottom: -5px;
-}
-#suger_data {
-	left: 55%;
-	color: #686868;
-	text-decoration: none;
- 	padding-bottom: 0px;
 }
 
 #suger_data_bg {
@@ -1090,7 +1009,7 @@ em{
 {
     position: absolute;
 	display: block;
-	top: 6px;
+	top: 0;
 	left: 0;
 	width: 170px;
 	height:40px;
@@ -1098,25 +1017,6 @@ em{
 	z-index:1;
 	font-family: "STHEITI-LIGHT";
 	font-size: 20px;
-}
-.blood_tem_head li
-{
-    display: inline-block;
-	list-style-type: none;
-	position: absolute;
-	bottom: 10px;
-}
-#tem_date {
-	left: 10%;
-	color: #686868;
-	text-decoration: none;
- 	padding-bottom: -5px;
-}
-#tem_data {
-	left: 55%;
-	color: #686868;
-	text-decoration: none;
- 	padding-bottom: 0px;
 }
 
 #tem_data_bg {
@@ -1186,7 +1086,7 @@ em{
 {
     width:35px;
     height:160px;
-    left:30px;
+    left:31px;
     top:50px;
     position: absolute;
 	display: none;
@@ -1198,7 +1098,7 @@ em{
 {
     width:35px;
     height:160px;
-    left:30px;
+    left:31px;
     top:210px;
     position: absolute;
 	display: block;
@@ -1249,7 +1149,7 @@ em{
 {
     width:35px;
     height:160px;
-    left:330px;
+    left:331px;
     top:50px;
     position: absolute;
 	display: none;
@@ -1261,7 +1161,7 @@ em{
 {
     width:35px;
     height:160px;
-    left:330px;
+    left:331px;
     top:210px;
     position: absolute;
 	display: block;
@@ -1349,7 +1249,7 @@ em{
 {
     width:35px;
     height:160px;
-    left:790px;
+    left:791px;
     top:50px;
     position: absolute;
 	display: none;
@@ -1362,7 +1262,7 @@ em{
 {
     width:35px;
     height:160px;
-    left:790px;
+    left:791px;
     top:210px;
     position: absolute;
 	display: block;
@@ -1452,6 +1352,7 @@ em{
 {
     background:  url(../images/next_month.png)  no-repeat;
 }
+/*活动情况详细信息开始*/
 #data_info_head
 {
     position: absolute;
@@ -1473,6 +1374,62 @@ em{
 	background: #1CBDB3;
 	z-index:1;
 }
+.boxline_area
+{
+    position: absolute;
+	display: block;
+	top: 10px;
+	left: 50px;
+	width: 550px;
+	height:210px;
+	background: white;
+	z-index:1;
+}
+.photo_one
+{
+    position: absolute;
+	display: block;
+	top: 240px;
+	left: 50px;
+	width: 195px;
+	height:135px;
+	background: white;
+	z-index:1;
+}
+.photo_two
+{
+    position: absolute;
+	display: block;
+	top: 240px;
+	left: 284px;
+	width: 195px;
+	height:135px;
+	background: white;
+	z-index:1;
+}
+.photo_three
+{
+    position: absolute;
+	display: block;
+	top: 240px;
+	left: 516px;
+	width: 195px;
+	height:135px;
+	background: white;
+	z-index:1;
+}
+.photo_four
+{
+    position: absolute;
+	display: block;
+	top: 240px;
+	left: 750px;
+	width: 195px;
+	height:135px;
+	background: white;
+	z-index:1;
+}
+/*活动情况活动轨迹开始*/
 #act_cueve_head
 {
     position: absolute;
@@ -1484,16 +1441,7 @@ em{
 	background: url(../images/act_head.png)  no-repeat;
 	z-index:1;
 }
-#act_cueve_bg{
-	position: absolute;
-	display: none;
-	top: 337px;
-	left: 150px;
-	width: 1000px;
-	height:390px;
-	background: #1CBDB3;
-	z-index:1;
-}
+
 #heal_plan
 {
     position: absolute;
@@ -1545,3 +1493,63 @@ em{
 	font-family: "STHEITI-LIGHT";
 	height: 30px;
 }
+#get_username
+{
+    display:none;
+}
+
+
+.theme-popover-mask
+{
+    z-index:1;
+    position:absolute;
+    left:0;
+    top:0;
+    width:100%;
+    height:100%;
+    background:#000;
+    opacity:0.5;
+    filter:alpha(opacity=50);
+    -moz-opacity:0.5;
+    display:none;
+    }
+.theme-popover
+{
+    z-index:9;
+    position:absolute;
+    top:50%;
+    left:50%;
+    width:660px;
+    height:530px;
+    margin:-180px 0 0 -330px;
+    border-radius:5px;
+    border:solid 2px #e4e4e4;
+    background-color:#fff;
+    display:none;
+    box-shadow:0 0 10px #666;
+    background:#fff;
+    }
+.theme-poptit
+{
+    border-bottom:1px solid #ddd;
+    padding:12px;
+    position:relative;
+    height:24px;
+    }
+.theme-poptit h3
+{
+    color: #1CBDB3;
+}
+.theme-poptit .close
+{
+    float:right;
+    color:#999;
+    padding:5px;
+    margin:-2px -5px -5px;
+    font:bold 14px/14px simsun;
+    text-shadow:0 1px 0 #ddd
+    }
+.theme-poptit .close:hover
+{
+    color:#444;
+    }

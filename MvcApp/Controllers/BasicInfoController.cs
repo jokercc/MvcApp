@@ -91,9 +91,9 @@ namespace MvcApp.Controllers
             return Json(emergencyInfos, JsonRequestBehavior.AllowGet);
         }
 
-        public ActionResult getHealthPlanByUserId(int id) //获取用户健康计划
+        public ActionResult getHealthPlanByUserId(int userId) //获取用户健康计划
         {
-            BasicInfo test = basicInfoService.getUserById(id);
+            BasicInfo test = basicInfoService.getUserById(userId);
             List<MyHealthPlan> healthPlans = healthPlanService.getByUser(test);
             return Json(healthPlans, JsonRequestBehavior.AllowGet);
         }

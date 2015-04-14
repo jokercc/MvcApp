@@ -5,10 +5,19 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<link rel="stylesheet" type="text/css" href="/css/user_interface_style.css" />
     <link rel="stylesheet" type="text/css" href="/css/jquery.datetimepicker.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/graph.css" />
+    <link rel="stylesheet" type="text/css" href="/css/map.css" />
+    <link rel="stylesheet" type="text/css" href="/css/upload_photo.css" />
 	<title>用户界面</title>
 	<script type="text/javascript" src="/Scripts/jquery-1.4.1.min.js"></script>
 	<script type="text/javascript" src="/Scripts/userIf.js"></script>
     <script type="text/javascript" src="/Scripts/jquery.js"></script>
+    <script type="text/javascript" src="/Scripts/jquery.flot.min.js"></script>
+    <script type="text/javascript" src="/Scripts/graph.js"></script>
+    <script type="text/javascript" src="/Scripts/jquery-1.7.1.min.js"></script>
+    <script type="text/javascript" src="/Scripts/ajaxfileupload.js"></script>
+    <script type="text/javascript" src="http://api.map.baidu.com/api?key=46ce9d0614bf7aefe0ba562f8cf87194&v=1.0&services=false"></script>
+    <script type="text/javascript" src="/Scripts/map.js"></script>
     <script type="text/javascript" src="/Scripts/jquery.datetimepicker.js"></script>
 </head>
 <body>
@@ -98,6 +107,7 @@
 	<!-- 用户显示开始 -->
     <div id="show_user">
     	<div id="user_portrait">
+            <img id="small_portrait" alt="" src="" />
     	</div>
     	<div id="user_name">
     		<div class="user_name_box">
@@ -120,14 +130,16 @@
 	<div id="user_basic_info">
 		<!-- 用户照片开始 -->
 		<div id="user_photo">
+            <img id="big_portrait" alt="" src="" />
 		</div>
 		<!-- 用户照片结束 -->
 		<!-- 照片上传框开始 -->
 		<div id="photo_upload">
 			<form>
-			<input class="btn" type="button" onclick=alert("haha") value="上传"/>
+			<input class="btn" type="button"  value="上传"/>
 			</form>
 		</div>
+        
 		<!-- 照片上传框结束 -->
 		<!-- 基本信息开始 -->
 		<div id="basic_info">
@@ -176,52 +188,7 @@
 		<!-- 基本信息结束 -->
 	</div>
 	<!-- 用户基本信息结束 -->
-	<!-- 用户初始健康信息开始 -->
-	<div id="user_heal_info">
-		<div id="heal_info">
-			<table class="table_style2">
-				<tr>
-	        		<td class="heal_title">&nbsp;&nbsp;初始健康信息</td>
-	    		</tr>
-	    		<tr>
-	        		<td class="heal_bggrey_left">&nbsp;&nbsp;心率</td>
-			        <td class="heal_bggrey_right"></td>
-	        		</td>
-	    		</tr>
-	    		<tr>
-	        		<td class="heal_bgwhite_left">&nbsp;&nbsp;血压</td>
-			        <td class="heal_bgwhite_right"></td>
-	        		</td>
-	    		</tr>
-	    		<tr>
-	        		<td class="heal_bggrey_left">&nbsp;&nbsp;脉搏</td>
-			        <td class="heal_bggrey_right"></td>
-	        		</td>
-	    		</tr>
-	    		<tr>
-	        		<td class="heal_bgwhite_left">&nbsp;&nbsp;血糖</td>
-			        <td class="heal_bgwhite_right"></td>
-	        		</td>
-	    		</tr>
-	    		<tr>
-	        		<td class="heal_bggrey_left">&nbsp;&nbsp;既往病史</td>
-			        <td class="heal_bggrey_right"></td>
-	        		</td>
-	    		</tr>
-	    		<tr>
-	        		<td class="heal_bgwhite_left"></td>
-			        <td class="heal_bgwhite_right"></td>
-	        		</td>
-	    		</tr>
-	    		<tr>
-	        		<td class="heal_bggrey_left"></td>
-			        <td class="heal_bggrey_right"></td>
-	        		</td>
-	    		</tr>
-    		</table>
-		</div>
-	</div>
-	<!-- 用户初始健康信息结束 -->
+
 	<!-- 用户急救信息框开始 -->
 	<div id="user_aid_info">
 		<div id="aid_search">
@@ -274,11 +241,13 @@
     <div id="body_table_bg">
         <div class="blood_pre_bg">
             <div class="blood_pre_head">
-                <ul>
-				    <li id="pre_date"   >&nbsp;&nbsp;日期</li>
-				    <li id="down_pre" >&nbsp;收缩压</li>
-                    <li id="up_pre" >舒张压</li>
-			    </ul>
+                <table>
+                    <tr>
+                      <td class="prehead_left_style">日期</td>
+                      <td class="prehead_mid_style">收缩压</td>
+                      <td class="prehead_right_style">舒张压</td>
+                    </tr>
+                 </table>    
              </div>
              <div id="blood_pre_data">  
                     <%--动态添加血压数据--%>
@@ -286,10 +255,12 @@
         </div>
         <div class="heart_boom_bg">
             <div class="heart_boom_head">
-                <ul>
-				    <li id="heart_date"   >&nbsp;&nbsp;日期</li>
-				    <li id="boom_data" >&nbsp;&nbsp;心跳</li>
-			    </ul>
+                <table>
+                    <tr>
+                      <td class="boomhead_left_style">日期</td>
+                      <td class="boomhead_right_style">心跳</td>
+                    </tr>
+                 </table>
             </div>
             <div id="boom_data_bg">  
                     <%--动态添加心跳数据--%>
@@ -297,10 +268,12 @@
         </div>
         <div class="blood_suger_bg">
             <div class="blood_suger_head">
-                <ul>
-				    <li id="suger_date"   >&nbsp;&nbsp;日期</li>
-				    <li id="suger_data" >&nbsp;&nbsp;血糖</li>
-			    </ul>
+                <table>
+                    <tr>
+                      <td class="sugerhead_left_style">日期</td>
+                      <td class="sugerhead_right_style">血糖</td>
+                    </tr>
+                 </table>
             </div>
             <div id="suger_data_bg">  
                     <%--动态添加血糖数据--%>
@@ -308,10 +281,12 @@
         </div>
         <div class="blood_tem_bg">
             <div class="blood_tem_head">
-                <ul>
-				    <li id="tem_date"   >&nbsp;&nbsp;日期</li>
-				    <li id="tem_data" >&nbsp;&nbsp;体温</li>
-			    </ul>
+                <table>
+                    <tr>
+                      <td class="temhead_left_style">日期</td>
+                      <td class="temhead_right_style">体温</td>
+                    </tr>
+                 </table>
             </div>
             <div id="tem_data_bg">  
                     <%--动态添加体温数据--%>
@@ -381,6 +356,10 @@
             </div>
             <div class="curve_area">
                 <h3></h3>
+	                <div class="graph-container">
+		                <div id="graph-lines">
+		                </div>
+                    </div>
             </div>
             <div class="curve_pre_month">
             </div>
@@ -389,9 +368,33 @@
             </div>
     </div>
     <div id="data_info_head"></div>
-    <div id="data_info_bg"></div>
+    <%--活动情况详细信息开始--%>
+    <div id="data_info_bg">
+        <div class="boxline_area">
+            
+        </div>
+        <div class="date_select">
+            
+        </div>
+        <div class="photo_one">
+            
+        </div>
+        <div class="photo_two">
+            
+        </div>
+        <div class="photo_three">
+            
+        </div>
+        <div class="photo_four">
+            
+        </div>
+    </div>
+    <%--活动情况活动轨迹开始--%>
     <div id="act_cueve_head"></div>
-    <div id="act_cueve_bg"></div>
+    <div id="act_cueve_bg">
+        <div id="container">
+        </div>
+    </div>
     <div id="heal_plan">
         <div class="eat_palan">
             <h3>&nbsp;&nbsp;营养食谱</h3>
@@ -406,9 +409,32 @@
             <p></p>
         </div>
     </div>
-    <input  id="get_username"  value="<%: ViewData["userName"]%>" />
+    <div class="theme-popover-mask"></div>
 
-    <img src="/Content/BasicInfo/face100/<%: ViewData["userName"]%>" />
+        <div class="theme-popover">
+	        <div class="theme-poptit">
+		        <a href="javascript:;" title="关闭" class="close">×</a>
+		        <h3>选择图像上传</h3>
+	        </div>
+              <div class="imageBox">
+                <div class="thumbBox"></div>
+                <div class="spinner" style="display: none">Loading...</div>
+              </div>
+              <div class="action"> 
+                <!-- <input type="file" id="file" style=" width: 200px">-->
+                <div class="new-contentarea tc"> <a href="javascript:void(0)" class="upload-img">
+                  <label for="upload-file">本地图片</label>
+                  </a>
+                  <input type="file" class="" name="upload-file" id="upload-file" />
+                </div>
+                <input type="button" id="btnCrop"  class="Btnsty_peyton" value="裁切">
+                <input type="button" id="btnZoomIn" class="Btnsty_peyton" value="+"  >
+                <input type="button" id="btnZoomOut" class="Btnsty_peyton" value="-" >
+              </div>
+              <div class="cropped"></div>
+              <div class="sure_upload"><input type="button" id="sure_upload_btn"  value="确认上传" /></div>
+        </div>
+    <input  id="get_username"  value="<%: ViewData["userName"]%>" />
 
 </body>
 <script type = "text/javascript">
@@ -426,5 +452,14 @@
 	    format:'d/m/Y',
 	    formatDate:'Y/m/d',
         });
+</script>
+<script type="text/javascript">
+
+var map = new BMap.Map("container");          // 创建地图实例
+
+var point = new BMap.Point(116.404, 39.915);  // 创建点坐标
+
+map.centerAndZoom(point, 15);                 // 初始化地图，设置中心点坐标和地图级别
+
 </script>
 </html>
