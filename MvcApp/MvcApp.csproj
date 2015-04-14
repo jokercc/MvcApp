@@ -103,10 +103,6 @@
     <Compile Include="Models\Service\LocationService.cs" />
     <Compile Include="Models\Service\ManagerService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Content Include="Content\bootstrap-responsive.min.css" />
-    <Content Include="Content\bootstrap.min.css" />
-    <Content Include="Content\crop.min.css" />
-    <Content Include="Content\fineuploader.css" />
     <Content Include="Content\images\1014520776.jpg" />
     <Content Include="Content\images\1014522530.jpg" />
     <Content Include="Content\images\1014524940.jpg" />
@@ -138,8 +134,6 @@
     <Content Include="Content\images\1016223683.jpg" />
     <Content Include="Content\images\1016223683_new.jpg" />
     <Content Include="Content\images\glyphicons-halflings-white.png" />
-    <Content Include="Content\Jcrop.gif" />
-    <Content Include="Content\jquery.Jcrop.min.css" />
     <Content Include="Scripts\ajaxfileupload.js" />
   </ItemGroup>
   <ItemGroup>

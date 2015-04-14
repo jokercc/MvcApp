@@ -496,30 +496,30 @@
     <Diagrams>
       <Diagram Name="Model1" ZoomLevel="76">
         <EntityTypeShape EntityType="ProModel.BasicInfo" Width="1.5" PointX="3" PointY="1" Height="5.2173673502604165" IsExpanded="true" />
-        <EntityTypeShape EntityType="ProModel.EmergencyInfo" Width="1.5" PointX="5.375" PointY="0.5" Height="2.7341113281249996" IsExpanded="true" />
-        <EntityTypeShape EntityType="ProModel.HealthPlan" Width="1.5" PointX="7.375" PointY="3.5" Height="2.1610522460937496" IsExpanded="true" />
-        <EntityTypeShape EntityType="ProModel.Location" Width="1.5" PointX="5.375" PointY="5.25" Height="2.1610522460937496" IsExpanded="true" />
-        <EntityTypeShape EntityType="ProModel.Manager" Width="1.5" PointX="0.75" PointY="1" Height="3.4981901041666656" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProModel.EmergencyInfo" Width="1.5" PointX="5.125" PointY="0.5" Height="2.7341113281249996" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProModel.HealthPlan" Width="1.5" PointX="7.375" PointY="2.25" Height="2.1610522460937496" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProModel.Location" Width="1.5" PointX="5.125" PointY="4" Height="2.1610522460937496" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProModel.Manager" Width="1.5" PointX="0.75" PointY="0.5" Height="3.8802294921874996" IsExpanded="true" />
         <AssociationConnector Association="ProModel.FK_BasicInfo_Manager" ManuallyRouted="false">
-          <ConnectorPoint PointX="2.25" PointY="2.94011474609375" />
-          <ConnectorPoint PointX="3" PointY="2.94011474609375" />
+          <ConnectorPoint PointX="2.25" PointY="2.69011474609375" />
+          <ConnectorPoint PointX="3" PointY="2.69011474609375" />
         </AssociationConnector>
         <AssociationConnector Association="ProModel.FK_EmergencyInfo_BasicInfo" ManuallyRouted="false">
           <ConnectorPoint PointX="4.5" PointY="2.1170556640625" />
-          <ConnectorPoint PointX="5.375" PointY="2.1170556640625" />
+          <ConnectorPoint PointX="5.125" PointY="2.1170556640625" />
         </AssociationConnector>
         <AssociationConnector Association="ProModel.FK_HealthPlan_BasicInfo" ManuallyRouted="false">
-          <ConnectorPoint PointX="4.5" PointY="4.34375" />
-          <ConnectorPoint PointX="7.375" PointY="4.34375" />
+          <ConnectorPoint PointX="4.5" PointY="3.6170556640625" />
+          <ConnectorPoint PointX="7.375" PointY="3.6170556640625" />
         </AssociationConnector>
         <AssociationConnector Association="ProModel.FK_Location_BasicInfo" ManuallyRouted="false">
-          <ConnectorPoint PointX="4.5" PointY="5.7336836751302078" />
-          <ConnectorPoint PointX="5.375" PointY="5.7336836751302078" />
+          <ConnectorPoint PointX="4.5" PointY="5.0805261230468748" />
+          <ConnectorPoint PointX="5.125" PointY="5.0805261230468748" />
         </AssociationConnector>
-        <EntityTypeShape EntityType="ProModel.HealthIndicator" Width="1.5" PointX="2.5" PointY="6.875" Height="3.1161507161458317" />
+        <EntityTypeShape EntityType="ProModel.HealthIndicator" Width="1.5" PointX="0.75" PointY="4.625" Height="3.1161507161458317" />
         <AssociationConnector Association="ProModel.FK_HealthIndicator_BasicInfo" >
-          <ConnectorPoint PointX="3.5" PointY="6.2173673502604165" />
-          <ConnectorPoint PointX="3.5" PointY="6.875" />
+          <ConnectorPoint PointX="3" PointY="5.4211836751302078" />
+          <ConnectorPoint PointX="2.25" PointY="5.4211836751302078" />
         </AssociationConnector>
       </Diagram>
     </Diagrams>

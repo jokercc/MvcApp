@@ -258,10 +258,10 @@ namespace MvcApp.Models
         /// <param name="userPassword">UserPassword 属性的初始值。</param>
         /// <param name="face100">face100 属性的初始值。</param>
         /// <param name="faceBig">faceBig 属性的初始值。</param>
-        public static BasicInfo CreateBasicInfo(/*global::System.Int64 iD_User,*/ global::System.Int64 iD_Manager, global::System.String name, global::System.Int16 age, global::System.Boolean sex, global::System.Boolean marrige, global::System.String telNum, global::System.String address, global::System.String children, global::System.String hobby, global::System.String userName, global::System.String userPassword, global::System.String face100, global::System.String faceBig)
+        public static BasicInfo CreateBasicInfo(global::System.Int64 iD_User, global::System.Int64 iD_Manager, global::System.String name, global::System.Int16 age, global::System.Boolean sex, global::System.Boolean marrige, global::System.String telNum, global::System.String address, global::System.String children, global::System.String hobby, global::System.String userName, global::System.String userPassword, global::System.String face100, global::System.String faceBig)
         {
             BasicInfo basicInfo = new BasicInfo();
-            //basicInfo.ID_User = iD_User;
+            basicInfo.ID_User = iD_User;
             basicInfo.ID_Manager = iD_Manager;
             basicInfo.Name = name;
             basicInfo.Age = age;
@@ -849,10 +849,10 @@ namespace MvcApp.Models
         /// <param name="illnessAnalyses">IllnessAnalyses 属性的初始值。</param>
         /// <param name="medicalResult">MedicalResult 属性的初始值。</param>
         /// <param name="advice">Advice 属性的初始值。</param>
-        public static EmergencyInfo CreateEmergencyInfo(/*global::System.Int64 iD_Emergency,*/ global::System.Int64 iD_User, global::System.String location, global::System.DateTime emergencyDate, global::System.String staff, global::System.String illnessAnalyses, global::System.String medicalResult, global::System.String advice)
+        public static EmergencyInfo CreateEmergencyInfo(global::System.Int64 iD_Emergency, global::System.Int64 iD_User, global::System.String location, global::System.DateTime emergencyDate, global::System.String staff, global::System.String illnessAnalyses, global::System.String medicalResult, global::System.String advice)
         {
             EmergencyInfo emergencyInfo = new EmergencyInfo();
-            //emergencyInfo.ID_Emergency = iD_Emergency;
+            emergencyInfo.ID_Emergency = iD_Emergency;
             emergencyInfo.ID_User = iD_User;
             emergencyInfo.Location = location;
             emergencyInfo.EmergencyDate = emergencyDate;
@@ -1132,10 +1132,10 @@ namespace MvcApp.Models
         /// <param name="date">Date 属性的初始值。</param>
         /// <param name="systolicPressure">SystolicPressure 属性的初始值。</param>
         /// <param name="diastolicPressure">DiastolicPressure 属性的初始值。</param>
-        public static HealthIndicator CreateHealthIndicator(/*global::System.Int64 iD_HealthIndica,*/ global::System.Int64 iD_User, global::System.Int16 bloodGlucose, global::System.Int16 duration, global::System.Int16 calorie, global::System.Int16 distance, global::System.Int16 heartBeat, global::System.DateTime date, global::System.Int16 systolicPressure, global::System.Int16 diastolicPressure)
+        public static HealthIndicator CreateHealthIndicator(global::System.Int64 iD_HealthIndica, global::System.Int64 iD_User, global::System.Int16 bloodGlucose, global::System.Int16 duration, global::System.Int16 calorie, global::System.Int16 distance, global::System.Int16 heartBeat, global::System.DateTime date, global::System.Int16 systolicPressure, global::System.Int16 diastolicPressure)
         {
             HealthIndicator healthIndicator = new HealthIndicator();
-            //healthIndicator.ID_HealthIndica = iD_HealthIndica;
+            healthIndicator.ID_HealthIndica = iD_HealthIndica;
             healthIndicator.ID_User = iD_User;
             healthIndicator.BloodGlucose = bloodGlucose;
             healthIndicator.Duration = duration;
@@ -1460,10 +1460,10 @@ namespace MvcApp.Models
         /// <param name="recipes">Recipes 属性的初始值。</param>
         /// <param name="movement">Movement 属性的初始值。</param>
         /// <param name="schedule">Schedule 属性的初始值。</param>
-        public static HealthPlan CreateHealthPlan(/*global::System.Int64 iD_Plan,*/ global::System.Int64 iD_User, global::System.String recipes, global::System.String movement, global::System.String schedule)
+        public static HealthPlan CreateHealthPlan(global::System.Int64 iD_Plan, global::System.Int64 iD_User, global::System.String recipes, global::System.String movement, global::System.String schedule)
         {
             HealthPlan healthPlan = new HealthPlan();
-            //healthPlan.ID_Plan = iD_Plan;
+            healthPlan.ID_Plan = iD_Plan;
             healthPlan.ID_User = iD_User;
             healthPlan.Recipes = recipes;
             healthPlan.Movement = movement;
@@ -1663,10 +1663,10 @@ namespace MvcApp.Models
         /// <param name="dataTime">DataTime 属性的初始值。</param>
         /// <param name="longitude">Longitude 属性的初始值。</param>
         /// <param name="latitude">Latitude 属性的初始值。</param>
-        public static Location CreateLocation(/*global::System.Int64 iD_Location,*/ global::System.Int64 iD_User, global::System.DateTime dataTime, global::System.Double longitude, global::System.Double latitude)
+        public static Location CreateLocation(global::System.Int64 iD_Location, global::System.Int64 iD_User, global::System.DateTime dataTime, global::System.Double longitude, global::System.Double latitude)
         {
             Location location = new Location();
-            //location.ID_Location = iD_Location;
+            location.ID_Location = iD_Location;
             location.ID_User = iD_User;
             location.DataTime = dataTime;
             location.Longitude = longitude;
@@ -1872,10 +1872,10 @@ namespace MvcApp.Models
         /// <param name="manPassword">ManPassword 属性的初始值。</param>
         /// <param name="face100">face100 属性的初始值。</param>
         /// <param name="faceBig">faceBig 属性的初始值。</param>
-        public static Manager CreateManager(/*global::System.Int64 iD_Manager,*/ global::System.String man_Name, global::System.Boolean man_Sex, global::System.Int16 man_Age, global::System.String man_Tel, global::System.String man_Add, global::System.Boolean sysManIdentify, global::System.String manName, global::System.String manPassword, global::System.String face100, global::System.String faceBig)
+        public static Manager CreateManager(global::System.Int64 iD_Manager, global::System.String man_Name, global::System.Boolean man_Sex, global::System.Int16 man_Age, global::System.String man_Tel, global::System.String man_Add, global::System.Boolean sysManIdentify, global::System.String manName, global::System.String manPassword, global::System.String face100, global::System.String faceBig)
         {
             Manager manager = new Manager();
-            //manager.ID_Manager = iD_Manager;
+            manager.ID_Manager = iD_Manager;
             manager.Man_Name = man_Name;
             manager.Man_Sex = man_Sex;
             manager.Man_Age = man_Age;

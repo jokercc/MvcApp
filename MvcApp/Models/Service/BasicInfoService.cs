@@ -115,10 +115,11 @@ namespace MvcApp.Models.Service
             return user;
         }
 
-        public Boolean changeUserFacePath(string userName, string path)
+        public Boolean changeUserFacePath(int userId, string path) //更改用户的头像路径
         {
-            var userSel = proEn.BasicInfo.First(m => m.UserName == userName);
+            var userSel = proEn.BasicInfo.First(m => m.ID_User == userId);
             userSel.face100 = path;
+            proEn.SaveChanges();
             return true;
         }
 

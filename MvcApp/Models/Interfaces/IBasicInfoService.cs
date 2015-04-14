@@ -15,12 +15,12 @@ namespace MvcApp.Models.Interfaces
 
         void deleteUser(int id);
 
-        void changeUser(int id,BasicInfo basicInfo);
+        void changeUser(int id, BasicInfo basicInfo);
 
         BasicInfo getUserById(int id);
 
         MyBasicInfo getUserByUserName(string userName);
 
-        Boolean changeUserFacePath(string userName, string path);
+        Boolean changeUserFacePath(int userId, string path);
     }
 }

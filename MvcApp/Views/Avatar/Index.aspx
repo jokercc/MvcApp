@@ -1,13 +1,12 @@
 ﻿<%@ Page Language="C#" Inherits="System.Web.Mvc.ViewPage" %>
-<!DOCTYPE html>
 
+<!DOCTYPE html>
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Index</title>
     <script type="text/javascript" src="/Scripts/jquery-1.7.1.min.js"></script>
     <script type="text/javascript" src="/Scripts/ajaxfileupload.js"></script>
-
     <script type="text/javascript">
 
         $(function () {
@@ -24,8 +23,8 @@
             $.ajaxFileUpload
             (
                 {
-                    url: '/Avatar/Upload', //用于文件上传的服务器端请求地址
-                    data: {"userName" : "test"},
+                    url: '/Avatar/uploadBasicInfoFace', //用于文件上传的服务器端请求地址
+                    data: { "userId": 1 },
                     secureuri: false, //一般设置为false
                     fileElementId: 'file1', //文件上传空间的id属性  <input type="file" id="file" name="file" />
                     dataType: 'HTML', //返回值类型 一般设置为json
@@ -51,12 +50,10 @@
         }
 
     </script>
-
 </head>
 <body>
-
-    <p><input type="file" id="file1" name="file" /></p>
+    <p>
+        <input type="file" id="file1" name="file" /></p>
     <input type="button" value="上传" />
-
 </body>
 </html>

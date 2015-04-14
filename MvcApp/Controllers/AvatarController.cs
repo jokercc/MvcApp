@@ -26,14 +26,14 @@ namespace AvatarUpload.Controllers
             return View();
         }
 
-        public ActionResult Upload(String userName)
+        public ActionResult uploadBasicInfoFace(int userId) //上传用户头像
         {
             HttpFileCollection hfc = System.Web.HttpContext.Current.Request.Files;
             string imgPath = "/Content/BasicInfo/face100/";
             if (hfc.Count > 0)
             {
-                imgPath = imgPath + userName + Path.GetExtension(hfc[0].FileName);
-                basicInfoService.changeUserFacePath(userName, imgPath); //更改用户face字段的值
+                imgPath = imgPath + userId + Path.GetExtension(hfc[0].FileName);
+                basicInfoService.changeUserFacePath(userId, imgPath); //更改用户face字段的值
                 string PhysicalPath = Server.MapPath(imgPath);
                 hfc[0].SaveAs(PhysicalPath);
             }

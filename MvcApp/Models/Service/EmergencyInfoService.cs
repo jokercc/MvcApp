@@ -60,7 +60,7 @@ namespace MvcApp.Models.Service
 
         public MyEmergencyInfo getEmergencyInfoById(int id) ////通过id号获取急救信息的详细信息
         {
-            var emergencyInfoSel = proEn.EmergencyInfo.First(m=>m.ID_Emergency == id);//从数据库中取出实体关系model
+            var emergencyInfoSel = proEn.EmergencyInfo.First(m => m.ID_Emergency == id);//从数据库中取出实体关系model
             MyEmergencyInfo emergencyInfo = new MyEmergencyInfo //将数据库中的实体关系model值复制到自己定义的不和数据库关联的model并返回
             {
                 ID_User = emergencyInfoSel.ID_User,
@@ -101,7 +101,6 @@ namespace MvcApp.Models.Service
                     myList.Add(em);
                 }
             }
-            
             return myList;
         }
     }

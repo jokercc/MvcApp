@@ -115,7 +115,7 @@ namespace MvcApp.Controllers
             DateTime endTime = DateTime.Parse(eTime);
 
             //所有数据存到list中
-            List<MyEmergencyInfo> emergencyInfoList = new List<MyEmergencyInfo>(); 
+            List<MyEmergencyInfo> emergencyInfoList = new List<MyEmergencyInfo>();
             emergencyInfoList = emergencyInfoService.searchForEmergencyInfo(userId, beginTime, endTime);
             return Json(emergencyInfoList, JsonRequestBehavior.AllowGet);
         }
