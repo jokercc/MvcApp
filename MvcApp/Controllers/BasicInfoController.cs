@@ -129,7 +129,7 @@ namespace MvcApp.Controllers
             return Json(healthIndicatorList, JsonRequestBehavior.AllowGet);
         }
 
-        public JsonResult testGetHealthIndicator()
+        public JsonResult testGetHealthIndicator() //for test
         {
             List<MyHealthIndicator> list = new List<MyHealthIndicator>();
 
@@ -157,8 +157,46 @@ namespace MvcApp.Controllers
                 Date = new DateTime(2015, 4, 2),
             };
 
+            MyHealthIndicator t3 = new MyHealthIndicator
+            {
+                SystolicPressure = 3,
+                DiastolicPressure = 3,
+                BloodGlucose = 3,
+                Duration = 3,
+                Calorie = 3,
+                Distance = 3,
+                HeartBeat = 3,
+                Date = new DateTime(2015, 4, 3),
+            };
+
+            MyHealthIndicator t4 = new MyHealthIndicator
+            {
+                SystolicPressure = 4,
+                DiastolicPressure = 4,
+                BloodGlucose = 4,
+                Duration = 4,
+                Calorie = 4,
+                Distance = 4,
+                HeartBeat = 4,
+                Date = new DateTime(2015, 4, 4),
+            };
+
+            MyHealthIndicator t5 = new MyHealthIndicator
+            {
+                SystolicPressure = 5,
+                DiastolicPressure = 5,
+                BloodGlucose = 5,
+                Duration = 5,
+                Calorie = 5,
+                Distance = 5,
+                HeartBeat = 5,
+                Date = new DateTime(2015, 4, 5),
+            };
             list.Add(t1);
             list.Add(t2);
+            list.Add(t3);
+            list.Add(t4);
+            list.Add(t5);
 
             return Json(list, JsonRequestBehavior.AllowGet);
         }
