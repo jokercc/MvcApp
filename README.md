@@ -1,2 +1,2 @@
 # MvcApp
-This is just a asp.net mvc project.
+This is website based on asp.net mvc2.
