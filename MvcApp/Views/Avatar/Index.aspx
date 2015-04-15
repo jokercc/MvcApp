@@ -55,5 +55,6 @@
     <p>
         <input type="file" id="file1" name="file" /></p>
     <input type="button" value="上传" />
+    ceshi
 </body>
 </html>
