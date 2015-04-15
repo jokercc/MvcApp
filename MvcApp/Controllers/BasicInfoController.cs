@@ -192,11 +192,38 @@ namespace MvcApp.Controllers
                 HeartBeat = 5,
                 Date = new DateTime(2015, 4, 5),
             };
+
+            MyHealthIndicator t6 = new MyHealthIndicator
+            {
+                SystolicPressure = 6,
+                DiastolicPressure = 6,
+                BloodGlucose = 6,
+                Duration = 6,
+                Calorie = 6,
+                Distance = 6,
+                HeartBeat = 6,
+                Date = new DateTime(2015, 4, 6),
+            };
+
+            MyHealthIndicator t7 = new MyHealthIndicator
+            {
+                SystolicPressure = 7,
+                DiastolicPressure = 7,
+                BloodGlucose = 7,
+                Duration = 7,
+                Calorie = 7,
+                Distance = 7,
+                HeartBeat = 7,
+                Date = new DateTime(2015, 4, 7),
+            };
+
             list.Add(t1);
             list.Add(t2);
             list.Add(t3);
             list.Add(t4);
             list.Add(t5);
+            list.Add(t6);
+            list.Add(t7);
 
             return Json(list, JsonRequestBehavior.AllowGet);
         }
