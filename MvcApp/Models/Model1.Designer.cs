@@ -24,6 +24,7 @@ using System.Xml.Serialization;
 [assembly: EdmRelationshipAttribute("ProModel", "FK_HealthPlan_BasicInfo", "BasicInfo", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(MvcApp.Models.BasicInfo), "HealthPlan", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(MvcApp.Models.HealthPlan), true)]
 [assembly: EdmRelationshipAttribute("ProModel", "FK_Location_BasicInfo", "BasicInfo", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(MvcApp.Models.BasicInfo), "Location", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(MvcApp.Models.Location), true)]
 [assembly: EdmRelationshipAttribute("ProModel", "FK_HealthIndicator_BasicInfo", "BasicInfo", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(MvcApp.Models.BasicInfo), "HealthIndicator", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(MvcApp.Models.HealthIndicator), true)]
+[assembly: EdmRelationshipAttribute("ProModel", "FK_UserPhoto_BasicInfo1", "BasicInfo", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(MvcApp.Models.BasicInfo), "UserPhoto", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(MvcApp.Models.UserPhoto), true)]
 
 #endregion
 
@@ -170,6 +171,22 @@ namespace MvcApp.Models
             }
         }
         private ObjectSet<HealthIndicator> _HealthIndicator;
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        public ObjectSet<UserPhoto> UserPhoto
+        {
+            get
+            {
+                if ((_UserPhoto == null))
+                {
+                    _UserPhoto = base.CreateObjectSet<UserPhoto>("UserPhoto");
+                }
+                return _UserPhoto;
+            }
+        }
+        private ObjectSet<UserPhoto> _UserPhoto;
 
         #endregion
 
@@ -221,6 +238,14 @@ namespace MvcApp.Models
         public void AddToHealthIndicator(HealthIndicator healthIndicator)
         {
             base.AddObject("HealthIndicator", healthIndicator);
+        }
+    
+        /// <summary>
+        /// 用于向 UserPhoto EntitySet 添加新对象的方法，已弃用。请考虑改用关联的 ObjectSet&lt;T&gt; 属性的 .Add 方法。
+        /// </summary>
+        public void AddToUserPhoto(UserPhoto userPhoto)
+        {
+            base.AddObject("UserPhoto", userPhoto);
         }
 
         #endregion
@@ -820,6 +845,28 @@ namespace MvcApp.Models
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<HealthIndicator>("ProModel.FK_HealthIndicator_BasicInfo", "HealthIndicator", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("ProModel", "FK_UserPhoto_BasicInfo1", "UserPhoto")]
+        public EntityCollection<UserPhoto> UserPhoto
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<UserPhoto>("ProModel.FK_UserPhoto_BasicInfo1", "UserPhoto");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<UserPhoto>("ProModel.FK_UserPhoto_BasicInfo1", "UserPhoto", value);
                 }
             }
         }
@@ -2255,6 +2302,157 @@ namespace MvcApp.Models
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<BasicInfo>("ProModel.FK_BasicInfo_Manager", "BasicInfo", value);
+                }
+            }
+        }
+
+        #endregion
+
+    }
+    
+    /// <summary>
+    /// 没有元数据文档可用。
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="ProModel", Name="UserPhoto")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class UserPhoto : EntityObject
+    {
+        #region 工厂方法
+    
+        /// <summary>
+        /// 创建新的 UserPhoto 对象。
+        /// </summary>
+        /// <param name="iD_Photo">ID_Photo 属性的初始值。</param>
+        /// <param name="photoPath">PhotoPath 属性的初始值。</param>
+        /// <param name="iD_User">ID_User 属性的初始值。</param>
+        public static UserPhoto CreateUserPhoto(global::System.Int64 iD_Photo, global::System.String photoPath, global::System.Int64 iD_User)
+        {
+            UserPhoto userPhoto = new UserPhoto();
+            userPhoto.ID_Photo = iD_Photo;
+            userPhoto.PhotoPath = photoPath;
+            userPhoto.ID_User = iD_User;
+            return userPhoto;
+        }
+
+        #endregion
+
+        #region 基元属性
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int64 ID_Photo
+        {
+            get
+            {
+                return _ID_Photo;
+            }
+            set
+            {
+                if (_ID_Photo != value)
+                {
+                    OnID_PhotoChanging(value);
+                    ReportPropertyChanging("ID_Photo");
+                    _ID_Photo = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("ID_Photo");
+                    OnID_PhotoChanged();
+                }
+            }
+        }
+        private global::System.Int64 _ID_Photo;
+        partial void OnID_PhotoChanging(global::System.Int64 value);
+        partial void OnID_PhotoChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String PhotoPath
+        {
+            get
+            {
+                return _PhotoPath;
+            }
+            set
+            {
+                OnPhotoPathChanging(value);
+                ReportPropertyChanging("PhotoPath");
+                _PhotoPath = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("PhotoPath");
+                OnPhotoPathChanged();
+            }
+        }
+        private global::System.String _PhotoPath;
+        partial void OnPhotoPathChanging(global::System.String value);
+        partial void OnPhotoPathChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int64 ID_User
+        {
+            get
+            {
+                return _ID_User;
+            }
+            set
+            {
+                OnID_UserChanging(value);
+                ReportPropertyChanging("ID_User");
+                _ID_User = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("ID_User");
+                OnID_UserChanged();
+            }
+        }
+        private global::System.Int64 _ID_User;
+        partial void OnID_UserChanging(global::System.Int64 value);
+        partial void OnID_UserChanged();
+
+        #endregion
+
+    
+        #region 导航属性
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("ProModel", "FK_UserPhoto_BasicInfo1", "BasicInfo")]
+        public BasicInfo BasicInfo
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<BasicInfo>("ProModel.FK_UserPhoto_BasicInfo1", "BasicInfo").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<BasicInfo>("ProModel.FK_UserPhoto_BasicInfo1", "BasicInfo").Value = value;
+            }
+        }
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<BasicInfo> BasicInfoReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<BasicInfo>("ProModel.FK_UserPhoto_BasicInfo1", "BasicInfo");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<BasicInfo>("ProModel.FK_UserPhoto_BasicInfo1", "BasicInfo", value);
                 }
             }
         }

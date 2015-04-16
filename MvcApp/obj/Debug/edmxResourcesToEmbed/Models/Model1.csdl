@@ -27,6 +27,11 @@
       <End Role="BasicInfo" EntitySet="BasicInfo" />
       <End Role="HealthIndicator" EntitySet="HealthIndicator" />
     </AssociationSet>
+    <EntitySet Name="UserPhoto" EntityType="ProModel.UserPhoto" />
+    <AssociationSet Name="FK_UserPhoto_BasicInfo1" Association="ProModel.FK_UserPhoto_BasicInfo1">
+      <End Role="BasicInfo" EntitySet="BasicInfo" />
+      <End Role="UserPhoto" EntitySet="UserPhoto" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="BasicInfo">
     <Key>
@@ -54,6 +59,7 @@
     <NavigationProperty Name="HealthIndicator" Relationship="ProModel.FK_HealthIndicator_BasicInfo" FromRole="BasicInfo" ToRole="HealthIndicator" />
     <Property Type="String" Name="face100" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Type="String" Name="faceBig" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="UserPhoto" Relationship="ProModel.FK_UserPhoto_BasicInfo1" FromRole="BasicInfo" ToRole="UserPhoto" />
   </EntityType>
   <EntityType Name="EmergencyInfo">
     <Key>
@@ -183,6 +189,27 @@
         <PropertyRef Name="ID_User" />
       </Principal>
       <Dependent Role="HealthIndicator">
+        <PropertyRef Name="ID_User" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="UserPhoto">
+    <Key>
+      <PropertyRef Name="ID_Photo" />
+    </Key>
+    <Property Type="Int64" Name="ID_Photo" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="PhotoPath" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Type="Int64" Name="ID_User" Nullable="false" />
+    <NavigationProperty Name="BasicInfo" Relationship="ProModel.FK_UserPhoto_BasicInfo1" FromRole="UserPhoto" ToRole="BasicInfo" />
+  </EntityType>
+  <Association Name="FK_UserPhoto_BasicInfo1">
+    <End Type="ProModel.BasicInfo" Role="BasicInfo" Multiplicity="1" />
+    <End Type="ProModel.UserPhoto" Role="UserPhoto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BasicInfo">
+        <PropertyRef Name="ID_User" />
+      </Principal>
+      <Dependent Role="UserPhoto">
         <PropertyRef Name="ID_User" />
       </Dependent>
     </ReferentialConstraint>

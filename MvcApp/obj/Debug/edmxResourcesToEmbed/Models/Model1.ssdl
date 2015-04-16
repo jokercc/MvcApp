@@ -7,6 +7,7 @@
     <EntitySet Name="HealthPlan" EntityType="ProModel.Store.HealthPlan" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Location" EntityType="ProModel.Store.Location" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Manager" EntityType="ProModel.Store.Manager" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="UserPhoto" EntityType="ProModel.Store.UserPhoto" store:Type="Tables" Schema="dbo" />
     <AssociationSet Name="FK_BasicInfo_Manager" Association="ProModel.Store.FK_BasicInfo_Manager">
       <End Role="Manager" EntitySet="Manager" />
       <End Role="BasicInfo" EntitySet="BasicInfo" />
@@ -26,6 +27,10 @@
     <AssociationSet Name="FK_Location_BasicInfo" Association="ProModel.Store.FK_Location_BasicInfo">
       <End Role="BasicInfo" EntitySet="BasicInfo" />
       <End Role="Location" EntitySet="Location" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserPhoto_BasicInfo" Association="ProModel.Store.FK_UserPhoto_BasicInfo">
+      <End Role="BasicInfo" EntitySet="BasicInfo" />
+      <End Role="UserPhoto" EntitySet="UserPhoto" />
     </AssociationSet>
   </EntityContainer>
   <EntityType Name="BasicInfo">
@@ -117,6 +122,14 @@
     <Property Name="GroupPlan" Type="varchar" MaxLength="1" />
     <Property Name="GroupPhoto" Type="image" />
   </EntityType>
+  <EntityType Name="UserPhoto">
+    <Key>
+      <PropertyRef Name="ID_Photo" />
+    </Key>
+    <Property Name="ID_Photo" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="ID_User" Type="bigint" Nullable="false" />
+    <Property Name="PhotoPath" Type="varchar" Nullable="false" MaxLength="250" />
+  </EntityType>
   <Association Name="FK_BasicInfo_Manager">
     <End Role="Manager" Type="ProModel.Store.Manager" Multiplicity="1" />
     <End Role="BasicInfo" Type="ProModel.Store.BasicInfo" Multiplicity="*" />
@@ -173,6 +186,18 @@
         <PropertyRef Name="ID_User" />
       </Principal>
       <Dependent Role="Location">
+        <PropertyRef Name="ID_User" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserPhoto_BasicInfo">
+    <End Role="BasicInfo" Type="ProModel.Store.BasicInfo" Multiplicity="1" />
+    <End Role="UserPhoto" Type="ProModel.Store.UserPhoto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BasicInfo">
+        <PropertyRef Name="ID_User" />
+      </Principal>
+      <Dependent Role="UserPhoto">
         <PropertyRef Name="ID_User" />
       </Dependent>
     </ReferentialConstraint>

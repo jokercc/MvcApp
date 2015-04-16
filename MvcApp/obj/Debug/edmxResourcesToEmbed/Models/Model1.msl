@@ -96,5 +96,14 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="UserPhoto">
+      <EntityTypeMapping TypeName="ProModel.UserPhoto">
+        <MappingFragment StoreEntitySet="UserPhoto">
+          <ScalarProperty Name="ID_User" ColumnName="ID_User" />
+          <ScalarProperty Name="PhotoPath" ColumnName="PhotoPath" />
+          <ScalarProperty Name="ID_Photo" ColumnName="ID_Photo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

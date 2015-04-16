@@ -85,6 +85,7 @@
     <Compile Include="Models\Interfaces\IHealthPlanService.cs" />
     <Compile Include="Models\Interfaces\ILocationService.cs" />
     <Compile Include="Models\Interfaces\IManagerService.cs" />
+    <Compile Include="Models\Interfaces\IUserPhotoService.cs" />
     <Compile Include="Models\Model1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -96,13 +97,16 @@
     <Compile Include="Models\MyModels\MyHealthPlan.cs" />
     <Compile Include="Models\MyModels\MyLocation.cs" />
     <Compile Include="Models\MyModels\MyManager.cs" />
+    <Compile Include="Models\MyModels\MyUserPhoto.cs" />
     <Compile Include="Models\Service\BasicInfoService.cs" />
     <Compile Include="Models\Service\EmergencyInfoService.cs" />
     <Compile Include="Models\Service\HealthIndicatorService.cs" />
     <Compile Include="Models\Service\HealthPlanService.cs" />
     <Compile Include="Models\Service\LocationService.cs" />
     <Compile Include="Models\Service\ManagerService.cs" />
+    <Compile Include="Models\Service\UserPhotoService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Content Include="Content\BasicInfo\face100\1.jpg" />
     <Content Include="Content\images\1014520776.jpg" />
     <Content Include="Content\images\1014522530.jpg" />
     <Content Include="Content\images\1014524940.jpg" />
@@ -134,6 +138,11 @@
     <Content Include="Content\images\1016223683.jpg" />
     <Content Include="Content\images\1016223683_new.jpg" />
     <Content Include="Content\images\glyphicons-halflings-white.png" />
+    <Content Include="Content\UserPhoto\1.png" />
+    <Content Include="Content\UserPhoto\2.png" />
+    <Content Include="Content\UserPhoto\3.png" />
+    <Content Include="Content\UserPhoto\4.png" />
+    <Content Include="Content\UserPhoto\5.png" />
     <Content Include="Scripts\ajaxfileupload.js" />
   </ItemGroup>
   <ItemGroup>
@@ -164,7 +173,9 @@
     <Content Include="Views\Home\Index.aspx" />
     <Content Include="Views\Home\Manager.aspx" />
     <Content Include="Views\Home\BasicInfo.aspx" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -185,7 +196,6 @@
     <Content Include="Scripts\MicrosoftMvcValidation.debug.js" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Content\BasicInfo\face100\" />
     <Folder Include="Content\Manager\face100\" />
   </ItemGroup>
   <ItemGroup>

@@ -20,6 +20,7 @@ namespace MvcApp.Controllers
         IEmergencyInfoService emergencyInfoService;
         IHealthPlanService healthPlanService;
         IHealthIndicatorService healthIndicatorService;
+        IUserPhotoService userPhotoService;
 
         public BasicInfoController()
         {
@@ -28,6 +29,7 @@ namespace MvcApp.Controllers
             emergencyInfoService = new EmergencyInfoService();
             healthPlanService = new HealthPlanService();
             healthIndicatorService = new HealthIndicatorService();
+            userPhotoService = new UserPhotoService();
         }
 
         public ActionResult Index()
@@ -120,7 +122,7 @@ namespace MvcApp.Controllers
             return Json(emergencyInfoList, JsonRequestBehavior.AllowGet);
         }
 
-        public JsonResult getHealthIndicatorByDate(string myYear, string myMonth, int id)
+        public JsonResult getHealthIndicatorByDate(string myYear, string myMonth, int id) //根据日期获取用户的健康指标信息
         {
             int y = Int16.Parse(myYear);
             int m = Int16.Parse(myMonth);
@@ -129,11 +131,28 @@ namespace MvcApp.Controllers
             return Json(healthIndicatorList, JsonRequestBehavior.AllowGet);
         }
 
+        public JsonResult getLocationByDate(string myYear, string myMonth, string myDay,int id) //根据日期获取用户的活动信息
+        {
+            int y = Int16.Parse(myYear);
+            int m = Int16.Parse(myMonth);
+            int d = Int16.Parse(myDay);
+            DateTime date = new DateTime(y, m, d);
+
+            List<MyLocation> locationList = locationService.getLocationByDate(date, id);
+            return Json(locationList, JsonRequestBehavior.AllowGet);
+        }
+
+        public JsonResult getUserPhotoByUserId(int userId) //通过用户Id获取他的所有图片的路径
+        {
+            List<MyUserPhoto> list = userPhotoService.getUserPhotoByUserId(userId);
+            return Json(list, JsonRequestBehavior.AllowGet);
+        }
+
         public JsonResult testGetHealthIndicator() //for test
         {
             List<MyHealthIndicator> list = new List<MyHealthIndicator>();
 
-            MyHealthIndicator t1 = new MyHealthIndicator
+            MyHealthIndicator t1 = new MyHealthIndicator                                                                                                                                                                                                                                                    
             {
                 SystolicPressure = 1,
                 DiastolicPressure = 1,

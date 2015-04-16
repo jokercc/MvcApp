@@ -23,7 +23,7 @@ namespace MvcApp.Models.Service
             healthPlanService = new HealthPlanService();
         }
 
-        public bool login(string userName, string password)
+        public bool login(string userName, string password) //用户登录
         {
             bool state = false;
             try

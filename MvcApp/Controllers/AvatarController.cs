@@ -39,5 +39,17 @@ namespace AvatarUpload.Controllers
             }
             return Content(imgPath);
         }
+
+        public ActionResult getUserPhotos(int userId) //获取用户所有的活动图片
+        {
+            List<String> list = new List<String>();
+            String filePath = "/Content/BasicInfo/1";
+            
+            string PhysicalPath = Server.MapPath(filePath);
+
+            FileInfo fileInfo = new FileInfo(PhysicalPath);
+
+            return Json(list, JsonRequestBehavior.AllowGet);
+        }
     }
 }
