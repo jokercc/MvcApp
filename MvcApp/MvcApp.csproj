@@ -168,6 +168,7 @@
     <Content Include="Scripts\jquery.fineuploader-3.1.min.js" />
     <Content Include="Scripts\jquery.form.min.js" />
     <Content Include="Scripts\jquery.Jcrop.min.js" />
+    <Content Include="Scripts\map.js" />
     <Content Include="Scripts\userIf.js" />
     <Content Include="Views\Avatar\Index.aspx" />
     <Content Include="Views\Home\Index.aspx" />

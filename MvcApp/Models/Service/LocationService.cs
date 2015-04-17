@@ -65,7 +65,8 @@ namespace MvcApp.Models.Service
             //遍历list获取符合要求的location 添加到myLocationList
             for (int i = 0; i < locationList.Count; i++)
             {
-                if (locationList[i].DataTime == date)
+                //if (locationList[i].DataTime.Year == date.Year && locationList[i].DataTime.Month == date.Month && locationList[i].DataTime.Day == date.Day)
+                if (locationList[i].DataTime.Date == date.Date)
                 {
                     MyLocation myLocation = new MyLocation
                     {
