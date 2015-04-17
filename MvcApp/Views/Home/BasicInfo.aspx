@@ -5,17 +5,13 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<link rel="stylesheet" type="text/css" href="/css/user_interface_style.css" />
     <link rel="stylesheet" type="text/css" href="/css/jquery.datetimepicker.css"/>
-    <link rel="stylesheet" type="text/css" href="/css/graph.css" />
     <link rel="stylesheet" type="text/css" href="/css/map.css" />
     <link rel="stylesheet" type="text/css" href="/css/upload_photo.css" />
 	<title>用户界面</title>
 	<script type="text/javascript" src="/Scripts/jquery-1.4.1.min.js"></script>
 	<script type="text/javascript" src="/Scripts/userIf.js"></script>
     <script type="text/javascript" src="/Scripts/jquery.js"></script>
-    <script type="text/javascript" src="/Scripts/jquery.flot.min.js"></script>
-    <script type="text/javascript" src="/Scripts/graph.js"></script>
-    <script type="text/javascript" src="/Scripts/jquery-1.7.1.min.js"></script>
-    <script type="text/javascript" src="/Scripts/ajaxfileupload.js"></script>
+    <script type="text/javascript" src="/Scripts/highcharts.js"></script>
     <script type="text/javascript" src="http://api.map.baidu.com/api?key=46ce9d0614bf7aefe0ba562f8cf87194&v=1.0&services=false"></script>
     <script type="text/javascript" src="/Scripts/map.js"></script>
     <script type="text/javascript" src="/Scripts/jquery.datetimepicker.js"></script>
@@ -341,25 +337,33 @@
             <input type="button" value=""/>
         </div>
     </div>
+    <%--身体指标曲线图开始--%>
     <div id="body_curve_head">        
     </div>
     <div id="body_curve_bg">
             <div class="choose_healpro">
-                <form>
-                    <select name="cars">
-                    <option value="volvo">血压</option>
-                    <option value="saab">心跳</option>
-                    <option value="fiat" selected="">血糖</option>
-                    <option value="audi">体温</option>
-                    </select>
-                 </form>
+                <p id="select_p">血压</p>
             </div>
+            <div class="choose_healpro_btn">
+                <input type="button"  value = "▼" id="select_line"  />
+            </div>
+            <div class="choose_healpro_box">
+                <div class="select_blood">
+                    <input type="button" id="select_blood_line" value="血压" />
+                </div>
+                <div class="select_boom">
+                    <input type="button" id="select_boom_line" value="心跳" />
+                </div>
+                <div class="select_suger">
+                    <input type="button" id="select_suger_line" value="血糖" />
+                </div>
+                <div class="select_tem">
+                    <input type="button" id="select_tem_line" value="体温" />
+                </div>
+            </div>    
             <div class="curve_area">
-                <h3></h3>
-	                <div class="graph-container">
-		                <div id="graph-lines">
-		                </div>
-                    </div>
+                <h3 id="select_line_h"></h3>
+	            <div id="container"></div>
             </div>
             <div class="curve_pre_month">
             </div>
@@ -371,11 +375,14 @@
     <%--活动情况详细信息开始--%>
     <div id="data_info_bg">
         <div class="boxline_area">
-            
+            <h3 id="select_bars_h"></h3>
+            <div id="container2"></div>   
         </div>
-        <div class="date_select">
-            
-        </div>
+        <div class="act_pre_month">
+            </div>
+         <div class="act_next_month">
+            <input type="button" value="" />
+         </div>
         <div class="photo_one">
             
         </div>
@@ -392,9 +399,10 @@
     <%--活动情况活动轨迹开始--%>
     <div id="act_cueve_head"></div>
     <div id="act_cueve_bg">
-        <div id="container">
+        <div id="container_map">
         </div>
     </div>
+    <%--健康计划开始--%>
     <div id="heal_plan">
         <div class="eat_palan">
             <h3>&nbsp;&nbsp;营养食谱</h3>
@@ -427,9 +435,9 @@
                   </a>
                   <input type="file" class="" name="upload-file" id="upload-file" />
                 </div>
-                <input type="button" id="btnCrop"  class="Btnsty_peyton" value="裁切">
-                <input type="button" id="btnZoomIn" class="Btnsty_peyton" value="+"  >
-                <input type="button" id="btnZoomOut" class="Btnsty_peyton" value="-" >
+                <input type="button" id="btnCrop"  class="Btnsty_peyton" value="裁切"/>
+                <input type="button" id="btnZoomIn" class="Btnsty_peyton" value="+"  />
+                <input type="button" id="btnZoomOut" class="Btnsty_peyton" value="-" />
               </div>
               <div class="cropped"></div>
               <div class="sure_upload"><input type="button" id="sure_upload_btn"  value="确认上传" /></div>
@@ -452,14 +460,5 @@
 	    format:'d/m/Y',
 	    formatDate:'Y/m/d',
         });
-</script>
-<script type="text/javascript">
-
-var map = new BMap.Map("container");          // 创建地图实例
-
-var point = new BMap.Point(116.404, 39.915);  // 创建点坐标
-
-map.centerAndZoom(point, 15);                 // 初始化地图，设置中心点坐标和地图级别
-
 </script>
 </html>

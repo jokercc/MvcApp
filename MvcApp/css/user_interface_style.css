@@ -1292,16 +1292,87 @@ em{
 	background: #1CBDB3;
 	z-index:1;
 }
-.choose_healpro
+.choose_healpro p
 {
-    background:none;
+    background:#1CBDB3;
     position: absolute;
 	display: block;
 	top: 30px;
-	left: 40px;
-	width: 120px;
-	height:240px;
+	left: 60px;
+	width: 80px;
+	height:30px;
 	z-index:1;
+	color: white;
+	font-family: "STHEITI-LIGHT";
+	font-size:20px;
+	border:1px solid #19A392;
+	text-align:center;
+}
+.choose_healpro_btn 
+{
+    background:#1CBDB3;
+    position: absolute;
+	display: block;
+	top: 30px;
+	left: 140px;
+	width: 38px;
+	height:30px;
+	z-index:1;
+	border:1px solid #19A392;
+}
+.choose_healpro_btn input
+{
+    width:100%;
+    height:100%;
+    color:White;
+    background:none;
+    cursor:pointer;
+}
+.choose_healpro_box
+{
+    background: #00647E;
+    position: absolute;
+	display: none;
+	top: 75px;
+	left: 60px;
+	width: 120px;
+	height:200px;
+	z-index:1;
+}
+.select_blood, .select_suger, .select_boom, .select_tem
+{
+    position: absolute;
+	display: block;
+	left: 0;
+	width: 120px;
+	height:50px;
+	z-index:1;
+}
+.select_blood 
+{
+    top: 0;
+}
+.select_boom 
+{
+    top: 50px;
+}
+.select_suger
+{
+    top: 100px;
+}
+.select_tem
+{
+    top: 150px;
+}
+.select_blood input, .select_suger input, .select_boom input, .select_tem input
+{
+    width:100%;
+    height:100%;
+    color:White;
+    background:none;
+    cursor:pointer;
+    font-family: "STHEITI-LIGHT";
+	font-size:20px;
 }
 .curve_area
 {
@@ -1318,8 +1389,14 @@ em{
 	background: #CCD0D6;
 	color: #646364;
 	font-family: "STHEITI-LIGHT";
-	height: 40px;
+	height: 25px;
 }
+#container
+{
+    width:100%;
+    height:300px;
+}
+
 .curve_pre_month
 {
     width:70px;
@@ -1357,7 +1434,7 @@ em{
 {
     position: absolute;
 	display: none;
-	top: 280px;
+	top: 260px;
 	left: 150px;
 	width: 180px;
 	height:60px;
@@ -1367,10 +1444,10 @@ em{
 #data_info_bg{
 	position: absolute;
 	display: none;
-	top: 337px;
+	top: 317px;
 	left: 150px;
 	width: 1000px;
-	height:390px;
+	height:440px;
 	background: #1CBDB3;
 	z-index:1;
 }
@@ -1380,16 +1457,59 @@ em{
 	display: block;
 	top: 10px;
 	left: 50px;
-	width: 550px;
-	height:210px;
+	width: 700px;
+	height:260px;
 	background: white;
 	z-index:1;
+}
+.boxline_area h3{
+	background: #CCD0D6;
+	color: #646364;
+	font-family: "STHEITI-LIGHT";
+	height: 25px;
+}
+#container2
+{
+    width:100%;
+    height:235px;
+}
+.act_pre_month
+{
+    width:70px;
+    height:30px;
+    left:820px;
+    top:70px;
+    position: absolute;
+	display: block;
+	z-index:1;
+	cursor:pointer;
+	background: url(../images/pre_month.png)  no-repeat;
+}
+.act_pre_month input
+{
+    background: url(../images/pre_month.png)  no-repeat;
+}
+.act_next_month
+{
+    width:70px;
+    height:30px;
+    left:820px;
+    top:180px;
+    position: absolute;
+	display: block;
+	z-index:1;
+	cursor:pointer;
+	background:  url(../images/next_month.png)  no-repeat;
+}
+.act_next_month input
+{
+    background:  url(../images/next_month.png)  no-repeat;
 }
 .photo_one
 {
     position: absolute;
 	display: block;
-	top: 240px;
+	top: 290px;
 	left: 50px;
 	width: 195px;
 	height:135px;
@@ -1400,7 +1520,7 @@ em{
 {
     position: absolute;
 	display: block;
-	top: 240px;
+	top: 290px;
 	left: 284px;
 	width: 195px;
 	height:135px;
@@ -1411,7 +1531,7 @@ em{
 {
     position: absolute;
 	display: block;
-	top: 240px;
+	top: 290px;
 	left: 516px;
 	width: 195px;
 	height:135px;
@@ -1422,7 +1542,7 @@ em{
 {
     position: absolute;
 	display: block;
-	top: 240px;
+	top: 290px;
 	left: 750px;
 	width: 195px;
 	height:135px;
