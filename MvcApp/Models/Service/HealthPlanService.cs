@@ -40,7 +40,7 @@ namespace MvcApp.Models.Service
 
         public List<MyHealthPlan> getByUser(BasicInfo user)
         {
-            List<HealthPlan> healthPlans = proEn.HealthPlan.ToList().FindAll(m=>m.ID_User == user.ID_User);
+            List<HealthPlan> healthPlans = proEn.HealthPlan.ToList().FindAll(m => m.ID_User == user.ID_User);
             List<MyHealthPlan> myHealthPlans = new List<MyHealthPlan>();
             for (int i = 0; i < healthPlans.Count; i++)
             {

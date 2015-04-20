@@ -7,7 +7,7 @@ namespace MvcApp.Models.MyModels
 {
     public class MyManager
     {
-        public global::System.String Man_Name { get; set; } 
+        public global::System.String Man_Name { get; set; }
         public global::System.Boolean Man_Sex { get; set; }
         public global::System.Int16 Man_Age { get; set; }
         public global::System.String Man_Tel { get; set; }

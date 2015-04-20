@@ -44,7 +44,7 @@ namespace AvatarUpload.Controllers
         {
             List<String> list = new List<String>();
             String filePath = "/Content/BasicInfo/1";
-            
+
             string PhysicalPath = Server.MapPath(filePath);
 
             FileInfo fileInfo = new FileInfo(PhysicalPath);

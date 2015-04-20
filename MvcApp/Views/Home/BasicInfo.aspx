@@ -383,18 +383,21 @@
          <div class="act_next_month">
             <input type="button" value="" />
          </div>
-        <div class="photo_one">
-            
+        <%--abcdefg--%>
+        <div class="act_photo_area">
+            <div id="photo_demo">
+               <table border="0" cellspacing="0" cellpadding="0">
+                  <tr>
+                        <!-- 要展示的图片 -->
+                        <table class="photo_show_style" >
+                           <tr id="insert_photo">
+                           </tr>
+                        </table>
+                  </tr>
+               </table>
+            </div> 
         </div>
-        <div class="photo_two">
-            
-        </div>
-        <div class="photo_three">
-            
-        </div>
-        <div class="photo_four">
-            
-        </div>
+        <%--abcdefg end--%>
     </div>
     <%--活动情况活动轨迹开始--%>
     <div id="act_cueve_head"></div>
@@ -443,7 +446,6 @@
               <div class="sure_upload"><input type="button" id="sure_upload_btn"  value="确认上传" /></div>
         </div>
     <input  id="get_username"  value="<%: ViewData["userName"]%>" />
-
 </body>
 <script type = "text/javascript">
     $('#datetimepicker1').datetimepicker({

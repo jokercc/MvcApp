@@ -72,7 +72,7 @@ namespace MvcApp.Models.Service
             var userSel = proEn.BasicInfo.First(m => m.UserName == userName); //通过userName获取实体关系model
             MyBasicInfo user = new MyBasicInfo //将数据库中的实体关系model值复制到自己定义的不和数据库关联的model并返回
             {
-                ID_User = userSel.ID_User,   
+                ID_User = userSel.ID_User,
                 ID_Manager = userSel.ID_Manager,
                 Name = userSel.Name,
                 Age = userSel.Age,

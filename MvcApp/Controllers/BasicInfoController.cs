@@ -131,7 +131,7 @@ namespace MvcApp.Controllers
             return Json(healthIndicatorList, JsonRequestBehavior.AllowGet);
         }
 
-        public JsonResult getLocationByDate(string myYear, string myMonth, string myDay,int id) //根据日期获取用户的活动信息
+        public JsonResult getLocationByDate(string myYear, string myMonth, string myDay, int id) //根据日期获取用户的活动信息
         {
             int y = Int16.Parse(myYear);
             int m = Int16.Parse(myMonth);
@@ -152,7 +152,7 @@ namespace MvcApp.Controllers
         {
             List<MyHealthIndicator> list = new List<MyHealthIndicator>();
 
-            MyHealthIndicator t1 = new MyHealthIndicator                                                                                                                                                                                                                                                    
+            MyHealthIndicator t1 = new MyHealthIndicator
             {
                 SystolicPressure = 1,
                 DiastolicPressure = 1,

@@ -19,6 +19,11 @@ $(function(){
             date =  month[str[1]] + "-" + str[2] + "-" + str[3];
             return date;
                     }
+    //abcdefg
+    //function insert_photo(){
+        //$("#act_photo").attr("src","/images/avatar.jpg");
+    //}
+    //abcdefg end
     // 运用ajax方法像服务器请求数据
     var user = $("#get_username").val();
     var userId;
@@ -145,7 +150,7 @@ $(window).load(function () {
                     dataType: 'HTML', //返回值类型 一般设置为json
                     success: function (data, status)  //服务器成功响应处理函数
                     {
-                        //alert(data);
+                        alert(data);
                         $("#big_portrait").attr("src",portrait_url);
                         $("#small_portrait").attr("src",portrait_url);
                         if (typeof (data.error) != 'undefined') {
@@ -164,6 +169,7 @@ $(window).load(function () {
             )
             return false;
         }
+
 });
     (function (factory) {
         if (typeof define === 'function' && define.amd) {
@@ -492,7 +498,7 @@ $(window).load(function () {
                     premonth=12;
                     preyear--;
                 }
-                //alert(preyear+"-"+premonth);
+                alert(preyear+"-"+premonth);
                 var tbody1 = $("#blood_pre_data").find("table");
                 tbody1.empty();
                 $.ajax(
@@ -540,7 +546,7 @@ $(window).load(function () {
                     boommonth=12;
                     boomyear--;
                 }
-                //alert(boomyear+"-"+boommonth);
+                alert(boomyear+"-"+boommonth);
                 var tbody2 = $("#boom_data_bg").find("table");
                 tbody2.empty();
                 $.ajax(
@@ -589,7 +595,7 @@ $(window).load(function () {
                     sugermonth=12;
                     sugeryear--;
                 }
-                //alert(sugeryear+"-"+sugermonth);
+                alert(sugeryear+"-"+sugermonth);
                 var tbody3 = $("#suger_data_bg").find("table");
                 tbody3.empty();
                 $.ajax(
@@ -636,13 +642,13 @@ $(window).load(function () {
                 if(sugeryear==myyear&&sugermonth>mymonth){
                     alert("已经是最新的记录！！！");
                     sugermonth--;
-                    //alert(sugeryear+"-"+sugermonth);
+                    alert(sugeryear+"-"+sugermonth);
                 }
                 else{
                     if(sugermonth==13){
                         sugermonth=1;
                         sugeryear++;
-                        //alert(sugeryear+"-"+sugermonth);
+                        alert(sugeryear+"-"+sugermonth);
                         var tbody3 = $("#suger_data_bg").find("table");
                 tbody3.empty();
                 $.ajax(
@@ -685,7 +691,7 @@ $(window).load(function () {
 	                });
                     }
                     else{
-                        //alert(sugeryear+"-"+sugermonth);
+                        alert(sugeryear+"-"+sugermonth);
                         var tbody3 = $("#suger_data_bg").find("table");
                 tbody3.empty();
                 $.ajax(
@@ -735,7 +741,7 @@ $(window).load(function () {
                     temmonth=12;
                     temyear--;
                 }
-                //alert(temyear+"-"+temmonth);
+                alert(temyear+"-"+temmonth);
                 var tbody4 = $("#tem_data_bg").find("table");
                 tbody4.empty();
                 $.ajax(
@@ -782,13 +788,13 @@ $(window).load(function () {
                 if(temyear==myyear&&temmonth>mymonth){
                     alert("已经是最新的记录！！！");
                     temmonth--;
-                    //alert(temyear+"-"+temmonth);
+                    alert(temyear+"-"+temmonth);
                 }
                 else{
                     if(temmonth==13){
                         temmonth=1;
                         temyear++;
-                        //alert(temyear+"-"+temmonth);
+                        alert(temyear+"-"+temmonth);
                         var tbody4 = $("#tem_data_bg").find("table");
                 tbody4.empty();
                 $.ajax(
@@ -831,7 +837,7 @@ $(window).load(function () {
 	                });
                     }
                     else{
-                        //alert(temyear+"-"+temmonth);
+                        alert(temyear+"-"+temmonth);
                         var tbody4 = $("#tem_data_bg").find("table");
                 tbody4.empty();
                 $.ajax(
@@ -880,13 +886,13 @@ $(window).load(function () {
                 if(preyear==myyear&&premonth>mymonth){
                     premonth--;
                     alert("已经是最新的记录！！！");
-                    //alert(preyear+"-"+premonth);
+                    alert(preyear+"-"+premonth);
                 }
                 else{
                     if(premonth==13){
                         premonth=1;
                         preyear++;
-                        //alert(preyear+"-"+premonth);
+                        alert(preyear+"-"+premonth);
                         var tbody1 = $("#blood_pre_data").find("table");
                         tbody1.empty();
                         $.ajax(
@@ -929,7 +935,7 @@ $(window).load(function () {
 	                    });
                     }
                     else{
-                        //alert(preyear+"-"+premonth);
+                        alert(preyear+"-"+premonth);
                         var tbody1 = $("#blood_pre_data").find("table");
                         tbody1.empty();
                         $.ajax(
@@ -978,13 +984,13 @@ $(window).load(function () {
                 if(boomyear==myyear&&boommonth>mymonth){
                     alert("已经是最新的记录！！！");
                     boommonth--;
-                    //alert(boomyear+"-"+boommonth);
+                    alert(boomyear+"-"+boommonth);
                 }
                 else{
                     if(boommonth==13){
                         boommonth=1;
                         boomyear++;
-                        //alert(boomyear+"-"+boommonth);
+                        alert(boomyear+"-"+boommonth);
                         var tbody2 = $("#boom_data_bg").find("table");
                         tbody2.empty();
                         $.ajax(
@@ -1028,7 +1034,7 @@ $(window).load(function () {
 	                    });
                     }
                     else{
-                        //alert(boomyear+"-"+boommonth);
+                        alert(boomyear+"-"+boommonth);
                         var tbody2 = $("#boom_data_bg").find("table");
                         tbody2.empty();
                         $.ajax(
@@ -1513,6 +1519,15 @@ $(window).load(function () {
         $(".navbox4").hide("fast");
         $(".navbox5").hide("fast");
         $(".act_box").hide("fast");
+        //abcdefg
+        //var img_src = "/images/avatar.jpg";
+        //var test_photo = '<td class="photo_tb_style"><a ><img src="'+img_src+'" /></a></td>';
+        //$("#insert_photo").append(test_photo);
+        //$("#insert_photo").append(test_photo);
+        //$("#insert_photo").append(test_photo);
+        //$("#insert_photo").append(test_photo);
+        //$("#insert_photo").append(test_photo);
+        //abcdefg end
         actmonth = mymonth;
         actyear = myyear;
         date_array.length = 0;
@@ -1602,7 +1617,27 @@ $(window).load(function () {
                         });
                     },
 	     });
-        
+         //abcdefg
+        $.ajax(
+	    {
+            url: "/BasicInfo/getUserPhotoByUserId",
+            
+            data:{
+                "userId" : userId
+	            },
+	        type: "GET",
+	        dataType: "json",
+	        contentType: "application/json",
+	        success: function (data) 
+	        {   
+                for (var i = 0; i < data.length; i++) {
+                            var img_src = data[i].PhotoPath;
+                            var test_photo = '<td class="photo_tb_style"><a ><img src="'+data[i].PhotoPath+'" /></a></td>';
+                            $("#insert_photo").append(test_photo);
+                }
+	        },
+	    });
+        //abcdefg end
     });
     $(".act_pre_month").bind("click",function(){
             date_array.length = 0;
@@ -1638,64 +1673,64 @@ $(window).load(function () {
                          }
                     $('#container2').highcharts({
                 chart: {
-                type: 'column'
-            },
-            title: {
-                text: ''
-            },
-            subtitle: {
-                text: ''
-            },
-            xAxis: {
-                categories: date_array
-            },
-            yAxis:[{
-                min : 0,
-                lineWidth : 1,
-                title:{
-                    text :'卡路里(kcal)'
-                }
-            },{
-             title:{
-                    text :'时间(min)'
-                },
-                lineWidth : 1,
-                opposite:true
-            },{
-             title:{
-                    text :'距离(m)'
-                },
-                      lineWidth : 1,
-                opposite:true
-            }],
-            tooltip: {
-            },
-            plotOptions: {
-                column: {
-                    pointPadding: 0.2,
-                    borderWidth: 0
-                }
-            },
-            legend: {
-                    layout: 'vertical',
-                    align: 'right',
-                    verticalAlign: 'middle',
-                    borderWidth: 0
-                },
-            series: [{
-                name: '卡路里',
-                data: calorie_array,
-                yAxis:0
-            }, {
-                name: '时间',
-                data: duration_array,
-                yAxis:1
-            }, {
-                name: '距离',
-                data: distance_array,
-                yAxis:2}]
-                });
-            },
+                        type: 'column'
+                    },
+                    title: {
+                        text: ''
+                    },
+                    subtitle: {
+                        text: ''
+                    },
+                    xAxis: {
+                        categories: date_array
+                    },
+                    yAxis:[{
+                        min : 0,
+                        lineWidth : 1,
+                        title:{
+                            text :'卡路里(kcal)'
+                        }
+                    },{
+                     title:{
+                            text :'时间(min)'
+                        },
+                        lineWidth : 1,
+                        opposite:true
+                    },{
+                     title:{
+                            text :'距离(m)'
+                        },
+                              lineWidth : 1,
+                        opposite:true
+                    }],
+                    tooltip: {
+                    },
+                    plotOptions: {
+                        column: {
+                            pointPadding: 0.2,
+                            borderWidth: 0
+                        }
+                    },
+                    legend: {
+                            layout: 'vertical',
+                            align: 'right',
+                            verticalAlign: 'middle',
+                            borderWidth: 0
+                        },
+                    series: [{
+                        name: '卡路里',
+                        data: calorie_array,
+                        yAxis:0
+                    }, {
+                        name: '时间',
+                        data: duration_array,
+                        yAxis:1
+                    }, {
+                        name: '距离',
+                        data: distance_array,
+                        yAxis:2}]
+                        });
+                    },
 	        });
         });
         $(".act_next_month").bind("click",function(){

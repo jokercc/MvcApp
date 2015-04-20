@@ -32,7 +32,7 @@ namespace MvcApp.Models.Service
             {
                 Console.Write(exception.Message);
             }
-            
+
             return state;
         }
 
@@ -56,7 +56,7 @@ namespace MvcApp.Models.Service
             proEn.SaveChanges();
         }
 
-        public Manager getManagerById(int id) 
+        public Manager getManagerById(int id)
         {
             var manSel = proEn.Manager.First(m => m.ID_Manager == id);
             return manSel;

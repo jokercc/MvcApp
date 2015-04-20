@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <setParameter name="IIS Web Application Name" value="Default Web Site/MvcApp_deploy" />
+  <setParameter name="ProEntities-Web.config Connection String" value="metadata=res://*/Models.Model1.csdl|res://*/Models.Model1.ssdl|res://*/Models.Model1.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=cc-PC\SQLEXPRESS;initial catalog=Pro;persist security info=True;user id=sa;password=123456;multipleactiveresultsets=True;App=EntityFramework&quot;" />
+</parameters>
