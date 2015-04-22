@@ -131,15 +131,66 @@ namespace MvcApp.Controllers
             return Json(healthIndicatorList, JsonRequestBehavior.AllowGet);
         }
 
-        public JsonResult getLocationByDate(string myYear, string myMonth, string myDay, int id) //根据日期获取用户的活动信息
+        public JsonResult getLocationByDate(string Date, int id) //根据日期获取用户的活动信息
         {
-            int y = Int16.Parse(myYear);
-            int m = Int16.Parse(myMonth);
-            int d = Int16.Parse(myDay);
-            DateTime date = new DateTime(y, m, d);
+            if (Date.Length == 10)
+            {
+                string bDay = Date.Substring(0, 2);
+                string bMonth = Date.Substring(3, 2);
+                string bYear = Date.Substring(6);
+                Date = bMonth + "/" + bDay + "/" + bYear;
+            }
+            else
+            {
+                string bDay = Date.Substring(0, 2);
+                string bMonth = Date.Substring(3, 1);
+                string bYear = Date.Substring(5);
+                Date = bMonth + "/" + bDay + "/" + bYear;
+            }
+
+
+            DateTime date = DateTime.Parse(Date);
 
             List<MyLocation> locationList = locationService.getLocationByDate(date, id);
             return Json(locationList, JsonRequestBehavior.AllowGet);
+        }
+
+        public JsonResult testGetLocationByDate()
+        {
+            List<MyLocation> list = new List<MyLocation>();
+
+            MyLocation l1 = new MyLocation
+            {
+                ID_Location = 1,
+                ID_User = 1,
+                DataTime = new DateTime(2015, 4, 21),
+                Latitude = 106.486654,
+                Longitude = 29.490295,
+            };
+
+            MyLocation l2 = new MyLocation
+            {
+                ID_Location = 1,
+                ID_User = 1,
+                DataTime = new DateTime(2015, 4, 21),
+                Latitude = 106.581515,
+                Longitude = 29.615467,
+            };
+
+            MyLocation l3 = new MyLocation
+            {
+                ID_Location = 1,
+                ID_User = 1,
+                DataTime = new DateTime(2015, 4, 21),
+                Latitude = 106.381515,
+                Longitude = 29.515467,
+            };
+
+            list.Add(l1);
+            list.Add(l2);
+            list.Add(l3);
+
+            return Json(list, JsonRequestBehavior.AllowGet);
         }
 
         public JsonResult getUserPhotoByUserId(int userId) //通过用户Id获取他的所有图片的路径

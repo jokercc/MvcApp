@@ -2,19 +2,21 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<%--abcdefg--%>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
 	<link rel="stylesheet" type="text/css" href="/css/user_interface_style.css" />
     <link rel="stylesheet" type="text/css" href="/css/jquery.datetimepicker.css"/>
-    <link rel="stylesheet" type="text/css" href="/css/map.css" />
     <link rel="stylesheet" type="text/css" href="/css/upload_photo.css" />
 	<title>用户界面</title>
 	<script type="text/javascript" src="/Scripts/jquery-1.4.1.min.js"></script>
 	<script type="text/javascript" src="/Scripts/userIf.js"></script>
     <script type="text/javascript" src="/Scripts/jquery.js"></script>
     <script type="text/javascript" src="/Scripts/highcharts.js"></script>
-    <script type="text/javascript" src="http://api.map.baidu.com/api?key=46ce9d0614bf7aefe0ba562f8cf87194&v=1.0&services=false"></script>
-    <script type="text/javascript" src="/Scripts/map.js"></script>
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=Ww0moWQzefqW6FOflHHjg9pq"></script>
     <script type="text/javascript" src="/Scripts/jquery.datetimepicker.js"></script>
+    <script type="text/javascript" src="/Scripts/ajaxfileupload.js"></script>
+    <%--abcdefg end--%>
 </head>
 <body>
 	<!-- 背景框开始 -->
@@ -402,8 +404,21 @@
     <%--活动情况活动轨迹开始--%>
     <div id="act_cueve_head"></div>
     <div id="act_cueve_bg">
+        <%--abccdefg--%>
+        <div class="map_date_box">
+            <%--<div class="map_date_show">--%>
+                <input id="datetimepicker3" type="text" value=""/>
+            <%--</div>--%>
+            <%--<div class="map_date_select">
+            </div>--%>
+        </div>
+        <div class="map_predate">
+        </div>
+        <div class="map_nextdate">
+        </div>
         <div id="container_map">
         </div>
+        <%--abcdefg end--%>
     </div>
     <%--健康计划开始--%>
     <div id="heal_plan">
@@ -447,20 +462,4 @@
         </div>
     <input  id="get_username"  value="<%: ViewData["userName"]%>" />
 </body>
-<script type = "text/javascript">
-    $('#datetimepicker1').datetimepicker({
-	    yearOffset:0,
-	    lang:'ch',
-	    timepicker:false,
-	    format:'d/m/Y',
-	    formatDate:'Y/m/d',
-        });
-    $('#datetimepicker2').datetimepicker({
-	    yearOffset:0,
-	    lang:'ch',
-	    timepicker:false,
-	    format:'d/m/Y',
-	    formatDate:'Y/m/d',
-        });
-</script>
 </html>

@@ -953,7 +953,7 @@ em{
 	height:323px;
 	z-index:3;
 	background: white;
-	overflow-y: scroll
+	overflow-y: scroll;
 }
 #suger_data_bg .table_style5 table{
 	font-family: "STHEITI-LIGHT";
@@ -1505,50 +1505,50 @@ em{
 {
     background:  url(../images/next_month.png)  no-repeat;
 }
-.photo_one
+/*abcdefg*/
+.act_photo_area
 {
     position: absolute;
 	display: block;
-	top: 290px;
+	top: 275px;
 	left: 50px;
-	width: 195px;
-	height:135px;
-	background: white;
+	width: 900px;
+	height:155px;
+	background: none;
 	z-index:1;
+	/*overflow-x: scroll;*/
 }
-.photo_two
+
+#photo_demo
 {
+    overflow-x: scroll; 
+    width: 900px; 
+    height: 165px; 
+    top:0; 
+    left:0;
     position: absolute;
-	display: block;
-	top: 290px;
-	left: 284px;
-	width: 195px;
-	height:135px;
-	background: white;
-	z-index:1;
 }
-.photo_three
+.photo_tb_style
 {
-    position: absolute;
-	display: block;
-	top: 290px;
-	left: 516px;
-	width: 195px;
-	height:135px;
-	background: white;
-	z-index:1;
+    width:300px;
+    align:center; 
+    height: 151px;
 }
-.photo_four
+.photo_tb_style img
 {
-    position: absolute;
-	display: block;
-	top: 290px;
-	left: 750px;
-	width: 195px;
-	height:135px;
-	background: white;
-	z-index:1;
+    width:194px;
+     height:147px; 
+     border:0;
 }
+.photo_show_style
+{
+    width:900px; border:0; 
+    align:center;
+    border-collapse:collapse;  
+    border-spacing:0;  
+    padd:expression(this.cellPadding=0);
+}
+/*abcdefg end*/
 /*活动情况活动轨迹开始*/
 #act_cueve_head
 {
@@ -1561,7 +1561,7 @@ em{
 	background: url(../images/act_head.png)  no-repeat;
 	z-index:1;
 }
-
+/*健康计划开始*/
 #heal_plan
 {
     position: absolute;

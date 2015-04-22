@@ -1561,6 +1561,94 @@ em{
 	background: url(../images/act_head.png)  no-repeat;
 	z-index:1;
 }
+/*abcdefg*/
+#act_cueve_bg{
+	position: absolute;
+	display: none;
+	top: 337px;
+	left: 150px;
+	width: 1000px;
+	height:390px;
+	background: #1CBDB3;
+	z-index:1;
+}
+#container_map
+{
+    position: absolute;
+	display: block;
+	top: 60px;
+	left:100px;
+	width: 800px;
+	height:300px;
+	z-index:1;
+	border:1px solid gray;
+}
+.map_date_box
+{
+    position:absolute;
+    width:120px;
+    height:30px;
+    top:15px;
+    left:440px;
+    display:block;
+    cursor:pointer;
+}
+.map_date_box input
+{
+    position:absolute;
+    width:120px;
+    height:30px;
+    left:-5px;
+    display:block;
+    cursor:pointer;
+    font-size:15px;
+    font-family:"STHEITI-LIGHT";
+    color:#E5EFF1;
+    background: url(../images/select_box.png)  no-repeat;
+}
+.map_date_show
+{
+    position:absolute;
+    width:150px;
+    height:45px;
+    top:0px;
+    left:0px;
+    display:block;
+    border:1px solid red;
+}
+.map_date_select
+{
+    position:absolute;
+    width:50px;
+    height:45px;
+    top:0px;
+    left:150px;
+    display:block;
+    border:1px solid red;
+}
+.map_predate
+{
+    position:absolute;
+    width:100px;
+    height:40px;
+    top:10px;
+    left:100px;
+    display:block;
+    cursor:pointer;
+    background: url(../images/map_predate.png)  no-repeat;
+}
+.map_nextdate
+{
+    position:absolute;
+    width:100px;
+    height:40px;
+    top:10px;
+    left:800px;
+    cursor:pointer;
+    background: url(../images/map_nextdate.png)  no-repeat;
+    display:block;
+}
+/*abcdefg end*/
 /*健康计划开始*/
 #heal_plan
 {

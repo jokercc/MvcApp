@@ -31,6 +31,7 @@ $(function(){
     var myDate = new Date();
     var myyear = myDate.getFullYear(); 
     var mymonth = (myDate.getMonth()+1);
+    var myday = myDate.getDate();
     var premonth;
     var boommonth;
     var sugermonth;
@@ -52,6 +53,29 @@ $(function(){
     var line_year;
     var actmonth;
     var actyear;
+    //abcdefg
+    $('#datetimepicker1').datetimepicker({
+	    yearOffset:0,
+	    lang:'ch',
+	    timepicker:true,
+	    format:'d/m/Y',
+	    formatDate:'d/m/Y',
+        });
+    $('#datetimepicker2').datetimepicker({
+	    yearOffset:0,
+	    lang:'ch',
+	    timepicker:true,
+	    format:'d/m/Y',
+	    formatDate:'d/m/Y',
+        });
+    $('#datetimepicker3').datetimepicker({
+	    yearOffset:0,
+	    lang:'ch',
+	    timepicker:true,
+	    format:'d/m/Y',
+	    formatDate:'d/m/Y',
+        });
+    //abcdefg end
     $(window).load(function () {
         $.ajax(
 	    {
@@ -1623,7 +1647,7 @@ $(window).load(function () {
             url: "/BasicInfo/getUserPhotoByUserId",
             
             data:{
-                "userId" : userId
+                "id" : userId
 	            },
 	        type: "GET",
 	        dataType: "json",
@@ -1849,7 +1873,147 @@ $(window).load(function () {
         $(".navbox4").hide("fast");
         $(".navbox5").hide("fast");
         $(".act_box").hide("fast");
+        //abcdefg
+        //var myyear = myDate.getFullYear(); 
+        //var mymonth = (myDate.getMonth()+1);
+        //var myday = myDate.getDate();
+        $("#datetimepicker3").attr("value",""+myday+"/"+mymonth+"/"+myyear+"");
+        ajax_date = myday+"/" + mymonth + "/" + myyear;
+        $.ajax(
+	    {
+            //url: "/BasicInfo/testGetLocationByDate",
+            url: "/BasicInfo/getLocationByDate",
+            data:{
+                "id" : userId,
+                "Date": ajax_date
+	            },
+	        type: "GET",
+	        dataType: "json",
+	        contentType: "application/json",
+	        success: function (data) 
+	        {   
+                var map = new BMap.Map("container_map");          // 创建地图实例
+                map.enableScrollWheelZoom(true);
+                var point=new Array();
+                var polyline=new Array();
+                var temple;
+                for (var i = 0; i < data.length; i++) {
+                            point[i] = new BMap.Point(data[i].Latitude,data[i].Longitude);
+                }
+                map.centerAndZoom(point[0],12);  //初始化地图,设置城市和地图级别。
+                for(var j=0;j<(data.length-1);j++){
+                            temple=j;
+                            polyline[j] = new BMap.Polyline([point[temple],point[temple+1]], {strokeColor:"red", strokeWeight:3, strokeOpacity:0.8});
+                            map.addOverlay(polyline[j]);
+               }
+	        },
+	    });
+        //abcdefg end
         });
+    //abcdefg
+     $(".map_predate").bind("click",function(){
+        var map_pretime = $("#datetimepicker3").val();
+        var arr=new Array();   
+        arr=map_pretime.split('/');//注split可以用字符或字符串分割
+        var dd=new Date(arr[2],arr[1]-1,arr[0],"00","00","00");
+        dd.setTime(dd.getTime()-24*60*60*1000);
+        var s = dd.getDate()+"/" + (dd.getMonth()+1) + "/" + dd.getFullYear();
+        $('#datetimepicker3').datetimepicker({
+	        yearOffset:0,
+	        lang:'ch',
+	        timepicker:true,
+	        format:'d/m/Y',
+	        formatDate:'d/m/Y',
+            value:s
+        });
+        $.ajax(
+	        {
+                //url: "/BasicInfo/testGetLocationByDate",
+                url: "/BasicInfo/getLocationByDate",
+                data:{
+                    "id" : userId,
+                    "Date": s
+	                },
+	            type: "GET",
+	            dataType: "json",
+	            contentType: "application/json",
+	            success: function (data) 
+	            {   
+                    var map = new BMap.Map("container_map");          // 创建地图实例
+                    map.enableScrollWheelZoom(true);
+                    var point=new Array();
+                    var polyline=new Array();
+                    var temple;
+                    for (var i = 0; i < data.length; i++) {
+                                point[i] = new BMap.Point(data[i].Latitude,data[i].Longitude);
+                    }
+                    map.centerAndZoom(point[0],12);  //初始化地图,设置城市和地图级别。
+                    for(var j=0;j<(data.length-1);j++){
+                                temple=j;
+                                polyline[j] = new BMap.Polyline([point[temple],point[temple+1]], {strokeColor:"red", strokeWeight:3, strokeOpacity:0.8});
+                                map.addOverlay(polyline[j]);
+                   }
+	        },
+	    });
+     });
+     $(".map_nextdate").bind("click",function(){
+        var map_nexttime = $("#datetimepicker3").val();
+        var arr=new Array();   
+        arr=map_nexttime.split('/');//注split可以用字符或字符串分割
+        var dd=new Date(arr[2],arr[1]-1,arr[0],"00","00","00");
+        dd.setTime(dd.getTime()+24*60*60*1000);
+        var s = dd.getDate()+"/" + (dd.getMonth()+1) + "/" + dd.getFullYear();
+        if(dd.getDate()>myday&&(dd.getMonth()+1)==mymonth&&dd.getFullYear()==myyear)
+        {   $('#datetimepicker3').datetimepicker({
+	            yearOffset:0,
+	            lang:'ch',
+	            timepicker:true,
+	            format:'d/m/Y',
+	            formatDate:'d/m/Y',
+                value:""+myday+"/"+mymonth+"/"+myyear+""
+            })
+            alert("已经是最新的记录了！！！");
+            }else{
+                $('#datetimepicker3').datetimepicker({
+	            yearOffset:0,
+	            lang:'ch',
+	            timepicker:true,
+	            format:'d/m/Y',
+	            formatDate:'d/m/Y',
+                value:s
+            });
+            $.ajax(
+	        {
+                //url: "/BasicInfo/testGetLocationByDate",
+                url: "/BasicInfo/getLocationByDate",
+                data:{
+                    "id" : userId,
+                    "Date": s
+	                },
+	            type: "GET",
+	            dataType: "json",
+	            contentType: "application/json",
+	            success: function (data) 
+	            {   
+                    var map = new BMap.Map("container_map");          // 创建地图实例
+                    map.enableScrollWheelZoom(true);
+                    var point=new Array();
+                    var polyline=new Array();
+                    var temple;
+                    for (var i = 0; i < data.length; i++) {
+                                point[i] = new BMap.Point(data[i].Latitude,data[i].Longitude);
+                    }
+                    map.centerAndZoom(point[0],12);  //初始化地图,设置城市和地图级别。
+                    for(var j=0;j<(data.length-1);j++){
+                                temple=j;
+                                polyline[j] = new BMap.Polyline([point[temple],point[temple+1]], {strokeColor:"red", strokeWeight:3, strokeOpacity:0.8});
+                                map.addOverlay(polyline[j]);
+                   }
+	        },
+	    });
+        }
+     });
+    //abcdefg end
     $(".navboxfour").bind("click",function(){
      	$("#heal_plan").show("fast");
         $("#user_aid_info").hide("fast");
