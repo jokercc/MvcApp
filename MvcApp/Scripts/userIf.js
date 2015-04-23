@@ -1647,7 +1647,7 @@ $(window).load(function () {
             url: "/BasicInfo/getUserPhotoByUserId",
             
             data:{
-                "id" : userId
+                "userId" : userId
 	            },
 	        type: "GET",
 	        dataType: "json",
