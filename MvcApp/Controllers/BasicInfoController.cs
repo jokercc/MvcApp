@@ -164,8 +164,8 @@ namespace MvcApp.Controllers
                 ID_Location = 1,
                 ID_User = 1,
                 DataTime = new DateTime(2015, 4, 21),
-                Latitude = 106.486654,
-                Longitude = 29.490295,
+                Latitude = 106.530958,
+                Longitude = 29.544901,
             };
 
             MyLocation l2 = new MyLocation
@@ -173,8 +173,8 @@ namespace MvcApp.Controllers
                 ID_Location = 1,
                 ID_User = 1,
                 DataTime = new DateTime(2015, 4, 21),
-                Latitude = 106.581515,
-                Longitude = 29.615467,
+                Latitude = 106.531075,
+                Longitude = 29.544901,
             };
 
             MyLocation l3 = new MyLocation
@@ -182,13 +182,124 @@ namespace MvcApp.Controllers
                 ID_Location = 1,
                 ID_User = 1,
                 DataTime = new DateTime(2015, 4, 21),
-                Latitude = 106.381515,
-                Longitude = 29.515467,
+                Latitude = 106.531196,
+                Longitude = 29.544901,
+            };
+
+            MyLocation l4 = new MyLocation
+            {
+                ID_Location = 1,
+                ID_User = 1,
+                DataTime = new DateTime(2015, 4, 21),
+                Latitude = 106.531322,
+                Longitude = 29.544916,
+            };
+
+            MyLocation l5 = new MyLocation
+            {
+                ID_Location = 1,
+                ID_User = 1,
+                DataTime = new DateTime(2015, 4, 21),
+                Latitude = 106.531466,
+                Longitude = 29.544928,
+            };
+
+            MyLocation l6 = new MyLocation
+            {
+                ID_Location = 1,
+                ID_User = 1,
+                DataTime = new DateTime(2015, 4, 21),
+                Latitude = 106.531569,
+                Longitude = 29.544932,
+            };
+
+            MyLocation l7 = new MyLocation
+            {
+                ID_Location = 1,
+                ID_User = 1,
+                DataTime = new DateTime(2015, 4, 21),
+                Latitude = 106.531578,
+                Longitude = 29.545026,
+            };
+
+            MyLocation l8 = new MyLocation
+            {
+                ID_Location = 1,
+                ID_User = 1,
+                DataTime = new DateTime(2015, 4, 21),
+                Latitude = 106.53161,
+                Longitude = 29.545093,
+            };
+
+            MyLocation l9 = new MyLocation
+            {
+                ID_Location = 1,
+                ID_User = 1,
+                DataTime = new DateTime(2015, 4, 21),
+                Latitude = 106.531556,
+                Longitude = 29.545282,
+            };
+
+            MyLocation l10 = new MyLocation
+            {
+                ID_Location = 1,
+                ID_User = 1,
+                DataTime = new DateTime(2015, 4, 21),
+                Latitude = 106.531556,
+                Longitude = 29.545376,
+            };
+
+            MyLocation l11 = new MyLocation
+            {
+                ID_Location = 1,
+                ID_User = 1,
+                DataTime = new DateTime(2015, 4, 21),
+                Latitude = 106.531506,
+                Longitude = 29.545521,
+            };
+
+            MyLocation l12 = new MyLocation
+            {
+                ID_Location = 1,
+                ID_User = 1,
+                DataTime = new DateTime(2015, 4, 21),
+                Latitude = 106.531466,
+                Longitude = 29.545655,
+            };
+
+            MyLocation l13 = new MyLocation
+            {
+                ID_Location = 1,
+                ID_User = 1,
+                DataTime = new DateTime(2015, 4, 21),
+                Latitude = 106.531403,
+                Longitude = 29.545886,
+            };
+
+            MyLocation l14 = new MyLocation
+            {
+                ID_Location = 1,
+                ID_User = 1,
+                DataTime = new DateTime(2015, 4, 21),
+                Latitude = 106.531322,
+                Longitude = 29.546044,
             };
 
             list.Add(l1);
             list.Add(l2);
             list.Add(l3);
+            list.Add(l4);
+            list.Add(l5);
+            list.Add(l6);
+            list.Add(l7);
+            list.Add(l8);
+            list.Add(l9);
+            list.Add(l10);
+            list.Add(l11);
+            list.Add(l12);
+            list.Add(l13);
+            list.Add(l14);
+
 
             return Json(list, JsonRequestBehavior.AllowGet);
         }

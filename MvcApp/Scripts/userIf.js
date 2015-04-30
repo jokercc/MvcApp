@@ -1881,12 +1881,12 @@ $(window).load(function () {
         ajax_date = myday+"/" + mymonth + "/" + myyear;
         $.ajax(
 	    {
-            //url: "/BasicInfo/testGetLocationByDate",
-            url: "/BasicInfo/getLocationByDate",
-            data:{
+            url: "/BasicInfo/testGetLocationByDate",
+            //url: "/BasicInfo/getLocationByDate",
+            /*data:{
                 "id" : userId,
                 "Date": ajax_date
-	            },
+	            },*/
 	        type: "GET",
 	        dataType: "json",
 	        contentType: "application/json",
@@ -1900,7 +1900,7 @@ $(window).load(function () {
                 for (var i = 0; i < data.length; i++) {
                             point[i] = new BMap.Point(data[i].Latitude,data[i].Longitude);
                 }
-                map.centerAndZoom(point[0],12);  //初始化地图,设置城市和地图级别。
+                map.centerAndZoom(point[0],18);  //初始化地图,设置城市和地图级别。
                 for(var j=0;j<(data.length-1);j++){
                             temple=j;
                             polyline[j] = new BMap.Polyline([point[temple],point[temple+1]], {strokeColor:"red", strokeWeight:3, strokeOpacity:0.8});
