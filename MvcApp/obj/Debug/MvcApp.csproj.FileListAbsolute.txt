@@ -6,3 +6,11 @@ C:\Users\cc\Documents\GitHub\MvcApp\MvcApp\obj\Debug\MvcApp.pdb
 C:\Users\cc\Documents\GitHub\MvcApp\MvcApp\bin\System.Web.Mvc.dll
 C:\Users\cc\Documents\GitHub\MvcApp\MvcApp\bin\System.Web.Mvc.xml
 C:\Users\cc\Documents\GitHub\MvcApp\MvcApp\bin\zh-Hans\System.Web.Mvc.resources.dll
+C:\Users\can\Documents\GitHub\MvcApp\MvcApp\bin\MvcApp.dll
+C:\Users\can\Documents\GitHub\MvcApp\MvcApp\bin\MvcApp.pdb
+C:\Users\can\Documents\GitHub\MvcApp\MvcApp\bin\System.Web.Mvc.dll
+C:\Users\can\Documents\GitHub\MvcApp\MvcApp\bin\System.Web.Mvc.xml
+C:\Users\can\Documents\GitHub\MvcApp\MvcApp\bin\zh-Hans\System.Web.Mvc.resources.dll
+C:\Users\can\Documents\GitHub\MvcApp\MvcApp\obj\Debug\MvcApp.csprojResolveAssemblyReference.cache
+C:\Users\can\Documents\GitHub\MvcApp\MvcApp\obj\Debug\MvcApp.dll
+C:\Users\can\Documents\GitHub\MvcApp\MvcApp\obj\Debug\MvcApp.pdb

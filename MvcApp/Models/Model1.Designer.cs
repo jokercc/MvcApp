@@ -21,9 +21,9 @@ using System.Xml.Serialization;
 
 [assembly: EdmRelationshipAttribute("ProModel", "FK_BasicInfo_Manager", "Manager", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(MvcApp.Models.Manager), "BasicInfo", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(MvcApp.Models.BasicInfo), true)]
 [assembly: EdmRelationshipAttribute("ProModel", "FK_EmergencyInfo_BasicInfo", "BasicInfo", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(MvcApp.Models.BasicInfo), "EmergencyInfo", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(MvcApp.Models.EmergencyInfo), true)]
+[assembly: EdmRelationshipAttribute("ProModel", "FK_HealthIndicator_BasicInfo", "BasicInfo", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(MvcApp.Models.BasicInfo), "HealthIndicator", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(MvcApp.Models.HealthIndicator), true)]
 [assembly: EdmRelationshipAttribute("ProModel", "FK_HealthPlan_BasicInfo", "BasicInfo", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(MvcApp.Models.BasicInfo), "HealthPlan", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(MvcApp.Models.HealthPlan), true)]
 [assembly: EdmRelationshipAttribute("ProModel", "FK_Location_BasicInfo", "BasicInfo", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(MvcApp.Models.BasicInfo), "Location", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(MvcApp.Models.Location), true)]
-[assembly: EdmRelationshipAttribute("ProModel", "FK_HealthIndicator_BasicInfo", "BasicInfo", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(MvcApp.Models.BasicInfo), "HealthIndicator", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(MvcApp.Models.HealthIndicator), true)]
 [assembly: EdmRelationshipAttribute("ProModel", "FK_UserPhoto_BasicInfo1", "BasicInfo", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(MvcApp.Models.BasicInfo), "UserPhoto", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(MvcApp.Models.UserPhoto), true)]
 
 #endregion
@@ -111,6 +111,22 @@ namespace MvcApp.Models
         /// <summary>
         /// 没有元数据文档可用。
         /// </summary>
+        public ObjectSet<HealthIndicator> HealthIndicator
+        {
+            get
+            {
+                if ((_HealthIndicator == null))
+                {
+                    _HealthIndicator = base.CreateObjectSet<HealthIndicator>("HealthIndicator");
+                }
+                return _HealthIndicator;
+            }
+        }
+        private ObjectSet<HealthIndicator> _HealthIndicator;
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
         public ObjectSet<HealthPlan> HealthPlan
         {
             get
@@ -159,22 +175,6 @@ namespace MvcApp.Models
         /// <summary>
         /// 没有元数据文档可用。
         /// </summary>
-        public ObjectSet<HealthIndicator> HealthIndicator
-        {
-            get
-            {
-                if ((_HealthIndicator == null))
-                {
-                    _HealthIndicator = base.CreateObjectSet<HealthIndicator>("HealthIndicator");
-                }
-                return _HealthIndicator;
-            }
-        }
-        private ObjectSet<HealthIndicator> _HealthIndicator;
-    
-        /// <summary>
-        /// 没有元数据文档可用。
-        /// </summary>
         public ObjectSet<UserPhoto> UserPhoto
         {
             get
@@ -209,6 +209,14 @@ namespace MvcApp.Models
         }
     
         /// <summary>
+        /// 用于向 HealthIndicator EntitySet 添加新对象的方法，已弃用。请考虑改用关联的 ObjectSet&lt;T&gt; 属性的 .Add 方法。
+        /// </summary>
+        public void AddToHealthIndicator(HealthIndicator healthIndicator)
+        {
+            base.AddObject("HealthIndicator", healthIndicator);
+        }
+    
+        /// <summary>
         /// 用于向 HealthPlan EntitySet 添加新对象的方法，已弃用。请考虑改用关联的 ObjectSet&lt;T&gt; 属性的 .Add 方法。
         /// </summary>
         public void AddToHealthPlan(HealthPlan healthPlan)
@@ -230,14 +238,6 @@ namespace MvcApp.Models
         public void AddToManager(Manager manager)
         {
             base.AddObject("Manager", manager);
-        }
-    
-        /// <summary>
-        /// 用于向 HealthIndicator EntitySet 添加新对象的方法，已弃用。请考虑改用关联的 ObjectSet&lt;T&gt; 属性的 .Add 方法。
-        /// </summary>
-        public void AddToHealthIndicator(HealthIndicator healthIndicator)
-        {
-            base.AddObject("HealthIndicator", healthIndicator);
         }
     
         /// <summary>
@@ -274,7 +274,10 @@ namespace MvcApp.Models
         /// <param name="name">Name 属性的初始值。</param>
         /// <param name="age">Age 属性的初始值。</param>
         /// <param name="sex">Sex 属性的初始值。</param>
+        /// <param name="birthday">Birthday 属性的初始值。</param>
+        /// <param name="blood">Blood 属性的初始值。</param>
         /// <param name="marrige">Marrige 属性的初始值。</param>
+        /// <param name="familyTelNum">FamilyTelNum 属性的初始值。</param>
         /// <param name="telNum">TelNum 属性的初始值。</param>
         /// <param name="address">Address 属性的初始值。</param>
         /// <param name="children">Children 属性的初始值。</param>
@@ -283,15 +286,18 @@ namespace MvcApp.Models
         /// <param name="userPassword">UserPassword 属性的初始值。</param>
         /// <param name="face100">face100 属性的初始值。</param>
         /// <param name="faceBig">faceBig 属性的初始值。</param>
-        public static BasicInfo CreateBasicInfo(global::System.Int64 iD_User, global::System.Int64 iD_Manager, global::System.String name, global::System.Int16 age, global::System.Boolean sex, global::System.Boolean marrige, global::System.String telNum, global::System.String address, global::System.String children, global::System.String hobby, global::System.String userName, global::System.String userPassword, global::System.String face100, global::System.String faceBig)
+        public static BasicInfo CreateBasicInfo(/*global::System.Int64 iD_User,*/ global::System.Int64 iD_Manager, global::System.String name, global::System.Int16 age, global::System.Boolean sex, global::System.DateTime birthday, global::System.String blood, global::System.Boolean marrige, global::System.String familyTelNum, global::System.String telNum, global::System.String address, global::System.String children, global::System.String hobby, global::System.String userName, global::System.String userPassword, global::System.String face100, global::System.String faceBig)
         {
             BasicInfo basicInfo = new BasicInfo();
-            basicInfo.ID_User = iD_User;
+            //basicInfo.ID_User = iD_User;
             basicInfo.ID_Manager = iD_Manager;
             basicInfo.Name = name;
             basicInfo.Age = age;
             basicInfo.Sex = sex;
+            basicInfo.Birthday = birthday;
+            basicInfo.Blood = blood;
             basicInfo.Marrige = marrige;
+            basicInfo.FamilyTelNum = familyTelNum;
             basicInfo.TelNum = telNum;
             basicInfo.Address = address;
             basicInfo.Children = children;
@@ -435,6 +441,54 @@ namespace MvcApp.Models
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
+        public global::System.DateTime Birthday
+        {
+            get
+            {
+                return _Birthday;
+            }
+            set
+            {
+                OnBirthdayChanging(value);
+                ReportPropertyChanging("Birthday");
+                _Birthday = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Birthday");
+                OnBirthdayChanged();
+            }
+        }
+        private global::System.DateTime _Birthday;
+        partial void OnBirthdayChanging(global::System.DateTime value);
+        partial void OnBirthdayChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Blood
+        {
+            get
+            {
+                return _Blood;
+            }
+            set
+            {
+                OnBloodChanging(value);
+                ReportPropertyChanging("Blood");
+                _Blood = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("Blood");
+                OnBloodChanged();
+            }
+        }
+        private global::System.String _Blood;
+        partial void OnBloodChanging(global::System.String value);
+        partial void OnBloodChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
         public global::System.Boolean Marrige
         {
             get
@@ -453,6 +507,30 @@ namespace MvcApp.Models
         private global::System.Boolean _Marrige;
         partial void OnMarrigeChanging(global::System.Boolean value);
         partial void OnMarrigeChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String FamilyTelNum
+        {
+            get
+            {
+                return _FamilyTelNum;
+            }
+            set
+            {
+                OnFamilyTelNumChanging(value);
+                ReportPropertyChanging("FamilyTelNum");
+                _FamilyTelNum = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("FamilyTelNum");
+                OnFamilyTelNumChanged();
+            }
+        }
+        private global::System.String _FamilyTelNum;
+        partial void OnFamilyTelNumChanging(global::System.String value);
+        partial void OnFamilyTelNumChanged();
     
         /// <summary>
         /// 没有元数据文档可用。
@@ -789,6 +867,28 @@ namespace MvcApp.Models
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("ProModel", "FK_HealthIndicator_BasicInfo", "HealthIndicator")]
+        public EntityCollection<HealthIndicator> HealthIndicator
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<HealthIndicator>("ProModel.FK_HealthIndicator_BasicInfo", "HealthIndicator");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<HealthIndicator>("ProModel.FK_HealthIndicator_BasicInfo", "HealthIndicator", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("ProModel", "FK_HealthPlan_BasicInfo", "HealthPlan")]
         public EntityCollection<HealthPlan> HealthPlan
         {
@@ -823,28 +923,6 @@ namespace MvcApp.Models
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Location>("ProModel.FK_Location_BasicInfo", "Location", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// 没有元数据文档可用。
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("ProModel", "FK_HealthIndicator_BasicInfo", "HealthIndicator")]
-        public EntityCollection<HealthIndicator> HealthIndicator
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<HealthIndicator>("ProModel.FK_HealthIndicator_BasicInfo", "HealthIndicator");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<HealthIndicator>("ProModel.FK_HealthIndicator_BasicInfo", "HealthIndicator", value);
                 }
             }
         }
@@ -896,10 +974,10 @@ namespace MvcApp.Models
         /// <param name="illnessAnalyses">IllnessAnalyses 属性的初始值。</param>
         /// <param name="medicalResult">MedicalResult 属性的初始值。</param>
         /// <param name="advice">Advice 属性的初始值。</param>
-        public static EmergencyInfo CreateEmergencyInfo(global::System.Int64 iD_Emergency, global::System.Int64 iD_User, global::System.String location, global::System.DateTime emergencyDate, global::System.String staff, global::System.String illnessAnalyses, global::System.String medicalResult, global::System.String advice)
+        public static EmergencyInfo CreateEmergencyInfo(/*global::System.Int64 iD_Emergency,*/ global::System.Int64 iD_User, global::System.String location, global::System.DateTime emergencyDate, global::System.String staff, global::System.String illnessAnalyses, global::System.String medicalResult, global::System.String advice)
         {
             EmergencyInfo emergencyInfo = new EmergencyInfo();
-            emergencyInfo.ID_Emergency = iD_Emergency;
+            //emergencyInfo.ID_Emergency = iD_Emergency;
             emergencyInfo.ID_User = iD_User;
             emergencyInfo.Location = location;
             emergencyInfo.EmergencyDate = emergencyDate;
@@ -1179,10 +1257,10 @@ namespace MvcApp.Models
         /// <param name="date">Date 属性的初始值。</param>
         /// <param name="systolicPressure">SystolicPressure 属性的初始值。</param>
         /// <param name="diastolicPressure">DiastolicPressure 属性的初始值。</param>
-        public static HealthIndicator CreateHealthIndicator(global::System.Int64 iD_HealthIndica, global::System.Int64 iD_User, global::System.Int16 bloodGlucose, global::System.Int16 duration, global::System.Int16 calorie, global::System.Int16 distance, global::System.Int16 heartBeat, global::System.DateTime date, global::System.Int16 systolicPressure, global::System.Int16 diastolicPressure)
+        public static HealthIndicator CreateHealthIndicator(/*global::System.Int64 iD_HealthIndica,*/ global::System.Int64 iD_User, global::System.Int16 bloodGlucose, global::System.Int16 duration, global::System.Int16 calorie, global::System.Int16 distance, global::System.Int16 heartBeat, global::System.DateTime date, global::System.Int16 systolicPressure, global::System.Int16 diastolicPressure)
         {
             HealthIndicator healthIndicator = new HealthIndicator();
-            healthIndicator.ID_HealthIndica = iD_HealthIndica;
+            //healthIndicator.ID_HealthIndica = iD_HealthIndica;
             healthIndicator.ID_User = iD_User;
             healthIndicator.BloodGlucose = bloodGlucose;
             healthIndicator.Duration = duration;
@@ -1507,10 +1585,10 @@ namespace MvcApp.Models
         /// <param name="recipes">Recipes 属性的初始值。</param>
         /// <param name="movement">Movement 属性的初始值。</param>
         /// <param name="schedule">Schedule 属性的初始值。</param>
-        public static HealthPlan CreateHealthPlan(global::System.Int64 iD_Plan, global::System.Int64 iD_User, global::System.String recipes, global::System.String movement, global::System.String schedule)
+        public static HealthPlan CreateHealthPlan(/*global::System.Int64 iD_Plan,*/ global::System.Int64 iD_User, global::System.String recipes, global::System.String movement, global::System.String schedule)
         {
             HealthPlan healthPlan = new HealthPlan();
-            healthPlan.ID_Plan = iD_Plan;
+            //healthPlan.ID_Plan = iD_Plan;
             healthPlan.ID_User = iD_User;
             healthPlan.Recipes = recipes;
             healthPlan.Movement = movement;
@@ -1710,10 +1788,10 @@ namespace MvcApp.Models
         /// <param name="dataTime">DataTime 属性的初始值。</param>
         /// <param name="longitude">Longitude 属性的初始值。</param>
         /// <param name="latitude">Latitude 属性的初始值。</param>
-        public static Location CreateLocation(global::System.Int64 iD_Location, global::System.Int64 iD_User, global::System.DateTime dataTime, global::System.Double longitude, global::System.Double latitude)
+        public static Location CreateLocation(/*global::System.Int64 iD_Location,*/ global::System.Int64 iD_User, global::System.DateTime dataTime, global::System.Double longitude, global::System.Double latitude)
         {
             Location location = new Location();
-            location.ID_Location = iD_Location;
+            //location.ID_Location = iD_Location;
             location.ID_User = iD_User;
             location.DataTime = dataTime;
             location.Longitude = longitude;
@@ -1919,10 +1997,10 @@ namespace MvcApp.Models
         /// <param name="manPassword">ManPassword 属性的初始值。</param>
         /// <param name="face100">face100 属性的初始值。</param>
         /// <param name="faceBig">faceBig 属性的初始值。</param>
-        public static Manager CreateManager(global::System.Int64 iD_Manager, global::System.String man_Name, global::System.Boolean man_Sex, global::System.Int16 man_Age, global::System.String man_Tel, global::System.String man_Add, global::System.Boolean sysManIdentify, global::System.String manName, global::System.String manPassword, global::System.String face100, global::System.String faceBig)
+        public static Manager CreateManager(/*global::System.Int64 iD_Manager,*/ global::System.String man_Name, global::System.Boolean man_Sex, global::System.Int16 man_Age, global::System.String man_Tel, global::System.String man_Add, global::System.Boolean sysManIdentify, global::System.String manName, global::System.String manPassword, global::System.String face100, global::System.String faceBig)
         {
             Manager manager = new Manager();
-            manager.ID_Manager = iD_Manager;
+            //manager.ID_Manager = iD_Manager;
             manager.Man_Name = man_Name;
             manager.Man_Sex = man_Sex;
             manager.Man_Age = man_Age;
@@ -2326,10 +2404,10 @@ namespace MvcApp.Models
         /// <param name="iD_Photo">ID_Photo 属性的初始值。</param>
         /// <param name="photoPath">PhotoPath 属性的初始值。</param>
         /// <param name="iD_User">ID_User 属性的初始值。</param>
-        public static UserPhoto CreateUserPhoto(global::System.Int64 iD_Photo, global::System.String photoPath, global::System.Int64 iD_User)
+        public static UserPhoto CreateUserPhoto(/*global::System.Int64 iD_Photo,*/ global::System.String photoPath, global::System.Int64 iD_User)
         {
             UserPhoto userPhoto = new UserPhoto();
-            userPhoto.ID_Photo = iD_Photo;
+            //userPhoto.ID_Photo = iD_Photo;
             userPhoto.PhotoPath = photoPath;
             userPhoto.ID_User = iD_User;
             return userPhoto;

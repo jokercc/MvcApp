@@ -28,7 +28,7 @@
       <End Role="BasicInfo" EntitySet="BasicInfo" />
       <End Role="Location" EntitySet="Location" />
     </AssociationSet>
-    <AssociationSet Name="FK_UserPhoto_BasicInfo" Association="ProModel.Store.FK_UserPhoto_BasicInfo">
+    <AssociationSet Name="FK_UserPhoto_BasicInfo1" Association="ProModel.Store.FK_UserPhoto_BasicInfo1">
       <End Role="BasicInfo" EntitySet="BasicInfo" />
       <End Role="UserPhoto" EntitySet="UserPhoto" />
     </AssociationSet>
@@ -42,18 +42,21 @@
     <Property Name="Name" Type="varchar" Nullable="false" MaxLength="50" />
     <Property Name="Age" Type="smallint" Nullable="false" />
     <Property Name="Sex" Type="bit" Nullable="false" />
+    <Property Name="Birthday" Type="datetime" Nullable="false" />
+    <Property Name="Blood" Type="varchar" Nullable="false" MaxLength="5" />
     <Property Name="Marrige" Type="bit" Nullable="false" />
+    <Property Name="FamilyTelNum" Type="varchar" Nullable="false" MaxLength="20" />
     <Property Name="TelNum" Type="varchar" Nullable="false" MaxLength="20" />
     <Property Name="Address" Type="varchar" Nullable="false" MaxLength="50" />
     <Property Name="Children" Type="varchar" Nullable="false" MaxLength="50" />
     <Property Name="Hobby" Type="varchar" Nullable="false" MaxLength="50" />
     <Property Name="UserName" Type="varchar" Nullable="false" MaxLength="20" />
     <Property Name="UserPassword" Type="varchar" Nullable="false" MaxLength="20" />
-    <Property Name="face100" Type="varchar" Nullable="false" MaxLength="50" />
-    <Property Name="faceBig" Type="varchar" MaxLength="50" />
     <Property Name="BloodThreshold" Type="smallint" />
     <Property Name="GlucoseThreshold" Type="smallint" />
     <Property Name="TempThreshold" Type="smallint" />
+    <Property Name="face100" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="faceBig" Type="varchar" Nullable="false" MaxLength="50" />
   </EntityType>
   <EntityType Name="EmergencyInfo">
     <Key>
@@ -74,14 +77,14 @@
     </Key>
     <Property Name="ID_HealthIndica" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
     <Property Name="ID_User" Type="bigint" Nullable="false" />
-    <Property Name="SystolicPressure" Type="smallint" Nullable="false" />
-    <Property Name="DiastolicPressure" Type="smallint" Nullable="false" />
     <Property Name="BloodGlucose" Type="smallint" Nullable="false" />
     <Property Name="Duration" Type="smallint" Nullable="false" />
     <Property Name="Calorie" Type="smallint" Nullable="false" />
     <Property Name="Distance" Type="smallint" Nullable="false" />
     <Property Name="HeartBeat" Type="smallint" Nullable="false" />
-    <Property Name="Date" Type="date" Nullable="false" />
+    <Property Name="Date" Type="datetime" Nullable="false" />
+    <Property Name="SystolicPressure" Type="smallint" Nullable="false" />
+    <Property Name="DiastolicPressure" Type="smallint" Nullable="false" />
   </EntityType>
   <EntityType Name="HealthPlan">
     <Key>
@@ -116,19 +119,19 @@
     <Property Name="SysManIdentify" Type="bit" Nullable="false" />
     <Property Name="ManName" Type="varchar" Nullable="false" MaxLength="20" />
     <Property Name="ManPassword" Type="varchar" Nullable="false" MaxLength="20" />
-    <Property Name="face100" Type="varchar" Nullable="false" MaxLength="50" />
-    <Property Name="faceBig" Type="varchar" MaxLength="50" />
     <Property Name="GroupNum" Type="smallint" />
     <Property Name="GroupPlan" Type="varchar" MaxLength="1" />
-    <Property Name="GroupPhoto" Type="image" />
+    <Property Name="GroupPhoto" Type="varbinary(max)" />
+    <Property Name="face100" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="faceBig" Type="varchar" Nullable="false" MaxLength="50" />
   </EntityType>
   <EntityType Name="UserPhoto">
     <Key>
       <PropertyRef Name="ID_Photo" />
     </Key>
     <Property Name="ID_Photo" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
-    <Property Name="ID_User" Type="bigint" Nullable="false" />
     <Property Name="PhotoPath" Type="varchar" Nullable="false" MaxLength="250" />
+    <Property Name="ID_User" Type="bigint" Nullable="false" />
   </EntityType>
   <Association Name="FK_BasicInfo_Manager">
     <End Role="Manager" Type="ProModel.Store.Manager" Multiplicity="1" />
@@ -190,7 +193,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_UserPhoto_BasicInfo">
+  <Association Name="FK_UserPhoto_BasicInfo1">
     <End Role="BasicInfo" Type="ProModel.Store.BasicInfo" Multiplicity="1" />
     <End Role="UserPhoto" Type="ProModel.Store.UserPhoto" Multiplicity="*" />
     <ReferentialConstraint>

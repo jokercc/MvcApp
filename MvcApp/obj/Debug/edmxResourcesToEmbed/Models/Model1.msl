@@ -4,14 +4,15 @@
     <EntitySetMapping Name="BasicInfo">
       <EntityTypeMapping TypeName="ProModel.BasicInfo">
         <MappingFragment StoreEntitySet="BasicInfo">
-          <ScalarProperty Name="faceBig" ColumnName="faceBig" />
-          <ScalarProperty Name="face100" ColumnName="face100" />
           <ScalarProperty Name="ID_User" ColumnName="ID_User" />
           <ScalarProperty Name="ID_Manager" ColumnName="ID_Manager" />
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="Age" ColumnName="Age" />
           <ScalarProperty Name="Sex" ColumnName="Sex" />
+          <ScalarProperty Name="Birthday" ColumnName="Birthday" />
+          <ScalarProperty Name="Blood" ColumnName="Blood" />
           <ScalarProperty Name="Marrige" ColumnName="Marrige" />
+          <ScalarProperty Name="FamilyTelNum" ColumnName="FamilyTelNum" />
           <ScalarProperty Name="TelNum" ColumnName="TelNum" />
           <ScalarProperty Name="Address" ColumnName="Address" />
           <ScalarProperty Name="Children" ColumnName="Children" />
@@ -21,6 +22,8 @@
           <ScalarProperty Name="BloodThreshold" ColumnName="BloodThreshold" />
           <ScalarProperty Name="GlucoseThreshold" ColumnName="GlucoseThreshold" />
           <ScalarProperty Name="TempThreshold" ColumnName="TempThreshold" />
+          <ScalarProperty Name="face100" ColumnName="face100" />
+          <ScalarProperty Name="faceBig" ColumnName="faceBig" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -35,6 +38,22 @@
           <ScalarProperty Name="IllnessAnalyses" ColumnName="IllnessAnalyses" />
           <ScalarProperty Name="MedicalResult" ColumnName="MedicalResult" />
           <ScalarProperty Name="Advice" ColumnName="Advice" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HealthIndicator">
+      <EntityTypeMapping TypeName="ProModel.HealthIndicator">
+        <MappingFragment StoreEntitySet="HealthIndicator">
+          <ScalarProperty Name="ID_HealthIndica" ColumnName="ID_HealthIndica" />
+          <ScalarProperty Name="ID_User" ColumnName="ID_User" />
+          <ScalarProperty Name="BloodGlucose" ColumnName="BloodGlucose" />
+          <ScalarProperty Name="Duration" ColumnName="Duration" />
+          <ScalarProperty Name="Calorie" ColumnName="Calorie" />
+          <ScalarProperty Name="Distance" ColumnName="Distance" />
+          <ScalarProperty Name="HeartBeat" ColumnName="HeartBeat" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="SystolicPressure" ColumnName="SystolicPressure" />
+          <ScalarProperty Name="DiastolicPressure" ColumnName="DiastolicPressure" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -63,8 +82,6 @@
     <EntitySetMapping Name="Manager">
       <EntityTypeMapping TypeName="ProModel.Manager">
         <MappingFragment StoreEntitySet="Manager">
-          <ScalarProperty Name="faceBig" ColumnName="faceBig" />
-          <ScalarProperty Name="face100" ColumnName="face100" />
           <ScalarProperty Name="ID_Manager" ColumnName="ID_Manager" />
           <ScalarProperty Name="Man_Name" ColumnName="Man_Name" />
           <ScalarProperty Name="Man_Sex" ColumnName="Man_Sex" />
@@ -77,31 +94,17 @@
           <ScalarProperty Name="GroupNum" ColumnName="GroupNum" />
           <ScalarProperty Name="GroupPlan" ColumnName="GroupPlan" />
           <ScalarProperty Name="GroupPhoto" ColumnName="GroupPhoto" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="HealthIndicator">
-      <EntityTypeMapping TypeName="ProModel.HealthIndicator">
-        <MappingFragment StoreEntitySet="HealthIndicator">
-          <ScalarProperty Name="DiastolicPressure" ColumnName="DiastolicPressure" />
-          <ScalarProperty Name="SystolicPressure" ColumnName="SystolicPressure" />
-          <ScalarProperty Name="Date" ColumnName="Date" />
-          <ScalarProperty Name="HeartBeat" ColumnName="HeartBeat" />
-          <ScalarProperty Name="Distance" ColumnName="Distance" />
-          <ScalarProperty Name="Calorie" ColumnName="Calorie" />
-          <ScalarProperty Name="Duration" ColumnName="Duration" />
-          <ScalarProperty Name="BloodGlucose" ColumnName="BloodGlucose" />
-          <ScalarProperty Name="ID_User" ColumnName="ID_User" />
-          <ScalarProperty Name="ID_HealthIndica" ColumnName="ID_HealthIndica" />
+          <ScalarProperty Name="face100" ColumnName="face100" />
+          <ScalarProperty Name="faceBig" ColumnName="faceBig" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="UserPhoto">
       <EntityTypeMapping TypeName="ProModel.UserPhoto">
         <MappingFragment StoreEntitySet="UserPhoto">
-          <ScalarProperty Name="ID_User" ColumnName="ID_User" />
-          <ScalarProperty Name="PhotoPath" ColumnName="PhotoPath" />
           <ScalarProperty Name="ID_Photo" ColumnName="ID_Photo" />
+          <ScalarProperty Name="PhotoPath" ColumnName="PhotoPath" />
+          <ScalarProperty Name="ID_User" ColumnName="ID_User" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

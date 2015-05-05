@@ -145,6 +145,7 @@
     <Content Include="Content\UserPhoto\3.png" />
     <Content Include="Content\UserPhoto\4.png" />
     <Content Include="Content\UserPhoto\5.png" />
+    <Content Include="Models\Model1.edmx.sql" />
     <Content Include="Scripts\ajaxfileupload.js" />
   </ItemGroup>
   <ItemGroup>

@@ -21,145 +21,168 @@ input,img{
 	src: url(../font/RTWSYUEGOTRIAL-REGULAR.OTF);
 	font-family: "STHEITI-LIGHT";
 	src: url(../font/STHEITI-LIGHT.TTC);
+	font-family: "GBK";
+	src: url(../font/GBK.TTF);
 }
+/* 登录界面背景区域*/
 .main_bg {
 	position:absolute;
-	width: 90%; /*这里改成80%，相应的left也要改，改成（100-80）/ 2*/
+	width: 92%; /*这里改成80%，相应的left也要改，改成（100-80）/ 2*/
 	height:100%;
-	left: 5%; /*根据width的变化而改动*/
+	left: 4%; /*根据width的变化而改动*/
 	z-index:-2;
 	overflow: hidden;
 }
-.main_bg img {
+/*登录界面背景图*/
+.main_bg img,.left_title img {
 	 height: 100%;
 	 width: 100%;
 }
-.top_title {
-	width: 80px;
-	height: 310px;
+/*左上方公司logo*/
+.left_title {
+	width: 310px;
+	height: 80px;
 	position: absolute;
 	z-index: 2;
-	left: 50%;
-	margin-left: -50px;
-	/*background-color: white;*/
-	/*opacity: 0.4;*/
+	left: 15%;
+	top:15%;
+	background: url(../images/left_title.png)  no-repeat;
 }
-.login_bg {
+.left_title {
+	width: 329px;
+	height: 77px;
 	position: absolute;
-	z-index: -1;
-	left: 50%;
-	width: 480px;
-	height: 310px;
-	margin-left: -240px;
-	margin-top: 280px;
-	background-color: #E8E8E8;
-	opacity: 0.4;
+	z-index: 2;
+	left: 15%;
+	top:15%;
+	background: url(../images/left_title.png)  no-repeat;
 }
-.login_box {
+.login_box
+{
+    width: 404px;
+	height: 279px;
 	position: absolute;
-	z-index: 1;
-	left: 50%;
-	width: 480px;
-	height: 310px;
-	margin-left: -240px;
-	margin-top: 280px;
-}
-.user_choose {
-	width: 480px;
-	height: 70px;
-	font-family: "STHEITI-LIGHT";
-	font-size: 20px;
-	position: relative;
-}
-.user_choose li {
-	display: inline-block;
-	list-style-type: none;
-	position: absolute;
-	bottom: 5px;
-	/*color: #4169E1;
-	text-decoration: none;*/
-}
-#user_font {
-	left: 20%;
-	color: #4169E1;
-	text-decoration: none;
-	padding-bottom: 3px;
-	border-bottom: 1px solid #4169E1;
-	cursor:pointer;
-}
-#gua_font {
+	z-index: 2;
 	left: 65%;
-	color: #FFF;
-	text-decoration: none;
- 	padding-bottom: 3px;
- 	cursor:pointer;
+	top:33%;
+	background: url(../images/login_box.png)  no-repeat;
 }
-/*#user_font.span {
-	padding-bottom: 3px;
-	border-bottom: 1px solid #4169E1;*/
-	/*color: #4169E1;
-	text-decoration: none;*/
-
-/*}*/
-
-	/*color: #4169E1;
-	text-decoration: none;*/
-/*.gua_font a:link, .gua_font a:visited{*/
-	/*color: #FFF;*/
-	/*text-decoration: none;*/
-/*}*/
-.user_input, .pw_input, .login_bt {
-	height: 60px;
-	width: 480px;
-	margin-top: 3px;
+.psw_forget
+{
+    position:absolute;
+    top:87%;
+    left:20%;
+    width:20%;
+    height:10%;
 }
-.user_input img, .pw_input img{
-	vertical-align: bottom;
-	margin-top: 5px;
-	height: 30px;
-	position: absolute;
-	margin-left: 65px;
+.psw_forget a,.user_register a
+{
+    color:#4C4C4C;
+    font-family:"GBK";
+    font-size:16px;
 }
-.user_input input, .pw_input input, .login_bt input {
-	font-size: 15px;
-	display: inline-block;
-	height: 55px;
-	width: 300px;
-	position: absolute;
-	left: 50%;
-	margin-left: -150px;
-	border: 1px solid #FFF;
-	background-color: #E8E8E8;
-	opacity: 0.5;
+.psw_forget a:hover,.user_register a:hover
+{
+    color:#3a84c8;;
+    font-family:"GBK";
 }
-.login_bt input{
-	
-	font-size: 30px;
-	font-family: "RTWSYUEGOTRIAL-REGULAR";
-	color: #6495ED;
-	cursor:pointer;
+.user_register
+{
+    position:absolute;
+    top:87%;
+    left:60%;
+    width:20%;
+    height:10%;
 }
-
-.psw_forget {
-	width: 480px;
-	height: 40px;
-	font-family: "STHEITI-LIGHT";
-	font-size: 20px;
-	position: relative;
+.choose_old
+{
+    position:absolute;
+    top:3%;
+    left:20%;
+    width:20%;
+    height:10%;
 }
-
-.psw_forget li {
-	display: inline-block;
-	/*list-style-type: none;去掉标签前的点*/
-	position: absolute;
-	bottom: 5px;
+.choose_old a
+{
+    color:#3a84c8;
+    font-family:"GBK";
+    font-size:16px;
 }
-
-#psw_forget_font {
-	left: 41%;
+.choose_maanger
+{
+    position:absolute;
+    top:3%;
+    left:60%;
+    width:20%;
+    height:10%;
 }
-
-#psw_forget_font a{
-	color: #4169E1;
-	text-decoration: none;
+.choose_maanger a
+{
+    color:#4C4C4C;
+    font-family:"GBK";
+    font-size:16px;
+}
+.name_input
+{
+    position:absolute;
+    top:25%;
+    left:20%;
+    width:231px;
+    height:32px;
+    background:url(../images/user_name.png)  no-repeat;
+}
+.psw_input
+{
+    position:absolute;
+    top:45%;
+    left:20%;
+    width:231px;
+    height:32px;
+    background:url(../images/psw_input.png)  no-repeat;
+}
+.psw_input input,.name_input input
+{
+    display:block;
+    padding-left:40px;
+    height:32px;
+    width:190px;
+    background:none;
+}
+.login_button
+{
+    position:absolute;
+    top:65%;
+    left:60%;
+    width:77px;
+    height:32px;
+    background:url(../images/login_button.png)  no-repeat;
+    cursor: pointer;
+}
+.login_button:hover
+{
+    background:url(../images/btn_hover.png)  no-repeat;
+}
+.remember_me
+{
+    position:absolute;
+    top:68%;
+    left:20%;
+    width:18px;
+    height:19px;
+    background:url(../images/remember_me.png)  no-repeat;
+    cursor: pointer;
+}
+.remember_p
+{
+    position:absolute;
+    top:68%;
+    left:25%;
+    width:20%;
+    height:19px;
+}
+.remember_p p
+{
+    color:#4C4C4C;
+    font-family:"GBK";
+    font-size:15px;
 }

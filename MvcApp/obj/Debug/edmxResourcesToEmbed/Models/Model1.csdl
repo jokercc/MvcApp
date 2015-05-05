@@ -3,9 +3,11 @@
   <EntityContainer Name="ProEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="BasicInfo" EntityType="ProModel.BasicInfo" />
     <EntitySet Name="EmergencyInfo" EntityType="ProModel.EmergencyInfo" />
+    <EntitySet Name="HealthIndicator" EntityType="ProModel.HealthIndicator" />
     <EntitySet Name="HealthPlan" EntityType="ProModel.HealthPlan" />
     <EntitySet Name="Location" EntityType="ProModel.Location" />
     <EntitySet Name="Manager" EntityType="ProModel.Manager" />
+    <EntitySet Name="UserPhoto" EntityType="ProModel.UserPhoto" />
     <AssociationSet Name="FK_BasicInfo_Manager" Association="ProModel.FK_BasicInfo_Manager">
       <End Role="Manager" EntitySet="Manager" />
       <End Role="BasicInfo" EntitySet="BasicInfo" />
@@ -13,6 +15,10 @@
     <AssociationSet Name="FK_EmergencyInfo_BasicInfo" Association="ProModel.FK_EmergencyInfo_BasicInfo">
       <End Role="BasicInfo" EntitySet="BasicInfo" />
       <End Role="EmergencyInfo" EntitySet="EmergencyInfo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HealthIndicator_BasicInfo" Association="ProModel.FK_HealthIndicator_BasicInfo">
+      <End Role="BasicInfo" EntitySet="BasicInfo" />
+      <End Role="HealthIndicator" EntitySet="HealthIndicator" />
     </AssociationSet>
     <AssociationSet Name="FK_HealthPlan_BasicInfo" Association="ProModel.FK_HealthPlan_BasicInfo">
       <End Role="BasicInfo" EntitySet="BasicInfo" />
@@ -22,12 +28,6 @@
       <End Role="BasicInfo" EntitySet="BasicInfo" />
       <End Role="Location" EntitySet="Location" />
     </AssociationSet>
-    <EntitySet Name="HealthIndicator" EntityType="ProModel.HealthIndicator" />
-    <AssociationSet Name="FK_HealthIndicator_BasicInfo" Association="ProModel.FK_HealthIndicator_BasicInfo">
-      <End Role="BasicInfo" EntitySet="BasicInfo" />
-      <End Role="HealthIndicator" EntitySet="HealthIndicator" />
-    </AssociationSet>
-    <EntitySet Name="UserPhoto" EntityType="ProModel.UserPhoto" />
     <AssociationSet Name="FK_UserPhoto_BasicInfo1" Association="ProModel.FK_UserPhoto_BasicInfo1">
       <End Role="BasicInfo" EntitySet="BasicInfo" />
       <End Role="UserPhoto" EntitySet="UserPhoto" />
@@ -42,7 +42,10 @@
     <Property Name="Name" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
     <Property Name="Age" Type="Int16" Nullable="false" />
     <Property Name="Sex" Type="Boolean" Nullable="false" />
+    <Property Name="Birthday" Type="DateTime" Nullable="false" />
+    <Property Name="Blood" Type="String" Nullable="false" MaxLength="5" Unicode="false" FixedLength="false" />
     <Property Name="Marrige" Type="Boolean" Nullable="false" />
+    <Property Name="FamilyTelNum" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
     <Property Name="TelNum" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
     <Property Name="Address" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
     <Property Name="Children" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
@@ -52,13 +55,13 @@
     <Property Name="BloodThreshold" Type="Int16" />
     <Property Name="GlucoseThreshold" Type="Int16" />
     <Property Name="TempThreshold" Type="Int16" />
+    <Property Name="face100" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="faceBig" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
     <NavigationProperty Name="Manager" Relationship="ProModel.FK_BasicInfo_Manager" FromRole="BasicInfo" ToRole="Manager" />
     <NavigationProperty Name="EmergencyInfo" Relationship="ProModel.FK_EmergencyInfo_BasicInfo" FromRole="BasicInfo" ToRole="EmergencyInfo" />
+    <NavigationProperty Name="HealthIndicator" Relationship="ProModel.FK_HealthIndicator_BasicInfo" FromRole="BasicInfo" ToRole="HealthIndicator" />
     <NavigationProperty Name="HealthPlan" Relationship="ProModel.FK_HealthPlan_BasicInfo" FromRole="BasicInfo" ToRole="HealthPlan" />
     <NavigationProperty Name="Location" Relationship="ProModel.FK_Location_BasicInfo" FromRole="BasicInfo" ToRole="Location" />
-    <NavigationProperty Name="HealthIndicator" Relationship="ProModel.FK_HealthIndicator_BasicInfo" FromRole="BasicInfo" ToRole="HealthIndicator" />
-    <Property Type="String" Name="face100" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Type="String" Name="faceBig" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="UserPhoto" Relationship="ProModel.FK_UserPhoto_BasicInfo1" FromRole="BasicInfo" ToRole="UserPhoto" />
   </EntityType>
   <EntityType Name="EmergencyInfo">
@@ -74,6 +77,22 @@
     <Property Name="MedicalResult" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
     <Property Name="Advice" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
     <NavigationProperty Name="BasicInfo" Relationship="ProModel.FK_EmergencyInfo_BasicInfo" FromRole="EmergencyInfo" ToRole="BasicInfo" />
+  </EntityType>
+  <EntityType Name="HealthIndicator">
+    <Key>
+      <PropertyRef Name="ID_HealthIndica" />
+    </Key>
+    <Property Name="ID_HealthIndica" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ID_User" Type="Int64" Nullable="false" />
+    <Property Name="BloodGlucose" Type="Int16" Nullable="false" />
+    <Property Name="Duration" Type="Int16" Nullable="false" />
+    <Property Name="Calorie" Type="Int16" Nullable="false" />
+    <Property Name="Distance" Type="Int16" Nullable="false" />
+    <Property Name="HeartBeat" Type="Int16" Nullable="false" />
+    <Property Name="Date" Type="DateTime" Nullable="false" />
+    <Property Name="SystolicPressure" Type="Int16" Nullable="false" />
+    <Property Name="DiastolicPressure" Type="Int16" Nullable="false" />
+    <NavigationProperty Name="BasicInfo" Relationship="ProModel.FK_HealthIndicator_BasicInfo" FromRole="HealthIndicator" ToRole="BasicInfo" />
   </EntityType>
   <EntityType Name="HealthPlan">
     <Key>
@@ -113,9 +132,18 @@
     <Property Name="GroupNum" Type="Int16" />
     <Property Name="GroupPlan" Type="String" MaxLength="1" Unicode="false" FixedLength="false" />
     <Property Name="GroupPhoto" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="face100" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="faceBig" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
     <NavigationProperty Name="BasicInfo" Relationship="ProModel.FK_BasicInfo_Manager" FromRole="Manager" ToRole="BasicInfo" />
-    <Property Type="String" Name="face100" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Type="String" Name="faceBig" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="UserPhoto">
+    <Key>
+      <PropertyRef Name="ID_Photo" />
+    </Key>
+    <Property Name="ID_Photo" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PhotoPath" Type="String" Nullable="false" MaxLength="250" Unicode="false" FixedLength="false" />
+    <Property Name="ID_User" Type="Int64" Nullable="false" />
+    <NavigationProperty Name="BasicInfo" Relationship="ProModel.FK_UserPhoto_BasicInfo1" FromRole="UserPhoto" ToRole="BasicInfo" />
   </EntityType>
   <Association Name="FK_BasicInfo_Manager">
     <End Role="Manager" Type="ProModel.Manager" Multiplicity="1" />
@@ -137,6 +165,18 @@
         <PropertyRef Name="ID_User" />
       </Principal>
       <Dependent Role="EmergencyInfo">
+        <PropertyRef Name="ID_User" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HealthIndicator_BasicInfo">
+    <End Role="BasicInfo" Type="ProModel.BasicInfo" Multiplicity="1" />
+    <End Role="HealthIndicator" Type="ProModel.HealthIndicator" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BasicInfo">
+        <PropertyRef Name="ID_User" />
+      </Principal>
+      <Dependent Role="HealthIndicator">
         <PropertyRef Name="ID_User" />
       </Dependent>
     </ReferentialConstraint>
@@ -165,46 +205,9 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityType Name="HealthIndicator">
-    <Key>
-      <PropertyRef Name="ID_HealthIndica" />
-    </Key>
-    <Property Type="Int64" Name="ID_HealthIndica" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Type="Int64" Name="ID_User" Nullable="false" />
-    <Property Type="Int16" Name="BloodGlucose" Nullable="false" />
-    <Property Type="Int16" Name="Duration" Nullable="false" />
-    <Property Type="Int16" Name="Calorie" Nullable="false" />
-    <Property Type="Int16" Name="Distance" Nullable="false" />
-    <Property Type="Int16" Name="HeartBeat" Nullable="false" />
-    <Property Type="DateTime" Name="Date" Nullable="false" />
-    <NavigationProperty Name="BasicInfo" Relationship="ProModel.FK_HealthIndicator_BasicInfo" FromRole="HealthIndicator" ToRole="BasicInfo" />
-    <Property Type="Int16" Name="SystolicPressure" Nullable="false" />
-    <Property Type="Int16" Name="DiastolicPressure" Nullable="false" />
-  </EntityType>
-  <Association Name="FK_HealthIndicator_BasicInfo">
-    <End Type="ProModel.BasicInfo" Role="BasicInfo" Multiplicity="1" />
-    <End Type="ProModel.HealthIndicator" Role="HealthIndicator" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="BasicInfo">
-        <PropertyRef Name="ID_User" />
-      </Principal>
-      <Dependent Role="HealthIndicator">
-        <PropertyRef Name="ID_User" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <EntityType Name="UserPhoto">
-    <Key>
-      <PropertyRef Name="ID_Photo" />
-    </Key>
-    <Property Type="Int64" Name="ID_Photo" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Type="String" Name="PhotoPath" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
-    <Property Type="Int64" Name="ID_User" Nullable="false" />
-    <NavigationProperty Name="BasicInfo" Relationship="ProModel.FK_UserPhoto_BasicInfo1" FromRole="UserPhoto" ToRole="BasicInfo" />
-  </EntityType>
   <Association Name="FK_UserPhoto_BasicInfo1">
-    <End Type="ProModel.BasicInfo" Role="BasicInfo" Multiplicity="1" />
-    <End Type="ProModel.UserPhoto" Role="UserPhoto" Multiplicity="*" />
+    <End Role="BasicInfo" Type="ProModel.BasicInfo" Multiplicity="1" />
+    <End Role="UserPhoto" Type="ProModel.UserPhoto" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="BasicInfo">
         <PropertyRef Name="ID_User" />
