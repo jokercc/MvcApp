@@ -12,7 +12,10 @@ namespace MvcApp.Models.MyModels
         public global::System.String Name { get; set; }
         public global::System.Int16 Age { get; set; }
         public global::System.Boolean Sex { get; set; }
+        public global::System.DateTime birthday { get; set; }
+        public global::System.String blood { get; set; }
         public global::System.Boolean Marrige { get; set; }
+        public global::System.String familyTelNum { get; set; }
         public global::System.String TelNum { get; set; }
         public global::System.String Address { get; set; }
         public global::System.String Children { get; set; }

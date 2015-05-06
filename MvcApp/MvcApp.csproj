@@ -140,6 +140,7 @@
     <Content Include="Content\images\1016223683.jpg" />
     <Content Include="Content\images\1016223683_new.jpg" />
     <Content Include="Content\images\glyphicons-halflings-white.png" />
+    <Content Include="Content\Manager\face100\1.png" />
     <Content Include="Content\UserPhoto\1.png" />
     <Content Include="Content\UserPhoto\2.png" />
     <Content Include="Content\UserPhoto\3.png" />
@@ -199,9 +200,7 @@
     <Content Include="Scripts\MicrosoftMvcValidation.js" />
     <Content Include="Scripts\MicrosoftMvcValidation.debug.js" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Content\Manager\face100\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="css\login.css.dump" />
     <None Include="font\RTWSYUEGOTRIAL-REGULAR.OTF" />

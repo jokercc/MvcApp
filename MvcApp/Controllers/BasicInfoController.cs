@@ -25,7 +25,7 @@ namespace MvcApp.Controllers
         public BasicInfoController()
         {
             basicInfoService = new BasicInfoService();
-            locationService = new LocationService();
+            locationService = new LocationService(); 
             emergencyInfoService = new EmergencyInfoService();
             healthPlanService = new HealthPlanService();
             healthIndicatorService = new HealthIndicatorService();
@@ -53,6 +53,7 @@ namespace MvcApp.Controllers
 
         public string addUser() //添加用户  
         {
+            
             return "addUser";
         }
 
@@ -153,6 +154,12 @@ namespace MvcApp.Controllers
 
             List<MyLocation> locationList = locationService.getLocationByDate(date, id);
             return Json(locationList, JsonRequestBehavior.AllowGet);
+        }
+
+        public JsonResult getUserPhotoByUserId(int userId) //通过用户Id获取他的所有图片的路径
+        {
+            List<MyUserPhoto> list = userPhotoService.getUserPhotoByUserId(userId);
+            return Json(list, JsonRequestBehavior.AllowGet);
         }
 
         public JsonResult testGetLocationByDate()
@@ -304,12 +311,6 @@ namespace MvcApp.Controllers
             return Json(list, JsonRequestBehavior.AllowGet);
         }
 
-        public JsonResult getUserPhotoByUserId(int userId) //通过用户Id获取他的所有图片的路径
-        {
-            List<MyUserPhoto> list = userPhotoService.getUserPhotoByUserId(userId);
-            return Json(list, JsonRequestBehavior.AllowGet);
-        }
-
         public JsonResult testGetHealthIndicator() //for test
         {
             List<MyHealthIndicator> list = new List<MyHealthIndicator>();
@@ -405,6 +406,75 @@ namespace MvcApp.Controllers
             list.Add(t5);
             list.Add(t6);
             list.Add(t7);
+
+            return Json(list, JsonRequestBehavior.AllowGet);
+        }
+
+        public JsonResult testGetUser()
+        {
+            MyBasicInfo user = new MyBasicInfo //将数据库中的实体关系model值复制到自己定义的不和数据库关联的model并返回
+            {
+                ID_User = 1,
+                ID_Manager = 2,
+                Name = "王大爷",
+                Age = 22,
+                Sex = true,
+                birthday = new DateTime(1962, 9, 29),
+                familyTelNum = "13666666666",
+                blood = "B",
+                Marrige = false,
+                TelNum = "13555555555",
+                Address = "成都市一环路东一段",
+                Children = "一男一女",
+                Hobby = "看电影",
+                UserName = "test",
+                UserPassword = "",
+                face100 = "/Content/BasicInfo/face100/1.jpg",
+            };
+
+            return Json(user, JsonRequestBehavior.AllowGet);
+        }
+
+        public JsonResult testGetHealthPlan()
+        {
+            MyHealthPlan test = new MyHealthPlan 
+            { 
+                ID_Plan = 1,
+                ID_User = 1,
+                Movement = " ",
+                Schedule = " ",
+                Recipes = "早餐：老人营养瘦肉粥、牛奶、鸡蛋、玉米;午餐：米饭、鸡蛋汤、炒菜;晚餐：小米粥、水果、甜点",
+            };
+            return Json(test, JsonRequestBehavior.AllowGet);
+        }
+
+        public JsonResult testGetUserPhoto()
+        { 
+            MyUserPhoto photo1 = new MyUserPhoto
+            {
+                ID_User = 1,
+                ID_Photo = 1,
+                PhotoPath = "/Content/UserPhoto/1.png",
+            };
+
+            MyUserPhoto photo2 = new MyUserPhoto
+            {
+                ID_User = 1,
+                ID_Photo = 2,
+                PhotoPath = "/Content/UserPhoto/2.png",
+            };
+
+            MyUserPhoto photo3 = new MyUserPhoto
+            {
+                ID_User = 1,
+                ID_Photo = 3,
+                PhotoPath = "/Content/UserPhoto/3.png",
+            };
+
+            List<MyUserPhoto> list = new List<MyUserPhoto>();
+            list.Add(photo1);
+            list.Add(photo2);
+            list.Add(photo3);
 
             return Json(list, JsonRequestBehavior.AllowGet);
         }
