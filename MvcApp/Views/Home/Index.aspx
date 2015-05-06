@@ -3,13 +3,13 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<link rel="stylesheet" type="text/css" href="/css/login.css" />
-	<script type="text/javascript" src="/Scripts/jquery-1.6.1.min.js"></script>
-    <script type="text/javascript" src="/Scripts/login.js"></script>
+	<script type="text/javascript" src="/Scripts/getScript/jquery-1.6.1.min.js"></script>
+    <script type="text/javascript" src="/Scripts/myScript/login.js"></script>
 	<title>卓讯智能养老</title>
 </head>
 <body>
 	<div class="main_bg"> 
-		<img alt="" src="/images/login_body.png" />
+		<img alt="" src="/Content/images/login_body.png" />
 	</div>
 	<!-- 主页背景main_bg结束 -->
 

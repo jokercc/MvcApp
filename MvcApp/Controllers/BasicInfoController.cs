@@ -445,7 +445,9 @@ namespace MvcApp.Controllers
                 Schedule = " ",
                 Recipes = "早餐：老人营养瘦肉粥、牛奶、鸡蛋、玉米;午餐：米饭、鸡蛋汤、炒菜;晚餐：小米粥、水果、甜点",
             };
-            return Json(test, JsonRequestBehavior.AllowGet);
+            List<MyHealthPlan> list = new List<MyHealthPlan>();
+            list.Add(test);
+            return Json(list, JsonRequestBehavior.AllowGet);
         }
 
         public JsonResult testGetUserPhoto()

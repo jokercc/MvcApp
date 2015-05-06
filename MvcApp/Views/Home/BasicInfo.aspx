@@ -2,464 +2,165 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-	<%--abcdefg--%>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
 	<link rel="stylesheet" type="text/css" href="/css/user_interface_style.css" />
     <link rel="stylesheet" type="text/css" href="/css/jquery.datetimepicker.css"/>
     <link rel="stylesheet" type="text/css" href="/css/upload_photo.css" />
 	<title>用户界面</title>
-	<script type="text/javascript" src="/Scripts/jquery-1.4.1.min.js"></script>
-	<script type="text/javascript" src="/Scripts/userIf.js"></script>
-    <script type="text/javascript" src="/Scripts/jquery.js"></script>
-    <script type="text/javascript" src="/Scripts/highcharts.js"></script>
+	<script type="text/javascript" src="/Scripts/getScript/jquery-1.6.1.min.js"></script>
+	<script type="text/javascript" src="/Scripts/myScript/userIf.js"></script>
+    <script type="text/javascript" src="/Scripts/getScript/jquery.js"></script>
+    <script type="text/javascript" src="/Scripts/getScript/highcharts.js"></script>
+    <script type="text/javascript" src="/Scripts/getScript/slides.js"></script>
     <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=Ww0moWQzefqW6FOflHHjg9pq"></script>
-    <script type="text/javascript" src="/Scripts/jquery.datetimepicker.js"></script>
-    <script type="text/javascript" src="/Scripts/ajaxfileupload.js"></script>
-    <%--abcdefg end--%>
+    <script type="text/javascript" src="/Scripts/getScript/jquery.datetimepicker.js"></script>
+    <script type="text/javascript" src="/Scripts/getScript/ajaxfileupload.js"></script>
 </head>
 <body>
-	<!-- 背景框开始 -->
-	<div id="bg">
-	<!-- 头部开始 -->
-	<div id = "header">
-        <!-- logo开始 -->
-		<div class = "logo">
-			<!-- <h1>卓讯智能养老</h1> -->
-		</div>
-        <!-- logo结束 -->
-	<!-- 头部结束 -->
-    </div>
-    <!-- 主体部分开始 -->
-    <div id = "main">
-    	<!-- <img src="images/user_bg.png" /> -->
-    </div>
-    <!-- 主体部分结束 -->
-    <!-- 导航栏开始 -->
-    <div id="nav">
-    	<div class="navbox">
-    		<ul>
-    			<li class="navboxone">基本信息</li>
-    			<li class="navboxtwo">身体指标</li>
-    			<li class="navboxthree">活动情况</li>
-    			<li class="navboxfour">健康计划</li>
-    			<li class="navboxfive">急救信息</li>
-    		</ul>
-    	</div>
-        <div class="navbox2">
-    		<ul>
-    			<li class="navboxone_grey">基本信息</li>
-    			<li class="navboxtwo_green">身体指标</li>
-    			<li class="navboxthree">活动情况</li>
-    			<li class="navboxfour">健康计划</li>
-    			<li class="navboxfive">急救信息</li>
-    		</ul>
-    	</div>
-        <div class="navbox3">
-    		<ul>
-    			<li class="navboxone_grey">基本信息</li>
-    			<li class="navboxtwo">身体指标</li>
-    			<li class="navboxthree_green">活动情况</li>
-    			<li class="navboxfour">健康计划</li>
-    			<li class="navboxfive">急救信息</li>
-    		</ul>
-    	</div>
-        <div class="navbox4">
-    		<ul>
-    			<li class="navboxone_grey">基本信息</li>
-    			<li class="navboxtwo">身体指标</li>
-    			<li class="navboxthree">活动情况</li>
-    			<li class="navboxfour_green">健康计划</li>
-    			<li class="navboxfive">急救信息</li>
-    		</ul>
-    	</div>
-        <div class="navbox5">
-    		<ul>
-    			<li class="navboxone_grey">基本信息</li>
-    			<li class="navboxtwo">身体指标</li>
-    			<li class="navboxthree">活动情况</li>
-    			<li class="navboxfour">健康计划</li>
-    			<li class="navboxfive_green">急救信息</li>
-    		</ul>
-    	</div>
-    </div>
-    <!-- 用户身体指标隐藏盒子显示开始 -->
-   	<div class="body_box">
-   		<div class="show_table">
-   			<input type="button" value="列表显示">
-   		</div>
-   		<div class="show_curve" >
-   			<input type="button" value="变化趋势">
-   		</div>
-   	</div>
-   	<div class="act_box">
-   		<div class="deta_info">
-   			<input type="button" value="详细信息">
-   		</div>
-   		<div class="act_cueve">
-   			<input type="button" value="活动轨迹">
-   		</div>
-   	</div>
-    <!-- 用户身体指标隐藏盒子显示结束 -->
-	<!-- 导航栏结束 -->
-	<!-- 用户显示开始 -->
-    <div id="show_user">
-    	<div id="user_portrait">
-            <img id="small_portrait" alt="" src="" />
-    	</div>
-    	<div id="user_name">
-    		<div class="user_name_box">
-    			<ul>
-    				<li class = "user_name_font"></li>
-    			</ul>
-    		</div>
-    	</div>
-    	<div id="user_sign">
-    	</div>
-    	<div id="logout">
-    	<form>
-    		<input id="logout_btn" class="logout_btn" type="button" value=""/>
-    	</form>
-    	</div>
-    </div>
-    <!-- 用户显示结束 -->
-    <div></div>
-	<!-- 用户基本信息开始 -->
-	<div id="user_basic_info">
-		<!-- 用户照片开始 -->
-		<div id="user_photo">
-            <img id="big_portrait" alt="" src="" />
-		</div>
-		<!-- 用户照片结束 -->
-		<!-- 照片上传框开始 -->
-		<div id="photo_upload">
-			<form>
-			<input class="btn" type="button"  value="上传"/>
-			</form>
-		</div>
-        
-		<!-- 照片上传框结束 -->
-		<!-- 基本信息开始 -->
-		<div id="basic_info">
-			<table class="table_style2">
-				<tr>
-		        	<td class="title">&nbsp;基础信息</td>
-		    	</tr>
-	    		<tr>
-	        		<td class="bggrey_left">&nbsp;姓名</td>
-			        <td class="name"></td>
-	    		</tr>
-	    		<tr>
-	        		<td class="bgwhite_left">&nbsp;性别</td>
-			        <td class="sex"></td>
-	    		</tr>
-	    		<tr>
-	        		<td class="bggrey_left">&nbsp;年龄</td>
-			        <td class="age"></td>
-	    		</tr>
-	    		<tr>
-	        		<td class="bgwhite_left">&nbsp;婚姻情况</td>
-			        <td class="marrige"></td>
-	    		</tr>
-	    		<tr>
-	        		<td class="bggrey_left">&nbsp;联系方式</td>
-			        <td class="telnum"></td>
-	        		</td>
-	    		</tr>
-	    		<tr>
-	        		<td class="bgwhite_left">&nbsp;住址</td>
-			        <td class="address"></td>
-	        		</td>
-	    		</tr>
-	    		<tr>
-	        		<td class="bggrey_left">&nbsp;子女情况</td>
-			        <td class="children"></td>
-	        		</td>
-	    		</tr>
-	    		<tr>
-	        		<td class="bgwhite_left">&nbsp;爱好</td>
-			        <td class="hobby"></td>
-	        		</td>
-	    		</tr>
-    		</table>
-		</div>
-		<!-- 基本信息结束 -->
-	</div>
-	<!-- 用户基本信息结束 -->
-
-	<!-- 用户急救信息框开始 -->
-	<div id="user_aid_info">
-		<div id="aid_search">
-			<div class="start_date">
-				<input id="datetimepicker1" type="text" />
-			</div>
-            <div class="white_line">
+    <div class="main_bg">
+        <div class="head_area">
+            <div id="menu">
+                <ul>
+                  <li id="nav1">概要信息</li>
+                  <li id="nav2">身体指标</li>
+                  <li id="nav3">活动情况</li>
+                  <li id="nav4">健康计划</li>
+                  <li id="nav5">急救信息</li>
+                </ul>
+             </div> 
+        </div>
+        <div class="uesr_area">
+            <div class="portrait_area">
+                <div id="user_portrait">
+                    <img id="small_portrait" alt="" src="" />
+    	        </div>
+                <div id="user_name">
+                    <p></p>
+                </div>
+                <div class="user_sign">
+                    <p>养老用户</p>
+                </div>
+                <div id="logout">
+    	            <form>
+    		            <input id="logout_btn" class="logout_btn" type="button" value="退出"/>
+    	            </form>
+    	        </div>
             </div>
-			<div class="finish_date">
-				<input id="datetimepicker2" type="text" />
-			</div>
-			<div class="search_box">
-				<input  id="search" type="button" value="" />
-			</div>
-			<div class="aid_key">
-			</div>
-		</div>
-		<div id="aid_result">
-			<div class="aid_time">
-				<h3>&nbsp;&nbsp;时间</h3>
-                <p></p>
-			</div>
-			<div class="aid_ads">
-				<h3>&nbsp;&nbsp;地点</h3>
-                <p></p>
-			</div>
-			<div class="aid_ast">
-				<h3>&nbsp;&nbsp;急救人员</h3>
-                <p></p>
-			</div>
-			<div class="aid_ana">
-				<h3>&nbsp;&nbsp;病情分析</h3>
-                <p></p>
-			</div>
-			<div class="aid_diag">
-				<h3>&nbsp;&nbsp;诊断结果</h3>
-                <p></p>
-			</div>
-			<div class="aid_doc">
-				<h3>&nbsp;&nbsp;医生建议</h3>
-                <p></p>
-			</div>
-		</div>
-	<!-- 用户急救信息框结束 -->
-    </div>
-    <!-- 背景框结束 -->
-    <!-- 用户列表显示身体指标开始 -->
-    <div id="body_table_head">
-    </div>
-    <div id="body_table_bg">
-        <div class="blood_pre_bg">
-            <div class="blood_pre_head">
-                <table>
+            <div class="nav_sign"></div>
+            <div id="basic_info_table">
+		        <h class="title">&nbsp;基础信息</h>
+			    <table class="table_basic">
+	    		    <tr>
+	        		    <td class="table_left">&nbsp;性别:</td>
+			            <td class="sex"></td>
+	    		    </tr>
+	    		    <tr>
+	        		    <td class="table_left">&nbsp;年龄:</td>
+			            <td class="age"></td>
+	    		    </tr>
                     <tr>
-                      <td class="prehead_left_style">日期</td>
-                      <td class="prehead_mid_style">收缩压</td>
-                      <td class="prehead_right_style">舒张压</td>
-                    </tr>
-                 </table>    
-             </div>
-             <div id="blood_pre_data">  
-                    <%--动态添加血压数据--%>
-            </div>
-        </div>
-        <div class="heart_boom_bg">
-            <div class="heart_boom_head">
-                <table>
+	        		    <td class="table_left">&nbsp;生日:</td>
+			            <td class="birthday"></td>
+	    		    </tr>
                     <tr>
-                      <td class="boomhead_left_style">日期</td>
-                      <td class="boomhead_right_style">心跳</td>
-                    </tr>
-                 </table>
-            </div>
-            <div id="boom_data_bg">  
-                    <%--动态添加心跳数据--%>
-            </div>
-        </div>
-        <div class="blood_suger_bg">
-            <div class="blood_suger_head">
-                <table>
+	        		    <td class="table_left">&nbsp;血型:</td>
+			            <td class="blood_type"></td>
+	    		    </tr>
+    		    </table>
+                </br>
+                <h class="title">&nbsp;详细资料</h>
+			    <table class="table_basic">
+	    		    <tr>
+	        		    <td class="table_left">&nbsp;婚姻情况:</td>
+			            <td class="marrige"></td>
+	    		    </tr>
+	    		    <tr>
+	        		    <td class="table_left">&nbsp;子女情况:</td>
+			            <td class="children"></td>
+	    		    </tr>
                     <tr>
-                      <td class="sugerhead_left_style">日期</td>
-                      <td class="sugerhead_right_style">血糖</td>
-                    </tr>
-                 </table>
-            </div>
-            <div id="suger_data_bg">  
-                    <%--动态添加血糖数据--%>
-            </div>
-        </div>
-        <div class="blood_tem_bg">
-            <div class="blood_tem_head">
-                <table>
+	        		    <td class="table_left">&nbsp;住址:</td>
+			            <td class="address"></td>
+	    		    </tr>
+	    		    <tr>
+	        		    <td class="table_left">&nbsp;爱好:</td>
+			            <td class="hobby"></td>
+	    		    </tr>
+    		    </table>
+                </br>
+                 <h class="title">&nbsp;联系方式</h>
+			    <table class="table_basic">
+	    		    <tr>
+	        		    <td class="table_left">&nbsp;个人联系:</td>
+			            <td class="telnum"></td>
+	    		    </tr>
                     <tr>
-                      <td class="temhead_left_style">日期</td>
-                      <td class="temhead_right_style">体温</td>
-                    </tr>
-                 </table>
+	        		    <td class="table_left">&nbsp;家人联系:</td>
+			            <td class="home_telnum"></td>
+	    		    </tr>
+    		    </table>
+		    </div>
+        </div>
+        <div class="copyright_area">
+            <p>Copyright © XXXXXX有限公司 版权所有 </p>
+        </div>
+        <div class="infomation_area">
+            <div class="now_adds_area">
+                <p1>您当前的位置：概要信息</p1>
+                <p2></p2>
             </div>
-            <div id="tem_data_bg">  
-                    <%--动态添加体温数据--%>
-            </div>
-        </div>
-        <div id="blood_premon_btn"> 
-            <input type="button" value=""/>
-        </div>
-        <div id="blood_premon_btns"> 
-            <input type="button" value=""/>
-        </div>
-        <div id="blood_nextmon_btn">
-            <input type="button" value=""/>
-        </div>
-        <div id="blood_nextmon_btnb">
-            <input type="button" value=""/>
-        </div>
-        <div id="boom_premon_btn">
-            <input type="button" value=""/>
-        </div>
-        <div id="boom_premon_btns">
-            <input type="button" value=""/>
-        </div>
-        <div id="boom_nextmon_btn">
-            <input type="button" value=""/>
-        </div>
-        <div id="boom_nextmon_btnb">
-            <input type="button" value=""/>
-        </div>
-        <div id="suger_premonth_btn">
-            <input type="button" value=""/>
-        </div>
-        <div id="suger_premonth_btns">
-            <input type="button" value=""/>
-        </div>
-        <div id="suger_nextmon_btn">
-            <input type="button" value=""/>
-        </div>
-        <div id="suger_nextmon_btnb">
-            <input type="button" value=""/>
-        </div>
-        <div id="tem_premon_btn">
-            <input type="button" value=""/>
-        </div>
-        <div id="tem_premon_btns">
-            <input type="button" value=""/>
-        </div>
-        <div id="tem_nextmon_btn">
-            <input type="button" value=""/>
-        </div>
-        <div id="tem_nextmon_btnb">
-            <input type="button" value=""/>
-        </div>
-    </div>
-    <%--身体指标曲线图开始--%>
-    <div id="body_curve_head">        
-    </div>
-    <div id="body_curve_bg">
-            <div class="choose_healpro">
-                <p id="select_p">血压</p>
-            </div>
-            <div class="choose_healpro_btn">
-                <input type="button"  value = "▼" id="select_line"  />
-            </div>
-            <div class="choose_healpro_box">
-                <div class="select_blood">
-                    <input type="button" id="select_blood_line" value="血压" />
+            <div class="info_show_area">
+                <div class="sign_area"><p>概要信息</p></div>
+                <div class="easy_body">
+                    <div class="body_cover"></div>
+                    <div id="container"></div>
+                    <div class="body_area_mark">
+                        <p>身体指标</p>
+                        <p1>老人最近血压、血糖、体温、心跳指标</p1>
+                    </div>
                 </div>
-                <div class="select_boom">
-                    <input type="button" id="select_boom_line" value="心跳" />
+                <div class="easy_photo">
+                    <div id = "container3">
+                        <div id="slides">
+		                </div>
+                   </div> 
                 </div>
-                <div class="select_suger">
-                    <input type="button" id="select_suger_line" value="血糖" />
+                <div class="easy_plan">
+                    <div class="plan_cover"></div>
+                    <div id="container4">
+                        <div class="breakfirst_sum">
+	                    </div>
+                        <div class="breakfirst_p">
+                            <p></p>
+                        </div>
+                        <div class="lunch_sum">
+	                    </div>
+                        <div class="lunch_p">
+                            <p></p>
+                        </div>
+                        <div class="dinner_sum">
+	                    </div>
+                        <div class="dinner_p">
+                            <p></p>
+                        </div>
+                    </div>
+                    <div class="plan_area_mark">
+                        <p>健康计划</p>
+                        <p1>老人今日的饮食情况</p1>
+                    </div>
                 </div>
-                <div class="select_tem">
-                    <input type="button" id="select_tem_line" value="体温" />
+                <div class="easy_act">
+                    <div class="act_cover"></div>
+                    <div id="container2"></div>
+                    <div class="act_area_mark">
+                        <p>活动情况</p>
+                        <p1>老人近日活动情况以及活动照片</p1>
+                    </div>
                 </div>
-            </div>    
-            <div class="curve_area">
-                <h3 id="select_line_h"></h3>
-	            <div id="container"></div>
             </div>
-            <div class="curve_pre_month">
-            </div>
-            <div class="curve_next_month">
-                <input type="button" value="" />
-            </div>
-    </div>
-    <div id="data_info_head"></div>
-    <%--活动情况详细信息开始--%>
-    <div id="data_info_bg">
-        <div class="boxline_area">
-            <h3 id="select_bars_h"></h3>
-            <div id="container2"></div>   
-        </div>
-        <div class="act_pre_month">
-            </div>
-         <div class="act_next_month">
-            <input type="button" value="" />
-         </div>
-        <%--abcdefg--%>
-        <div class="act_photo_area">
-            <div id="photo_demo">
-               <table border="0" cellspacing="0" cellpadding="0">
-                  <tr>
-                        <!-- 要展示的图片 -->
-                        <table class="photo_show_style" >
-                           <tr id="insert_photo">
-                           </tr>
-                        </table>
-                  </tr>
-               </table>
-            </div> 
-        </div>
-        <%--abcdefg end--%>
-    </div>
-    <%--活动情况活动轨迹开始--%>
-    <div id="act_cueve_head"></div>
-    <div id="act_cueve_bg">
-        <%--abccdefg--%>
-        <div class="map_date_box">
-            <%--<div class="map_date_show">--%>
-                <input id="datetimepicker3" type="text" value=""/>
-            <%--</div>--%>
-            <%--<div class="map_date_select">
-            </div>--%>
-        </div>
-        <div class="map_predate">
-        </div>
-        <div class="map_nextdate">
-        </div>
-        <div id="container_map">
-        </div>
-        <%--abcdefg end--%>
-    </div>
-    <%--健康计划开始--%>
-    <div id="heal_plan">
-        <div class="eat_palan">
-            <h3>&nbsp;&nbsp;营养食谱</h3>
-            <p></p>
-        </div>
-        <div class="pe_plan">
-            <h3>&nbsp;&nbsp;健康计划</h3>
-            <p></p>
-        </div>
-        <div class="sleep_plan">
-            <h3>&nbsp;&nbsp;作息计划</h3>
-            <p></p>
         </div>
     </div>
-    <div class="theme-popover-mask"></div>
-
-        <div class="theme-popover">
-	        <div class="theme-poptit">
-		        <a href="javascript:;" title="关闭" class="close">×</a>
-		        <h3>选择图像上传</h3>
-	        </div>
-              <div class="imageBox">
-                <div class="thumbBox"></div>
-                <div class="spinner" style="display: none">Loading...</div>
-              </div>
-              <div class="action"> 
-                <!-- <input type="file" id="file" style=" width: 200px">-->
-                <div class="new-contentarea tc"> <a href="javascript:void(0)" class="upload-img">
-                  <label for="upload-file">本地图片</label>
-                  </a>
-                  <input type="file" class="" name="upload-file" id="upload-file" />
-                </div>
-                <input type="button" id="btnCrop"  class="Btnsty_peyton" value="裁切"/>
-                <input type="button" id="btnZoomIn" class="Btnsty_peyton" value="+"  />
-                <input type="button" id="btnZoomOut" class="Btnsty_peyton" value="-" />
-              </div>
-              <div class="cropped"></div>
-              <div class="sure_upload"><input type="button" id="sure_upload_btn"  value="确认上传" /></div>
-        </div>
-    <input  id="get_username"  value="<%: ViewData["userName"]%>" />
+    <input  id="get_username"  type=hidden  value="<%: ViewData["userName"]%>" />
 </body>
 </html>

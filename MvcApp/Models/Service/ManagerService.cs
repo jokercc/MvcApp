@@ -38,7 +38,7 @@ namespace MvcApp.Models.Service
 
         public void addManager(Manager manager)
         {
-            proEn.AddToManager(manager);
+            proEn.Manager.AddObject(manager);
             proEn.SaveChanges();
         }
 

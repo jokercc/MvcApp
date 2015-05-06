@@ -1,25 +1,67 @@
-﻿<!DOCTYPE html>
-<html>
+﻿<html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
 	<style type="text/css">
-		body, html,#allmap {width: 100%;height: 100%;overflow: hidden;margin:0;font-family:"微软雅黑";}
+		body, html{width: 100%;height: 100%;margin:0;font-family:"微软雅黑";}
+		#allmap{height:500px;width:100%;}
+		#r-result{width:100%; font-size:14px;}
 	</style>
     <script type="text/javascript" src="http://api.map.baidu.com/api?key=46ce9d0614bf7aefe0ba562f8cf87194&v=1.0&services=false"></script>
-	<title>折线你出来吧</title>
+	<script type="text/javascript" src="/Scripts/jquery-1.4.1.min.js"></script>
+	<title>地图demo</title>
 </head>
 <body>
 	<div id="allmap"></div>
+	<div id="r-result">
+		经度: <input id="longitude" type="text" style="width:100px; margin-right:10px;" />
+		纬度: <input id="latitude" type="text" style="width:100px; margin-right:10px;" />
+		<input type="button" value="查询" onclick="theLocation()" />
+	</div>
 </body>
 </html>
 <script type="text/javascript">
-    // 百度地图API功能
+
+    var myDate = new Date();
+    var myYear = myDate.getFullYear();
+    var myMonth = (myDate.getMonth() + 1);
+    var myDay = (myDate.getDay() + 1);
+
+    alert(myDate);
+    alert(myYear);
+    alert(myMonth);
+    alert(myDay);
+
+    $.ajax(
+	    {
+	    	url: "/BasicInfo/getLocationByDate",
+	        data:{
+				"myYear": myYear,
+                "myMonth": myMonth,
+                "myDay": myDay,
+                "id": 1
+	        },
+	        type: "GET",
+	        dataType: "json",
+	        contentType: "application/json",
+	        success: function (data) 
+	        {
+                alert(data);
+	        },  
+	    });
+
     var map = new BMap.Map("allmap");
-    map.centerAndZoom("重庆", 12);  //初始化地图,设置城市和地图级别。
-    var pointA = new BMap.Point(106.486654, 29.490295);  // 创建点坐标A--大渡口区
-    var pointB = new BMap.Point(106.581515, 29.615467);  // 创建点坐标B--江北区
-    //alert('从大渡口区到江北区的距离是：' + (map.getDistance(pointA, pointB)).toFixed(2) + ' 米。');  //获取两点距离,保留小数点后两位
-    var polyline = new BMap.Polyline([pointA, pointB], { strokeColor: "blue", strokeWeight: 6, strokeOpacity: 0.5 });  //定义折线
-    map.addOverlay(polyline);     //添加折线到地图上
+    map.centerAndZoom(new BMap.Point(116.331398, 39.897445), 11);
+    map.enableScrollWheelZoom(true);
+
+    // 用经纬度设置地图中心点
+    function theLocation() {
+        if (document.getElementById("longitude").value != "" && document.getElementById("latitude").value != "") {
+            map.clearOverlays();
+            var new_point = new BMap.Point(document.getElementById("longitude").value, document.getElementById("latitude").value);
+            var marker = new BMap.Marker(new_point);  // 创建标注
+            map.addOverlay(marker);              // 将标注添加到地图中
+            map.panTo(new_point);
+        }
+    }
 </script>
