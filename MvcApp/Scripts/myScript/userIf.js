@@ -138,7 +138,7 @@ $(function () {
                     {   
                         for (var i = 0; i < data.length; i++) {
                         var img_src = data[i].PhotoPath;
-                        var test_photo = '<img src="'+data[i].PhotoPath+'"width="620" height="290" alt="" />';
+                        var test_photo = '<img src="'+data[i].PhotoPath+'"width="100%" height="100%" alt="" />';
                         $('#slides').append(test_photo);
                         }
                         //Get the curent slide
@@ -149,6 +149,8 @@ $(function () {
                         $(function () {
                         //Initialize SlidesJS
                         $("#slides").slides({
+                            width : '100%',
+                            height : '100%',
                             navigateEnd: function (current) {
                                 currentSlide(current);
                         },

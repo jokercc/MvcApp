@@ -40,7 +40,7 @@ body{
 .head_area
 {
     width: 100%;
-	height: 9%;
+	height: 7%;
 	position: absolute;
 	left: 0;
 	top:0;
@@ -49,7 +49,7 @@ body{
 #menu
 { 
     background:none;
-    width:500px; 
+    width:45%; 
     height:100%; 
     float:right;
     display:block;
@@ -59,13 +59,16 @@ body{
     list-style:none;
     display:block;
     float:right;
+    height:100%;
     }
 #menu ul li
 { 
-    line-height:68px; 
+    position:absolute;
     color:#FFF; 
-    display:block; 
+    display:inline-block; 
     width:90px;
+    height:100%;
+    line-height:100%; 
     text-align:center; 
     position:relative; 
     float:left;
@@ -96,11 +99,11 @@ body{
 .uesr_area
 {
     width: 17%;
-	height: 89%;
+	height: 91%;
 	position: absolute;
 	z-index: 2;
 	left: 0;
-	top:9%;
+	top:7%;
 	background: #E9E9EA;
 }
 
@@ -211,7 +214,7 @@ body{
 }
 .title
 {
-    width:240px;
+    width:100%;
     text-align:left;
     display:block;
     float:left;
@@ -227,12 +230,12 @@ body{
 }
 .table_left 
 {
-    width: 25%;
+    width: 30%;
     text-align: right;
 }
 .sex ,.age ,.birthday ,.blood_type, .marrige , .telnum , .address , .children , .hobby,.home_telnum
 {
-    width: 75%;
+    width: 70%;
     text-align: left;
     padding-left:8px;
 }
@@ -240,11 +243,11 @@ body{
 .infomation_area
 {
     width: 83%;
-	height: 89%;
+	height: 91%;
 	position: absolute;
 	z-index: 2;
 	left: 17%;
-	top:9%;
+	top:7%;
 }
 /*当前位置区域*/
 .now_adds_area
@@ -305,8 +308,8 @@ body{
 .easy_body
 {
     position:absolute;
-    height:290px;
-    width:430px;
+    height:45%;
+    width:38.3%;
     left:3%;
     top:5%;
     box-shadow: 3px 3px 3px #888888;
@@ -318,7 +321,7 @@ body{
 {
     position:absolute;
     height:85%;
-    width:430px;
+    width:100%;
     box-shadow: 0 2.5px 5px rgba(0,0,0,.1);
     cursor:pointer;
     z-index:2;
@@ -357,37 +360,29 @@ body{
 .easy_photo
 {
     position:absolute;
-    height:290px;
-    width:620px;
+    height:45%;
+    width:55%;
     left:43%;
     top:5%;
     box-shadow: 3px 3px 3px #888888;
     cursor:pointer;
 }
-.easy_photo img
-{
-    position:absolute;
-    top:0;
-    left:0;
-    display:block;
-}
 #container3 
 {
-	width:620px;
-	height:290px;
+	width:100%;
+	height:100%;
 	cursor:pointer;
 }
 
 #slides {
 	position:relative;
+	width:100%;
+	height:100%;
 }
 
-#slides .slidesContainer {
-	background:#fff;
-	border:8px solid #fff;
-	border-top:none;
-	margin-left:-8px;
-	
+#slides .slidesContainer 
+{
+	border:none;
 }
 
 /*
@@ -404,13 +399,13 @@ body{
 	display:block;
 	z-index:101;
 	overflow:hidden;
-	background:url(../images/navigation-previous.png) no-repeat 0 0;
+	background:url(../Content/images/navigation-previous.png) no-repeat 0 0;
 }
 
 #slides .slidesNext {
 	right:5px;
 	left:auto;
-	background:url(../images/navigation-next.png) no-repeat 0 0;
+	background:url(../Content/images/navigation-next.png) no-repeat 0 0;
 }
 
 /*
@@ -435,7 +430,7 @@ body{
 	width:14px;
 	height:0;
 	padding-top:13px;
-	background-image:url(../images/pagination.png);
+	background-image:url(../Content/images/pagination.png);
 	background-position:0 0;
 	overflow:hidden;
 }
@@ -455,8 +450,8 @@ body{
 .easy_plan
 {
     position:absolute;
-    height:290px;
-    width:430px;
+    height:45%;
+    width:38.3%;
     left:3%;
     top:53%;
     box-shadow: 3px 3px 3px #888888;
@@ -467,7 +462,7 @@ body{
 {
     position:absolute;
     height:85%;
-    width:430px;
+    width:100%;
     box-shadow: 0 2.5px 5px rgba(0,0,0,.1);
     cursor:pointer;
     z-index:3;
@@ -573,8 +568,8 @@ body{
 .easy_act
 {
     position:absolute;
-    height:290px;
-    width:620px;
+    height:45%;
+    width:55%;
     left:43%;
     top:53%;
     box-shadow: 3px 3px 3px #888888;
@@ -585,7 +580,7 @@ body{
 {
     position:absolute;
     height:85%;
-    width:620px;
+    width:100%;
     box-shadow: 0 2.5px 5px rgba(0,0,0,.1);
     cursor:pointer;
     display:none;

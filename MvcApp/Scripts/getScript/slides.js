@@ -533,7 +533,7 @@ SlidesJS, let the good times roll
     $.widget("js.slides", {
         options: {
             width: 620, // [Number] Define the slide width
-            responsive: false, // [Boolean] slideshow will scale to its container
+            responsive: true, // [Boolean] slideshow will scale to its container
             height: 290, // [Number] Define the slide height
             navigation: true, // [Boolean] Auto generate the naviagation, next/previous buttons
             pagination: true, // [Boolean] Auto generate the pagination
