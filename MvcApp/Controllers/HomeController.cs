@@ -34,8 +34,5 @@ namespace MvcApp.Controllers
         {
             return View();
         }
-
-
-
     }
 }

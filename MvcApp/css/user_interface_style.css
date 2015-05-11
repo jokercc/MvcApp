@@ -100,8 +100,8 @@ body{
 {
     width: 17%;
 	height: 91%;
-	position: absolute;
-	z-index: 2;
+    position:absolute;
+	z-index: 1;
 	left: 0;
 	top:7%;
 	background: #E9E9EA;
@@ -115,8 +115,9 @@ body{
 	z-index: 2;
 	left: 0;
 	top:0;
+	z-index:1;
 }
-#user_portrait{
+.user_portrait{
 	position: absolute;
 	top: 3px;
 	left: 0;
@@ -130,13 +131,35 @@ body{
     -webkit-box-shadow:0 0 3px #ccc;
     box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.5);
     margin:10px 5px;
-    overflow:hidden;
+    z-index:1;
 }
-#user_portrait img
+.portrait_cover{
+	position: absolute;
+	background:#318492;
+	top: 73px;
+	left: 0;
+    width:100px;
+    height:40px;
+    overflow:hidden;
+    margin:10px 5px;
+    z-index:6;
+    opacity:0.98;
+    display:none;
+}
+.portrait_cover p
+{
+    color:White;
+    font-family:"STHEITI-LIGHT";
+    font-size:12px;
+    display:block;
+}
+.user_portrait img
 {
     width:100%;
     min-height:100%; 
     text-align:center;
+    z-index:1;
+    cursor:pointer;
     }
 #user_name
 {
@@ -482,16 +505,16 @@ body{
     height:85%;
 }
 .breakfirst_sum{
-    width:150px;
-    padding:75px 0px;
+    width:35.42%;
+    padding:17.91% 0px;
     margin:0 auto;
     background:#73D240;
-    -webkit-border-top-left-radius:120px 120px;
-    -webkit-border-top-right-radius:120px 120px;
-    -webkit-border-bottom-right-radius:120px 120px;
-    -webkit-border-bottom-left-radius:120px 120px;
-    -moz-border-radius:120px / 120px;
-    border-radius:120px / 120px;
+    -webkit-border-top-left-radius:150px 150px;
+    -webkit-border-top-right-radius:150px 150px;
+    -webkit-border-bottom-right-radius:150px 150px;
+    -webkit-border-bottom-left-radius:150px 150px;
+    -moz-border-radius:150px / 150px;
+    border-radius:150px / 150px;
     position:relative;
     z-index:1;
 }
@@ -500,8 +523,8 @@ body{
     position:absolute;
     top:10%;
     left:36.5%;
-    width:115px;
-    height:75px;
+    width:27.16%;
+    height:33.28%;
     background:none;
     color:white;
     font-family:"STHEITI-LIGHT";
@@ -509,17 +532,17 @@ body{
     z-index:2;
 }
 .lunch_sum{
-    width:130px;
-    padding:65px 0px;
+    width:30.7%;
+    padding:15.35% 0%;
     left:20%;
     top:38%;
     background:#FFC62D;
-    -webkit-border-top-left-radius:80px 80px;
-    -webkit-border-top-right-radius:80px 80px;
-    -webkit-border-bottom-right-radius:80px 80px;
-    -webkit-border-bottom-left-radius:80px 80px;
-    -moz-border-radius:80px / 80px;
-    border-radius:80px / 80px;
+    -webkit-border-top-left-radius:120px 120px;
+    -webkit-border-top-right-radius:120px 120px;
+    -webkit-border-bottom-right-radius:120px 120px;
+    -webkit-border-bottom-left-radius:120px 120px;
+    -moz-border-radius:120px / 120px;
+    border-radius:120px / 120px;
     position:absolute;
     z-index:1;
 }
@@ -528,8 +551,8 @@ body{
     position:absolute;
     top:45%;
     left:24.5%;
-    width:91px;
-    height:91px;
+    width:21.48%;
+    height:40.38%;
     background:none;
     color:white;
     font-family:"STHEITI-LIGHT";
@@ -537,8 +560,8 @@ body{
     z-index:2;
 }
 .dinner_sum{
-    width:120px;
-    padding:60px 0px;
+    width:28.34%;
+    padding:14.17% 0;
     left:55%;
     top:35%;
     background:#6EB9C4;
@@ -556,8 +579,8 @@ body{
     position:absolute;
     top:42%;
     left:59%;
-    width:84px;
-    height:84px;
+    width:19.83%;
+    height:37.28%;
     background:none;
     color:white;
     font-family:"STHEITI-LIGHT";
@@ -613,3 +636,58 @@ body{
     font-size:12px;
     text-align:center;
 }
+/*头像上传弹出框*/
+.theme-popover-mask
+{
+    z-index:8;
+    position:absolute;
+    left:0;
+    top:0;
+    width:100%;
+    height:100%;
+    background:#000;
+    opacity:0.5;
+    filter:alpha(opacity=50);
+    -moz-opacity:0.5;
+    display:none;
+    }
+.theme-popover
+{
+    z-index:9;
+    position:absolute;
+    top:40%;
+    left:60%;
+    width:403px;
+    height:520px;
+    margin:-180px 0 0 -330px;
+    border-radius:5px;
+    border:solid 2px #e4e4e4;
+    background-color:#fff;
+    display:none;
+    box-shadow:0 0 10px #666;
+    background:#fff;
+    }
+.theme-poptit
+{
+    border-bottom:1px solid #ddd;
+    padding:12px;
+    position:relative;
+    height:24px;
+    }
+.theme-poptit h3
+{
+    color: #1CBDB3;
+}
+.theme-poptit .close
+{
+    float:right;
+    color:#999;
+    padding:5px;
+    margin:-2px -5px -5px;
+    font:bold 14px/14px simsun;
+    text-shadow:0 1px 0 #ddd
+    }
+.theme-poptit .close:hover
+{
+    color:#444;
+    }

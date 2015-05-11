@@ -51,7 +51,7 @@ namespace MvcApp.Controllers
             //return RedirectToAction("BasicInfo", "Home");
         }
 
-        public string addUser() //添加用户  
+        public string addUser() //添加用户（未实现）
         {
             
             return "addUser";
@@ -63,7 +63,7 @@ namespace MvcApp.Controllers
             return "deleteUser";
         }
 
-        public string changeUser(int id) //更改用户信息
+        public string changeUser(int id) //更改用户信息（未实现）
         {
             return "changeUser";
         }
@@ -73,11 +73,6 @@ namespace MvcApp.Controllers
             MyBasicInfo userSel = basicInfoService.getUserByUserName(userName);
 
             return Json(userSel, JsonRequestBehavior.AllowGet);
-        }
-
-        public string getAllUsers() //获取所有用户
-        {
-            return "getAllUsers";
         }
 
         public ActionResult getLocationByUserId(int id) //获取用户活动信息
@@ -162,7 +157,7 @@ namespace MvcApp.Controllers
             return Json(list, JsonRequestBehavior.AllowGet);
         }
 
-        public JsonResult testGetLocationByDate()
+        public JsonResult testGetLocationByDate() //提供数据给前端测试，获取用户的位置信息
         {
             List<MyLocation> list = new List<MyLocation>();
 
@@ -311,7 +306,7 @@ namespace MvcApp.Controllers
             return Json(list, JsonRequestBehavior.AllowGet);
         }
 
-        public JsonResult testGetHealthIndicator() //for test
+        public JsonResult testGetHealthIndicator() //提供数据给前端测试，获取用户健康信息
         {
             List<MyHealthIndicator> list = new List<MyHealthIndicator>();
 
@@ -410,7 +405,7 @@ namespace MvcApp.Controllers
             return Json(list, JsonRequestBehavior.AllowGet);
         }
 
-        public JsonResult testGetUser()
+        public JsonResult testGetUser() //提供数据给前端测试，获取一个用户信息
         {
             MyBasicInfo user = new MyBasicInfo //将数据库中的实体关系model值复制到自己定义的不和数据库关联的model并返回
             {
@@ -435,7 +430,7 @@ namespace MvcApp.Controllers
             return Json(user, JsonRequestBehavior.AllowGet);
         }
 
-        public JsonResult testGetHealthPlan()
+        public JsonResult testGetHealthPlan() //提供数据给前端测试，获取用户健康计划
         {
             MyHealthPlan test = new MyHealthPlan 
             { 
@@ -450,7 +445,7 @@ namespace MvcApp.Controllers
             return Json(list, JsonRequestBehavior.AllowGet);
         }
 
-        public JsonResult testGetUserPhoto()
+        public JsonResult testGetUserPhoto() //提供数据给前端测试，获取用户的活动图片
         { 
             MyUserPhoto photo1 = new MyUserPhoto
             {

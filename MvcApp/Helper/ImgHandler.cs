@@ -167,7 +167,6 @@ namespace AvatarUpload.Helper
 
         /// <summary>
         /// 按比例缩放图片
-        /// 参考自：http://www.cnblogs.com/roucheng/p/3509606.html
         /// </summary>
         /// <param name="SourceImage"></param>
         /// <param name="TargetWidth"></param>

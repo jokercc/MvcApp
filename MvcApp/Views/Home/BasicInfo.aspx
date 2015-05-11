@@ -32,9 +32,11 @@
         </div>
         <div class="uesr_area">
             <div class="portrait_area">
-                <div id="user_portrait">
+                <div class="user_portrait">
                     <img id="small_portrait" alt="" src="" />
+                    <div class="portrait_cover"><p>点击修改</p></div>
     	        </div>
+                
                 <div id="user_name">
                     <p></p>
                 </div>
@@ -161,6 +163,32 @@
             </div>
         </div>
     </div>
+    <div class="theme-popover-mask"></div>
+
+        <div class="theme-popover">
+	        <div class="theme-poptit">
+		        <a href="javascript:;" title="关闭" class="close">×</a>
+		        <h3>选择图像上传</h3>
+	        </div>
+              <div class="imageBox">
+                <div class="thumbBox"></div>
+                <div class="spinner" style="display: none">Loading...</div>
+              </div>
+              <div class="action"> 
+                <!-- <input type="file" id="file" style=" width: 200px">-->
+                <div class="new-contentarea tc"> <a href="javascript:void(0)" class="upload-img">
+                  <label for="upload-file">本地图片</label>
+                  </a>
+                  <input type="file" class="" name="upload-file" id="upload-file" />
+                </div>
+                <input type="button"  id="sure_upload_btn"  value="确认上传" />
+                <%--<input type="button" id="btnCrop"  class="Btnsty_peyton" value="裁切"/>
+                <input type="button" id="btnZoomIn" class="Btnsty_peyton" value="+"  />
+                <input type="button" id="btnZoomOut" class="Btnsty_peyton" value="-" />--%>
+              </div>
+              <%--<div class="cropped"></div>--%>
+              <%--<div class="sure_upload"><input type="button" id="sure_upload_btn"  value="确认上传" /></div>--%>
+        </div>
     <input  id="get_username"  type=hidden  value="<%: ViewData["userName"]%>" />
 </body>
 </html>
