@@ -3,7 +3,11 @@
 	padding: 0;
 	margin: 0;
 }
-
+tbody {
+  display: table-row-group;
+  vertical-align: middle;
+  border-color: inherit;
+}
 a{
 	text-decoration: none;
 	color: none;
@@ -15,6 +19,10 @@ li{
 img{
 	border:none;
 }
+body
+{
+    text-align:center;
+}
 @font-face {
 	font-family: "RTWSYUEGOTRIAL-REGULAR";
 	src: url(../font/RTWSYUEGOTRIAL-REGULAR.OTF);
@@ -24,7 +32,6 @@ img{
 	src: url(../font/GBK.TTF);
 }
 body{
-	text-align:center;
 	overflow: hidden;
 }
 /*用户页面背景100%，禁止滑动*/
@@ -46,12 +53,24 @@ body{
 	top:0;
 	background: #318492;
 }
+.logo_area
+{
+    position:absolute;
+    background:none;
+    width:15%; 
+    top:10%;
+    height:80%; 
+    left:2%;
+    display:block;
+}
 #menu
 { 
+    position:absolute;
     background:none;
+    top:0;
     width:45%; 
     height:100%; 
-    float:right;
+    right: 2%;
     display:block;
 }
 #menu ul
@@ -152,6 +171,7 @@ body{
     font-family:"STHEITI-LIGHT";
     font-size:12px;
     display:block;
+    text-align:center;
 }
 .user_portrait img
 {
@@ -215,19 +235,74 @@ body{
     box-shadow: 3px 3px 3px #888888;
 }
 
-.nav_sign
+.nav_sign ,.nav_signI,.nav_signII
 {
     position:absolute;
     top:22%;
     height:7%;
     width:100%;
     background:#1CBDB3;
+    cursor:pointer;
+}
+.nav_sign img ,.nav_sign2 img,.nav_signI img,.nav_signII img,.nav_sign22 img,.nav_sign3 img
+{
+    display:block;
+    position:absolute;
+    top:23%;
+    left:15%;
+}
+.nav_sign p ,.nav_sign2 p,.nav_signI p,.nav_signII p,.nav_sign22 p,.nav_sign3 p
+{
+    display:block;
+    position:absolute;
+    top:23%;
+    left:30%;
+    color:white;
+}
+.nav_signI ,.nav_signII,.nav_sign22
+{
+    display:none;
+    border-top:1px solid #1CBDB3;
+}
+.nav_sign2 p,.nav_sign22 p,.nav_sign3 p
+{
+    color:#1CBDB3;
+}
+.nav_sign2,.nav_sign22 
+{
+    position:absolute;
+    top:29%;
+    height:7%;
+    width:100%;
+    background:none;
+    border-bottom:1px solid #1CBDB3;
+    display:none;
+    cursor:pointer;
+}
+.nav_sign3
+{
+    position:absolute;
+    top:36%;
+    height:7%;
+    width:100%;
+    background:none;
+    border-bottom:1px solid #1CBDB3;
+    display:none;
+    cursor:pointer;
 }
 #basic_info_table
 {
     position:absolute;
     top:35%;
     width:100%;
+}
+#basic_info_table p
+{
+    text-align:right;
+    font-family: "STHEITI-LIGHT";
+    color:#1CBDB3;
+    font-size:13px;
+    margin-top:10px;
 }
 .table_basic
 {
@@ -283,6 +358,14 @@ body{
 	top:0;
 	background:#F6F6F6;
 }
+.now_adds_area img
+{
+    display:block;
+    padding-top:3px;
+    float:left;
+    color:#464646;
+    font-size:12px;
+}
 .now_adds_area p1
 {
     display:block;
@@ -321,11 +404,163 @@ body{
 .sign_area p
 {
     display:block;
-    float:left;
+    left:10px;
     color:#464646;
+    text-align:left;
     font-family:"STHEITI-LIGHT";
     font-weight:500;
     font-size:16px;
+}
+.choose_month
+{
+    height:30px;
+    top:27px;
+    width:100%;
+    background:#A4DFE3;
+    border-bottom:1px solid #EFEFEF;
+    display:none;
+}
+.premonth_area_body,.premonth_area_pre,.premonth_area_suger,.premonth_area_boom,.premonth_area_tem
+{
+    position:absolute;
+    display:block;
+    top:32px;
+    left:5px;
+    width:60px;
+    height:26px;
+    background:none;
+}
+.premonth_area_body input , .nextmonth_area_body input,.premonth_area_pre input ,.premonth_area_suger input,.premonth_area_boom input,.premonth_area_tem input,.nextmonth_area_pre input,.nextmonth_area_suger input,.nextmonth_area_boom input,.nextmonth_area_tem input,.premonth_area_photo input,.premonth_area_map input,.premonth_area_box input,.nextmonth_area_photo input,.nextmonth_area_map input,.nextmonth_area_box input
+{
+    background:#fff;
+    padding:2px 10px 0 10px;
+    color:#464646;
+    font-family:font-family:"STHEITI-LIGHT";
+}
+.nextmonth_area_body,.nextmonth_area_pre,.nextmonth_area_suger,.nextmonth_area_boom,.nextmonth_area_tem
+{
+    position:absolute;
+    display:block;
+    top:32px;
+    left:70px;
+    width:60px;
+    height:26px;
+    background:none;
+}
+.premonth_area_pre,.premonth_area_suger,.premonth_area_boom,.premonth_area_tem,.nextmonth_area_pre,.nextmonth_area_suger,.nextmonth_area_boom,.nextmonth_area_tem
+{
+    display:none;
+}
+.choose_month p
+{
+    text-align:left;
+    margin-left:140px;
+    padding-top:7px;
+    font-size:13px;
+}
+.sel_wrap
+{
+    top:32px;
+    right:5px;
+    height:20px;
+    width:120px;
+    background:#fff url(/content/images/icons.png) no-repeat top 8px right 4px ;
+    color: #a1a1a1; 
+    font-size: 13px;
+    border:2px solid #90ACAD;
+    cursor:pointer;
+    position:absolute;
+    _filter:alpha(opacity=0);
+}
+.sel_wrap label
+{
+    padding-left:10px;
+    font-size:13px;
+    z-index:2;
+    color: #a1a1a1; 
+    line-height: 20px; 
+    height: 20px; 
+    display: block;
+    }
+.sel_wrap .select
+{
+    width:100%; 
+    height:20px; 
+    line-height:20px; 
+    z-index:4;
+    position:absolute;
+    top:0;
+    left:0;
+    margin:0;
+    padding:0;
+    opacity:0; 
+    *margin-top:none; 
+    filter:alpha(opacity=0);
+    cursor:pointer; 
+    font-size: 16px;
+    }
+.body_table_area,#container_change,.container_photo,.container_map,.container_box
+{
+    height:95%;
+    width:100%;
+    display:none;
+}
+#container_change
+{
+    height:90%;
+}
+.dataintable
+{
+    border-collapse: collapse;
+    border: 1px solid #aaa;
+    width: 100%;
+}
+.dataintable th
+{
+    vertical-align: baseline;
+    padding: 3px 15px 3px 6px;
+    background-color: #d5d5d5;
+    border: 1px solid #aaa;
+    text-align: center;
+    font-family:font-family:"STHEITI-LIGHT";
+    font-size:13px;
+}
+.dataintable td
+{
+    vertical-align: text-top;
+    padding: 0 15px 0 6px;
+    background-color: #efefef;
+    border: 1px solid #aaa;
+    text-align: center;
+    font-family:font-family:"STHEITI-LIGHT";
+    font-size:13px;
+}
+.photo_month
+{
+    top:0;
+    width:100%;
+    height:5%;
+    background:#A4DFE3;
+}
+.premonth_area_photo,.premonth_area_map,.premonth_area_box
+{
+    position:absolute;
+    display:block;
+    top:32px;
+    left:5px;
+    width:60px;
+    height:26px;
+    background:none;
+}
+.nextmonth_area_photo,.nextmonth_area_map,.nextmonth_area_box
+{
+    position:absolute;
+    display:block;
+    top:32px;
+    left:70px;
+    width:60px;
+    height:26px;
+    background:none;
 }
 /*身体指标预览*/
 .easy_body

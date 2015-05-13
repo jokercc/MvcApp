@@ -20,13 +20,14 @@
 <body>
     <div class="main_bg">
         <div class="head_area">
+            <div class="logo_area"><img src="/content/images/logo.png" height="100%" width="100%" alt="logo"/></div>
             <div id="menu">
                 <ul>
-                  <li id="nav1">概要信息</li>
-                  <li id="nav2">身体指标</li>
-                  <li id="nav3">活动情况</li>
-                  <li id="nav4">健康计划</li>
-                  <li id="nav5">急救信息</li>
+                  <li id="nav1"><img src="/content/images/all.png" height="100%" width="100%" alt="logo"/></li>
+                  <li id="nav2"><img src="/content/images/body_all.png" height="100%" width="100%" alt="logo"/></li>
+                  <li id="nav3"><img src="/content/images/act_all.png" height="100%" width="100%" alt="logo"/></li>
+                  <li id="nav4"><img src="/content/images/plan_all.png" height="100%" width="100%" alt="logo"/></li>
+                  <li id="nav5"><img src="/content/images/aid_all.png" height="100%" width="100%" alt="logo"/></li>
                 </ul>
              </div> 
         </div>
@@ -49,7 +50,30 @@
     	            </form>
     	        </div>
             </div>
-            <div class="nav_sign"></div>
+            <div class="nav_sign">
+                <img src="/content/images/all_left.png" height="22" width="22" alt="logo"/>
+                <p>概要信息</p>
+            </div>
+            <div class="nav_signI">
+                <img src="/content/images/table_left.png" height="22" width="22" alt="logo"/>
+                <p>身体指标</p>
+            </div>
+            <div class="nav_signII">
+                <img src="/content/images/table_left.png" height="22" width="22" alt="logo"/>
+                <p>图片信息</p>
+            </div>
+            <div class="nav_sign2">
+                <img src="/content/images/curve_green.png" height="22" width="22" alt="logo"/>
+                <p>变化趋势</p>
+            </div>
+            <div class="nav_sign22">
+                <img src="/content/images/curve_green.png" height="22" width="22" alt="logo"/>
+                <p>详细数据</p>
+            </div>
+            <div class="nav_sign3">
+                <img src="/content/images/curve_green.png" height="22" width="22" alt="logo"/>
+                <p>活动轨迹</p>
+            </div>
             <div id="basic_info_table">
 		        <h class="title">&nbsp;基础信息</h>
 			    <table class="table_basic">
@@ -102,6 +126,7 @@
 			            <td class="home_telnum"></td>
 	    		    </tr>
     		    </table>
+                <p><img src="/content/images/more.png" height="20" width="28" alt="logo" align="bottom"/>&nbsp;查看更多资料</p>
 		    </div>
         </div>
         <div class="copyright_area">
@@ -109,6 +134,7 @@
         </div>
         <div class="infomation_area">
             <div class="now_adds_area">
+                <img src="/content/images/home.png" height="22px" width="24px" alt="logo" align="middle"/>
                 <p1>您当前的位置：概要信息</p1>
                 <p2></p2>
             </div>
@@ -158,6 +184,52 @@
                     <div class="act_area_mark">
                         <p>活动情况</p>
                         <p1>老人近日活动情况以及活动照片</p1>
+                    </div>
+                </div>
+                <div class="choose_month">
+                    <div class="premonth_area_body"><input type="button" id="premonth_btn_body" value="上月" /></div>
+                    <div class="nextmonth_area_body"><input type="button" id="nextmonth_btn_body" value="下月" /></div>
+                    <div class="premonth_area_pre"><input type="button" id="premonth_btn_pre" value="上月" /></div>
+                    <div class="nextmonth_area_pre"><input type="button" id="nextmonth_btn_pre" value="下月" /></div>
+                    <div class="premonth_area_suger"><input type="button" id="premonth_btn_suger" value="上月" /></div>
+                    <div class="nextmonth_area_suger"><input type="button" id="nextmonth_btn_suger" value="下月" /></div>
+                    <div class="premonth_area_boom"><input type="button" id="premonth_btn_boom" value="上月" /></div>
+                    <div class="nextmonth_area_boom"><input type="button" id="nextmonth_btn_boom" value="下月" /></div>
+                    <div class="premonth_area_tem"><input type="button" id="premonth_btn_tem" value="上月" /></div>
+                    <div class="nextmonth_area_tem"><input type="button" id="nextmonth_btn_tem" value="下月" /></div>
+                    <p></p>
+                    <div class="sel_wrap">
+                        <label>血压</label>
+                        <select class="select" name="" id="c_body">
+                        <option value="0">血压</option>
+                        <option value="1">心跳</option>
+                        <option value="2">血糖</option>
+                        <option value="3">体温</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="body_table_area">
+                    <table class="dataintable">
+                    </table>
+                </div>
+                <div id="container_change">
+                </div>
+                <div class="container_photo">
+                    <div class="photo_month">
+                        <div class="premonth_area_photo"><input type="button" id="premonth_btn_photo" value="上月" /></div>
+                        <div class="nextmonth_area_photo"><input type="button" id="nextmonth_btn_photo" value="下月" /></div>
+                    </div>
+                </div>
+                <div class="container_box">
+                    <div class="photo_month">
+                        <div class="premonth_area_photo"><input type="button" id="premonth_btn_box" value="上月" "/></div>
+                        <div class="nextmonth_area_photo"><input type="button" id="nextmonth_btn_box" value="下月" /></div>
+                    </div>
+                </div>
+                <div class="container_map">
+                    <div class="photo_month">
+                        <div class="premonth_area_photo"><input type="button" id="premonth_btn_map" value="上月" /></div>
+                        <div class="nextmonth_area_photo"><input type="button" id="nextmonth_btn_map" value="下月" /></div>
                     </div>
                 </div>
             </div>

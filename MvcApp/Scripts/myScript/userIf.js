@@ -38,7 +38,7 @@ $(function() {
         month["Nov"] = 11;
         month["Dec"] = 12;
         str = utcCurrTime.split(" ");
-        date = str[2] + "日";
+        date = str[2];
         return date;
     }
     var user = $("#get_username").val();
@@ -51,6 +51,8 @@ $(function() {
     var myh = myDate.getHours();
     var mym = myDate.getMinutes();
     var myse = myDate.getSeconds();
+    var bodyyear;
+    var bodymonth;
     var premonth;
     var boommonth;
     var sugermonth;
@@ -73,7 +75,7 @@ $(function() {
     var actmonth;
     var actyear;
     var str;
-    var select;
+
     str = "" + myDate.getFullYear() + "年";
     str += (myDate.getMonth() + 1) + "月";
     str += myDate.getDate() + "日     ";
@@ -159,7 +161,7 @@ $(function() {
                         });
                         /////////////////////////////////////////////////////////////////////////////////////
                         $.ajax({
-                            url: "/BasicInfo/testGetHealthPlan",
+                            url: "/BasicInfo/getHealthPlanByUserId",
                             data: {
                                 "userId": userId
                             },
@@ -177,7 +179,7 @@ $(function() {
                         });
                         ///////////////////////////////////////////////////////////////////////////////
                         $.ajax({
-                            url: "/BasicInfo/testGetHealthIndicator",
+                            url: "/BasicInfo/getHealthIndicatorByDate",
                             data: {
                                 "myYear": myyear,
                                 "myMonth": mymonth,
@@ -252,7 +254,7 @@ $(function() {
                         });
                         ////////////////////////////////////////////////////////////////////////////////
                         $.ajax({
-                            url: "/BasicInfo/testGetHealthIndicator",
+                            url: "/BasicInfo/getHealthIndicatorByDate",
                             data: {
                                 "myYear": myyear,
                                 "myMonth": mymonth,
@@ -339,9 +341,6 @@ $(function() {
     });
 
 
-
-});
-$(document).ready(function() {
     $(window).load(function() {
         var options = {
             thumbBox: '.thumbBox',
@@ -566,38 +565,137 @@ $(document).ready(function() {
         function() {
             $(".logout_btn").attr("value", "退出");
         });
-    $("#nav1").bind("click", function() {
-        select = 1;
+    $("#nav1").click(function() {
         $(".now_adds_area p1").html("您当前的位置：概要信息");
         $(".sign_area p").html("概要信息");
+        $("#container_change").hide();
+        $(".nav_signI").css('background', '#1CBDB3');
+        $(".nav_signI img").attr('src', '/content/images/table_left.png');
+        $(".nav_signI p").css('color', 'white');
+        $(".nav_sign2").css('background', 'none');
+        $(".nav_sign2 p").css('color', '#1CBDB3');
+        $(".nav_sign2 img").attr('src', '/content/images/curve_green.png');
         $("#nav2").css("background", "#318492");
         $(this).css("background", "#15697D");
         $("#nav3").css("background", "#318492");
         $("#nav4").css("background", "#318492");
         $("#nav5").css("background", "#318492");
+        $("#basic_info_table").css("top", "35%");
+        $(".easy_body").css("display", "block");
+        $(".easy_photo").css("display", "block");
+        $(".easy_plan").css("display", "block");
+        $(".easy_act").css("display", "block");
+        $(".nav_sign2").css("display", "none");
+        $(".choose_month").css("display", "none");
+        $(".body_table_area").css("display", "none");
+        $(".nav_signII,.nav_sign22,.nav_sign3").css("display", "none");
+        $(".nav_sign").show();
+        $(".nav_signI").hide();
+        $(".nav_sign2").hide();
+        $(".container_box").hide();
+        $(".container_photo").hide();
+        $(".container_map").hide();
     });
-    $("#nav2").bind("click", function() {
-        select = 2;
-        $(".now_adds_area p1").html("您当前的位置：身体指标");
-        $(".sign_area p").html("身体指标");
+    $("#nav2 ,.body_cover").click(function() {
+        $(".now_adds_area p1").html("您当前的位置：身体指标>列表显示");
+        $(".sign_area p").html("列表显示");
         $("#nav1").css("background", "#318492");
         $(this).css("background", "#15697D");
         $("#nav3").css("background", "#318492");
         $("#nav4").css("background", "#318492");
         $("#nav5").css("background", "#318492");
+        $("#basic_info_table").css("top", "40%");
+        $(".easy_body").css("display", "none");
+        $(".easy_photo").css("display", "none");
+        $(".easy_plan").css("display", "none");
+        $(".easy_act").css("display", "none");
+        $(".nav_sign2").css("display", "block");
+        $(".choose_month").css("display", "block");
+        $(".body_table_area").css("display", "block");
+        $(".nav_sign").hide();
+        $(".nav_signI").show();
+        $(".sel_wrap").hide();
+        $(".container_box").hide();
+        $(".container_photo").hide();
+        $(".container_map").hide();
+        $(".premonth_area_body").show();
+        $(".nextmonth_area_body").show();
+        $(".premonth_area_pre").hide();
+        $(".nextmonth_area_pre").hide();
+        $(".premonth_area_tem").hide();
+        $(".nextmonth_area_tem").hide();
+        $(".premonth_area_suger").hide();
+        $(".nextmonth_area_suger").hide();
+        $(".premonth_area_boom").hide();
+        $(".nextmonth_area_boom").hide();
+        $(".nav_signII,.nav_sign22,.nav_sign3").css("display", "none"); 
+        tbody = $(".body_table_area").find("tr");
+        tbody.empty();
+        $.ajax({
+            url: "/BasicInfo/getHealthIndicatorByDate",
+            data: {
+                "myYear": preyear,
+                "myMonth": premonth,
+                "id": userId
+            },
+            type: "GET",
+            dataType: "json",
+            contentType: "application/json",
+            success: function(data) {
+                var th = '<tr><th>日期</th><th>收缩压</th><th>舒张压</th><th>心跳</th><th>血糖</th><th>体温</th></tr>';
+                $(".dataintable").append(th);
+                for (var i = 0; i < data.length; i++) {
+                    var date = utcToDate_onlyday(eval('new ' + eval(data[i].Date).source));
+                    var tr = '<tr><td>' + date + '</td><td>' + data[i].SystolicPressure + '</td><td>' + data[i].DiastolicPressure + '</td><td>' + data[i].HeartBeat + '</td><td>' + data[i].BloodGlucose + '</td><td>' + data[i].Calorie + '</td></tr>';
+                    $(".dataintable").append(tr);
+                }
+            },
+        });
+
     });
     $("#nav3").bind("click", function() {
-        select = 3;
-        $(".now_adds_area p1").html("您当前的位置：活动情况");
-        $(".sign_area p").html("活动情况");
+        $(".now_adds_area p1").html("您当前的位置：活动情况>图片信息");
+        $(".sign_area p").html("图片信息");
+        $(".nav_signII").css('background', '#1CBDB3');
+        $(".nav_signII img").attr('src', '/content/images/table_left.png');
+        $(".nav_signII p").css('color', 'white');
+        $(".nav_sign22").css('background', 'none');
+        $(".nav_sign22 p").css('color', '#1CBDB3');
+        $(".nav_sign22 img").attr('src', '/content/images/curve_green.png');
+        $(".nav_sign3").css('background', 'none');
+        $(".nav_sign3 p").css('color', '#1CBDB3');
+        $(".nav_sign3 img").attr('src', '/content/images/curve_green.png');
         $("#nav1").css("background", "#318492");
         $(this).css("background", "#15697D");
         $("#nav2").css("background", "#318492");
         $("#nav4").css("background", "#318492");
         $("#nav5").css("background", "#318492");
+        $("#basic_info_table").css("top", "50%");
+        $(".body_table_area").hide();
+        $(".sel_wrap").hide();
+        $("#container_change").hide();
+        $(".premonth_area_body").hide();
+        $(".nextmonth_area_body").hide();
+        $(".premonth_area_pre").hide();
+        $(".nextmonth_area_pre").hide();
+        $(".premonth_area_tem").hide();
+        $(".nextmonth_area_tem").hide();
+        $(".premonth_area_suger").hide();
+        $(".nextmonth_area_suger").hide();
+        $(".premonth_area_boom").hide();
+        $(".nextmonth_area_boom").hide();
+        $(".easy_body").css("display", "none");
+        $(".easy_photo").css("display", "none");
+        $(".easy_plan").css("display", "none");
+        $(".easy_act").css("display", "none");
+        $(".nav_sign").css("display", "none");
+        $(".nav_signI").css("display", "none");
+        $(".nav_sign2").css("display", "none");
+        $(".choose_month").css("display", "none");
+        $(".body_table_area").css("display", "none");
+        $(".nav_signII,.nav_sign22,.nav_sign3,.container_photo").css("display", "block");
     });
     $("#nav4").bind("click", function() {
-        select = 4;
         $(".now_adds_area p1").html("您当前的位置：健康计划");
         $(".sign_area p").html("健康计划");
         $("#nav1").css("background", "#318492");
@@ -607,7 +705,6 @@ $(document).ready(function() {
         $("#nav5").css("background", "#318492");
     });
     $("#nav5").bind("click", function() {
-        select = 5;
         $(".now_adds_area p1").html("您当前的位置：急救信息");
         $(".sign_area p").html("急救信息");
         $("#nav1").css("background", "#318492");
@@ -641,17 +738,9 @@ $(document).ready(function() {
             $(".act_cover").hide();
         });
     $(".body_cover").bind("click", function() {
-        select = 1;
-        $(".now_adds_area p1").html("您当前的位置：概要信息");
-        $(".sign_area p").html("概要信息");
-        $("#nav2").css("background", "#318492");
-        $("#nav1").css("background", "#15697D");
-        $("#nav3").css("background", "#318492");
-        $("#nav4").css("background", "#318492");
-        $("#nav5").css("background", "#318492");
+        $("#nav2").css("background", "#15697D");
     });
     $(".easy_plan").bind("click", function() {
-        select = 4;
         $(".now_adds_area p1").html("您当前的位置：健康计划");
         $(".sign_area p").html("健康计划");
         $("#nav1").css("background", "#318492");
@@ -661,7 +750,6 @@ $(document).ready(function() {
         $("#nav5").css("background", "#318492");
     });
     $(".easy_act").bind("click", function() {
-        select = 3;
         $(".now_adds_area p1").html("您当前的位置：活动情况");
         $(".sign_area p").html("活动情况");
         $("#nav1").css("background", "#318492");
@@ -669,5 +757,1280 @@ $(document).ready(function() {
         $("#nav2").css("background", "#318492");
         $("#nav4").css("background", "#318492");
         $("#nav5").css("background", "#318492");
+    });
+    bodyyear = myyear;
+    bodymonth = mymonth;
+    boommonth = mymonth;
+        sugermonth = mymonth;
+        temmonth = mymonth;
+        boomyear = myyear;
+        sugeryear = myyear;
+        temyear = myyear;
+        premonth = mymonth;
+        preyear = myyear;
+    $(".nav_sign").click(function() {});
+    $(".nav_signI").click(function() {
+        $(".premonth_area_body").show();
+        $(".nextmonth_area_body").show();
+        $(".premonth_area_pre").hide();
+        $(".nextmonth_area_pre").hide();
+        $(".premonth_area_tem").hide();
+        $(".nextmonth_area_tem").hide();
+        $(".premonth_area_suger").hide();
+        $(".nextmonth_area_suger").hide();
+        $(".premonth_area_boom").hide();
+        $(".nextmonth_area_boom").hide();
+        $(".body_table_area").show();
+        $("#container_change").hide();
+        $(".sel_wrap").hide();
+        
+        $(".now_adds_area p1").html("您当前的位置：身体指标>列表显示");
+        $(".sign_area p").html("列表显示");
+        $(".nav_signI").css('background', '#1CBDB3');
+        $(".nav_signI img").attr('src', '/content/images/table_left.png');
+        $(".nav_signI p").css('color', 'white');
+        $(".nav_sign2").css('background', 'none');
+        $(".nav_sign2 p").css('color', '#1CBDB3');
+        $(".nav_sign2 img").attr('src', '/content/images/curve_green.png');
+        $(".choose_month p").html(bodyyear + "-" + bodymonth);
+        tbody = $(".body_table_area").find("tr");
+        tbody.empty();
+        $.ajax({
+            url: "/BasicInfo/getHealthIndicatorByDate",
+            data: {
+                "myYear": bodyyear,
+                "myMonth": bodymonth,
+                "id": userId
+            },
+            type: "GET",
+            dataType: "json",
+            contentType: "application/json",
+            success: function(data) {
+                var th = '<tr><th>日期</th><th>收缩压</th><th>舒张压</th><th>心跳</th><th>血糖</th><th>体温</th></tr>';
+                $(".dataintable").append(th);
+                for (var i = 0; i < data.length; i++) {
+                    var date = utcToDate_onlyday(eval('new ' + eval(data[i].Date).source));
+                    var tr = '<tr><td>' + date + '</td><td>' + data[i].SystolicPressure + '</td><td>' + data[i].DiastolicPressure + '</td><td>' + data[i].HeartBeat + '</td><td>' + data[i].BloodGlucose + '</td><td>' + data[i].Calorie + '</td></tr>';
+                    $(".dataintable").append(tr);
+                }
+            },
+        });
+    });
+    $(".nav_sign2").click(function() {
+        $(".body_table_area").hide();
+        $(".sel_wrap").show();
+        $("#container_change").show();
+        $(".premonth_area_body").hide();
+        $(".nextmonth_area_body").hide();
+        $(".premonth_area_pre").show();
+        $(".nextmonth_area_pre").show();
+        $(".premonth_area_tem").hide();
+        $(".nextmonth_area_tem").hide();
+        $(".premonth_area_suger").hide();
+        $(".nextmonth_area_suger").hide();
+        $(".premonth_area_boom").hide();
+        $(".nextmonth_area_boom").hide();
+        $(".choose_month p").html(preyear + "-" + premonth);
+        $(".sel_wrap label").html("血压");
+        date_array.length = 0;
+        downpre_array.length = 0;
+        uppre_array.length = 0;
+        boom_array.length = 0;
+        suger_array.length = 0;
+        tem_array.length = 0;
+        
+        $.ajax({
+            url: "/BasicInfo/getHealthIndicatorByDate",
+            data: {
+                "myYear": preyear,
+                "myMonth": premonth,
+                "id": userId
+            },
+            type: "GET",
+            dataType: "json",
+            contentType: "application/json",
+            success: function(data) {
+                for (var i = 0; i < data.length; i++) {
+                    var date = utcToDate_onlyday(eval('new ' + eval(data[i].Date).source));
+                    date_array.push(date);
+                    downpre_array.push(data[i].SystolicPressure);
+                    uppre_array.push(data[i].DiastolicPressure);
+                    boom_array.push(data[i].HeartBeat);
+                    suger_array.push(data[i].BloodGlucose);
+                    tem_array.push(data[i].Calorie);
+                }
+
+                $('#container_change').highcharts({
+                    chart: {
+                        type: 'area'
+                    },
+                    title: {
+                        text: ''
+                    },
+                    subtitle: {
+                        text: ''
+                    },
+                    credits: {
+                        enabled: false
+                    },
+                    xAxis: {
+                        categories: date_array
+                    },
+                    yAxis: {
+                        title: {
+                            text: '单位'
+                        },
+                        min: 0,
+                        plotLines: [{
+                            value: 0,
+                            width: 1,
+                            color: '#808080'
+                        }]
+                    },
+                    tooltip: {
+                        valueSuffix: 'mmhg'
+                    },
+
+                    legend: {
+                        layout: 'vertical',
+                        align: 'right',
+                        verticalAlign: 'middle',
+                        borderWidth: 0
+                    },
+                    series: [{
+                        name: '收缩压',
+                        data: downpre_array
+                    }, {
+                        name: '舒张压',
+                        data: uppre_array
+                    }]
+                });
+            },
+        });
+        $(".now_adds_area p1").html("您当前的位置：身体指标>变化趋势");
+        $(".sign_area p").html("变化趋势");
+        $(".nav_signI").css('background', 'none');
+        $(".nav_signI img").attr('src', '/content/images/table_left_green.png');
+        $(".nav_signI p").css('color', '#1CBDB3');
+        $(".nav_sign2").css('background', '#1CBDB3');
+        $(".nav_sign2 p").css('color', 'white');
+        $(".nav_sign2 img").attr('src', '/content/images/curve.png');
+    });
+    $(".nav_signII").click(function() {
+
+        $(".container_box").hide();
+        $(".container_photo").show();
+        $(".container_map").hide();
+        $(".now_adds_area p1").html("您当前的位置：活动情况>图片信息");
+        $(".sign_area p").html("图片信息");
+        $(".nav_signII").css('background', '#1CBDB3');
+        $(".nav_signII img").attr('src', '/content/images/table_left.png');
+        $(".nav_signII p").css('color', 'white');
+        $(".nav_sign22").css('background', 'none');
+        $(".nav_sign22 p").css('color', '#1CBDB3');
+        $(".nav_sign22 img").attr('src', '/content/images/curve_green.png');
+        $(".nav_sign3").css('background', 'none');
+        $(".nav_sign3 p").css('color', '#1CBDB3');
+        $(".nav_sign3 img").attr('src', '/content/images/curve_green.png');
+    });
+    $(".nav_sign22").click(function() {
+
+        $(".container_box").show();
+        $(".container_photo").hide();
+        $(".container_map").hide();
+        $(".now_adds_area p1").html("您当前的位置：活动情况>详细数据");
+        $(".sign_area p").html("详细数据");
+        $(".nav_signII").css('background', 'none');
+        $(".nav_signII img").attr('src', '/content/images/table_left_green.png');
+        $(".nav_signII p").css('color', '#1CBDB3');
+        $(".nav_sign22").css('background', '#1CBDB3');
+        $(".nav_sign22 p").css('color', 'white');
+        $(".nav_sign22 img").attr('src', '/content/images/curve.png');
+        $(".nav_sign3").css('background', 'none');
+        $(".nav_sign3 p").css('color', '#1CBDB3');
+        $(".nav_sign3 img").attr('src', '/content/images/curve_green.png');
+    });
+    $(".nav_sign3").click(function() {
+
+        $(".container_box").hide();
+        $(".container_photo").hide();
+        $(".container_map").show();
+        $(".now_adds_area p1").html("您当前的位置：活动情况>活动轨迹");
+        $(".sign_area p").html("活动轨迹");
+        $(".nav_sign3").css('background', '#1CBDB3');
+        $(".nav_sign3 p").css('color', 'white');
+        $(".nav_sign3 img").attr('src', '/content/images/curve.png');
+        $(".nav_sign22").css('background', 'none');
+        $(".nav_sign22 p").css('color', '#1CBDB3');
+        $(".nav_sign22 img").attr('src', '/content/images/curve_green.png');
+        $(".nav_signII").css('background', 'none');
+        $(".nav_signII img").attr('src', '/content/images/table_left_green.png');
+        $(".nav_signII p").css('color', '#1CBDB3');
+    });
+    $(".sel_wrap").on("change", function() {
+        var o;
+        var opt = $(this).find('option');
+        opt.each(function(i) {
+            if (opt[i].selected == true) {
+                o = opt[i].innerHTML;
+            }
+        })
+        $(this).find('label').html(o);
+    }).trigger('change');
+    $("#c_body").change(function() {
+        var c_body = $("#c_body").val();
+        if (c_body == 0) {
+            date_array.length = 0;
+            downpre_array.length = 0;
+            uppre_array.length = 0;
+            boom_array.length = 0;
+            suger_array.length = 0;
+            tem_array.length = 0;
+            $(".premonth_area_body").hide();
+            $(".nextmonth_area_body").hide();
+            $(".premonth_area_pre").show();
+            $(".nextmonth_area_pre").show();
+            $(".premonth_area_tem").hide();
+            $(".nextmonth_area_tem").hide();
+            $(".premonth_area_suger").hide();
+            $(".nextmonth_area_suger").hide();
+            $(".premonth_area_boom").hide();
+            $(".nextmonth_area_boom").hide();
+            $(".choose_month p").html(preyear + "-" + premonth);
+            $.ajax({
+                url: "/BasicInfo/getHealthIndicatorByDate",
+                data: {
+                    "myYear": preyear,
+                    "myMonth": premonth,
+                    "id": userId
+                },
+                type: "GET",
+                dataType: "json",
+                contentType: "application/json",
+                success: function(data) {
+                    for (var i = 0; i < data.length; i++) {
+                        var date = utcToDate_onlyday(eval('new ' + eval(data[i].Date).source));
+                        date_array.push(date);
+                        downpre_array.push(data[i].SystolicPressure);
+                        uppre_array.push(data[i].DiastolicPressure);
+                        boom_array.push(data[i].HeartBeat);
+                        suger_array.push(data[i].BloodGlucose);
+                        tem_array.push(data[i].Calorie);
+                    }
+
+                    $('#container_change').highcharts({
+                        chart: {
+                            type: 'area'
+                        },
+                        title: {
+                            text: ''
+                        },
+                        subtitle: {
+                            text: ''
+                        },
+                        credits: {
+                            enabled: false
+                        },
+                        xAxis: {
+                            categories: date_array
+                        },
+                        yAxis: {
+                            title: {
+                                text: '单位'
+                            },
+                            min: 0,
+                            plotLines: [{
+                                value: 0,
+                                width: 1,
+                                color: '#808080'
+                            }]
+                        },
+                        tooltip: {
+                            valueSuffix: 'mmhg'
+                        },
+
+                        legend: {
+                            layout: 'vertical',
+                            align: 'right',
+                            verticalAlign: 'middle',
+                            borderWidth: 0
+                        },
+                        series: [{
+                            name: '收缩压',
+                            data: downpre_array
+                        }, {
+                            name: '舒张压',
+                            data: uppre_array
+                        }]
+                    });
+                },
+            });
+        } else if (c_body == 1) {
+            date_array.length = 0;
+            downpre_array.length = 0;
+            uppre_array.length = 0;
+            boom_array.length = 0;
+            suger_array.length = 0;
+            tem_array.length = 0;
+            $(".premonth_area_body").hide();
+            $(".nextmonth_area_body").hide();
+            $(".premonth_area_pre").hide();
+            $(".nextmonth_area_pre").hide();
+            $(".premonth_area_tem").hide();
+            $(".nextmonth_area_tem").hide();
+            $(".premonth_area_suger").hide();
+            $(".nextmonth_area_suger").hide();
+            $(".premonth_area_boom").show();
+            $(".nextmonth_area_boom").show();
+            $(".choose_month p").html(boomyear + "-" + boommonth);
+            $.ajax({
+                url: "/BasicInfo/getHealthIndicatorByDate",
+                data: {
+                    "myYear": boomyear,
+                    "myMonth": boommonth,
+                    "id": userId
+                },
+                type: "GET",
+                dataType: "json",
+                contentType: "application/json",
+                success: function(data) {
+                    for (var i = 0; i < data.length; i++) {
+                        var date = utcToDate_onlyday(eval('new ' + eval(data[i].Date).source));
+                        date_array.push(date);
+                        downpre_array.push(data[i].SystolicPressure);
+                        uppre_array.push(data[i].DiastolicPressure);
+                        boom_array.push(data[i].HeartBeat);
+                        suger_array.push(data[i].BloodGlucose);
+                        tem_array.push(data[i].Calorie);
+                    }
+
+                    $('#container_change').highcharts({
+                        chart: {
+                            type: 'area'
+                        },
+                        title: {
+                            text: ''
+                        },
+                        subtitle: {
+                            text: ''
+                        },
+                        credits: {
+                            enabled: false
+                        },
+                        xAxis: {
+                            categories: date_array
+                        },
+                        yAxis: {
+                            title: {
+                                text: '单位'
+                            },
+                            min: 0,
+                            plotLines: [{
+                                value: 0,
+                                width: 1,
+                                color: '#808080'
+                            }]
+                        },
+                        tooltip: {
+                            valueSuffix: 'mmhg'
+                        },
+
+                        legend: {
+                            layout: 'vertical',
+                            align: 'right',
+                            verticalAlign: 'middle',
+                            borderWidth: 0
+                        },
+                        series: [{
+                            name: '心跳',
+                            data: boom_array
+                        }]
+                    });
+                },
+            });
+        } else if (c_body == 2) {
+            
+            $(".premonth_area_body").hide();
+            $(".nextmonth_area_body").hide();
+            $(".premonth_area_pre").hide();
+            $(".nextmonth_area_pre").hide();
+            $(".premonth_area_tem").hide();
+            $(".nextmonth_area_tem").hide();
+            $(".premonth_area_suger").show();
+            $(".nextmonth_area_suger").show();
+            $(".premonth_area_boom").hide();
+            $(".nextmonth_area_boom").hide();
+            $(".choose_month p").html(sugeryear + "-" + sugermonth);
+            date_array.length = 0;
+            downpre_array.length = 0;
+            uppre_array.length = 0;
+            boom_array.length = 0;
+            suger_array.length = 0;
+            tem_array.length = 0;
+            $.ajax({
+                url: "/BasicInfo/getHealthIndicatorByDate",
+                data: {
+                    "myYear": sugeryear,
+                    "myMonth": sugermonth,
+                    "id": userId
+                },
+                type: "GET",
+                dataType: "json",
+                contentType: "application/json",
+                success: function(data) {
+                    for (var i = 0; i < data.length; i++) {
+                        var date = utcToDate_onlyday(eval('new ' + eval(data[i].Date).source));
+                        date_array.push(date);
+                        downpre_array.push(data[i].SystolicPressure);
+                        uppre_array.push(data[i].DiastolicPressure);
+                        boom_array.push(data[i].HeartBeat);
+                        suger_array.push(data[i].BloodGlucose);
+                        tem_array.push(data[i].Calorie);
+                    }
+
+                    $('#container_change').highcharts({
+                        chart: {
+                            type: 'area'
+                        },
+                        title: {
+                            text: ''
+                        },
+                        subtitle: {
+                            text: ''
+                        },
+                        credits: {
+                            enabled: false
+                        },
+                        xAxis: {
+                            categories: date_array
+                        },
+                        yAxis: {
+                            title: {
+                                text: '单位'
+                            },
+                            min: 0,
+                            plotLines: [{
+                                value: 0,
+                                width: 1,
+                                color: '#808080'
+                            }]
+                        },
+                        tooltip: {
+                            valueSuffix: 'mmhg'
+                        },
+
+                        legend: {
+                            layout: 'vertical',
+                            align: 'right',
+                            verticalAlign: 'middle',
+                            borderWidth: 0
+                        },
+                        series: [{
+                            name: '血糖',
+                            data: suger_array
+                        }]
+                    });
+                },
+            });
+        } else {
+            
+            $(".premonth_area_body").hide();
+            $(".nextmonth_area_body").hide();
+            $(".premonth_area_pre").hide();
+            $(".nextmonth_area_pre").hide();
+            $(".premonth_area_tem").show();
+            $(".nextmonth_area_tem").show();
+            $(".premonth_area_suger").hide();
+            $(".nextmonth_area_suger").hide();
+            $(".premonth_area_boom").hide();
+            $(".nextmonth_area_boom").hide();
+            $(".choose_month p").html(temyear + "-" + temmonth);
+            date_array.length = 0;
+            downpre_array.length = 0;
+            uppre_array.length = 0;
+            boom_array.length = 0;
+            suger_array.length = 0;
+            tem_array.length = 0;
+            $.ajax({
+                url: "/BasicInfo/getHealthIndicatorByDate",
+                data: {
+                    "myYear": temyear,
+                    "myMonth": temmonth,
+                    "id": userId
+                },
+                type: "GET",
+                dataType: "json",
+                contentType: "application/json",
+                success: function(data) {
+                    for (var i = 0; i < data.length; i++) {
+                        var date = utcToDate_onlyday(eval('new ' + eval(data[i].Date).source));
+                        date_array.push(date);
+                        downpre_array.push(data[i].SystolicPressure);
+                        uppre_array.push(data[i].DiastolicPressure);
+                        boom_array.push(data[i].HeartBeat);
+                        suger_array.push(data[i].BloodGlucose);
+                        tem_array.push(data[i].Calorie);
+                    }
+
+                    $('#container_change').highcharts({
+                        chart: {
+                            type: 'area'
+                        },
+                        title: {
+                            text: ''
+                        },
+                        subtitle: {
+                            text: ''
+                        },
+                        credits: {
+                            enabled: false
+                        },
+                        xAxis: {
+                            categories: date_array
+                        },
+                        yAxis: {
+                            title: {
+                                text: '单位'
+                            },
+                            min: 0,
+                            plotLines: [{
+                                value: 0,
+                                width: 1,
+                                color: '#808080'
+                            }]
+                        },
+                        tooltip: {
+                            valueSuffix: 'mmhg'
+                        },
+
+                        legend: {
+                            layout: 'vertical',
+                            align: 'right',
+                            verticalAlign: 'middle',
+                            borderWidth: 0
+                        },
+                        series: [{
+                            name: '体温',
+                            data: tem_array
+                        }]
+                    });
+                },
+            });
+        }
+    });
+    $("#premonth_btn_body").click(function() {
+            bodymonth--;
+            if (bodymonth == 0) {
+                bodymonth = 12;
+                bodyyear--;
+            }
+            $(".choose_month p").html(bodyyear + "-" + bodymonth);
+            tbody = $(".body_table_area").find("tr");
+        tbody.empty();
+        $.ajax({
+            url: "/BasicInfo/getHealthIndicatorByDate",
+            data: {
+                "myYear": bodyyear,
+                "myMonth": bodymonth,
+                "id": userId
+            },
+            type: "GET",
+            dataType: "json",
+            contentType: "application/json",
+            success: function(data) {
+                var th = '<tr><th>日期</th><th>收缩压</th><th>舒张压</th><th>心跳</th><th>血糖</th><th>体温</th></tr>';
+                $(".dataintable").append(th);
+                for (var i = 0; i < data.length; i++) {
+                    var date = utcToDate_onlyday(eval('new ' + eval(data[i].Date).source));
+                    var tr = '<tr><td>' + date + '</td><td>' + data[i].SystolicPressure + '</td><td>' + data[i].DiastolicPressure + '</td><td>' + data[i].HeartBeat + '</td><td>' + data[i].BloodGlucose + '</td><td>' + data[i].Calorie + '</td></tr>';
+                    $(".dataintable").append(tr);
+                }
+            },
+        });
+        });
+        $("#nextmonth_btn_body").click(function() {
+            bodymonth++;
+            if (bodyyear == myyear && bodymonth > mymonth) {
+                bodymonth--;
+            }
+            if (bodymonth == 13) {
+                bodymonth = 1;
+                bodyyear++;
+            }
+            $(".choose_month p").html(bodyyear + "-" + bodymonth);
+            tbody = $(".body_table_area").find("tr");
+        tbody.empty();
+        $.ajax({
+            url: "/BasicInfo/getHealthIndicatorByDate",
+            data: {
+                "myYear": bodyyear,
+                "myMonth": bodymonth,
+                "id": userId
+            },
+            type: "GET",
+            dataType: "json",
+            contentType: "application/json",
+            success: function(data) {
+                var th = '<tr><th>日期</th><th>收缩压</th><th>舒张压</th><th>心跳</th><th>血糖</th><th>体温</th></tr>';
+                $(".dataintable").append(th);
+                for (var i = 0; i < data.length; i++) {
+                    var date = utcToDate_onlyday(eval('new ' + eval(data[i].Date).source));
+                    var tr = '<tr><td>' + date + '</td><td>' + data[i].SystolicPressure + '</td><td>' + data[i].DiastolicPressure + '</td><td>' + data[i].HeartBeat + '</td><td>' + data[i].BloodGlucose + '</td><td>' + data[i].Calorie + '</td></tr>';
+                    $(".dataintable").append(tr);
+                }
+            },
+        });
+        });
+    $("#premonth_btn_pre").bind("click", function() {
+        premonth--;
+        if (premonth == 0) {
+            premonth = 12;
+            preyear--;
+        }
+        $(".choose_month p").html(preyear + "-" + premonth);
+        date_array.length = 0;
+        downpre_array.length = 0;
+        uppre_array.length = 0;
+        boom_array.length = 0;
+        suger_array.length = 0;
+        tem_array.length = 0;
+        
+        $.ajax({
+            url: "/BasicInfo/getHealthIndicatorByDate",
+            data: {
+                "myYear": preyear,
+                "myMonth": premonth,
+                "id": userId
+            },
+            type: "GET",
+            dataType: "json",
+            contentType: "application/json",
+            success: function(data) {
+                for (var i = 0; i < data.length; i++) {
+                    var date = utcToDate_onlyday(eval('new ' + eval(data[i].Date).source));
+                    date_array.push(date);
+                    downpre_array.push(data[i].SystolicPressure);
+                    uppre_array.push(data[i].DiastolicPressure);
+                    boom_array.push(data[i].HeartBeat);
+                    suger_array.push(data[i].BloodGlucose);
+                    tem_array.push(data[i].Calorie);
+                }
+
+                $('#container_change').highcharts({
+                    chart: {
+                        type: 'area'
+                    },
+                    title: {
+                        text: ''
+                    },
+                    subtitle: {
+                        text: ''
+                    },
+                    credits: {
+                        enabled: false
+                    },
+                    xAxis: {
+                        categories: date_array
+                    },
+                    yAxis: {
+                        title: {
+                            text: '单位'
+                        },
+                        min: 0,
+                        plotLines: [{
+                            value: 0,
+                            width: 1,
+                            color: '#808080'
+                        }]
+                    },
+                    tooltip: {
+                        valueSuffix: 'mmhg'
+                    },
+
+                    legend: {
+                        layout: 'vertical',
+                        align: 'right',
+                        verticalAlign: 'middle',
+                        borderWidth: 0
+                    },
+                    series: [{
+                        name: '收缩压',
+                        data: downpre_array
+                    }, {
+                        name: '舒张压',
+                        data: uppre_array
+                    }]
+                });
+            },
+        });
+    });
+    $("#nextmonth_btn_pre").bind("click", function() {
+        premonth++;
+        if (preyear == myyear && premonth > mymonth) {
+            premonth--;
+        }
+        if (premonth == 13) {
+            premonth = 1;
+            preyear++;
+        }
+        $(".choose_month p").html(preyear + "-" + premonth);
+        date_array.length = 0;
+        downpre_array.length = 0;
+        uppre_array.length = 0;
+        boom_array.length = 0;
+        suger_array.length = 0;
+        tem_array.length = 0;
+        
+        $.ajax({
+            url: "/BasicInfo/getHealthIndicatorByDate",
+            data: {
+                "myYear": preyear,
+                "myMonth": premonth,
+                "id": userId
+            },
+            type: "GET",
+            dataType: "json",
+            contentType: "application/json",
+            success: function(data) {
+                for (var i = 0; i < data.length; i++) {
+                    var date = utcToDate_onlyday(eval('new ' + eval(data[i].Date).source));
+                    date_array.push(date);
+                    downpre_array.push(data[i].SystolicPressure);
+                    uppre_array.push(data[i].DiastolicPressure);
+                    boom_array.push(data[i].HeartBeat);
+                    suger_array.push(data[i].BloodGlucose);
+                    tem_array.push(data[i].Calorie);
+                }
+
+                $('#container_change').highcharts({
+                    chart: {
+                        type: 'area'
+                    },
+                    title: {
+                        text: ''
+                    },
+                    subtitle: {
+                        text: ''
+                    },
+                    credits: {
+                        enabled: false
+                    },
+                    xAxis: {
+                        categories: date_array
+                    },
+                    yAxis: {
+                        title: {
+                            text: '单位'
+                        },
+                        min: 0,
+                        plotLines: [{
+                            value: 0,
+                            width: 1,
+                            color: '#808080'
+                        }]
+                    },
+                    tooltip: {
+                        valueSuffix: 'mmhg'
+                    },
+
+                    legend: {
+                        layout: 'vertical',
+                        align: 'right',
+                        verticalAlign: 'middle',
+                        borderWidth: 0
+                    },
+                    series: [{
+                        name: '收缩压',
+                        data: downpre_array
+                    }, {
+                        name: '舒张压',
+                        data: uppre_array
+                    }]
+                });
+            },
+        });
+    });
+    $("#premonth_btn_boom").bind("click", function() {
+        boommonth--;
+        if (boommonth == 0) {
+            boommonth = 12;
+            boomyear--;
+        }
+        $(".choose_month p").html(boomyear + "-" + boommonth);
+        date_array.length = 0;
+        downpre_array.length = 0;
+        uppre_array.length = 0;
+        boom_array.length = 0;
+        suger_array.length = 0;
+        tem_array.length = 0;
+        $.ajax({
+                url: "/BasicInfo/getHealthIndicatorByDate",
+                data: {
+                    "myYear": boomyear,
+                    "myMonth": boommonth,
+                    "id": userId
+                },
+                type: "GET",
+                dataType: "json",
+                contentType: "application/json",
+                success: function(data) {
+                    for (var i = 0; i < data.length; i++) {
+                        var date = utcToDate_onlyday(eval('new ' + eval(data[i].Date).source));
+                        date_array.push(date);
+                        downpre_array.push(data[i].SystolicPressure);
+                        uppre_array.push(data[i].DiastolicPressure);
+                        boom_array.push(data[i].HeartBeat);
+                        suger_array.push(data[i].BloodGlucose);
+                        tem_array.push(data[i].Calorie);
+                    }
+
+                    $('#container_change').highcharts({
+                        chart: {
+                            type: 'area'
+                        },
+                        title: {
+                            text: ''
+                        },
+                        subtitle: {
+                            text: ''
+                        },
+                        credits: {
+                            enabled: false
+                        },
+                        xAxis: {
+                            categories: date_array
+                        },
+                        yAxis: {
+                            title: {
+                                text: '单位'
+                            },
+                            min: 0,
+                            plotLines: [{
+                                value: 0,
+                                width: 1,
+                                color: '#808080'
+                            }]
+                        },
+                        tooltip: {
+                            valueSuffix: 'mmhg'
+                        },
+
+                        legend: {
+                            layout: 'vertical',
+                            align: 'right',
+                            verticalAlign: 'middle',
+                            borderWidth: 0
+                        },
+                        series: [{
+                            name: '心跳',
+                            data: boom_array
+                        }]
+                    });
+                },
+            });
+    });
+    $("#nextmonth_btn_boom").bind("click", function() {
+        boommonth++;
+        if (boomyear == myyear && boommonth > mymonth) {
+            boommonth--;
+        }
+        if (boommonth == 13) {
+            boommonth = 1;
+            boomyear++;
+        }
+        $(".choose_month p").html(boomyear + "-" + boommonth);
+        date_array.length = 0;
+        downpre_array.length = 0;
+        uppre_array.length = 0;
+        boom_array.length = 0;
+        suger_array.length = 0;
+        tem_array.length = 0;
+        $.ajax({
+                url: "/BasicInfo/getHealthIndicatorByDate",
+                data: {
+                    "myYear": boomyear,
+                    "myMonth": boommonth,
+                    "id": userId
+                },
+                type: "GET",
+                dataType: "json",
+                contentType: "application/json",
+                success: function(data) {
+                    for (var i = 0; i < data.length; i++) {
+                        var date = utcToDate_onlyday(eval('new ' + eval(data[i].Date).source));
+                        date_array.push(date);
+                        downpre_array.push(data[i].SystolicPressure);
+                        uppre_array.push(data[i].DiastolicPressure);
+                        boom_array.push(data[i].HeartBeat);
+                        suger_array.push(data[i].BloodGlucose);
+                        tem_array.push(data[i].Calorie);
+                    }
+
+                    $('#container_change').highcharts({
+                        chart: {
+                            type: 'area'
+                        },
+                        title: {
+                            text: ''
+                        },
+                        subtitle: {
+                            text: ''
+                        },
+                        credits: {
+                            enabled: false
+                        },
+                        xAxis: {
+                            categories: date_array
+                        },
+                        yAxis: {
+                            title: {
+                                text: '单位'
+                            },
+                            min: 0,
+                            plotLines: [{
+                                value: 0,
+                                width: 1,
+                                color: '#808080'
+                            }]
+                        },
+                        tooltip: {
+                            valueSuffix: 'mmhg'
+                        },
+
+                        legend: {
+                            layout: 'vertical',
+                            align: 'right',
+                            verticalAlign: 'middle',
+                            borderWidth: 0
+                        },
+                        series: [{
+                            name: '心跳',
+                            data: boom_array
+                        }]
+                    });
+                },
+            });
+    });
+    $("#premonth_btn_suger").bind("click", function() {
+        sugermonth--;
+        if (sugermonth == 0) {
+            sugermonth = 12;
+            sugeryear--;
+        }
+        $(".choose_month p").html(sugeryear + "-" + sugermonth);
+        date_array.length = 0;
+            downpre_array.length = 0;
+            uppre_array.length = 0;
+            boom_array.length = 0;
+            suger_array.length = 0;
+            tem_array.length = 0;
+            $.ajax({
+                url: "/BasicInfo/getHealthIndicatorByDate",
+                data: {
+                    "myYear": sugeryear,
+                    "myMonth": sugermonth,
+                    "id": userId
+                },
+                type: "GET",
+                dataType: "json",
+                contentType: "application/json",
+                success: function(data) {
+                    for (var i = 0; i < data.length; i++) {
+                        var date = utcToDate_onlyday(eval('new ' + eval(data[i].Date).source));
+                        date_array.push(date);
+                        downpre_array.push(data[i].SystolicPressure);
+                        uppre_array.push(data[i].DiastolicPressure);
+                        boom_array.push(data[i].HeartBeat);
+                        suger_array.push(data[i].BloodGlucose);
+                        tem_array.push(data[i].Calorie);
+                    }
+
+                    $('#container_change').highcharts({
+                        chart: {
+                            type: 'area'
+                        },
+                        title: {
+                            text: ''
+                        },
+                        subtitle: {
+                            text: ''
+                        },
+                        credits: {
+                            enabled: false
+                        },
+                        xAxis: {
+                            categories: date_array
+                        },
+                        yAxis: {
+                            title: {
+                                text: '单位'
+                            },
+                            min: 0,
+                            plotLines: [{
+                                value: 0,
+                                width: 1,
+                                color: '#808080'
+                            }]
+                        },
+                        tooltip: {
+                            valueSuffix: 'mmhg'
+                        },
+
+                        legend: {
+                            layout: 'vertical',
+                            align: 'right',
+                            verticalAlign: 'middle',
+                            borderWidth: 0
+                        },
+                        series: [{
+                            name: '血糖',
+                            data: suger_array
+                        }]
+                    });
+                },
+            });
+    });
+    $("#nextmonth_btn_suger").bind("click", function() {
+        sugermonth++;
+        if (sugeryear == myyear && sugermonth > mymonth) {
+            sugermonth--;
+        }
+        if (sugermonth == 13) {
+            sugermonth = 1;
+            sugeryear++;
+        }
+        $(".choose_month p").html(sugeryear + "-" + sugermonth);
+        date_array.length = 0;
+            downpre_array.length = 0;
+            uppre_array.length = 0;
+            boom_array.length = 0;
+            suger_array.length = 0;
+            tem_array.length = 0;
+            $.ajax({
+                url: "/BasicInfo/getHealthIndicatorByDate",
+                data: {
+                    "myYear": sugeryear,
+                    "myMonth": sugermonth,
+                    "id": userId
+                },
+                type: "GET",
+                dataType: "json",
+                contentType: "application/json",
+                success: function(data) {
+                    for (var i = 0; i < data.length; i++) {
+                        var date = utcToDate_onlyday(eval('new ' + eval(data[i].Date).source));
+                        date_array.push(date);
+                        downpre_array.push(data[i].SystolicPressure);
+                        uppre_array.push(data[i].DiastolicPressure);
+                        boom_array.push(data[i].HeartBeat);
+                        suger_array.push(data[i].BloodGlucose);
+                        tem_array.push(data[i].Calorie);
+                    }
+
+                    $('#container_change').highcharts({
+                        chart: {
+                            type: 'area'
+                        },
+                        title: {
+                            text: ''
+                        },
+                        subtitle: {
+                            text: ''
+                        },
+                        credits: {
+                            enabled: false
+                        },
+                        xAxis: {
+                            categories: date_array
+                        },
+                        yAxis: {
+                            title: {
+                                text: '单位'
+                            },
+                            min: 0,
+                            plotLines: [{
+                                value: 0,
+                                width: 1,
+                                color: '#808080'
+                            }]
+                        },
+                        tooltip: {
+                            valueSuffix: 'mmhg'
+                        },
+
+                        legend: {
+                            layout: 'vertical',
+                            align: 'right',
+                            verticalAlign: 'middle',
+                            borderWidth: 0
+                        },
+                        series: [{
+                            name: '血糖',
+                            data: suger_array
+                        }]
+                    });
+                },
+            });
+    });
+    $("#premonth_btn_tem").bind("click", function() {
+        temmonth--;
+        if (temmonth == 0) {
+            temmonth = 12;
+            temyear--;
+        }
+        $(".choose_month p").html(temyear + "-" + temmonth);
+        date_array.length = 0;
+            downpre_array.length = 0;
+            uppre_array.length = 0;
+            boom_array.length = 0;
+            suger_array.length = 0;
+            tem_array.length = 0;
+            $.ajax({
+                url: "/BasicInfo/getHealthIndicatorByDate",
+                data: {
+                    "myYear": temyear,
+                    "myMonth": temmonth,
+                    "id": userId
+                },
+                type: "GET",
+                dataType: "json",
+                contentType: "application/json",
+                success: function(data) {
+                    for (var i = 0; i < data.length; i++) {
+                        var date = utcToDate_onlyday(eval('new ' + eval(data[i].Date).source));
+                        date_array.push(date);
+                        downpre_array.push(data[i].SystolicPressure);
+                        uppre_array.push(data[i].DiastolicPressure);
+                        boom_array.push(data[i].HeartBeat);
+                        suger_array.push(data[i].BloodGlucose);
+                        tem_array.push(data[i].Calorie);
+                    }
+
+                    $('#container_change').highcharts({
+                        chart: {
+                            type: 'area'
+                        },
+                        title: {
+                            text: ''
+                        },
+                        subtitle: {
+                            text: ''
+                        },
+                        credits: {
+                            enabled: false
+                        },
+                        xAxis: {
+                            categories: date_array
+                        },
+                        yAxis: {
+                            title: {
+                                text: '单位'
+                            },
+                            min: 0,
+                            plotLines: [{
+                                value: 0,
+                                width: 1,
+                                color: '#808080'
+                            }]
+                        },
+                        tooltip: {
+                            valueSuffix: 'mmhg'
+                        },
+
+                        legend: {
+                            layout: 'vertical',
+                            align: 'right',
+                            verticalAlign: 'middle',
+                            borderWidth: 0
+                        },
+                        series: [{
+                            name: '体温',
+                            data: tem_array
+                        }]
+                    });
+                },
+            });
+    });
+    $("#nextmonth_btn_tem").bind("click", function() {
+        temmonth++;
+        if (temyear == myyear && temmonth > mymonth) {
+            temmonth--;
+        }
+        if (temmonth == 13) {
+            temmonth = 1;
+            temyear++;
+        }
+        $(".choose_month p").html(temyear + "-" + temmonth);
+        date_array.length = 0;
+            downpre_array.length = 0;
+            uppre_array.length = 0;
+            boom_array.length = 0;
+            suger_array.length = 0;
+            tem_array.length = 0;
+            $.ajax({
+                url: "/BasicInfo/getHealthIndicatorByDate",
+                data: {
+                    "myYear": temyear,
+                    "myMonth": temmonth,
+                    "id": userId
+                },
+                type: "GET",
+                dataType: "json",
+                contentType: "application/json",
+                success: function(data) {
+                    for (var i = 0; i < data.length; i++) {
+                        var date = utcToDate_onlyday(eval('new ' + eval(data[i].Date).source));
+                        date_array.push(date);
+                        downpre_array.push(data[i].SystolicPressure);
+                        uppre_array.push(data[i].DiastolicPressure);
+                        boom_array.push(data[i].HeartBeat);
+                        suger_array.push(data[i].BloodGlucose);
+                        tem_array.push(data[i].Calorie);
+                    }
+
+                    $('#container_change').highcharts({
+                        chart: {
+                            type: 'area'
+                        },
+                        title: {
+                            text: ''
+                        },
+                        subtitle: {
+                            text: ''
+                        },
+                        credits: {
+                            enabled: false
+                        },
+                        xAxis: {
+                            categories: date_array
+                        },
+                        yAxis: {
+                            title: {
+                                text: '单位'
+                            },
+                            min: 0,
+                            plotLines: [{
+                                value: 0,
+                                width: 1,
+                                color: '#808080'
+                            }]
+                        },
+                        tooltip: {
+                            valueSuffix: 'mmhg'
+                        },
+
+                        legend: {
+                            layout: 'vertical',
+                            align: 'right',
+                            verticalAlign: 'middle',
+                            borderWidth: 0
+                        },
+                        series: [{
+                            name: '体温',
+                            data: tem_array
+                        }]
+                    });
+                },
+            });
     });
 });

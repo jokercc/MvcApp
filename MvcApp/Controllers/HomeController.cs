@@ -13,6 +13,7 @@ namespace MvcApp.Controllers
         //
         // GET: /Home/
 
+        [OutputCache(Duration = 60, VaryByParam = "None")]
         public ActionResult Index()
         {
             return View();
