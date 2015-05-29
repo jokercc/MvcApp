@@ -1,0 +1,8 @@
+C:\Users\can\Documents\GitHub\MvcApp\MvcApp\bin\MvcApp.dll
+C:\Users\can\Documents\GitHub\MvcApp\MvcApp\bin\MvcApp.pdb
+C:\Users\can\Documents\GitHub\MvcApp\MvcApp\bin\System.Web.Mvc.dll
+C:\Users\can\Documents\GitHub\MvcApp\MvcApp\bin\System.Web.Mvc.xml
+C:\Users\can\Documents\GitHub\MvcApp\MvcApp\bin\zh-Hans\System.Web.Mvc.resources.dll
+C:\Users\can\Documents\GitHub\MvcApp\MvcApp\obj\Release\MvcApp.dll
+C:\Users\can\Documents\GitHub\MvcApp\MvcApp\obj\Release\MvcApp.pdb
+C:\Users\can\Documents\GitHub\MvcApp\MvcApp\obj\Release\MvcApp.csprojResolveAssemblyReference.cache

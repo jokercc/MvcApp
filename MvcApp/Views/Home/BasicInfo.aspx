@@ -7,6 +7,7 @@
 	<link rel="stylesheet" type="text/css" href="/css/user_interface_style.css" />
     <link rel="stylesheet" type="text/css" href="/css/jquery.datetimepicker.css"/>
     <link rel="stylesheet" type="text/css" href="/css/upload_photo.css" />
+    <link type="text/css" rel="stylesheet" href="/css/galleryview.css" />
 	<title>用户界面</title>
 	<script type="text/javascript" src="/Scripts/getScript/jquery-1.6.1.min.js"></script>
 	<script type="text/javascript" src="/Scripts/myScript/userIf.js"></script>
@@ -16,6 +17,9 @@
     <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=Ww0moWQzefqW6FOflHHjg9pq"></script>
     <script type="text/javascript" src="/Scripts/getScript/jquery.datetimepicker.js"></script>
     <script type="text/javascript" src="/Scripts/getScript/ajaxfileupload.js"></script>
+<script type="text/javascript" src="/Scripts/getScript/jquery.easing.1.3.js"></script>
+<script type="text/javascript" src="/Scripts/getScript/jquery.galleryview-1.1.js"></script>
+<script type="text/javascript" src="/Scripts/getScript/jquery.timers-1.1.2.js"></script>
 </head>
 <body>
     <div class="main_bg">
@@ -59,19 +63,27 @@
                 <p>身体指标</p>
             </div>
             <div class="nav_signII">
-                <img src="/content/images/table_left.png" height="22" width="22" alt="logo"/>
+                <img src="/content/images/act_photo.png" height="24" width="23" alt="logo"/>
                 <p>图片信息</p>
+            </div>
+            <div class="nav_signIII">
+                <img src="/content/images/heal_plan.png" height="27" width="27" alt="logo"/>
+                <p>健康计划</p>
+            </div>
+            <div class="nav_signIIII">
+                <img src="/content/images/aid.png" height="27" width="24" alt="logo"/>
+                <p>急救信息</p>
             </div>
             <div class="nav_sign2">
                 <img src="/content/images/curve_green.png" height="22" width="22" alt="logo"/>
                 <p>变化趋势</p>
             </div>
             <div class="nav_sign22">
-                <img src="/content/images/curve_green.png" height="22" width="22" alt="logo"/>
+                <img src="/content/images/act_map_green.png" height="24" width="23" alt="logo"/>
                 <p>详细数据</p>
             </div>
             <div class="nav_sign3">
-                <img src="/content/images/curve_green.png" height="22" width="22" alt="logo"/>
+                <img src="/content/images/act_map_green.png" height="27" width="16" alt="logo"/>
                 <p>活动轨迹</p>
             </div>
             <div id="basic_info_table">
@@ -126,7 +138,7 @@
 			            <td class="home_telnum"></td>
 	    		    </tr>
     		    </table>
-                <p><img src="/content/images/more.png" height="20" width="28" alt="logo" align="bottom"/>&nbsp;查看更多资料</p>
+                <p id="more_info"><img src="/content/images/more.png" height="20" width="28" alt="logo" align="bottom"/>&nbsp;查看更多资料</p>
 		    </div>
         </div>
         <div class="copyright_area">
@@ -218,18 +230,78 @@
                     <div class="photo_month">
                         <div class="premonth_area_photo"><input type="button" id="premonth_btn_photo" value="上月" /></div>
                         <div class="nextmonth_area_photo"><input type="button" id="nextmonth_btn_photo" value="下月" /></div>
+                        <p></p>
+                    </div>
+                    <div id="act_photo_area">
+                        <div id="photos" class="galleryview">
+                              
+                        </div>
                     </div>
                 </div>
                 <div class="container_box">
                     <div class="photo_month">
-                        <div class="premonth_area_photo"><input type="button" id="premonth_btn_box" value="上月" "/></div>
-                        <div class="nextmonth_area_photo"><input type="button" id="nextmonth_btn_box" value="下月" /></div>
+                        <div class="premonth_area_box"><input type="button" id="premonth_btn_box" value="上月" "/></div>
+                        <div class="nextmonth_area_box"><input type="button" id="nextmonth_btn_box" value="下月" /></div>
+                        <p></p>
                     </div>
+                    <div id="box_area"></div>
                 </div>
                 <div class="container_map">
                     <div class="photo_month">
-                        <div class="premonth_area_photo"><input type="button" id="premonth_btn_map" value="上月" /></div>
-                        <div class="nextmonth_area_photo"><input type="button" id="nextmonth_btn_map" value="下月" /></div>
+                        <div class="premonth_area_map"><input type="button" id="premonth_btn_map" value="上一天" /></div>
+                        <div class="nextmonth_area_map"><input type="button" id="nextmonth_btn_map" value="下一天" /></div>
+                        <div class="map_date_pick"><input id="datetimepicker3" type="text" value=""/></div>
+                        <div class="map_search_btn"><input id="map_search" type="button" value="查询"/></div>
+                    </div>
+                    <div id="map_area"></div>
+                </div>
+                <div class="container_plan">
+                    <div class="heal_plan_eat">
+                        <div class="eat_photo">
+                            <img src="/content/images/eat_photo.png" height="100%" width="100%" alt="logo" />
+                        </div>
+                        <div class="eat_title">
+                            <p>营养食谱</p>
+                        </div>
+                        <div class="eat_advice">
+                            <p></p>
+                        </div>
+                    </div>
+                    <div class="heal_plan_sleep">
+                        <div class="sleep_title">
+                            <p>作息安排</p>
+                        </div>
+                        <div class="sleep_advice">
+                            <p></p>
+                        </div>
+                    </div>
+                    <div class="heal_plan_pe">
+                        <div class="pe_photo">
+                            <img src="/content/images/pe_photo.png" height="100%" width="100%" alt="logo" />
+                        </div>
+                        <div class="pe_title">
+                            <p>健身计划</p>
+                        </div>
+                        <div class="pe_advice">
+                            <p></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="container_aid">
+                    <div class="aid_date_start">
+                        <input type="text" id="datetimepicker1" value=""/>
+                    </div>
+                    <div class="aid_date_end">
+                        <input type="text" id="datetimepicker2" value=""/>
+                    </div>
+                    <div class="aid_search_btn">
+                        <img src="/content/images/aid_search.png" height="100%" width="100%" alt="logo" />
+                    </div>
+                    <div class="aid_table_area">
+                        <table class="aid_dataintable">
+                            <tr><th>时间</th><th>地点</th><th>急救人员</th><th>病情分析</th><th>诊断结果</th><th>医生建议</th></tr>
+                            <%--<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>--%>
+                        </table>
                     </div>
                 </div>
             </div>

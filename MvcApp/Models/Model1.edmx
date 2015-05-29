@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="ProModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+    <Schema Namespace="ProModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
         <EntityContainer Name="ProModelStoreContainer">
           <EntitySet Name="BasicInfo" EntityType="ProModel.Store.BasicInfo" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="EmergencyInfo" EntityType="ProModel.Store.EmergencyInfo" store:Type="Tables" Schema="dbo" />
@@ -137,6 +137,7 @@
           <Property Name="ID_Photo" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="PhotoPath" Type="varchar" Nullable="false" MaxLength="250" />
           <Property Name="ID_User" Type="bigint" Nullable="false" />
+          <Property Name="Date" Type="date" Nullable="false" />
         </EntityType>
         <Association Name="FK_BasicInfo_Manager">
           <End Role="Manager" Type="ProModel.Store.Manager" Multiplicity="1" />
@@ -210,8 +211,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="ProModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
@@ -359,6 +359,7 @@
           <Property Name="PhotoPath" Type="String" Nullable="false" MaxLength="250" Unicode="false" FixedLength="false" />
           <Property Name="ID_User" Type="Int64" Nullable="false" />
           <NavigationProperty Name="BasicInfo" Relationship="ProModel.FK_UserPhoto_BasicInfo1" FromRole="UserPhoto" ToRole="BasicInfo" />
+          <Property Type="DateTime" Name="Date" Nullable="false" />
         </EntityType>
         <Association Name="FK_BasicInfo_Manager">
           <End Role="Manager" Type="ProModel.Manager" Multiplicity="1" />
@@ -539,6 +540,7 @@
           <EntitySetMapping Name="UserPhoto">
             <EntityTypeMapping TypeName="ProModel.UserPhoto">
               <MappingFragment StoreEntitySet="UserPhoto">
+                <ScalarProperty Name="Date" ColumnName="Date" />
                 <ScalarProperty Name="ID_Photo" ColumnName="ID_Photo" />
                 <ScalarProperty Name="PhotoPath" ColumnName="PhotoPath" />
                 <ScalarProperty Name="ID_User" ColumnName="ID_User" />
@@ -565,37 +567,38 @@
     </Options>
     <!-- Diagram content (shape and connector positions) -->
     <Diagrams>
-      <Diagram Name="Model1" ZoomLevel="64">
+      <Diagram Name="Model1" ZoomLevel="62">
         <EntityTypeShape EntityType="ProModel.BasicInfo" Width="1.5" PointX="3.125" PointY="1" Height="5.8009041341145817" IsExpanded="true" />
-        <EntityTypeShape EntityType="ProModel.EmergencyInfo" Width="1.5" PointX="6.125" PointY="0.5" Height="2.6594042968749996" IsExpanded="true" />
-        <EntityTypeShape EntityType="ProModel.HealthIndicator" Width="1.5" PointX="8.75" PointY="2.5" Height="3.0289925130208317" IsExpanded="true" />
-        <EntityTypeShape EntityType="ProModel.HealthPlan" Width="1.5" PointX="6.5" PointY="5" Height="2.1050219726562496" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProModel.EmergencyInfo" Width="1.5" PointX="5.75" PointY="0.875" Height="2.6594042968749996" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProModel.HealthIndicator" Width="1.5" PointX="5.875" PointY="3.75" Height="3.0289925130208317" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProModel.HealthPlan" Width="1.5" PointX="5.875" PointY="7.125" Height="2.1050219726562496" IsExpanded="true" />
         <EntityTypeShape EntityType="ProModel.Location" Width="1.5" PointX="0.5" PointY="5.375" Height="2.1050219726562496" IsExpanded="true" />
         <EntityTypeShape EntityType="ProModel.Manager" Width="1.5" PointX="0.875" PointY="0.875" Height="3.7681689453124996" IsExpanded="true" />
-        <EntityTypeShape EntityType="ProModel.UserPhoto" Width="1.5" PointX="3.25" PointY="7.625" Height="1.7354337565104192" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProModel.UserPhoto" Width="1.5" PointX="2.125" PointY="7.625" Height="1.7354337565104192" IsExpanded="true" />
         <AssociationConnector Association="ProModel.FK_BasicInfo_Manager" ManuallyRouted="false">
           <ConnectorPoint PointX="2.375" PointY="2.82158447265625" />
           <ConnectorPoint PointX="3.125" PointY="2.82158447265625" />
         </AssociationConnector>
         <AssociationConnector Association="ProModel.FK_EmergencyInfo_BasicInfo" ManuallyRouted="false">
-          <ConnectorPoint PointX="4.625" PointY="2.0797021484375" />
-          <ConnectorPoint PointX="6.125" PointY="2.0797021484375" />
+          <ConnectorPoint PointX="4.625" PointY="2.2672021484375" />
+          <ConnectorPoint PointX="5.75" PointY="2.2672021484375" />
         </AssociationConnector>
         <AssociationConnector Association="ProModel.FK_HealthIndicator_BasicInfo" ManuallyRouted="false">
-          <ConnectorPoint PointX="4.625" PointY="4.0797021484375" />
-          <ConnectorPoint PointX="8.75" PointY="4.0797021484375" />
+          <ConnectorPoint PointX="4.625" PointY="5.2644962565104159" />
+          <ConnectorPoint PointX="5.875" PointY="5.2644962565104159" />
         </AssociationConnector>
         <AssociationConnector Association="ProModel.FK_HealthPlan_BasicInfo" ManuallyRouted="false">
-          <ConnectorPoint PointX="4.625" PointY="5.9004520670572909" />
-          <ConnectorPoint PointX="6.5" PointY="5.9004520670572909" />
+          <ConnectorPoint PointX="4.15625" PointY="6.8009041341145817" />
+          <ConnectorPoint PointX="4.15625" PointY="7.34375" />
+          <ConnectorPoint PointX="5.875" PointY="7.34375" />
         </AssociationConnector>
         <AssociationConnector Association="ProModel.FK_Location_BasicInfo" ManuallyRouted="false">
           <ConnectorPoint PointX="3.125" PointY="6.0879520670572909" />
           <ConnectorPoint PointX="2" PointY="6.0879520670572909" />
         </AssociationConnector>
         <AssociationConnector Association="ProModel.FK_UserPhoto_BasicInfo1" ManuallyRouted="false">
-          <ConnectorPoint PointX="3.9375" PointY="6.8009041341145817" />
-          <ConnectorPoint PointX="3.9375" PointY="7.625" />
+          <ConnectorPoint PointX="3.375" PointY="6.8009041341145817" />
+          <ConnectorPoint PointX="3.375" PointY="7.625" />
         </AssociationConnector>
       </Diagram>
     </Diagrams>

@@ -27,7 +27,7 @@ namespace MvcApp.Models.Service
             //遍历list获取符合要求的healthIndicator 添加到myList
             for (int i = 0; i < list.Count; i++)
             {
-                if (date.Month == list[i].Date.Month && id == list[i].ID_User)
+                if (date.Month == list[i].Date.Month && date.Year == list[i].Date.Year && id == list[i].ID_User)
                 {
                     MyHealthIndicator heal = new MyHealthIndicator
                     {

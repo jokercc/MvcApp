@@ -235,23 +235,30 @@ body{
     box-shadow: 3px 3px 3px #888888;
 }
 
-.nav_sign ,.nav_signI,.nav_signII
+.nav_sign ,.nav_signI,.nav_signII,.nav_signIII,.nav_signIIII
 {
     position:absolute;
     top:22%;
     height:7%;
     width:100%;
     background:#1CBDB3;
+}
+.nav_signI,.nav_signII
+{
     cursor:pointer;
 }
-.nav_sign img ,.nav_sign2 img,.nav_signI img,.nav_signII img,.nav_sign22 img,.nav_sign3 img
+.nav_sign img ,.nav_sign2 img,.nav_signI img,.nav_signII img,.nav_signIII img,.nav_sign22 img,.nav_sign3 img,.nav_signIIII img
 {
     display:block;
     position:absolute;
     top:23%;
     left:15%;
 }
-.nav_sign p ,.nav_sign2 p,.nav_signI p,.nav_signII p,.nav_sign22 p,.nav_sign3 p
+.nav_sign3 img
+{
+    left:16%;
+}
+.nav_sign p ,.nav_sign2 p,.nav_signI p,.nav_signII p,.nav_signIII p,.nav_sign22 p,.nav_sign3 p,.nav_signIIII p
 {
     display:block;
     position:absolute;
@@ -263,6 +270,10 @@ body{
 {
     display:none;
     border-top:1px solid #1CBDB3;
+}
+.nav_signIII,.nav_signIIII
+{
+    display:none;
 }
 .nav_sign2 p,.nav_sign22 p,.nav_sign3 p
 {
@@ -303,6 +314,10 @@ body{
     color:#1CBDB3;
     font-size:13px;
     margin-top:10px;
+}
+#more_info
+{
+    cursor:pointer;
 }
 .table_basic
 {
@@ -499,7 +514,7 @@ body{
     cursor:pointer; 
     font-size: 16px;
     }
-.body_table_area,#container_change,.container_photo,.container_map,.container_box
+.body_table_area,#container_change,.container_photo,.container_map,.container_box,.container_plan,.container_aid
 {
     height:95%;
     width:100%;
@@ -509,13 +524,13 @@ body{
 {
     height:90%;
 }
-.dataintable
+.dataintable,.aid_dataintable
 {
     border-collapse: collapse;
     border: 1px solid #aaa;
     width: 100%;
 }
-.dataintable th
+.dataintable th,.aid_dataintable th
 {
     vertical-align: baseline;
     padding: 3px 15px 3px 6px;
@@ -525,7 +540,7 @@ body{
     font-family:font-family:"STHEITI-LIGHT";
     font-size:13px;
 }
-.dataintable td
+.dataintable td,.aid_dataintable td
 {
     vertical-align: text-top;
     padding: 0 15px 0 6px;
@@ -541,6 +556,27 @@ body{
     width:100%;
     height:5%;
     background:#A4DFE3;
+}
+.photo_month p
+{
+    display:block;
+    position:absolute;
+    text-align:left;
+    margin-left:140px;
+    padding-top:7px;
+    font-size:13px;
+}
+#map_area,#box_area,#act_photo_area
+{
+    width:100%;
+    height:95%;
+    background:none;
+}
+#act_photo_area
+{
+    height:95%;
+    width:94%;
+    margin:2% auto;
 }
 .premonth_area_photo,.premonth_area_map,.premonth_area_box
 {
@@ -561,6 +597,172 @@ body{
     width:60px;
     height:26px;
     background:none;
+}
+.nextmonth_area_map
+{
+    left:90px;
+}
+.map_date_pick
+{
+    position:absolute;
+    display:block;
+    top:32px;
+    right:80px;
+    width:100px;
+    height:26px;
+}
+.map_search_btn
+{
+    position:absolute;
+    display:block;
+    top:32px;
+    right:10px;
+    width:60px;
+    height:26px;
+}
+.map_search_btn input
+{
+    width:100%;
+    cursor:pointer;
+    background:#fff;
+    padding:2px 10px 0 10px;
+    color:#464646;
+    font-family:font-family:"STHEITI-LIGHT";
+}
+.map_date_pick input
+{
+    width:100%;
+    background:#fff url(/content/images/icons.png) no-repeat top 6px right 4px ;
+    cursor:pointer;
+    padding:2px 0 0 0;
+    color:#464646;
+    font-family:font-family:"STHEITI-LIGHT";
+}
+.heal_plan_eat
+{
+    position:absolute;
+    height:45%;
+    width:90%;
+    left:5%;
+    top:6%;
+    box-shadow: 3px 3px 3px #888888;
+}
+.heal_plan_sleep,.heal_plan_pe
+{
+    position:absolute;
+    height:45%;
+    width:43%;
+    top:53%;
+    box-shadow: 3px 3px 3px #888888;
+}
+.heal_plan_sleep
+{
+    left:5%;
+}
+.heal_plan_pe
+{
+    right:5%;
+}
+.eat_photo
+{
+    display:block;
+    position:absolute;
+    height:90%;
+    width:40%;
+    left:5%;
+    top:5%;
+}
+.eat_title,.sleep_title,.pe_title,.eat_advice,.sleep_advice,.pe_advice
+{
+    display:block;
+    position:absolute;
+    height:15%;
+    width:40%;
+    left:48%;
+    top:8%;
+    text-align:left;
+}
+.eat_advice
+{
+    top:25%;
+}
+.sleep_title,.sleep_advice
+{
+    height:10%;
+    width:80%;
+    left:10%;
+    top:8%;
+}
+.sleep_advice
+{
+    top:20%;
+}
+.eat_title p,.sleep_title p,.pe_title p
+{
+    font-family:"STHEITI-LIGHT";
+    color:#ED5565;
+    font-size:22px;
+}
+.eat_advice p,.sleep_advice p,.pe_advice p
+{
+    font-family:"STHEITI-LIGHT";
+    color:#99A3B1;
+    font-size:15px;
+}
+.pe_photo
+{
+    display:block;
+    position:absolute;
+    background:url(../Content/images/eat_photo.png) ;
+    height:50%;
+    width:100%;
+}
+.pe_title,.pe_advice
+{
+    height:10%;
+    width:80%;
+    left:10%;
+    top:55%;
+}
+.pe_advice
+{
+    top:65%;
+}
+.aid_date_start,.aid_date_end,.aid_search_btn,.aid_table_area
+{
+    position:absolute;
+    display:block;
+    height:4%;
+    width:8%;
+    top:6%;
+    left:2%;
+}
+.aid_table_area
+{
+    left:0;
+    width:100%;
+    top:12%;
+    height:88%;
+}
+.aid_date_end
+{
+    left:14%;
+}
+.aid_search_btn
+{
+    width:2.5%;
+    left:26%;
+    top:6.5%;
+    cursor:pointer;
+}
+.aid_date_start input,.aid_date_end input
+{
+    width:100%;
+    height:100%;
+    padding-left:28%;
+    padding-top:4%;
+    border:1px solid #BDC3C7;
+    background:#fff url(/content/images/aid_date.png) no-repeat top 50% left 4px ;
 }
 /*身体指标预览*/
 .easy_body
@@ -623,13 +825,11 @@ body{
     left:43%;
     top:5%;
     box-shadow: 3px 3px 3px #888888;
-    cursor:pointer;
 }
 #container3 
 {
 	width:100%;
 	height:100%;
-	cursor:pointer;
 }
 
 #slides {

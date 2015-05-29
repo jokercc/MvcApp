@@ -20,7 +20,6 @@ $(function () {
 
     $(document).ready(function () {
         $(".login_button").click(function () {
-            $(this).css("background", "url(../images/btn_hover.png)  no-repeat");
             var user = $("#user").val();
             var pwd = $("#pwd").val();
             if (user == "") {

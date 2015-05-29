@@ -127,8 +127,19 @@ namespace MvcApp.Controllers
             return Json(healthIndicatorList, JsonRequestBehavior.AllowGet);
         }
 
+        public JsonResult getUserPhotoByDate(string myYear, string myMonth, int userId)
+        {
+            int y = Int16.Parse(myYear);
+            int m = Int16.Parse(myMonth);
+            DateTime d = new DateTime(y, m, 1);
+            List<MyUserPhoto> myUserPhotoList = userPhotoService.getUserPhotoByDate(userId, d);
+            return Json(myUserPhotoList, JsonRequestBehavior.AllowGet);
+        }
+
         public JsonResult getLocationByDate(string Date, int id) //根据日期获取用户的活动信息
         {
+            string[] d = Date.Split(new Char[] {'/'});
+            /*
             if (Date.Length == 10)
             {
                 string bDay = Date.Substring(0, 2);
@@ -142,8 +153,8 @@ namespace MvcApp.Controllers
                 string bMonth = Date.Substring(3, 1);
                 string bYear = Date.Substring(5);
                 Date = bMonth + "/" + bDay + "/" + bYear;
-            }
-
+            }*/
+            Date = d[1] + "/" + d[0] + "/" + d[2];
 
             DateTime date = DateTime.Parse(Date);
 
@@ -166,8 +177,8 @@ namespace MvcApp.Controllers
                 ID_Location = 1,
                 ID_User = 1,
                 DataTime = new DateTime(2015, 4, 21),
-                Latitude = 106.530958,
-                Longitude = 29.544901,
+                Latitude = 29.544901,
+                Longitude = 106.530958,
             };
 
             MyLocation l2 = new MyLocation
@@ -175,8 +186,9 @@ namespace MvcApp.Controllers
                 ID_Location = 1,
                 ID_User = 1,
                 DataTime = new DateTime(2015, 4, 21),
-                Latitude = 106.531075,
-                Longitude = 29.544901,
+                Latitude = 29.544901,
+                Longitude = 106.531075,
+                
             };
 
             MyLocation l3 = new MyLocation
@@ -184,8 +196,8 @@ namespace MvcApp.Controllers
                 ID_Location = 1,
                 ID_User = 1,
                 DataTime = new DateTime(2015, 4, 21),
-                Latitude = 106.531196,
-                Longitude = 29.544901,
+                Latitude = 29.544901,
+                Longitude = 106.531196,
             };
 
             MyLocation l4 = new MyLocation
@@ -193,8 +205,8 @@ namespace MvcApp.Controllers
                 ID_Location = 1,
                 ID_User = 1,
                 DataTime = new DateTime(2015, 4, 21),
-                Latitude = 106.531322,
-                Longitude = 29.544916,
+                Latitude = 29.544916,
+                Longitude = 106.531322,
             };
 
             MyLocation l5 = new MyLocation
@@ -202,8 +214,9 @@ namespace MvcApp.Controllers
                 ID_Location = 1,
                 ID_User = 1,
                 DataTime = new DateTime(2015, 4, 21),
-                Latitude = 106.531466,
-                Longitude = 29.544928,
+                Latitude = 29.544928,
+                Longitude = 106.531466,
+                
             };
 
             MyLocation l6 = new MyLocation
@@ -211,8 +224,9 @@ namespace MvcApp.Controllers
                 ID_Location = 1,
                 ID_User = 1,
                 DataTime = new DateTime(2015, 4, 21),
-                Latitude = 106.531569,
-                Longitude = 29.544932,
+                Latitude = 29.544932,
+                Longitude = 106.531569,
+                
             };
 
             MyLocation l7 = new MyLocation
@@ -220,8 +234,8 @@ namespace MvcApp.Controllers
                 ID_Location = 1,
                 ID_User = 1,
                 DataTime = new DateTime(2015, 4, 21),
-                Latitude = 106.531578,
-                Longitude = 29.545026,
+                Latitude = 29.545026,
+                Longitude = 106.531578,
             };
 
             MyLocation l8 = new MyLocation
@@ -229,8 +243,8 @@ namespace MvcApp.Controllers
                 ID_Location = 1,
                 ID_User = 1,
                 DataTime = new DateTime(2015, 4, 21),
-                Latitude = 106.53161,
-                Longitude = 29.545093,
+                Latitude = 29.545093,
+                Longitude = 106.53161,
             };
 
             MyLocation l9 = new MyLocation
@@ -238,8 +252,8 @@ namespace MvcApp.Controllers
                 ID_Location = 1,
                 ID_User = 1,
                 DataTime = new DateTime(2015, 4, 21),
-                Latitude = 106.531556,
-                Longitude = 29.545282,
+                Latitude = 29.545282,
+                Longitude = 106.531556,
             };
 
             MyLocation l10 = new MyLocation
@@ -247,8 +261,8 @@ namespace MvcApp.Controllers
                 ID_Location = 1,
                 ID_User = 1,
                 DataTime = new DateTime(2015, 4, 21),
-                Latitude = 106.531556,
-                Longitude = 29.545376,
+                Latitude = 29.545376,
+                Longitude = 106.531556,
             };
 
             MyLocation l11 = new MyLocation
@@ -256,8 +270,8 @@ namespace MvcApp.Controllers
                 ID_Location = 1,
                 ID_User = 1,
                 DataTime = new DateTime(2015, 4, 21),
-                Latitude = 106.531506,
-                Longitude = 29.545521,
+                Latitude = 29.545521,
+                Longitude = 106.531506,
             };
 
             MyLocation l12 = new MyLocation
@@ -265,8 +279,8 @@ namespace MvcApp.Controllers
                 ID_Location = 1,
                 ID_User = 1,
                 DataTime = new DateTime(2015, 4, 21),
-                Latitude = 106.531466,
-                Longitude = 29.545655,
+                Latitude = 29.545655,
+                Longitude = 106.531466,
             };
 
             MyLocation l13 = new MyLocation
@@ -274,8 +288,8 @@ namespace MvcApp.Controllers
                 ID_Location = 1,
                 ID_User = 1,
                 DataTime = new DateTime(2015, 4, 21),
-                Latitude = 106.531403,
-                Longitude = 29.545886,
+                Latitude = 29.545886,
+                Longitude = 106.531403,
             };
 
             MyLocation l14 = new MyLocation
@@ -436,8 +450,8 @@ namespace MvcApp.Controllers
             { 
                 ID_Plan = 1,
                 ID_User = 1,
-                Movement = " ",
-                Schedule = " ",
+                Movement = "每天走路4公里以上",
+                Schedule = "早上6点运动到7点，走路3公里；中午走路1公里睡觉1小时；晚上9点睡觉 ",
                 Recipes = "早餐：老人营养瘦肉粥、牛奶、鸡蛋、玉米;午餐：米饭、鸡蛋汤、炒菜;晚餐：小米粥、水果、甜点",
             };
             List<MyHealthPlan> list = new List<MyHealthPlan>();
@@ -451,21 +465,21 @@ namespace MvcApp.Controllers
             {
                 ID_User = 1,
                 ID_Photo = 1,
-                PhotoPath = "/Content/UserPhoto/1.png",
+                PhotoPath = "/Content/UserPhoto/1.jpg",
             };
 
             MyUserPhoto photo2 = new MyUserPhoto
             {
                 ID_User = 1,
                 ID_Photo = 2,
-                PhotoPath = "/Content/UserPhoto/2.png",
+                PhotoPath = "/Content/UserPhoto/2.jpg",
             };
 
             MyUserPhoto photo3 = new MyUserPhoto
             {
                 ID_User = 1,
                 ID_Photo = 3,
-                PhotoPath = "/Content/UserPhoto/3.png",
+                PhotoPath = "/Content/UserPhoto/3.jpg",
             };
 
             List<MyUserPhoto> list = new List<MyUserPhoto>();

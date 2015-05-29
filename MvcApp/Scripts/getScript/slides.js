@@ -553,7 +553,7 @@ SlidesJS, let the good times roll
                 easing: "" // [String] Dependency: jQuery Easing plug-in <http://gsgd.co.uk/sandbox/jquery/easing/>
             },
             preload: {
-                active: false, // [Boolean] Preload the slides before showing them, this needs some work
+                active: true, // [Boolean] Preload the slides before showing them, this needs some work
                 image: "../img/loading.gif" // [String] Define the path to a load .gif, yes I should do something cooler
             },
             startAtSlide: 1, // [Number] What should the first slide be?
